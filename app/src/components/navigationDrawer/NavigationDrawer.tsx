@@ -18,7 +18,8 @@ import Typography from "@mui/material/Typography";
 import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
 import { router } from "../../navigation/Navigation";
 import { RouterProvider } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import { CircularProgress } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -33,37 +34,50 @@ interface Props {
 export default function NavigationDrawer(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [isLoaded, setLoading] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      setLoading(true);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <List>
-        <ListItem key={1} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <SatelliteAltIcon />
-            </ListItemIcon>
-            <ListItemText primary={"MyH2info"} />
-          </ListItemButton>
-        </ListItem>
+        <a href="/">
+          <ListItem key={1} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <SatelliteAltIcon />
+              </ListItemIcon>
+              <ListItemText primary={"MyH2info"} />
+            </ListItemButton>
+          </ListItem>
+        </a>
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        <a href="/users">
+          <ListItem key={2} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <InboxIcon />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={"Users"} />
             </ListItemButton>
           </ListItem>
-        ))}
+        </a>
       </List>
     </div>
   );
@@ -143,7 +157,12 @@ export default function NavigationDrawer(props: Props) {
         }}
       >
         <Toolbar />
-        <RouterProvider router={router} />
+        {/**Pages will be rendered here through react router */}
+        {isLoaded ? (
+          <RouterProvider router={router} />
+        ) : (
+          <CircularProgress></CircularProgress>
+        )}
       </Box>
     </Box>
   );
