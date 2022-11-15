@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import ChartPage from "../pages/ChartPage";
 import DashboardPage from "../pages/DashboardPage";
+import WidgetsPage from "../pages/WidgetsPage";
 
 export const router = createBrowserRouter([
   {
@@ -23,5 +24,9 @@ export const router = createBrowserRouter([
   {
     path: "/charts",
     element: <ChartPage></ChartPage>,
+  },
+  {
+    path: "/widgets",
+    element: <WidgetsPage/>,
   },
 ]);

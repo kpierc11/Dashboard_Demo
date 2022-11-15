@@ -6,10 +6,10 @@ import StationCard from '../components/stationCard/StationCard';
 export default function DashboardPage() {
   return (
     <div>
-    <StationCard></StationCard>
-    <StationCard></StationCard>
-    <StationCard></StationCard>
-    <StationCard></StationCard>
+    <StationCard stationID={1} stationName={"mystation"}></StationCard>
+    <StationCard stationID={1} stationName={"myStation1"}></StationCard>
+    <StationCard stationID={1} stationName={"myStation2"}></StationCard>
+    <StationCard stationID={1} stationName={"myStation3"}></StationCard>
     </div>
   );
 }
