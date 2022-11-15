@@ -20,6 +20,9 @@ import { router } from "../../navigation/Navigation";
 import { RouterProvider } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
+import "../navigationDrawer/navigationDrawer.css";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 
 const drawerWidth = 240;
 
@@ -53,7 +56,9 @@ export default function NavigationDrawer(props: Props) {
   const drawer = (
     <div>
       <Toolbar />
-      <Divider />
+      <Box sx={{ display: "flex", width: "100%", justifyContent: "center" }}>
+        <img src={"/HBS-logo 1.png"} height={100} width={100}></img>
+      </Box>
       <List>
         <a href="/">
           <ListItem key={1} disablePadding>
@@ -66,7 +71,6 @@ export default function NavigationDrawer(props: Props) {
           </ListItem>
         </a>
       </List>
-      <Divider />
       <List>
         <a href="/users">
           <ListItem key={2} disablePadding>
@@ -86,18 +90,21 @@ export default function NavigationDrawer(props: Props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", height: "100%" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          backgroundColor: "white",
+          boxShadow: "none",
+          borderRight: "none",
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{ justifyContent: "flex-end", borderRight: 0 }}>
           <IconButton
-            color="inherit"
+            color="primary"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
@@ -105,9 +112,18 @@ export default function NavigationDrawer(props: Props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography>
+          <NotificationsNoneOutlinedIcon
+            sx={{
+              fontSize: 28,
+              color: "#747474",
+              justifyContent: "flex-end",
+              backgroundColor: "#E6F7FC",
+              borderRadius: "5px",
+            }}
+          ></NotificationsNoneOutlinedIcon>
+          <AccountCircleOutlinedIcon
+            sx={{ fontSize: 28, color: "#747474", justifyContent: "flex-end" }}
+          ></AccountCircleOutlinedIcon>
         </Toolbar>
       </AppBar>
       <Box
@@ -141,6 +157,7 @@ export default function NavigationDrawer(props: Props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              borderWidth: 0,
             },
           }}
           open
@@ -150,13 +167,13 @@ export default function NavigationDrawer(props: Props) {
       </Box>
       <Box
         component="main"
+        className={"blue-background"}
         sx={{
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-        <Toolbar />
         {/**Pages will be rendered here through react router */}
         {isLoaded ? (
           <RouterProvider router={router} />

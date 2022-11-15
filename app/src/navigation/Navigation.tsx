@@ -4,6 +4,7 @@ import {
   Route,
   RouteObject,
 } from "react-router-dom";
+import ChartPage from "../pages/ChartPage";
 import DashboardPage from "../pages/DashboardPage";
 
 export const router = createBrowserRouter([
@@ -18,5 +19,9 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <div>Dashboard page</div>,
+  },
+  {
+    path: "/charts",
+    element: <ChartPage></ChartPage>,
   },
 ]);
