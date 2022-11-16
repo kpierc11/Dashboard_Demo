@@ -5,13 +5,13 @@ import {
   RouteObject,
 } from "react-router-dom";
 import ChartPage from "../pages/ChartPage";
-import DashboardPage from "../pages/DashboardPage";
+import StationsPage from "../pages/StationsPage";
 import WidgetsPage from "../pages/WidgetsPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <DashboardPage />,
+    element: <StationsPage />,
   },
   {
     path: "/users",
