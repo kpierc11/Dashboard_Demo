@@ -1,9 +1,11 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
+import useTheme from "@mui/material/styles/useTheme";
 import { Station } from "../../interfaces/Stations";
 import "../stationCard/stationCard.css";
 
 export default function StationCard(props: Station) {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -23,7 +25,7 @@ export default function StationCard(props: Station) {
         className="station-card-container"
       >
         <div className="station-card-col">
-          <h2>{props.deviceName}</h2>
+          <h2 style={{fontSize:theme.typography.h4.fontSize}}>{props.deviceName}</h2>
           <div>
             <img src="/HBS-logo 1.png" />
           </div>
