@@ -5,10 +5,6 @@ import WidgetsPage from "../pages/WidgetsPage";
 
 export const router = createBrowserRouter([
   {
-    path: "",
-    element: <StationsPage />,
-  },
-  {
     path: "/",
     element: <StationsPage />,
   },
