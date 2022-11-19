@@ -2,7 +2,7 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
+
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
@@ -11,10 +11,10 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+
 import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
 import { router } from "../../navigation/Navigation";
 import { RouterProvider } from "react-router-dom";
@@ -57,7 +57,7 @@ export default function NavigationDrawer(props: Props) {
     <div>
       <Toolbar />
       <Box sx={{ display: "flex", width: "100%", justifyContent: "center" }}>
-        <img src={"/HBS-logo 1.png"} height={100} width={100}></img>
+        <img src={"/HBS-logo 1.png"} height={100} width={100} alt="hydrobioscience logo"></img>
       </Box>
       <List>
         <a href="/">

@@ -1,9 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  RouteObject,
-} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import ChartPage from "../pages/ChartPage";
 import StationsPage from "../pages/StationsPage";
 import WidgetsPage from "../pages/WidgetsPage";
@@ -27,6 +22,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/widgets",
-    element: <WidgetsPage/>,
+    element: <WidgetsPage />,
   },
 ]);
