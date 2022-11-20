@@ -1,11 +1,8 @@
 import "./App.css";
 import NavigationDrawer from "./components/navigationDrawer/NavigationDrawer";
 
-
 function App() {
-  return (
-   <NavigationDrawer/>
-  );
+  return <NavigationDrawer />;
 }
 
 export default App;

@@ -1,0 +1,17 @@
+.station-card-col {
+    display:flex;
+    align-items:flex-start;
+    flex-direction:column;
+    margin-right:57px;
+    margin-bottom:23px;
+}
+
+
+.station-card-container {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    padding-left:56px;
+    padding-top:47px; 
+    padding-bottom:39px;
+}
