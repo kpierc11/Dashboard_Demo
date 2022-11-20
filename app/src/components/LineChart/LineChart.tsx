@@ -10,7 +10,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
-import { Box, Paper } from "@mui/material";
+import { Paper } from "@mui/material";
 
 ChartJS.register(
   CategoryScale,
