@@ -8,13 +8,13 @@ export default function StationCard(props: Station) {
   const theme = useTheme();
   return (
     <Box
+    className="station-card-main-container"
       sx={{
         display: "flex",
         flexWrap: "wrap",
         "& > :not(style)": {
           m: 1,
           width: "100%",
-          height: 263,
           border: 1,
           borderColor: "#919EAB",
         },
