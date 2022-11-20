@@ -20,33 +20,26 @@ export default function StationCard(props: Station) {
         },
       }}
     >
-      <Paper
-        elevation={0}
-        className="station-card-container"
-      >
+      <Paper elevation={0} className="station-card-container">
         <div className="station-card-col">
-          <h2 style={{fontSize:theme.typography.h4.fontSize}}>{props.deviceName}</h2>
+          <h2 style={{ fontSize: theme.typography.h4.fontSize }}>
+            {props.deviceName}
+          </h2>
           <div>
             <img src="/HBS-logo 1.png" />
           </div>
         </div>
         <div className="station-card-col">
           <h2>Location</h2>
-          <div>
-          {props.stationLocation}
-          </div>
+          <div>{props.stationLocation}</div>
         </div>
         <div className="station-card-col">
           <h2>Last Reported</h2>
-          <div>
-            {props.lastReported}
-          </div>
+          <div>{props.lastReported}</div>
         </div>
         <div className="station-card-col">
           <h2>Station Type</h2>
-          <div>
-            {props.stationType}
-          </div>
+          <div>{props.stationType}</div>
         </div>
       </Paper>
     </Box>

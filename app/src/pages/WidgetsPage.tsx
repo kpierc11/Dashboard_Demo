@@ -1,8 +1,13 @@
-import React from "react";
 import StationCard from "../components/stationCard/StationCard";
 
 export default function WidgetsPage() {
-    return (
-        <StationCard deviceName={""} stationLocation={""} lastReported={""} stationType={""} status={false} ></StationCard>
-    );
+  return (
+    <StationCard
+      deviceName={""}
+      stationLocation={""}
+      lastReported={""}
+      stationType={""}
+      status={false}
+    ></StationCard>
+  );
 }

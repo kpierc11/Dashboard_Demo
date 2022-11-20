@@ -2,7 +2,6 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
@@ -22,8 +21,6 @@ import "../navigationDrawer/navigationDrawer.css";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import { createTheme } from "@mui/material/styles";
-import { PaletteMode } from "@mui/material";
-import { amber, deepOrange, grey } from "@mui/material/colors";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
@@ -42,14 +39,14 @@ export default function NavigationDrawer(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isLoaded, setLoading] = useState(false);
-  const [mode, setMode] = React.useState<'light' | 'dark'>('light');
+  const [mode, setMode] = React.useState<"light" | "dark">("light");
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
       },
     }),
-    [],
+    []
   );
 
   const theme = React.useMemo(
@@ -59,7 +56,7 @@ export default function NavigationDrawer(props: Props) {
           mode,
         },
       }),
-    [mode],
+    [mode]
   );
 
   const handleDrawerToggle = () => {
@@ -80,7 +77,12 @@ export default function NavigationDrawer(props: Props) {
     <div>
       <Toolbar />
       <Box sx={{ display: "flex", width: "100%", justifyContent: "center" }}>
-        <img src={"/HBS-logo 1.png"} height={100} width={100} alt="hydrobioscience logo"></img>
+        <img
+          src={"/HBS-logo 1.png"}
+          height={100}
+          width={100}
+          alt="hydrobioscience logo"
+        ></img>
       </Box>
       <List>
         <a href="/">
@@ -213,7 +215,7 @@ export default function NavigationDrawer(props: Props) {
             sx={{
               flexGrow: 1,
               p: 3,
-              width: { sm: `calc(100% - ${drawerWidth}px)`, },
+              width: { sm: `calc(100% - ${drawerWidth}px)` },
             }}
           >
             {/**Pages will be rendered here through react router */}
