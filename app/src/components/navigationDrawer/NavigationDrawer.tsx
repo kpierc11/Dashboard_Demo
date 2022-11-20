@@ -1,4 +1,3 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -37,10 +36,10 @@ interface Props {
 
 export default function NavigationDrawer(props: Props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [isLoaded, setLoading] = useState(false);
-  const [mode, setMode] = React.useState<"light" | "dark">("light");
-  const colorMode = React.useMemo(
+  const [mode, setMode] = useState<"light" | "dark">("light");
+  const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
@@ -49,7 +48,7 @@ export default function NavigationDrawer(props: Props) {
     []
   );
 
-  const theme = React.useMemo(
+  const theme = useMemo(
     () =>
       createTheme({
         palette: {
