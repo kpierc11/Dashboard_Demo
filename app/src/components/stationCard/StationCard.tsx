@@ -26,7 +26,7 @@ export default function StationCard(props: Station) {
             {props.deviceName}
           </h2>
           <div>
-            <img src="/HBS-logo 1.png" />
+            <img src="/HBS-logo 1.png" alt="logo image" />
           </div>
         </div>
         <div className="station-card-col">
