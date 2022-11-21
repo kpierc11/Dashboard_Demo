@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import ChartPage from "../pages/ChartPage";
+import ChartPage from "../pages/chartPage/ChartPage";
+import EditReportPage from "../pages/reportsPage/EditReportPage";
 import StationsPage from "../pages/StationsPage";
 import WidgetsPage from "../pages/WidgetsPage";
 
@@ -23,5 +24,9 @@ export const router = createBrowserRouter([
   {
     path: "/widgets",
     element: <WidgetsPage />,
+  },
+  {
+    path: "/report/edit",
+    element: <EditReportPage></EditReportPage>,
   },
 ]);
