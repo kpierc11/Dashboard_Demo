@@ -35,7 +35,7 @@ export default function UserProfileForm() {
         border: "solid #919EAB",
         borderWidth: 1,
         borderRadius: "15px",
-        height: 500,
+        height: 560,
         width: 650,
         padding: "50px",
       }}

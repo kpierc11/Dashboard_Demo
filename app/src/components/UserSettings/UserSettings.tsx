@@ -24,7 +24,7 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 4 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -47,8 +47,15 @@ export default function UserSettings() {
   };
 
   return (
-    <Box sx={{ width: "100%", bgcolor: "white" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box sx={{ bgcolor: "white", paddingTop: "79px", borderRadius: "15px" }}>
+      <Box
+        sx={{
+          backgroundColor: "#f2f2f2",
+          borderRadius: "15px",
+          marginRight: "18px",
+          marginLeft: "18px",
+        }}
+      >
         <Tabs
           value={value}
           onChange={handleChange}
@@ -57,14 +64,13 @@ export default function UserSettings() {
           <Tab label="Item One" {...a11yProps(0)} />
           <Tab label="Item Two" {...a11yProps(1)} />
           <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="Item Four" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Container sx={{ paddingTop: "50px" }}>
-          <Box sx={{ bgcolor: "white", height: "560px", width: "auto" }}>
-            <UserProfileForm></UserProfileForm>
-          </Box>
-        </Container>
+        <Box sx={{ bgcolor: "white", height: "857px", width: "auto" }}>
+          <UserProfileForm></UserProfileForm>
+        </Box>
 
         <button>Add User</button>
       </TabPanel>
@@ -73,6 +79,9 @@ export default function UserSettings() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Item Four
       </TabPanel>
     </Box>
   );
