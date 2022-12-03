@@ -1,8 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import ChartPage from "../pages/ChartPage";
-import StationsDirectoryPage from "../pages/StationsDirectoryPage";
 import StationsPage from "../pages/StationsPage";
-import WidgetsPage from "../pages/WidgetsPage";
 
 
 export const router = createBrowserRouter([
@@ -11,20 +8,24 @@ export const router = createBrowserRouter([
     element: <StationsPage />,
   },
   {
-    path: "/users",
-    element: <div>users page</div>,
+    path: "/directory",
+    element: <div>Directory</div>,
   },
   {
-    path: "/dashboard",
-    element: <div>Dashboard page</div>,
+    path: "/trends",
+    element: <div>trends page</div>,
   },
   {
-    path: "/charts",
-    element: <ChartPage></ChartPage>,
+    path: "/reports",
+    element: <div>reports page</div>,
   },
   {
-    path: "/widgets",
-    element: <WidgetsPage />,
+    path: "/addons",
+    element: <div>addons page</div>,
+  },
+  {
+    path: "/user-profile",
+    element: <div>addons page</div>,
   },
   {
     path: "/stations-directory-page",

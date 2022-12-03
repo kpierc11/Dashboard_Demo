@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -22,6 +21,14 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import { createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+import AccountTree from "@mui/icons-material/AccountTree";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+import ContentPasteOutlinedIcon from "@mui/icons-material/ContentPasteOutlined";
+import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomizeOutlined";
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import LogoutIcon from "@mui/icons-material/Logout";
+import SettingsIcon from "@mui/icons-material/Settings";
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -83,10 +90,11 @@ export default function NavigationDrawer(props: Props) {
           alt="hydrobioscience logo"
         ></img>
       </Box>
+      <h1 style={{ paddingLeft: 27, marginTop: 27, fontSize: 20 }}>General</h1>
       <List>
-        <a href="/">
+        <a className={"sidebar-link"} href="/">
           <ListItem key={1} disablePadding>
-            <ListItemButton>
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
                 <SatelliteAltIcon />
               </ListItemIcon>
@@ -96,13 +104,62 @@ export default function NavigationDrawer(props: Props) {
         </a>
       </List>
       <List>
-        <a href="/users">
+        <a className={"sidebar-link"} href="/directory">
           <ListItem key={2} disablePadding>
-            <ListItemButton>
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
-                <InboxIcon />
+                <AccountTree />
               </ListItemIcon>
-              <ListItemText primary={"Users"} />
+              <ListItemText primary={"Directory"} />
+            </ListItemButton>
+          </ListItem>
+        </a>
+      </List>
+      <List>
+        <a className={"sidebar-link"} href="/trends">
+          <ListItem key={1} disablePadding>
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
+              <ListItemIcon>
+                <AssessmentIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Trends"} />
+            </ListItemButton>
+          </ListItem>
+        </a>
+      </List>
+      <List>
+        <a className={"sidebar-link"} href="/reports">
+          <ListItem key={2} disablePadding>
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
+              <ListItemIcon>
+                <ContentPasteOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Reports"} />
+            </ListItemButton>
+          </ListItem>
+        </a>
+      </List>
+      <List>
+        <a className={"sidebar-link"} href="/addons">
+          <ListItem key={2} disablePadding>
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
+              <ListItemIcon>
+                <DashboardCustomizeOutlinedIcon className={"sidebar-icon"} />
+              </ListItemIcon>
+              <ListItemText primary={"Addons"} />
+            </ListItemButton>
+          </ListItem>
+        </a>
+      </List>
+      <h1 style={{ paddingLeft: 27, marginTop: 30, fontSize: 20 }}>Admin</h1>
+      <List>
+        <a className={"sidebar-link"} href="/users">
+          <ListItem key={1} disablePadding>
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
+              <ListItemIcon>
+                <PeopleOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary={"users"} />
             </ListItemButton>
           </ListItem>
         </a>
@@ -138,35 +195,36 @@ export default function NavigationDrawer(props: Props) {
               >
                 <MenuIcon />
               </IconButton>
-              <NotificationsNoneOutlinedIcon
-                sx={{
-                  fontSize: 28,
-                  color: "#747474",
-                  justifyContent: "flex-end",
-                  backgroundColor: "#E6F7FC",
-                  borderRadius: "5px",
-                }}
-              ></NotificationsNoneOutlinedIcon>
-              <Button onClick={colorMode.toggleColorMode}>
-                <AccountCircleOutlinedIcon
-                  sx={{
-                    fontSize: 28,
-                    color: "#747474",
-                    justifyContent: "flex-end",
-                  }}
-                ></AccountCircleOutlinedIcon>
-              </Button>
+              <LogoutIcon
+                className={"topbar-icon"}
+                fontSize={"large"}
+              ></LogoutIcon>
               <IconButton
-                sx={{ ml: 1 }}
                 onClick={colorMode.toggleColorMode}
                 color="inherit"
+                className={"topbar-button"}
               >
                 {theme.palette.mode === "dark" ? (
-                  <Brightness7Icon color="primary" />
+                  <Brightness4Icon  className={"topbar-icon"} fontSize={"large"}  />
                 ) : (
-                  <Brightness4Icon color="primary" />
+                  <DarkModeIcon className={"topbar-icon"} fontSize={"large"} />
+                  
                 )}
               </IconButton>
+              <SettingsIcon
+                className={"topbar-icon"}
+                fontSize={"large"}
+              ></SettingsIcon>
+              <NotificationsNoneOutlinedIcon
+                className={"topbar-icon"}
+                fontSize={"large"}
+              ></NotificationsNoneOutlinedIcon>
+              <a href="/user-profile">
+              <AccountCircleOutlinedIcon
+                className={"topbar-icon"}
+                fontSize={"large"}
+              ></AccountCircleOutlinedIcon>
+              </a>
             </Toolbar>
           </AppBar>
           <Box

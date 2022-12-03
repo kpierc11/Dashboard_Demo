@@ -1,17 +1,31 @@
-.station-card-col {
-    display:flex;
-    align-items:flex-start;
-    flex-direction:column;
-    margin-right:57px;
-    margin-bottom:23px;
+.station-card-main-container {
+  height: 263px;
+  margin-bottom: 12%;
 }
 
-
 .station-card-container {
-    display: flex;
-    flex-direction: row;
-    align-items:flex-start;
-    padding-left:56px;
-    padding-top:47px; 
-    padding-bottom:39px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-left: 56px;
+  padding-top: 47px;
+  padding-bottom: 39px;
+}
+
+.station-card-col {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-right: 57px;
+  margin-bottom: 23px;
+}
+
+@media (max-width: 1000px) {
+  .station-card-container {
+    flex-direction: column;
+  }
+
+  .station-card-main-container {
+    height: auto;
+  }
 }
