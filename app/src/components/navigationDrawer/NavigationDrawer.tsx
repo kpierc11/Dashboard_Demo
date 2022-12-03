@@ -104,7 +104,7 @@ export default function NavigationDrawer(props: Props) {
         </a>
       </List>
       <List>
-        <a className={"sidebar-link"} href="/users">
+        <a className={"sidebar-link"} href="/directory">
           <ListItem key={2} disablePadding>
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -116,7 +116,7 @@ export default function NavigationDrawer(props: Props) {
         </a>
       </List>
       <List>
-        <a className={"sidebar-link"} href="/">
+        <a className={"sidebar-link"} href="/trends">
           <ListItem key={1} disablePadding>
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -128,7 +128,7 @@ export default function NavigationDrawer(props: Props) {
         </a>
       </List>
       <List>
-        <a className={"sidebar-link"} href="/users">
+        <a className={"sidebar-link"} href="/reports">
           <ListItem key={2} disablePadding>
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -140,7 +140,7 @@ export default function NavigationDrawer(props: Props) {
         </a>
       </List>
       <List>
-        <a className={"sidebar-link"} href="/users">
+        <a className={"sidebar-link"} href="/addons">
           <ListItem key={2} disablePadding>
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -219,10 +219,12 @@ export default function NavigationDrawer(props: Props) {
                 className={"topbar-icon"}
                 fontSize={"large"}
               ></NotificationsNoneOutlinedIcon>
+              <a href="/user-profile">
               <AccountCircleOutlinedIcon
                 className={"topbar-icon"}
                 fontSize={"large"}
               ></AccountCircleOutlinedIcon>
+              </a>
             </Toolbar>
           </AppBar>
           <Box
