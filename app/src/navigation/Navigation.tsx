@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import StationsPage from "../pages/StationsPage";
+import UserProfile from "../components/UserSettings/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -21,5 +22,9 @@ export const router = createBrowserRouter([
   {
     path: "/addons",
     element: <div>addons page</div>,
+  },
+  {
+    path: "/user-profile",
+    element: <UserProfile/>,
   },
 ]);

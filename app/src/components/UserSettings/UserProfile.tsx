@@ -33,7 +33,7 @@ function a11yProps(index: number) {
   };
 }
 
-export default function UserSettings() {
+export default function UserProfile() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
