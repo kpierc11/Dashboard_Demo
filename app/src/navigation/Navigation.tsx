@@ -25,6 +25,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/user-profile",
-    element: <div>addons page</div>,
+    element: <UserProfile/>,
   },
 ]);
