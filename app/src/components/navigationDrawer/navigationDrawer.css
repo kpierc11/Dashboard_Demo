@@ -1,13 +1,33 @@
 .blue-background {
-    background-color:#E6F7FC; 
-    border: 2px solid #83BFD2;
-    border-radius:12px;
-    min-height: calc(-100px + 100vh);
-    height:fit-content;
-    margin-top:100px;
-    margin-right:40px;
-    border-bottom:0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius:0;
+  background-color: #e6f7fc;
+  border: 2px solid #83bfd2;
+  border-radius: 12px;
+  min-height: calc(-100px + 100vh);
+  height: fit-content;
+  margin-top: 100px;
+  margin-right: 40px;
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
+.topbar-icon {
+  font-size: 28;
+  color: #747474;
+  justify-content: flex-end;
+  background-color: #e6f7fc;
+  border-radius: 5px;
+  padding: 4px;
+  margin-right: 9px;
+}
+
+.topbar-button:hover {
+  background-color: unset !important;
+}
+
+.sidebar-link {
+  text-decoration: none;
+  color: #505050;
+  opacity: 100%;
+  font-size: 18px;
+}
