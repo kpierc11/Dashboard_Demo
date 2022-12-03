@@ -357,6 +357,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
         <button className="filter-button">Filter</button>
         <button className="sort-button">Sort</button>
       </div>
+          
     </>
   );
 }
@@ -479,11 +480,11 @@ export default function EnhancedTable() {
                         {row.stationName}
                       </TableCell>
 
-                      <TableCell align="center">{row.location}</TableCell>
-                      <TableCell align="center">{row.reported}</TableCell>
-                      <TableCell align="center">{row.readings}</TableCell>
-                      <TableCell align="center">{row.type}</TableCell>
-                      <TableCell align="center">{row.status}</TableCell>
+                      <TableCell align="right">{row.location}</TableCell>
+                      <TableCell align="right">{row.reported}</TableCell>
+                      <TableCell align="right">{row.readings}</TableCell>
+                      <TableCell align="right">{row.type}</TableCell>
+                      <TableCell align="right">{row.status}</TableCell>
                     </TableRow>
                   );
                 })}
