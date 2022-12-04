@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
+import StationsDirectoryPage from "../pages/StationsDirectoryPage";
 import StationsPage from "../pages/StationsPage";
+
 
 
 export const router = createBrowserRouter([
@@ -25,7 +27,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/user-profile",
-    element: <div>addons page</div>,
+    element: <div>user-profile</div>,
   },
   {
     path: "/stations-directory-page",

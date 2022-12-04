@@ -12,8 +12,10 @@ import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import TimelineIcon from '@mui/icons-material/Timeline';
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
+import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -21,24 +23,32 @@ import Switch from "@mui/material/Switch";
 import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
+import SortIcon from '@mui/icons-material/Sort';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { type } from "os";
+import { Icon } from "@mui/material";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 interface Data {
+  
   stationName: string;
   location: string;
-  reported: string;
+  reported: string
   type: string;
   readings: string;
   status: string;
+  edit: string;
 }
 
 function createData(
-  stationName: string,
-  location: string,
-  reported: string,
-  type: string,
-  readings: string,
-  status: string
+  stationName: any,
+  location: any,
+  reported: any,
+  type: any,
+  readings: any,
+  status: any,
+  edit: any
 ): Data {
   return {
     stationName,
@@ -46,7 +56,8 @@ function createData(
     reported,
     type,
     readings,
-    status,
+    status, 
+    edit
   };
 }
 
@@ -55,105 +66,118 @@ const rows = [
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
-    "AHPS",
-    "Active"
+    "AHPS" ,
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Active",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Active",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Inactive",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Active",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Inactive",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Active",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Active",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Inactive",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Active",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Inactive",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Active",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Inactive",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "Button",
     "AHPS",
-    "Active"
+    <TimelineIcon color="primary"></TimelineIcon>,
+    "Active",
+    <MoreVertIcon color="primary"></MoreVertIcon>
   ),
 ];
 
@@ -225,22 +249,28 @@ const headCells: readonly HeadCell[] = [
     label: "Reported",
   },
   {
+    id: "type",
+    numeric: true,
+    disablePadding: false,
+    label: "Station Type",
+  },
+  {
     id: "readings",
     numeric: true,
     disablePadding: false,
     label: "Readings",
   },
   {
-    id: "type",
-    numeric: true,
-    disablePadding: false,
-    label: "Type",
-  },
-  {
     id: "status",
     numeric: true,
     disablePadding: false,
     label: "Status",
+  },
+  {
+    id: "edit",
+    numeric: true,
+    disablePadding: false,
+    label: "",
   },
 ];
 
@@ -354,10 +384,14 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
         )}
       </Toolbar>
       <div className="directory-buttons">
-        <button className="filter-button">Filter</button>
-        <button className="sort-button">Sort</button>
+        <button className="filter-button">Filter <FilterAltIcon></FilterAltIcon></button>
+        <button className="sort-button">Sort <SortIcon className="sort-icon"></SortIcon></button>
       </div>
-          
+      <div className="directory-search-content">
+        <div className="directory-search">
+          <input className="directory-box" placeholder="Search For A Station..." type="text"></input><SearchIcon className="search-icon"></SearchIcon>
+        </div>
+      </div>
     </>
   );
 }
@@ -482,9 +516,10 @@ export default function EnhancedTable() {
 
                       <TableCell align="right">{row.location}</TableCell>
                       <TableCell align="right">{row.reported}</TableCell>
-                      <TableCell align="right">{row.readings}</TableCell>
                       <TableCell align="right">{row.type}</TableCell>
+                      <TableCell align="right">{row.readings}</TableCell>
                       <TableCell align="right">{row.status}</TableCell>
+                      <TableCell align="right">{row.edit}</TableCell>
                     </TableRow>
                   );
                 })}
