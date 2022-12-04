@@ -27,6 +27,7 @@ import SortIcon from '@mui/icons-material/Sort';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { type } from "os";
+import { red } from '@mui/material/colors';
 import { Icon } from "@mui/material";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
@@ -68,7 +69,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS" ,
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Active",
+    <FiberManualRecordIcon color="success"></FiberManualRecordIcon> ,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -77,7 +78,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Active",
+    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -86,7 +87,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Inactive",
+    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -95,7 +96,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Active",
+    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -104,7 +105,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Inactive",
+    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -113,7 +114,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Active",
+    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -122,7 +123,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Active",
+    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -131,7 +132,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Inactive",
+    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -140,7 +141,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Active",
+    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -149,7 +150,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Inactive",
+    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -158,7 +159,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Active",
+    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -167,7 +168,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Inactive",
+    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -176,7 +177,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    "Active",
+    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
 ];
