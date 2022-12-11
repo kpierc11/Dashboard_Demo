@@ -180,7 +180,7 @@ export default function NavigationDrawer(props: Props) {
             sx={{
               width: { sm: `calc(100% - ${drawerWidth}px)` },
               ml: { sm: `${drawerWidth}px` },
-              backgroundColor:theme.palette.background.default,
+              backgroundColor: theme.palette.background.default,
               boxShadow: "none",
               borderRight: "none",
             }}
@@ -193,15 +193,23 @@ export default function NavigationDrawer(props: Props) {
                 paddingBottom: "40px",
               }}
             >
-              <div style={{ position: "absolute", left: 0, maxWidth:344, width:344 }}>
+              <div className={"topbar-search-container"}>
                 <form>
-                  <div style={{position:"relative"}}>
+                  <div style={{ position: "relative" }}>
                     <input
                       id="topbar-search"
                       type="search"
                       placeholder="search..."
                     ></input>
-                    <SearchIcon sx={{ position: "absolute", right:0, marginTop:"5%" }} color="primary"></SearchIcon>
+                    <SearchIcon
+                      sx={{
+                        position: "absolute",
+                        right: 0,
+                        marginTop: "5%",
+                        top: 0,
+                      }}
+                      color="primary"
+                    ></SearchIcon>
                   </div>
                 </form>
               </div>
