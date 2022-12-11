@@ -1,6 +1,7 @@
 .directory-buttons {
   display: inline-flex;
   align-items: center;
+  margin: auto;
   margin-top: 20px;
   margin-bottom: 15px;
   margin-left: 40px;
@@ -27,7 +28,8 @@
   align-items: center;
   position: relative;
   margin-right: 20px;
-  height: 100px;
+  height: 100%;
+  flex-wrap: wrap;
 }
 
 .filter-sort-icon {
@@ -37,17 +39,16 @@
 .directory-search-container {
   margin-top: 20px;
   top: 0;
-  position: absolute;
   right: 0;
-  max-width: 344px;
-  width: 344px;
+  max-width: 243px;
+  width: 243px;
 }
 
 #directory-search {
   border: 2px solid rgba(28, 126, 217, 0.2);
   width: 100%;
-  max-width: 344px;
-  border-radius: 50px;
+  max-width: 243px;
+  border-radius: 11px;
   padding-top: 17px;
   padding-bottom: 17px;
   padding-left: 27px;

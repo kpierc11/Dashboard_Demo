@@ -68,7 +68,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -77,7 +80,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon  sx={{ color: "#FF0000" }}></FiberManualRecordIcon><Typography>Inactive</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
+      <Typography>Inactive</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -86,7 +92,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon><Typography>Inactive</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
+      <Typography>Inactive</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -95,7 +104,26 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
+    <Tooltip title="Edit">
+      <button>
+        <MoreVertIcon color="primary"></MoreVertIcon>
+      </button>
+    </Tooltip>
+  ),
+  createData(
+    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <TimelineIcon color="primary"></TimelineIcon>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -104,7 +132,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
+      <Typography>Inactive</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -113,7 +144,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon  sx={{ color: "#FF0000" }}></FiberManualRecordIcon><Typography>Inactive</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -122,7 +156,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -131,7 +168,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -140,7 +180,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -149,7 +192,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -158,7 +204,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -167,16 +216,10 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
 ];
@@ -205,8 +248,6 @@ function getComparator<Key extends keyof any>(
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// This method is created for cross-browser compatibility, if you don't
-// need to support IE11, you can use Array.prototype.sort() directly
 function stableSort<T>(
   array: readonly T[],
   comparator: (a: T, b: T) => number
@@ -562,6 +603,7 @@ export default function EnhancedTable() {
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
+      
         />
       </Paper>
     </Box>
