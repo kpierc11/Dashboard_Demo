@@ -40,6 +40,13 @@
   font-size: 18px;
 }
 
+.topbar-search-container {
+  position: absolute;
+  left: 0;
+  max-width: 344px;
+  width: 344px;
+}
+
 #topbar-search {
   border: 3px solid rgba(77, 164, 234, 0.2);
   width: 100%;
