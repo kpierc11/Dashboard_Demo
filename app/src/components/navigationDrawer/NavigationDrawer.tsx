@@ -14,13 +14,12 @@ import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
 import { router } from "../../navigation/Navigation";
 import { RouterProvider } from "react-router-dom";
 import { useState, useEffect, useMemo, createContext } from "react";
-import { Button, CircularProgress, ThemeProvider } from "@mui/material";
+import { CircularProgress, ThemeProvider } from "@mui/material";
 import "../navigationDrawer/navigationDrawer.css";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import { createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
 import AccountTree from "@mui/icons-material/AccountTree";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import ContentPasteOutlinedIcon from "@mui/icons-material/ContentPasteOutlined";
@@ -28,7 +27,8 @@ import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomi
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import SearchIcon from "@mui/icons-material/Search";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -180,12 +180,31 @@ export default function NavigationDrawer(props: Props) {
             sx={{
               width: { sm: `calc(100% - ${drawerWidth}px)` },
               ml: { sm: `${drawerWidth}px` },
-              backgroundColor: "white",
+              backgroundColor:theme.palette.background.default,
               boxShadow: "none",
               borderRight: "none",
             }}
           >
-            <Toolbar sx={{ justifyContent: "flex-end", borderRight: 0 }}>
+            <Toolbar
+              sx={{
+                justifyContent: "flex-end",
+                borderRight: 0,
+                paddingTop: "39px",
+                paddingBottom: "40px",
+              }}
+            >
+              <div style={{ position: "absolute", left: 0, maxWidth:344, width:344 }}>
+                <form>
+                  <div style={{position:"relative"}}>
+                    <input
+                      id="topbar-search"
+                      type="search"
+                      placeholder="search..."
+                    ></input>
+                    <SearchIcon sx={{ position: "absolute", right:0, marginTop:"5%" }} color="primary"></SearchIcon>
+                  </div>
+                </form>
+              </div>
               <IconButton
                 color="primary"
                 aria-label="open drawer"
@@ -205,10 +224,12 @@ export default function NavigationDrawer(props: Props) {
                 className={"topbar-button"}
               >
                 {theme.palette.mode === "dark" ? (
-                  <Brightness4Icon  className={"topbar-icon"} fontSize={"large"}  />
+                  <Brightness4Icon
+                    className={"topbar-icon"}
+                    fontSize={"large"}
+                  />
                 ) : (
                   <DarkModeIcon className={"topbar-icon"} fontSize={"large"} />
-                  
                 )}
               </IconButton>
               <SettingsIcon
@@ -220,10 +241,10 @@ export default function NavigationDrawer(props: Props) {
                 fontSize={"large"}
               ></NotificationsNoneOutlinedIcon>
               <a href="/user-profile">
-              <AccountCircleOutlinedIcon
-                className={"topbar-icon"}
-                fontSize={"large"}
-              ></AccountCircleOutlinedIcon>
+                <AccountCircleOutlinedIcon
+                  className={"topbar-icon"}
+                  fontSize={"large"}
+                ></AccountCircleOutlinedIcon>
               </a>
             </Toolbar>
           </AppBar>
