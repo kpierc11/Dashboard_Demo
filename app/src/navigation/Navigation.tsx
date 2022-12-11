@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import ReportsPage from "../pages/ReportsPage";
 import StationsDirectoryPage from "../pages/StationsDirectoryPage";
 import StationsPage from "../pages/StationsPage";
 
@@ -19,7 +20,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/reports",
-    element: <div>reports page</div>,
+    element: <ReportsPage />,
   },
   {
     path: "/addons",
