@@ -36,7 +36,6 @@ function createData(
   link: any,
   edit: any
 ): Data {
-    
   return {
     type,
     name,
@@ -286,8 +285,8 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     };
 
   return (
-    <TableHead >
-      <TableRow sx={{backgroundColor: "#919EAB",border: "1px solid #919EAB"}}>
+    <TableHead>
+      <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
             color="primary"
@@ -359,7 +358,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           </Typography>
         ) : (
           <Typography
-            sx={{ flex: "1 1 100%"}}
+            sx={{ flex: "1 1 100%" }}
             variant="h6"
             id="tableTitle"
             component="div"
