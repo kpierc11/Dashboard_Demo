@@ -12,7 +12,7 @@ import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import TimelineIcon from '@mui/icons-material/Timeline';
+import TimelineIcon from "@mui/icons-material/Timeline";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import SearchIcon from "@mui/icons-material/Search";
@@ -23,19 +23,18 @@ import Switch from "@mui/material/Switch";
 import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
-import SortIcon from '@mui/icons-material/Sort';
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import SortIcon from "@mui/icons-material/Sort";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { type } from "os";
-import { red } from '@mui/material/colors';
+import { red } from "@mui/material/colors";
 import { Icon } from "@mui/material";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 interface Data {
-  
   stationName: string;
   location: string;
-  reported: string
+  reported: string;
   type: string;
   readings: string;
   status: string;
@@ -57,8 +56,8 @@ function createData(
     reported,
     type,
     readings,
-    status, 
-    edit
+    status,
+    edit,
   };
 }
 
@@ -67,9 +66,9 @@ const rows = [
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
-    "AHPS" ,
+    "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon color="success"></FiberManualRecordIcon> ,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -78,7 +77,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon  sx={{ color: "#FF0000" }}></FiberManualRecordIcon><Typography>Inactive</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -87,7 +86,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon><Typography>Inactive</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -96,7 +95,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -105,7 +104,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -114,7 +113,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon  sx={{ color: "#FF0000" }}></FiberManualRecordIcon><Typography>Inactive</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -123,7 +122,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -132,7 +131,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -141,7 +140,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -150,7 +149,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -159,7 +158,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -168,7 +167,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon color="success"></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
@@ -177,7 +176,7 @@ const rows = [
     "September 23rd 2022",
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
-    <FiberManualRecordIcon  sx={{ color: red[800] }}></FiberManualRecordIcon>,
+    <Box sx={{display: "inline-flex"}}><FiberManualRecordIcon sx = {{color : "#81E78B"}}></FiberManualRecordIcon><Typography>Active</Typography></Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
 ];
@@ -318,7 +317,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "right" : "left"}
+            align={headCell.numeric ? "center" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -384,13 +383,35 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           </Typography>
         )}
       </Toolbar>
-      <div className="directory-buttons">
-        <button className="filter-button">Filter <FilterAltIcon></FilterAltIcon></button>
-        <button className="sort-button">Sort <SortIcon className="sort-icon"></SortIcon></button>
-      </div>
-      <div className="directory-search-content">
-        <div className="directory-search">
-          <input className="directory-box" placeholder="Search For A Station..." type="text"></input><SearchIcon className="search-icon"></SearchIcon>
+      <div className="sub-toolbar">
+        <div className="directory-buttons">
+          <button className="lightblue-button">
+            Filter <FilterAltIcon className="filter-sort-icon"></FilterAltIcon>
+          </button>
+          <button className="lightblue-button">
+            Sort <SortIcon className="filter-sort-icon"></SortIcon>
+          </button>
+        </div>
+        <div className={"directory-search-container"}>
+          <form>
+            <div style={{ position: "relative" }}>
+              <input
+                id="directory-search"
+                type="search"
+                placeholder="Search For A Station..."
+              ></input>
+              <SearchIcon
+                sx={{
+                  position: "absolute",
+                  right: 0,
+                  marginRight: 2,
+                  marginTop: "5%",
+                  top: 0,
+                }}
+                color="primary"
+              ></SearchIcon>
+            </div>
+          </form>
         </div>
       </div>
     </>
@@ -456,7 +477,6 @@ export default function EnhancedTable() {
 
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
-  // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
@@ -479,8 +499,6 @@ export default function EnhancedTable() {
               rowCount={rows.length}
             />
             <TableBody>
-              {/* if you don't need to support IE11, you can replace the `stableSort` call with:
-              rows.sort(getComparator(order, orderBy)).slice() */}
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
@@ -515,12 +533,12 @@ export default function EnhancedTable() {
                         {row.stationName}
                       </TableCell>
 
-                      <TableCell align="right">{row.location}</TableCell>
-                      <TableCell align="right">{row.reported}</TableCell>
-                      <TableCell align="right">{row.type}</TableCell>
-                      <TableCell align="right">{row.readings}</TableCell>
-                      <TableCell align="right">{row.status}</TableCell>
-                      <TableCell align="right">{row.edit}</TableCell>
+                      <TableCell align="center">{row.location}</TableCell>
+                      <TableCell align="center">{row.reported}</TableCell>
+                      <TableCell align="center">{row.type}</TableCell>
+                      <TableCell align="center">{row.readings}</TableCell>
+                      <TableCell align="center">{row.status}</TableCell>
+                      <TableCell align="center">{row.edit}</TableCell>
                     </TableRow>
                   );
                 })}

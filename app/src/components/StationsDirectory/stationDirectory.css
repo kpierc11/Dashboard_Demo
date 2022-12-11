@@ -1,53 +1,70 @@
-.filter-button {
-  background-color: #ddf7ff;
-  border: 1px solid rgba(145, 158, 171, 1);
-  color: #1c7ed9;
-  text-align: center;
-  font-size: 16px;
-  height: 100%;
-  max-width: 40%;
-  border-radius: 15px;
-  margin-right: 15px;
-}
-
-.sort-button {
-  background-color: #ddf7ff;
-  border: 1px solid rgba(145, 158, 171, 1);
-  color: #1c7ed9;
-  text-align: center;
-  font-size: 16px;
-  height: 100%;
-  max-width: 40%;
-  border-radius: 15px;
-}
-
-
-
 .directory-buttons {
-  width: 100%;
+  display: inline-flex;
+  align-items: center;
   margin-top: 20px;
   margin-bottom: 15px;
   margin-left: 40px;
 }
 
-.directory-search {
+.lightblue-button {
+  background-color: #ddf7ff;
+  border: 1px solid rgba(145, 158, 171, 1);
+  color: #1c7ed9;
+  text-align: center;
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  margin-right: 15px;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  padding-left: 10px;
+}
+
+.sub-toolbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 20px;
+  height: 100px;
+}
+
+.filter-sort-icon {
+  margin-left: 5px;
+}
+
+.directory-search-container {
+  margin-top: 20px;
+  top: 0;
   position: absolute;
-  border-radius: 15px;
+  right: 0;
+  max-width: 344px;
+  width: 344px;
+}
+
+#directory-search {
   border: 2px solid rgba(28, 126, 217, 0.2);
-  max-width: 100%;
-  height: 4%;
-  left: 1625px;
-  top: 205px;
+  width: 100%;
+  max-width: 344px;
+  border-radius: 50px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  padding-left: 27px;
+  margin-right: 20px;
+  background-color: #f9f9f9;
 }
 
-.directory-box {
-  box-sizing: border-box;
-  border: 0;
-  outline: none;
-  padding-left: 15px;
-  padding-top: 9px;
+#directory-search::placeholder {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: -0.015em;
+  color: #979797;
 }
 
-.search-icon {
-  color: rgba(28, 126, 217, 1);
+.edit-button{
+  border: none;
 }
