@@ -13,18 +13,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
-import DeleteIcon from "@mui/icons-material/Delete";
-import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import "../ReportsTable/reportsTable.css";
-import SearchIcon from "@mui/icons-material/Search";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import TimelineIcon from "@mui/icons-material/Timeline";
 
 interface Data {
   type: string;
@@ -45,6 +36,7 @@ function createData(
   link: any,
   edit: any
 ): Data {
+    
   return {
     type,
     name,
