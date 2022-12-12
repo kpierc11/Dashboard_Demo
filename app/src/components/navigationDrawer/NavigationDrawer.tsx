@@ -14,7 +14,7 @@ import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
 import { router } from "../../navigation/Navigation";
 import { RouterProvider } from "react-router-dom";
 import { useState, useEffect, useMemo, createContext } from "react";
-import { CircularProgress, ThemeProvider } from "@mui/material";
+import { CircularProgress, Link, ThemeProvider } from "@mui/material";
 import "../navigationDrawer/navigationDrawer.css";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
@@ -104,7 +104,11 @@ export default function NavigationDrawer(props: Props) {
         </a>
       </List>
       <List>
-        <a className={"sidebar-link"} href="/directory">
+        <Link
+          className={"sidebar-link"}
+          sx={{ color: theme.palette.primary.light }}
+          href="/directory"
+        >
           <ListItem key={2} disablePadding>
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -113,7 +117,7 @@ export default function NavigationDrawer(props: Props) {
               <ListItemText primary={"Directory"} />
             </ListItemButton>
           </ListItem>
-        </a>
+        </Link>
       </List>
       <List>
         <a className={"sidebar-link"} href="/trends">
@@ -183,6 +187,7 @@ export default function NavigationDrawer(props: Props) {
               backgroundColor: theme.palette.background.default,
               boxShadow: "none",
               borderRight: "none",
+              marginRight: "auto",
             }}
           >
             <Toolbar
@@ -191,6 +196,7 @@ export default function NavigationDrawer(props: Props) {
                 borderRight: 0,
                 paddingTop: "39px",
                 paddingBottom: "40px",
+                flexWrap: "wrap",
               }}
             >
               <div className={"topbar-search-container"}>
@@ -207,6 +213,7 @@ export default function NavigationDrawer(props: Props) {
                         right: 0,
                         marginTop: "5%",
                         top: 0,
+                        marginRight:2
                       }}
                       color="primary"
                     ></SearchIcon>
@@ -218,7 +225,15 @@ export default function NavigationDrawer(props: Props) {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: "none" } }}
+                className={"mobile-hamburger"}
+                sx={{
+                  mr: 2,
+                  display: { sm: "none" },
+                  marginRight: "auto",
+                  background: "#e6f7fc",
+                  borderRadius:"10px",
+                  color: "#747474",
+                }}
               >
                 <MenuIcon />
               </IconButton>
@@ -230,6 +245,7 @@ export default function NavigationDrawer(props: Props) {
                 onClick={colorMode.toggleColorMode}
                 color="inherit"
                 className={"topbar-button"}
+                sx={{padding:0}}
               >
                 {theme.palette.mode === "dark" ? (
                   <Brightness4Icon
@@ -248,12 +264,13 @@ export default function NavigationDrawer(props: Props) {
                 className={"topbar-icon"}
                 fontSize={"large"}
               ></NotificationsNoneOutlinedIcon>
-              <a href="/user-profile">
+              <Link sx={{height:35}} href="/user-profile">
                 <AccountCircleOutlinedIcon
                   className={"topbar-icon"}
                   fontSize={"large"}
+                  sx={{marginRight:0}}
                 ></AccountCircleOutlinedIcon>
-              </a>
+              </Link>
             </Toolbar>
           </AppBar>
           <Box
