@@ -44,7 +44,6 @@ interface Props {
 export default function NavigationDrawer(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isLoaded, setLoading] = useState(false);
   const [mode, setMode] = useState<"light" | "dark">("light");
   const colorMode = useMemo(
     () => ({
@@ -68,16 +67,6 @@ export default function NavigationDrawer(props: Props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-  useEffect(() => {
-    let timer = setTimeout(() => {
-      setLoading(true);
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
 
   const drawer = (
     <div>
@@ -213,7 +202,7 @@ export default function NavigationDrawer(props: Props) {
                         right: 0,
                         marginTop: "5%",
                         top: 0,
-                        marginRight:2
+                        marginRight: 2,
                       }}
                       color="primary"
                     ></SearchIcon>
@@ -231,7 +220,7 @@ export default function NavigationDrawer(props: Props) {
                   display: { sm: "none" },
                   marginRight: "auto",
                   background: "#e6f7fc",
-                  borderRadius:"10px",
+                  borderRadius: "10px",
                   color: "#747474",
                 }}
               >
@@ -245,7 +234,7 @@ export default function NavigationDrawer(props: Props) {
                 onClick={colorMode.toggleColorMode}
                 color="inherit"
                 className={"topbar-button"}
-                sx={{padding:0}}
+                sx={{ padding: 0 }}
               >
                 {theme.palette.mode === "dark" ? (
                   <Brightness4Icon
@@ -264,11 +253,11 @@ export default function NavigationDrawer(props: Props) {
                 className={"topbar-icon"}
                 fontSize={"large"}
               ></NotificationsNoneOutlinedIcon>
-              <Link sx={{height:35}} href="/user-profile">
+              <Link sx={{ height: 35 }} href="/user-profile">
                 <AccountCircleOutlinedIcon
                   className={"topbar-icon"}
                   fontSize={"large"}
-                  sx={{marginRight:0}}
+                  sx={{ marginRight: 0 }}
                 ></AccountCircleOutlinedIcon>
               </Link>
             </Toolbar>
@@ -322,11 +311,7 @@ export default function NavigationDrawer(props: Props) {
             }}
           >
             {/**Pages will be rendered here through react router */}
-            {isLoaded ? (
-              <RouterProvider router={router} />
-            ) : (
-              <CircularProgress></CircularProgress>
-            )}
+            <RouterProvider router={router} />
           </Box>
         </Box>
       </ThemeProvider>
