@@ -1,12 +1,10 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import useTheme from "@mui/material/styles/useTheme";
 import { Station } from "../../interfaces/Stations";
 import "../stationCard/stationCard.css";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 export default function StationCard(props: Station) {
-  const theme = useTheme();
 
   let statusElement = <div></div>;
 
