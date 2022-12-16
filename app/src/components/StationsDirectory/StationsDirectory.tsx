@@ -108,11 +108,8 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <Tooltip title="Edit">
-      <button>
         <MoreVertIcon color="primary"></MoreVertIcon>
-      </button>
-    </Tooltip>
+    
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",

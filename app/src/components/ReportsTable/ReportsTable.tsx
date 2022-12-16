@@ -1,4 +1,5 @@
 import * as React from "react";
+import SearchIcon from "@mui/icons-material/Search";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
@@ -358,12 +359,36 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           </Typography>
         ) : (
           <Typography
-            sx={{ flex: "1 1 100%" }}
+            sx={{ flex: "1 1 100%", paddingLeft: "10px" }}
             variant="h6"
             id="tableTitle"
             component="div"
           >
-            Reports
+            <div className="reports-toolbar">
+              <div className="reports-title">Reports</div>
+              <button className="add-button">Add Report</button>
+              <div className={"reports-search-container"}>
+                <form>
+                  <div style={{ position: "relative" }}>
+                    <input
+                      id="reports-search"
+                      type="search"
+                      placeholder="Search Report"
+                    ></input>
+                    <SearchIcon
+                      sx={{
+                        position: "absolute",
+                        right: 0,
+                        marginRight: 2,
+                        marginTop: "5%",
+                        top: 0,
+                      }}
+                      color="primary"
+                    ></SearchIcon>
+                  </div>
+                </form>
+              </div>
+            </div>
           </Typography>
         )}
       </Toolbar>

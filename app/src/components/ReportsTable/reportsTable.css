@@ -1,60 +1,83 @@
+.reports-toolbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 20px;
+  height: 100%;
+  flex-wrap: wrap;
+  padding: 15px;
+}
 
-.sub-toolbar {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-right: 20px;
-    height: 100%;
-    flex-wrap: wrap;
-  }
+.reports-search-container {
+  display: flex;
+  margin-right: 20px;
+  margin-top: 20px;
+  top: 0;
+  right: 0;
+  max-width: 243px;
+  width: 243px;
+}
 
-  
-  .reports-search-container {
-    margin-top: 20px;
-    top: 0;
-    right: 0;
-    max-width: 243px;
-    width: 243px;
-  }
-  
-  #reports-search {
-    border: 2px solid rgba(28, 126, 217, 0.2);
-    width: 100%;
-    max-width: 243px;
-    border-radius: 11px;
-    padding-top: 17px;
-    padding-bottom: 17px;
-    padding-left: 27px;
-    margin-right: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  #reports-search::placeholder {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 300;
-    font-size: 15px;
-    line-height: 21px;
-    letter-spacing: -0.015em;
-    color: #979797;
-  }
-  
-  .edit-button{
-    border: none;
-  }
+#reports-search {
+  border: 2px solid rgba(28, 126, 217, 0.2);
+  width: 100%;
+  max-width: 243px;
+  border-radius: 11px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  padding-left: 27px;
+  margin-right: 20px;
+  background-color: #f9f9f9;
+}
 
-  .download-button {
-    background-color: #ddf7ff;
-    border: 1px solid rgba(145, 158, 171, 1);
-    color: #1c7ed9;
-    text-align: center;
-    font-size: 15px;
-    height: 100%;
-    width: 100%;
-    border-radius: 15px;
-    display: inline-flex;
-    align-items: center;
-    padding: 4px;
-    padding-left: 10px;
-    max-width: 95px;
-  }
+#reports-search::placeholder {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: -0.015em;
+  color: #979797;
+}
+
+.edit-button {
+  border: none;
+}
+
+.download-button {
+  background-color: #ddf7ff;
+  border: 1px solid rgba(145, 158, 171, 1);
+  color: #1c7ed9;
+  text-align: center;
+  font-size: 15px;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  padding-left: 10px;
+  max-width: 95px;
+}
+
+.add-button {
+  background-color: #ddf7ff;
+  border: 1px solid rgba(145, 158, 171, 1);
+  color: #1c7ed9;
+  text-align: center;
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+  border-radius: 9px;
+  margin-right: 15px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px;
+  padding-left: 10px;
+  max-width: 120px;
+  margin-top: 20px;
+}
+
+.reports-title {
+  
+}
