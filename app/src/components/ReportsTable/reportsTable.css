@@ -76,8 +76,14 @@
   padding-left: 10px;
   max-width: 120px;
   margin-top: 20px;
+  margin-right: 75px;
+
 }
 
 .reports-title {
-  
+  margin-top: 17px;
+}
+
+.button-search {
+  margin-left: 950px;
 }

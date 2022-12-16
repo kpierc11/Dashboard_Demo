@@ -366,6 +366,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           >
             <div className="reports-toolbar">
               <div className="reports-title">Reports</div>
+              <div className="button-search"></div>
               <button className="add-button">Add Report</button>
               <div className={"reports-search-container"}>
                 <form>
