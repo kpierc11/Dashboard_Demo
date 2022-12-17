@@ -16,19 +16,10 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import SearchIcon from "@mui/icons-material/Search";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
-import DeleteIcon from "@mui/icons-material/Delete";
-import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import SortIcon from "@mui/icons-material/Sort";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import { type } from "os";
-import { red } from "@mui/material/colors";
-import { Icon } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 interface Data {
@@ -520,9 +511,9 @@ export default function EnhancedTable() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Paper sx={{ width: "100%", height: "100%", mb: 2 }}>
+      <Paper sx={{ width: "100%", height: "100%", mb: 2, boxShadow: "none", borderRadius: "15px", border: "1px solid rgba(145, 158, 171, 1)"}}>
         <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer>
+        <TableContainer sx={{paddingLeft: "62px", paddingRight: "80px"}}>
           <Table
             sx={{ minWidth: 750 }}
             aria-labelledby="tableTitle"
