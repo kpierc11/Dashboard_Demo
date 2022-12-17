@@ -44,7 +44,7 @@ interface Props {
 export default function NavigationDrawer(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isLoaded, setLoading] = useState(false);
+  const [isLoaded, setLoading] = useState(true);
   const [mode, setMode] = useState<"light" | "dark">("light");
   const colorMode = useMemo(
     () => ({
@@ -240,7 +240,7 @@ export default function NavigationDrawer(props: Props) {
                 className={"topbar-icon"}
                 fontSize={"large"}
               ></NotificationsNoneOutlinedIcon>
-              <a href="/user-profile">
+              <a href="/user/profile">
                 <AccountCircleOutlinedIcon
                   className={"topbar-icon"}
                   fontSize={"large"}

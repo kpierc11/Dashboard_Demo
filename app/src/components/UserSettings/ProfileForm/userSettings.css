@@ -1,0 +1,38 @@
+.bg-box {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  height: 100%;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  border: 1px solid #919eab;
+  border-radius: 15px;
+  padding: 80px 18px 50px 18px;
+}
+
+.photo-box {
+  display: flex;
+  height: 440px;
+  width: 445px;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  border: 1px solid #919eab;
+  margin: 52px 0px 0px 67px;
+  border: 1px solid #919eab;
+  border-radius: 15px;
+  padding-top: 20px;
+}
+
+.form-box {
+  display: flex;
+  height: 500px;
+  width: 650px;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  margin: 52px 0px 0px 45px;
+  border: 1px solid #919eab;
+  border-radius: 15px;
+  padding: 50px;
+}

@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import AddAPhotoOutlinedIcon from "@mui/icons-material/AddAPhotoOutlined";
+import NavTabs from "../NavTabs";
 
 const roles = [
   {
@@ -28,37 +29,25 @@ export default function UserProfileForm() {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        width: "100%",
-        justifyContent: "flex-start",
-        height: "100%",
-        flexWrap: "wrap",
-      }}
-    >
-      <Box
+    <Box className="bg-box">
+      <NavTabs></NavTabs>
+      <Box className="photo-box"
         sx={{
           "& .MuiTextField-root": { m: 1, width: "25ch" },
-          border: "solid #919EAB",
-          borderWidth: 1,
-          borderRadius: "15px",
-          height: 440,
-          width: 445,
-          padding: "50px",
-          marginRight: "50px",
         }}
       >
-        <Box sx={{
+        <Box
+          sx={{
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
-          }}>
+          }}
+        >
           <Avatar
             sx={{ width: "180px", height: "180px", backgroundColor: "#eeeeee" }}
           >
             <AddAPhotoOutlinedIcon
-              sx={{ width: "75px", height: "75px", color: "#686868"}}
+              sx={{ width: "75px", height: "75px", color: "#686868" }}
             ></AddAPhotoOutlinedIcon>
           </Avatar>
           <TextField
@@ -76,15 +65,10 @@ export default function UserProfileForm() {
       </Box>
       <Box sx={{ width: "50%" }}>
         <Box
+        className="form-box"
           component="form"
           sx={{
             "& .MuiTextField-root": { m: 1, width: "25ch" },
-            border: "solid #919EAB",
-            borderWidth: 1,
-            borderRadius: "15px",
-            height: 560,
-            width: 650,
-            padding: "50px",
           }}
           noValidate
           autoComplete="off"
@@ -130,7 +114,7 @@ export default function UserProfileForm() {
             sx={{ backgroundColor: "#FAFAFa" }}
             id="outlined"
             label="Notes"
-            type="string"
+            type="string" 
             style={{ width: 510 }}
             multiline
             rows={5}
