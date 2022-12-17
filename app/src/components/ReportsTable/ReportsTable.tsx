@@ -287,7 +287,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 
   return (
     <TableHead>
-      <TableRow>
+      <TableRow sx={{borderBottom: "none"}}>
         <TableCell padding="checkbox">
           <Checkbox
             color="primary"
@@ -350,10 +350,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
       >
         {numSelected > 0 ? (
           <Typography
-            sx={{ flex: "1 1 100%" }}
+            sx={{ flex: "1 1 100%"}}
             color="inherit"
             variant="subtitle1"
             component="div"
+            
           >
             {numSelected} selected
           </Typography>
@@ -460,10 +461,10 @@ export default function EnhancedTable() {
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Paper sx={{ width: "100%", height: "100%", mb: 2 }}>
+    <Box sx={{ width: "100%"}}>
+      <Paper sx={{ width: "100%", height: "100%", mb: 2, boxShadow: "none", borderRadius: "15px", border: "1px solid rgba(145, 158, 171, 1)" }}>
         <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer>
+        <TableContainer sx={{paddingLeft: "119px", paddingRight: "172px"}}>
           <Table
             sx={{ minWidth: 750 }}
             aria-labelledby="tableTitle"
@@ -484,8 +485,10 @@ export default function EnhancedTable() {
                   const isItemSelected = isSelected(row.type);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
+
                   return (
                     <TableRow
+                    
                       hover
                       onClick={(event) => handleClick(event, row.type)}
                       role="checkbox"
