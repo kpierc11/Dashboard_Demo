@@ -4,7 +4,7 @@ import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
@@ -474,7 +474,9 @@ export default function EnhancedTable() {
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer sx={{ paddingLeft: "119px", paddingRight: "172px" }}>
           <Table
-            sx={{ minWidth: 750 }}
+            sx={{ minWidth: 750, [`& .${tableCellClasses.root}`]: {
+              borderBottom: "none"
+             }}}
             aria-labelledby="tableTitle"
             size={dense ? "small" : "medium"}
           >
