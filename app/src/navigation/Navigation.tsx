@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
     element: <div>user-profile</div>,
   },
   {
-    path: "/stations-directory-page",
+    path: "/stations-directory",
     element: <StationsDirectoryPage />
   }
 ]);
