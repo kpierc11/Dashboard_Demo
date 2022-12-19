@@ -1,5 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import StationsPage from "../pages/stationsPage/StationsPage";
+import ReportsPage from "../pages/ReportsPage";
+import StationsDirectoryPage from "../pages/StationsDirectoryPage";
+import StationsPage from "../pages/StationsPage";
+
+
+
 
 export const router = createBrowserRouter([
   {
@@ -16,7 +21,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/reports",
-    element: <div>reports page</div>,
+    element: <ReportsPage />,
   },
   {
     path: "/addons",
@@ -24,6 +29,10 @@ export const router = createBrowserRouter([
   },
   {
     path: "/user-profile",
-    element: <div>addons page</div>,
+    element: <div>user-profile</div>,
   },
+  {
+    path: "/stations-directory",
+    element: <StationsDirectoryPage />
+  }
 ]);

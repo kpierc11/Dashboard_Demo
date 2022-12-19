@@ -1,5 +1,5 @@
 import { Box, Grid, MenuItem, Paper, styled, TextField } from "@mui/material";
-import "../reportsPage/editReportPage.css";
+import "./editReportPage.css";
 
 export default function EditReportPage() {
   const Item = styled(Paper)(({ theme }) => ({
