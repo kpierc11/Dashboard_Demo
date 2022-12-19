@@ -1,13 +1,8 @@
-.station-card-main-container {
-  height: 263px;
-  margin-bottom: 12%;
-}
-
 .station-card-container {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  text-align:left;
+  text-align: left;
   padding-left: 56px;
   padding-top: 47px;
   padding-bottom: 39px;
@@ -28,6 +23,16 @@
   line-height: 28px;
   letter-spacing: -0.015em;
   color: #505050;
+}
+
+.station-card-icons {
+  display: flex;
+  margin-right: 82px;
+  color: #1c7ed9;
+}
+
+.station-card-icons a {
+  margin-right: 28px;
 }
 
 @media (max-width: 1000px) {

@@ -1,11 +1,12 @@
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import { Station } from "../../interfaces/Stations";
+import Station from "../../interfaces/Stations";
 import "../stationCard/stationCard.css";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import MapIcon from "@mui/icons-material/Map";
+import TimerIcon from "@mui/icons-material/Timer";
 
 export default function StationCard(props: Station) {
-
   let statusElement = <div></div>;
 
   if (props.status) {
@@ -40,17 +41,22 @@ export default function StationCard(props: Station) {
     <Box
       className="station-card-main-container"
       sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        "& > :not(style)": {
-          m: 1,
-          width: "100%",
-          border: 1,
-          borderColor: "#919EAB",
-        },
+        border: "1px solid #919EAB",
+        borderRadius: "15px",
+        marginBottom: "24px",
       }}
     >
-      <Paper elevation={0} className="station-card-container">
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginTop: "10px",
+          marginRight: "13px",
+          color: "#DA5F5F",
+        }}
+      >
+      </Box>
+      <Box className="station-card-container">
         <Box className="station-card-col">
           <h2 className={"station-card-heading"}>{props.deviceName}</h2>
           <div>
@@ -73,7 +79,18 @@ export default function StationCard(props: Station) {
           <h2 className={"station-card-heading"}>Status</h2>
           {statusElement}
         </div>
-      </Paper>
+        <div className={"station-card-icons"}>
+          <a href={"/chart/stationid=" + props.stationId}>
+            <BarChartIcon fontSize="large"></BarChartIcon>
+          </a>
+          <a>
+            <MapIcon fontSize="large"></MapIcon>
+          </a>
+          <a>
+            <TimerIcon fontSize="large"></TimerIcon>
+          </a>
+        </div>
+      </Box>
     </Box>
   );
 }

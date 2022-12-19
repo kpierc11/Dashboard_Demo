@@ -1,4 +1,5 @@
-export interface Station {
+export default interface Station {
+  stationId:string;
   deviceName: string;
   stationLocation: string;
   lastReported: string;
