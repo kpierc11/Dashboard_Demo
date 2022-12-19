@@ -72,7 +72,7 @@ const rows = [
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
+      <FiberManualRecordIcon sx={{ color: "#FF0000", marginLeft:"12px" }}></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
@@ -84,23 +84,10 @@ const rows = [
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
+      <FiberManualRecordIcon sx={{ color: "#FF0000", marginLeft:"12px" }}></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-        <MoreVertIcon color="primary"></MoreVertIcon>
-    
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (Illinois)",
@@ -121,7 +108,21 @@ const rows = [
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
+    <MoreVertIcon color="primary"></MoreVertIcon>
+  ),
+  createData(
+    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <TimelineIcon color="primary"></TimelineIcon>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon
+        sx={{ color: "#FF0000", marginLeft: "12px" }}
+      ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
@@ -402,7 +403,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             {numSelected} selected
           </Typography>
         ) : (
-          <Typography 
+          <Typography
             sx={{ flex: "1 1 100%", fontSize: "25px", paddingLeft: "25px" }}
             variant="h6"
             id="tableTitle"
@@ -511,13 +512,25 @@ export default function EnhancedTable() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Paper sx={{ width: "100%", height: "100%", mb: 2, boxShadow: "none", borderRadius: "15px", border: "1px solid rgba(145, 158, 171, 1)"}}>
+      <Paper
+        sx={{
+          width: "100%",
+          height: "100%",
+          mb: 2,
+          boxShadow: "none",
+          borderRadius: "15px",
+          border: "1px solid rgba(145, 158, 171, 1)",
+        }}
+      >
         <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer sx={{paddingLeft: "62px", paddingRight: "80px"}}>
-          <Table 
-            sx={{ minWidth: 750,  [`& .${tableCellClasses.root}`]: {
-              borderBottom: "none"
-             }}} 
+        <TableContainer sx={{ paddingLeft: "62px", paddingRight: "80px" }}>
+          <Table
+            sx={{
+              minWidth: 750,
+              [`& .${tableCellClasses.root}`]: {
+                borderBottom: "none",
+              },
+            }}
             aria-labelledby="tableTitle"
             size={dense ? "small" : "medium"}
           >
@@ -593,7 +606,6 @@ export default function EnhancedTable() {
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
-      
         />
       </Paper>
     </Box>
