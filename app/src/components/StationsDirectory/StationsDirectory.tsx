@@ -72,7 +72,9 @@ const rows = [
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#FF0000", marginLeft:"12px" }}></FiberManualRecordIcon>
+      <FiberManualRecordIcon
+        sx={{ color: "#FF0000", marginLeft: "12px" }}
+      ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>
@@ -84,7 +86,9 @@ const rows = [
     "AHPS",
     <TimelineIcon color="primary"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#FF0000", marginLeft:"12px" }}></FiberManualRecordIcon>
+      <FiberManualRecordIcon
+        sx={{ color: "#FF0000", marginLeft: "12px" }}
+      ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
     <MoreVertIcon color="primary"></MoreVertIcon>

@@ -474,9 +474,12 @@ export default function EnhancedTable() {
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer sx={{ paddingLeft: "119px", paddingRight: "172px" }}>
           <Table
-            sx={{ minWidth: 750, [`& .${tableCellClasses.root}`]: {
-              borderBottom: "none"
-             }}}
+            sx={{
+              minWidth: 750,
+              [`& .${tableCellClasses.root}`]: {
+                borderBottom: "none",
+              },
+            }}
             aria-labelledby="tableTitle"
             size={dense ? "small" : "medium"}
           >
