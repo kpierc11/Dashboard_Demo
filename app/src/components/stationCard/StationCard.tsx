@@ -1,14 +1,44 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import useTheme from "@mui/material/styles/useTheme";
 import { Station } from "../../interfaces/Stations";
 import "../stationCard/stationCard.css";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 export default function StationCard(props: Station) {
-  const theme = useTheme();
+
+  let statusElement = <div></div>;
+
+  if (props.status) {
+    statusElement = (
+      <div
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          marginRight: "5px",
+        }}
+      >
+        <FiberManualRecordIcon sx={{ color: "#81e78b" }} />
+        Active
+      </div>
+    );
+  } else {
+    statusElement = (
+      <div
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          marginRight: "5px",
+        }}
+      >
+        <FiberManualRecordIcon sx={{ color: "#ff0000" }} />
+        Inactive
+      </div>
+    );
+  }
+
   return (
     <Box
-    className="station-card-main-container"
+      className="station-card-main-container"
       sx={{
         display: "flex",
         flexWrap: "wrap",
@@ -21,25 +51,27 @@ export default function StationCard(props: Station) {
       }}
     >
       <Paper elevation={0} className="station-card-container">
-        <div className="station-card-col">
-          <h2 style={{ fontSize: theme.typography.h4.fontSize }}>
-            {props.deviceName}
-          </h2>
+        <Box className="station-card-col">
+          <h2 className={"station-card-heading"}>{props.deviceName}</h2>
           <div>
-            <img src="/HBS-logo 1.png" alt="Hydrobioscience logo" />
+            <img src="/station-image.png" alt="Hydrobioscience logo" />
           </div>
-        </div>
+        </Box>
         <div className="station-card-col">
-          <h2>Location</h2>
+          <h2 className={"station-card-heading"}>Location</h2>
           <div>{props.stationLocation}</div>
         </div>
         <div className="station-card-col">
-          <h2>Last Reported</h2>
+          <h2 className={"station-card-heading"}>Last Reported</h2>
           <div>{props.lastReported}</div>
         </div>
         <div className="station-card-col">
-          <h2>Station Type</h2>
+          <h2 className={"station-card-heading"}>Station Type</h2>
           <div>{props.stationType}</div>
+        </div>
+        <div className="station-card-col">
+          <h2 className={"station-card-heading"}>Status</h2>
+          {statusElement}
         </div>
       </Paper>
     </Box>

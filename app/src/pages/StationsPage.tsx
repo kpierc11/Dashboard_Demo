@@ -8,21 +8,21 @@ export default function StationsPage() {
         stationLocation={"Piney Flats, TN"}
         lastReported={"September 23rd 2022 8:56:58 pm"}
         stationType={"AHPS"}
-        status={false}
+        status={true}
       ></StationCard>
       <StationCard
         deviceName={"Test Device"}
         stationLocation={"Elizabethton, TN"}
         lastReported={"September 30rd 2022 8:56:58 pm"}
         stationType={"Kktol"}
-        status={false}
+        status={true}
       ></StationCard>
       <StationCard
         deviceName={"Test Device"}
         stationLocation={"Elizabethton, TN"}
         lastReported={"September 30rd 2022 8:56:58 pm"}
         stationType={"Kktol"}
-        status={false}
+        status={true}
       ></StationCard>
       <StationCard
         deviceName={"HydroBio e-tracker"}
