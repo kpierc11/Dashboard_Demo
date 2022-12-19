@@ -56,7 +56,7 @@ const rows = [
     "Administrator",
     "84",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -65,7 +65,7 @@ const rows = [
     "Administrator",
     "90",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -74,7 +74,7 @@ const rows = [
     "Administrator",
     "21",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -83,7 +83,7 @@ const rows = [
     "Administrator",
     "43",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -92,7 +92,7 @@ const rows = [
     "Administrator",
     "37",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -101,7 +101,7 @@ const rows = [
     "Administrator",
     "92",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -110,7 +110,7 @@ const rows = [
     "Administrator",
     "68",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -119,7 +119,7 @@ const rows = [
     "Administrator",
     "12",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -128,7 +128,7 @@ const rows = [
     "Administrator",
     "25",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -137,7 +137,7 @@ const rows = [
     "Administrator",
     "68",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
   ),
   createData(
     "On-Demand",
