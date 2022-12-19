@@ -1,10 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import ReportsPage from "../pages/ReportsPage";
 import StationsDirectoryPage from "../pages/StationsDirectoryPage";
-import StationsPage from "../pages/StationsPage";
-
-
-
+import StationsPage from "../pages/stationsPage/StationsPage";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +30,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/stations-directory",
-    element: <StationsDirectoryPage />
-  }
+    element: <StationsDirectoryPage />,
+  },
 ]);
