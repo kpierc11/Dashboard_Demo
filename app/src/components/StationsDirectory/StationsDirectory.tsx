@@ -4,7 +4,7 @@ import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
@@ -402,13 +402,13 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             {numSelected} selected
           </Typography>
         ) : (
-          <Typography
-            sx={{ flex: "1 1 100%" }}
+          <Typography 
+            sx={{ flex: "1 1 100%", fontSize: "25px", paddingLeft: "25px" }}
             variant="h6"
             id="tableTitle"
             component="div"
           >
-            Station Directory
+            Stations Directory
           </Typography>
         )}
       </Toolbar>
@@ -514,8 +514,10 @@ export default function EnhancedTable() {
       <Paper sx={{ width: "100%", height: "100%", mb: 2, boxShadow: "none", borderRadius: "15px", border: "1px solid rgba(145, 158, 171, 1)"}}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer sx={{paddingLeft: "62px", paddingRight: "80px"}}>
-          <Table
-            sx={{ minWidth: 750 }}
+          <Table 
+            sx={{ minWidth: 750,  [`& .${tableCellClasses.root}`]: {
+              borderBottom: "none"
+             }}} 
             aria-labelledby="tableTitle"
             size={dense ? "small" : "medium"}
           >
