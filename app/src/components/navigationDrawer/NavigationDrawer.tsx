@@ -96,7 +96,7 @@ export default function NavigationDrawer(props: Props) {
         <Link
           className={"sidebar-link"}
           sx={{ color: theme.palette.primary.light }}
-          href="/directory"
+          href="/stations-directory/"
         >
           <ListItem key={2} disablePadding>
             <ListItemButton sx={{ paddingLeft: "22px" }}>

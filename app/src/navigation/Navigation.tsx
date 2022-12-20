@@ -3,9 +3,6 @@ import ReportsPage from "../pages/ReportsPage";
 import StationsDirectoryPage from "../pages/StationsDirectoryPage";
 import StationsPage from "../pages/stationsPage/StationsPage";
 
-
-
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +30,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/stations-directory",
-    element: <StationsDirectoryPage />
-  }
+    element: <StationsDirectoryPage />,
+  },
 ]);

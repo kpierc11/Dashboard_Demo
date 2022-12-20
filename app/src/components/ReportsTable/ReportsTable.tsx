@@ -17,6 +17,8 @@ import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
 import "../ReportsTable/reportsTable.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Tooltip from "@mui/material/Tooltip/Tooltip";
+import IconButton from "@mui/material/IconButton/IconButton";
 
 interface Data {
   type: string;
@@ -358,18 +360,13 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             {numSelected} selected
           </Typography>
         ) : (
-          <Typography
-            sx={{ flex: "1 1 100%", paddingLeft: "10px", fontSize: "25px" }}
-            variant="h6"
-            id="tableTitle"
-            component="div"
-          >
-            <div className="reports-toolbar">
-              <div className="reports-title">Reports</div>
-              <div className="button-search"></div>
-              <button className="add-button">Add Report</button>
-              <div className={"reports-search-container"}>
-                <form>
+            <div className={"reports-topbar"}>
+              <div className={"reports-title-column"}>
+              <h2 className="reports-title">Reports</h2>
+              </div>
+              <div className={"reports-search-column"}>
+                <button className="add-button" onClick={(event)=>{alert("Add Report")}}>Add Report</button>
+                <form method="POST" style={{ width: "100%" }}>
                   <div style={{ position: "relative" }}>
                     <input
                       id="reports-search"
@@ -381,7 +378,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                         position: "absolute",
                         right: 0,
                         marginRight: 2,
-                        marginTop: "5%",
+                        marginTop: "9%",
                         top: 0,
                       }}
                       color="primary"
@@ -390,7 +387,15 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                 </form>
               </div>
             </div>
-          </Typography>
+        )}
+        {numSelected > 0 ? (
+          <Tooltip title="Delete">
+            <IconButton></IconButton>
+          </Tooltip>
+        ) : (
+          <Tooltip title="Filter list">
+            <IconButton></IconButton>
+          </Tooltip>
         )}
       </Toolbar>
     </>
@@ -495,13 +500,13 @@ export default function EnhancedTable() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.type);
+                  const isItemSelected = isSelected(row.parameters);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.type)}
+                      onClick={(event) => handleClick(event, row.parameters)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
