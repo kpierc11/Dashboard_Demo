@@ -58,7 +58,11 @@ const rows = [
     "Administrator",
     "84",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -67,7 +71,11 @@ const rows = [
     "Administrator",
     "90",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -76,7 +84,11 @@ const rows = [
     "Administrator",
     "21",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -85,7 +97,11 @@ const rows = [
     "Administrator",
     "43",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -94,7 +110,11 @@ const rows = [
     "Administrator",
     "37",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -103,7 +123,11 @@ const rows = [
     "Administrator",
     "92",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -112,7 +136,11 @@ const rows = [
     "Administrator",
     "68",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -121,7 +149,11 @@ const rows = [
     "Administrator",
     "12",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -130,7 +162,11 @@ const rows = [
     "Administrator",
     "25",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -139,7 +175,11 @@ const rows = [
     "Administrator",
     "68",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary" fontSize="large"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -148,7 +188,11 @@ const rows = [
     "Administrator",
     "8",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -157,7 +201,11 @@ const rows = [
     "Administrator",
     "76",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "On-Demand",
@@ -166,7 +214,11 @@ const rows = [
     "Administrator",
     "12",
     <button className="download-button">Download</button>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
 ];
 
@@ -288,7 +340,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     };
 
   return (
-    <TableHead>
+    <TableHead className="reports-tablehead">
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
@@ -360,33 +412,40 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             {numSelected} selected
           </Typography>
         ) : (
-            <div className={"reports-topbar"}>
-              <div className={"reports-title-column"}>
+          <div className={"reports-topbar"}>
+            <div className={"reports-title-column"}>
               <h2 className="reports-title">Reports</h2>
-              </div>
-              <div className={"reports-search-column"}>
-                <button className="add-button" onClick={(event)=>{alert("Add Report")}}>Add Report</button>
-                <form method="POST" style={{ width: "100%" }}>
-                  <div style={{ position: "relative" }}>
-                    <input
-                      id="reports-search"
-                      type="search"
-                      placeholder="Search Report"
-                    ></input>
-                    <SearchIcon
-                      sx={{
-                        position: "absolute",
-                        right: 0,
-                        marginRight: 2,
-                        marginTop: "9%",
-                        top: 0,
-                      }}
-                      color="primary"
-                    ></SearchIcon>
-                  </div>
-                </form>
-              </div>
             </div>
+            <div className={"reports-search-column"}>
+              <button
+                className="add-button"
+                onClick={(event) => {
+                  alert("Add Report");
+                }}
+              >
+                Add Report
+              </button>
+              <form method="POST" style={{ width: "100%" }}>
+                <div style={{ position: "relative" }}>
+                  <input
+                    id="reports-search"
+                    type="search"
+                    placeholder="Search Report"
+                  ></input>
+                  <SearchIcon
+                    sx={{
+                      position: "absolute",
+                      right: 0,
+                      marginRight: 2,
+                      marginTop: "6%",
+                      top: 0,
+                    }}
+                    color="primary"
+                  ></SearchIcon>
+                </div>
+              </form>
+            </div>
+          </div>
         )}
         {numSelected > 0 ? (
           <Tooltip title="Delete">
@@ -477,7 +536,13 @@ export default function EnhancedTable() {
         }}
       >
         <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer sx={{ paddingLeft: "119px", paddingRight: "172px" }}>
+        <TableContainer
+          sx={{
+            paddingLeft: "119px",
+            paddingRight: "172px",
+            paddingTop: "32px",
+          }}
+        >
           <Table
             sx={{
               minWidth: 750,

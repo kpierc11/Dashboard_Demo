@@ -81,3 +81,9 @@
   align-items: center;
   margin-right: 25px;
 }
+
+.directory-title {
+  margin-top: 17px;
+  margin-left: 78px;
+  margin-right: auto;
+}
