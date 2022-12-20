@@ -23,18 +23,8 @@
   padding-left: 10px;
 }
 
-.sub-toolbar {
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-right: 20px;
-  height: 100%;
-  flex-wrap: wrap;
-  padding-bottom: 30px;
-}
-
-.filter-sort-icon {
-  margin-left: 5px;
+.directory-title{
+  margin-left: 20px;
 }
 
 .directory-search-container {
@@ -71,3 +61,23 @@
   border: none;
 }
 
+.stations-directory-topbar {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 110px;
+}
+
+.stations-title-column {
+  display: flex;
+  margin-right: auto;
+  width: 100%;
+  max-width: 300px;
+}
+
+.stations-directory-search-column {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}

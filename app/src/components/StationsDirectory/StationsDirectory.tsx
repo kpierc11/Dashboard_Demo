@@ -17,8 +17,6 @@ import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import SearchIcon from "@mui/icons-material/Search";
 import { visuallyHidden } from "@mui/utils";
-import SortIcon from "@mui/icons-material/Sort";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
@@ -54,7 +52,7 @@ function createData(
 
 const rows = [
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "AFBI2 Fox River at Algonquin tailwater (IN)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
@@ -66,7 +64,19 @@ const rows = [
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "AFBI2 Fox River at Algonquin tailwater (ID)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <TimelineIcon color="primary"></TimelineIcon>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#FF0000", marginLeft: "12px"  }}></FiberManualRecordIcon>
+      <Typography>Inactive</Typography>
+    </Box>,
+    <MoreVertIcon color="primary"></MoreVertIcon>
+  ),
+  createData(
+    "AFBI2 Fox River at Algonquin tailwater (HI)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
@@ -80,7 +90,31 @@ const rows = [
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "AFBI2 Fox River at Algonquin tailwater (GA)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <TimelineIcon color="primary"></TimelineIcon>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
+    <MoreVertIcon color="primary"></MoreVertIcon>
+  ),
+  createData(
+    "AFBI2 Fox River at Algonquin tailwater (AZ)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <TimelineIcon color="primary"></TimelineIcon>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
+    <MoreVertIcon color="primary"></MoreVertIcon>
+  ),
+  createData(
+    "AFBI2 Fox River at Algonquin tailwater (AL)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
@@ -94,7 +128,7 @@ const rows = [
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "AFBI2 Fox River at Algonquin tailwater (CA)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
@@ -106,7 +140,7 @@ const rows = [
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "AFBI2 Fox River at Algonquin tailwater (NY)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
@@ -118,21 +152,7 @@ const rows = [
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon
-        sx={{ color: "#FF0000", marginLeft: "12px" }}
-      ></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "AFBI2 Fox River at Algonquin tailwater (FL)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
@@ -144,7 +164,7 @@ const rows = [
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "AFBI2 Fox River at Algonquin tailwater (TN)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
@@ -156,7 +176,7 @@ const rows = [
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "AFBI2 Fox River at Algonquin tailwater (AR)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
@@ -168,7 +188,7 @@ const rows = [
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "AFBI2 Fox River at Algonquin tailwater (CO)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
@@ -180,31 +200,7 @@ const rows = [
     <MoreVertIcon color="primary"></MoreVertIcon>
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (Illinois)",
+    "AFBI2 Fox River at Algonquin tailwater (LA)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
@@ -407,47 +403,35 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             {numSelected} selected
           </Typography>
         ) : (
-          <Typography
-            sx={{ flex: "1 1 100%", fontSize: "25px", paddingLeft: "25px" }}
-            variant="h6"
-            id="tableTitle"
-            component="div"
-          >
-            Stations Directory
-          </Typography>
+          <div className={"stations-directory-topbar"}>
+            <div className={"stations-title-column"}>
+              <h2 className="directory-title">Stations Directory</h2>
+            </div>
+            <div className={"stations-directory-search-column"}>
+              <div className="directory-buttons"></div>
+              <form method="POST" style={{ width: "100%" }}>
+                <div style={{ position: "relative" }}>
+                  <input
+                    id="directory-search"
+                    type="search"
+                    placeholder="Find A Station..."
+                  ></input>
+                  <SearchIcon
+                    sx={{
+                      position: "absolute",
+                      right: 0,
+                      marginRight: 2,
+                      marginTop: "6%",
+                      top: 0,
+                    }}
+                    color="primary"
+                  ></SearchIcon>
+                </div>
+              </form>
+            </div>
+          </div>
         )}
       </Toolbar>
-      <div className="sub-toolbar">
-        <div className="directory-buttons">
-          <button className="lightblue-button">
-            Filter <FilterAltIcon className="filter-sort-icon"></FilterAltIcon>
-          </button>
-          <button className="lightblue-button">
-            Sort <SortIcon className="filter-sort-icon"></SortIcon>
-          </button>
-        </div>
-        <div className={"directory-search-container"}>
-          <form>
-            <div style={{ position: "relative" }}>
-              <input
-                id="directory-search"
-                type="search"
-                placeholder="Search For A Station..."
-              ></input>
-              <SearchIcon
-                sx={{
-                  position: "absolute",
-                  right: 0,
-                  marginRight: 2,
-                  marginTop: "5%",
-                  top: 0,
-                }}
-                color="primary"
-              ></SearchIcon>
-            </div>
-          </form>
-        </div>
-      </div>
     </>
   );
 }
