@@ -1,21 +1,21 @@
-.reports-toolbar {
+.reports-topbar {
   display: flex;
-  align-items: center;
-  position: relative;
-  margin-right: 20px;
-  height: 100%;
+  width: 100%;
   flex-wrap: wrap;
-  padding: 15px;
+  align-items: center;
+  height:110px;
 }
 
-.reports-search-container {
+.reports-title-column {
   display: flex;
-  margin-right: 20px;
-  margin-top: 20px;
-  top: 0;
-  right: 0;
-  max-width: 243px;
-  width: 243px;
+  margin-right: auto;
+  width: 100%;
+  max-width: 300px;
+}
+
+.reports-search-column {
+  display: flex;
+  align-items: center;
 }
 
 #reports-search {
@@ -50,14 +50,14 @@
   color: #1c7ed9;
   text-align: center;
   font-size: 15px;
-  height: 100%;
-  width: 100%;
   border-radius: 15px;
   display: inline-flex;
   align-items: center;
   padding: 4px;
   padding-left: 10px;
+  padding-right:10px;
   max-width: 95px;
+  cursor:pointer;
 }
 
 .add-button {
@@ -72,15 +72,23 @@
   margin-right: 15px;
   display: inline-flex;
   align-items: center;
-  padding: 6px;
-  padding-left: 10px;
+  padding:10px;
   max-width: 120px;
-  margin-top: 20px;
-  margin-right: 75px;
+  cursor: pointer;
+  margin-right:60px;
+  text-align:center;
+  justify-content: center;
+  transition:.3s;
+}
+
+.add-button:hover {
+  transition:.3s;
+  background: #1c7ed9;
+  color: #ddf7ff;
 }
 
 .reports-title {
   margin-top: 17px;
   margin-left: 78px;
-  margin-right: 850px;
+  margin-right: auto;
 }
