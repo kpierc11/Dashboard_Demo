@@ -56,160 +56,160 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (ID)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#FF0000", marginLeft: "12px"  }}></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (HI)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon
         sx={{ color: "#FF0000", marginLeft: "12px" }}
       ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (GA)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AZ)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AL)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon
         sx={{ color: "#FF0000", marginLeft: "12px" }}
       ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (CA)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (NY)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (FL)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (TN)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AR)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (CO)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (LA)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary"></TimelineIcon>,
+    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary"></MoreVertIcon>
+    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
   ),
 ];
 
