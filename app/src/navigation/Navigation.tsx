@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import ReportsPage from "../pages/ReportsPage";
 import StationsDirectoryPage from "../pages/StationsDirectoryPage";
-import StationsPage from "../pages/StationsPage";
+import StationsPage from "../pages/stationsPage/StationsPage";
 
 
 
