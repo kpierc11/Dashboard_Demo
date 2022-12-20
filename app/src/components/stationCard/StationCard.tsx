@@ -39,10 +39,8 @@ export default function StationCard(props: Station) {
 
   return (
     <Box
-      className="station-card-main-container"
+      className=""
       sx={{
-        border: "1px solid #919EAB",
-        borderRadius: "15px",
         marginBottom: "24px",
       }}
     >
@@ -54,8 +52,7 @@ export default function StationCard(props: Station) {
           marginRight: "13px",
           color: "#DA5F5F",
         }}
-      >
-      </Box>
+      ></Box>
       <Box className="station-card-container">
         <Box className="station-card-col">
           <h2 className={"station-card-heading"}>{props.deviceName}</h2>

@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import "../stationsPage/stationsPage.css";
 import { useEffect, useState } from "react";
 import Button from "@mui/material/Button/Button";
+import Box from "@mui/material/Box/Box";
 
 export default function StationsPage() {
   const [stationCards, setStationCards] = useState<any>([]);
@@ -54,10 +55,10 @@ export default function StationsPage() {
       </div>
       {stationCards.map((element: any, index: any) => {
         return (
-          <div style={{background:"white"}}>
-            <Button onClick={() => {}}>
+          <Box className={"station-card-main-container"}>
+            <Box sx={{width:"100%", display:"flex", justifyContent:"flex-end"}}><Button onClick={() => {}}>
               <RemoveCircleIcon></RemoveCircleIcon>
-            </Button>
+            </Button></Box>
             <StationCard
               key={index}
               stationId={""}
@@ -67,7 +68,7 @@ export default function StationsPage() {
               stationType={""}
               status={false}
             ></StationCard>
-          </div>
+          </Box>
         );
       })}
     </>
