@@ -340,7 +340,13 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     };
 
   return (
-    <TableHead className="reports-tablehead">
+    <TableHead
+      sx={{
+        border: "1px solid rgba(145, 158, 171, 1)",
+        borderRadius: "15px",
+        background: "#F2F2F2",
+      }}
+    >
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox

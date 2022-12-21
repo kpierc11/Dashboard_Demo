@@ -93,12 +93,9 @@
   margin-right: auto;
 }
 
-.reports-tablehead{
+.reports-tablehead {
   border: 1px solid rgba(145, 158, 171, 1);
   background-color: rgba(242, 242, 242, 1);
-  
-  
-  
-  
+  border-radius: 15px !important;
 
 }
