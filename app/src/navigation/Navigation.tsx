@@ -3,6 +3,7 @@ import ReportsPage from "../pages/ReportsPage";
 import StationsDirectoryPage from "../pages/StationsDirectoryPage";
 import StationsPage from "../pages/stationsPage/StationsPage";
 import TrendsPage from "../pages/trendsPage/TrendsPage";
+import UsersPage from "../pages/UsersPage";
 
 export const router = createBrowserRouter([
   {
@@ -26,8 +27,8 @@ export const router = createBrowserRouter([
     element: <div>addons page</div>,
   },
   {
-    path: "/user-profile",
-    element: <div>user-profile</div>,
+    path: "/users",
+    element: <UsersPage/>,
   },
   {
     path: "/stations-directory",
