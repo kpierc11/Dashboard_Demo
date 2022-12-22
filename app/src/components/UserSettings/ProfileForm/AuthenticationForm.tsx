@@ -3,7 +3,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import "./userSettings.css";
-import Divider from '@mui/material/Divider';
+import Divider from "@mui/material/Divider";
+import NavTabs from "../NavTabs";
 
 const roles = [
   {
@@ -28,33 +29,21 @@ export default function AuthenticationForm() {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        width: "100%",
-        justifyContent: "flex-start",
-        height: "100%",
-        flexWrap: "wrap",
-      }}
-    >
+    <Box className="form-bg-box">
       <Box
+        className="pass-box"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "25ch", },
-          border: "solid #919EAB",
-          borderWidth: 1,
-          borderRadius: "15px",
-          height: 300,
-          width: 350,
-          padding: "25px",
-          marginRight: "50px",
+          "& .MuiTextField-root": { m: 1, width: "25ch" },
         }}
       >
-        <Box sx={{
+        <Box
+          sx={{
             display: "flex",
             alignItems: "left",
             flexDirection: "column",
-          }}>
-            <Divider textAlign="left">Password</Divider>
+          }}
+        >
+          <Divider textAlign="left">Password</Divider>
           <TextField
             sx={{ backgroundColor: "#FAFAFa" }}
             id="outlined-password"
@@ -77,21 +66,16 @@ export default function AuthenticationForm() {
       </Box>
       <Box sx={{ width: "50%" }}>
         <Box
+          className="two-fact-box"
           component="form"
           sx={{
             "& .MuiTextField-root": { m: 1, width: "25ch" },
-            border: "solid #919EAB",
-            borderWidth: 1,
-            borderRadius: "15px",
-            height: 300,
-            width: 350,
-            padding: "20px",
           }}
           noValidate
           autoComplete="off"
         >
-             <Divider textAlign="left">Two Factor Authentication</Divider>
-             <TextField
+          <Divider textAlign="left">Two Factor Authentication</Divider>
+          <TextField
             sx={{ backgroundColor: "#FAFAFa" }}
             id="outlined-select-role"
             select
@@ -104,16 +88,14 @@ export default function AuthenticationForm() {
                 {option.label}
               </MenuItem>
             ))}
-            </TextField>
-            
+          </TextField>
+
           <TextField
             sx={{ backgroundColor: "#FAFAFa" }}
             id="outlined"
             label="Phone Number"
             type="integer"
           />
-          
-          
         </Box>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "flex-end", width: "100%" }}>

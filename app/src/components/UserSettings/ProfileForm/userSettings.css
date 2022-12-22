@@ -7,7 +7,15 @@
   background-color: #ffffff;
   border: 1px solid #919eab;
   border-radius: 15px;
-  padding: 80px 18px 50px 18px;
+}
+
+.form-bg-box {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  height: 100%;
+  flex-wrap: wrap;
+  padding: 0px 18px 54px 18px;
 }
 
 .photo-box {
@@ -18,8 +26,7 @@
   flex-wrap: wrap;
   background-color: #ffffff;
   border: 1px solid #919eab;
-  margin: 52px 0px 0px 67px;
-  border: 1px solid #919eab;
+  margin: 54px 0px 0px 0px;
   border-radius: 15px;
   padding-top: 20px;
 }
@@ -35,4 +42,32 @@
   border: 1px solid #919eab;
   border-radius: 15px;
   padding: 50px;
+}
+
+.noti-box {
+  border: 1px solid #919eab;
+  border-radius: 15px;
+  height: 300px;
+  width: 350px;
+  padding: 50px;
+  margin-top: 54px;
+}
+
+.pass-box {
+  border: 1px solid #919EAB;
+  border-radius: 15px;
+  height: 300px;
+  width: 350px;
+  padding: 25px;
+  margin-right: 50px;
+  margin-top: 54px;
+}
+
+.two-fact-box {
+  border: 1px solid #919EAB;
+  border-Radius: 15px;
+  height: 300px;
+  width: 350px;
+  padding: 20px;
+  margin-top: 54px;
 }

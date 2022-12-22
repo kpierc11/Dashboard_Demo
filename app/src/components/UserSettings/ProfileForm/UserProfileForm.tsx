@@ -29,9 +29,9 @@ export default function UserProfileForm() {
   };
 
   return (
-    <Box className="bg-box">
-      <NavTabs></NavTabs>
-      <Box className="photo-box"
+    <Box className="form-bg-box">
+      <Box
+        className="photo-box"
         sx={{
           "& .MuiTextField-root": { m: 1, width: "25ch" },
         }}
@@ -65,7 +65,7 @@ export default function UserProfileForm() {
       </Box>
       <Box sx={{ width: "50%" }}>
         <Box
-        className="form-box"
+          className="form-box"
           component="form"
           sx={{
             "& .MuiTextField-root": { m: 1, width: "25ch" },
@@ -114,7 +114,7 @@ export default function UserProfileForm() {
             sx={{ backgroundColor: "#FAFAFa" }}
             id="outlined"
             label="Notes"
-            type="string" 
+            type="string"
             style={{ width: 510 }}
             multiline
             rows={5}

@@ -1,8 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import StationsPage from "../pages/StationsPage";
-import UserProfileForm from "../components/UserSettings/ProfileForm/UserProfileForm";
-import AuthenticationForm from "../components/UserSettings/ProfileForm/AuthenticationForm";
-import NotificationForm from "../components/UserSettings/ProfileForm/NotificationForm";
+import NavTabs from "../components/UserSettings/NavTabs";
 
 export const router = createBrowserRouter([
   {
@@ -26,19 +24,7 @@ export const router = createBrowserRouter([
     element: <div>addons page</div>,
   },
   {
-    path: "/user",
-    element: [<UserProfileForm/>],
-  },
-  {
     path: "/user/profile",
-    element: [<UserProfileForm/>],
-  },
-  {
-    path: "/user/authentication",
-    element: [<AuthenticationForm/>],
-  },
-  {
-    path: "/user/notifications",
-    element: [<NotificationForm/>],
+    element: <NavTabs/>,
   },
 ]);
