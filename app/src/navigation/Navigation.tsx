@@ -1,6 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import StationsPage from "../pages/StationsPage";
+import ReportsPage from "../pages/ReportsPage";
+import StationsDirectoryPage from "../pages/StationsDirectoryPage";
+import StationsPage from "../pages/stationsPage/StationsPage";
 import NavTabs from "../components/UserSettings/NavTabs";
+import TrendsPage from "../pages/trendsPage/TrendsPage";
 
 export const router = createBrowserRouter([
   {
@@ -13,18 +16,22 @@ export const router = createBrowserRouter([
   },
   {
     path: "/trends",
-    element: <div>trends page</div>,
+    element: <TrendsPage/>,
   },
   {
     path: "/reports",
-    element: <div>reports page</div>,
+    element: <ReportsPage />,
   },
   {
     path: "/addons",
     element: <div>addons page</div>,
   },
   {
-    path: "/user/profile",
-    element: <NavTabs/>,
+    path: "/user-profile",
+    element: <div>user-profile</div>,
+  },
+  {
+    path: "/stations-directory",
+    element: <StationsDirectoryPage />,
   },
 ]);
