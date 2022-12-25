@@ -253,7 +253,7 @@ export default function NavigationDrawer(props: Props) {
                 className={"topbar-icon"}
                 fontSize={"large"}
               ></NotificationsNoneOutlinedIcon>
-              <Link sx={{ height: 35 }} href="/user-profile">
+              <Link sx={{ height: 35 }} href="/user/profile">
                 <AccountCircleOutlinedIcon
                   className={"topbar-icon"}
                   fontSize={"large"}

@@ -27,8 +27,8 @@ export const router = createBrowserRouter([
     element: <div>addons page</div>,
   },
   {
-    path: "/user-profile",
-    element: <div>user-profile</div>,
+    path: "/user/profile",
+    element: <NavTabs/>,
   },
   {
     path: "/stations-directory",

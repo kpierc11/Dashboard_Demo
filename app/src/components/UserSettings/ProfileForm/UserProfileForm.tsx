@@ -3,8 +3,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
-import AddAPhotoOutlinedIcon from "@mui/icons-material/AddAPhotoOutlined";
-import NavTabs from "../NavTabs";
+import IconButton from '@mui/material/IconButton';
 
 const roles = [
   {
@@ -43,13 +42,10 @@ export default function UserProfileForm() {
             flexDirection: "column",
           }}
         >
-          <Avatar
-            sx={{ width: "180px", height: "180px", backgroundColor: "#eeeeee" }}
-          >
-            <AddAPhotoOutlinedIcon
-              sx={{ width: "75px", height: "75px", color: "#686868" }}
-            ></AddAPhotoOutlinedIcon>
-          </Avatar>
+          <IconButton color="default" aria-label="upload picture" component="label">
+        <input hidden accept="image/*" type="file" src="upload"/>
+        <Avatar sx={{width:"180px", height:"180px"}} />
+      </IconButton>
           <TextField
             sx={{ backgroundColor: "#FAFAFa" }}
             id="outlined"
@@ -122,7 +118,7 @@ export default function UserProfileForm() {
         </Box>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "flex-end", width: "100%" }}>
-        <button>hello</button>
+        <button className="save-button">Save</button>
       </Box>
     </Box>
   );

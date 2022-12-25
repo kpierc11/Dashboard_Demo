@@ -65,7 +65,7 @@ export default function NotificationForm() {
         <Box
           sx={{ display: "flex", justifyContent: "flex-end", width: "100%" }}
         >
-          <button>hello</button>
+           <button className="save-button">Save</button>
         </Box>
       </Box>
     </Box>
