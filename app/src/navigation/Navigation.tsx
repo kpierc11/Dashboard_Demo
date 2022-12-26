@@ -3,6 +3,7 @@ import ReportsPage from "../pages/ReportsPage";
 import StationDataPage from "../pages/stationDataPage/StationDataPage";
 import StationsDirectoryPage from "../pages/StationsDirectoryPage";
 import StationsPage from "../pages/stationsPage/StationsPage";
+import NavTabs from "../components/UserSettings/NavTabs";
 import TrendsPage from "../pages/trendsPage/TrendsPage";
 import WidgetsPage from "../pages/WidgetsPage";
 
@@ -29,8 +30,8 @@ export const router = createBrowserRouter([
     element: <WidgetsPage />,
   },
   {
-    path: "/user-profile",
-    element: <div>user-profile</div>,
+    path: "/user/profile",
+    element: <NavTabs/>,
   },
   {
     path: "/stations-directory",
