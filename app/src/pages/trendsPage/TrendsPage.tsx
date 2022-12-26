@@ -54,67 +54,78 @@ export const data = {
 
 export default function TrendsPage() {
   return (
-    <Box sx={{ display: "flex", flexWrap: "wrap", paddingLeft:"72px", paddingRight:"72px" }}>
-      <Box sx={{ width: "70%" }}>
-        <Paper
-          sx={{
-            height: "100%",
-            border: "1px solid #919EAB",
-            borderRadius: "15px",
-            boxShadow: "none",
-            padding: 5,
-          }}
-        >
-          <Line options={options} data={data} />
-        </Paper>
-      </Box>
-      <Box sx={{ paddingLeft: 5, width: "30%" }}>
-        <Paper
-          sx={{
-            border: "1px solid #919EAB",
-            borderRadius: "15px",
-            boxShadow: "none",
-            paddingTop: "20px",
-            paddingLeft: "24px",
-            paddingRight: "25px",
-            height: "100%",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              background: "#F2F2F2",
-              alignItems: "center",
-              borderRadius: "15px",
-              paddingLeft: "22px",
-              paddingRight: "22px",
-            }}
-          >
-            <h3 style={{ marginRight: "auto" }}>Notes</h3>
-            <p>12/17/2022</p>
-          </Box>
-          <Box
-            sx={{
-              border: "1px solid #919EAB",
-              borderRadius: "15px",
-              height: "auto",
-              marginTop: "20px",
-              marginBottom: "20px",
-              padding: "22px",
-            }}
-          >
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-          </Box>
-        </Paper>
-      </Box>
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        paddingLeft: "72px",
+        paddingRight: "72px",
+      }}
+    >
+      <Paper
+        sx={{
+          height: "100%",
+          border: "1px solid #919EAB",
+          borderRadius: "15px",
+          boxShadow: "none",
+          padding: 5,
+          maxWidth:"1008px",
+          width:"100%",
+        }}
+      >
+        <Line options={options} data={data} />
+      </Paper>
 
-      <Paper sx={{boxShadow:"none", borderRadius:"15px"}} className="charts-toggle-card">
+      <Paper
+        sx={{
+          border: "1px solid #919EAB",
+          borderRadius: "15px",
+          boxShadow: "none",
+          paddingTop: "20px",
+          paddingLeft: "24px",
+          paddingRight: "25px",
+          maxWidth:"418px",
+          width:"100%",
+          marginLeft:5,
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            background: "#F2F2F2",
+            alignItems: "center",
+            borderRadius: "15px",
+            paddingLeft: "22px",
+            paddingRight: "22px",
+          }}
+        >
+          <h3 style={{ marginRight: "auto" }}>Notes</h3>
+          <p>12/17/2022</p>
+        </Box>
+        <Box
+          sx={{
+            border: "1px solid #919EAB",
+            borderRadius: "15px",
+            height: "auto",
+            marginTop: "20px",
+            marginBottom: "20px",
+            padding: "22px",
+          }}
+        >
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
+        </Box>
+      </Paper>
+
+      <Paper
+        sx={{ boxShadow: "none", borderRadius: "15px" }}
+        className="charts-toggle-card"
+      >
         <Box
           sx={{
             display: "flex",

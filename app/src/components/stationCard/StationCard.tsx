@@ -5,6 +5,7 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import MapIcon from "@mui/icons-material/Map";
 import TimerIcon from "@mui/icons-material/Timer";
+import Paper from "@mui/material/Paper/Paper";
 
 export default function StationCard(props: Station) {
   let statusElement = <div></div>;
@@ -39,7 +40,6 @@ export default function StationCard(props: Station) {
 
   return (
     <Box
-      className=""
       sx={{
         marginBottom: "24px",
       }}
@@ -53,7 +53,14 @@ export default function StationCard(props: Station) {
           color: "#DA5F5F",
         }}
       ></Box>
-      <Box className="station-card-container">
+      <Paper
+        sx={{
+          borderRadius: "15px",
+          border: "1px solid #919EAB",
+          boxShadow:"none",
+        }}
+        className="station-card-container"
+      >
         <Box className="station-card-col">
           <h2 className={"station-card-heading"}>{props.deviceName}</h2>
           <div>
@@ -77,7 +84,7 @@ export default function StationCard(props: Station) {
           {statusElement}
         </div>
         <div className={"station-card-icons"}>
-          <a href={"/chart/stationid=" + props.stationId}>
+          <a href={"/station-data-page"}>
             <BarChartIcon fontSize="large"></BarChartIcon>
           </a>
           <a>
@@ -87,7 +94,7 @@ export default function StationCard(props: Station) {
             <TimerIcon fontSize="large"></TimerIcon>
           </a>
         </div>
-      </Box>
+      </Paper>
     </Box>
   );
 }
