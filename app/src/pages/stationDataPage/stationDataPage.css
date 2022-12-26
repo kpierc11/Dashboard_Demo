@@ -1,0 +1,45 @@
+.station-data-unit-info {
+    margin-right:auto;
+
+}
+
+.station-data-unit-info:last-child {
+    margin-right:0;
+}
+
+.station-data-primary-alarm-topbar {
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    background-color:#F2F2F2;
+    border-radius:15px;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.station-data-primary-alarm-topbar p {
+    margin-right:auto;
+}
+
+.station-data-primary-alarm-topbar p:last-child {
+    margin-right:0;
+}
+
+.station-data-primary-alarm-topbar-second {
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+.station-data-primary-alarm-topbar-second p {
+    background-color:#F2F2F2;
+    border-radius:15px;
+    padding:6px 15px 6px 15px;
+    margin-right:auto;
+}
+
+.station-data-primary-alarm-topbar-second p:last-child {
+    margin-right:0;
+}

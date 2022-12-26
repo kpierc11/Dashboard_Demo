@@ -12,7 +12,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
 import { router } from "../../navigation/Navigation";
-import { RouterProvider } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+  useRoutes,
+} from "react-router-dom";
 import { useState, useMemo, createContext } from "react";
 import { Link, ThemeProvider } from "@mui/material";
 import "../navigationDrawer/navigationDrawer.css";
@@ -29,6 +35,8 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import SearchIcon from "@mui/icons-material/Search";
+import { NavLink } from "react-router-dom";
+import StationsPage from "../../pages/stationsPage/StationsPage";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -81,7 +89,7 @@ export default function NavigationDrawer(props: Props) {
       </Box>
       <h1 style={{ paddingLeft: 27, marginTop: 27, fontSize: 20 }}>General</h1>
       <List>
-        <a className={"sidebar-link"} href="/">
+        <a className={"sidebar-link"} href={"/"}>
           <ListItem key={1} disablePadding>
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -173,7 +181,16 @@ export default function NavigationDrawer(props: Props) {
             sx={{
               width: { sm: `calc(100% - ${drawerWidth}px)` },
               ml: { sm: `${drawerWidth}px` },
-              backgroundColor: theme.palette.background.default,
+              backgroundColor: `${
+                theme.palette.mode === "dark"
+                  ? "#121212"
+                  : theme.palette.background.default
+              }`,
+              backgroundImage: `${
+                theme.palette.mode === "dark"
+                  ? "linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));"
+                  : theme.palette.background.default
+              }`,
               boxShadow: "none",
               borderRight: "none",
               marginRight: "auto",
@@ -298,7 +315,7 @@ export default function NavigationDrawer(props: Props) {
               }}
               open
             >
-              {drawer}
+              <BrowserRouter>{drawer}</BrowserRouter>
             </Drawer>
           </Box>
           <Box
@@ -308,10 +325,16 @@ export default function NavigationDrawer(props: Props) {
               flexGrow: 1,
               p: 3,
               width: { sm: `calc(100% - ${drawerWidth}px)` },
+
+              background: `${
+                theme.palette.mode === "dark"
+                  ? theme.palette.background.default
+                  : "#e6f7fc"
+              }`,
             }}
           >
             {/**Pages will be rendered here through react router */}
-            <RouterProvider router={router} />
+            <RouterProvider router={router}></RouterProvider>
           </Box>
         </Box>
       </ThemeProvider>
