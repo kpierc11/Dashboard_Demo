@@ -12,9 +12,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
 import { router } from "../../navigation/Navigation";
-import { RouterProvider } from "react-router-dom";
-import { useState, useEffect, useMemo, createContext } from "react";
-import { CircularProgress, ThemeProvider } from "@mui/material";
+import {
+  BrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+  useRoutes,
+} from "react-router-dom";
+import { useState, useMemo, createContext } from "react";
+import { Link, ThemeProvider } from "@mui/material";
 import "../navigationDrawer/navigationDrawer.css";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
@@ -29,6 +35,8 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import SearchIcon from "@mui/icons-material/Search";
+import { NavLink } from "react-router-dom";
+import StationsPage from "../../pages/stationsPage/StationsPage";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -44,7 +52,6 @@ interface Props {
 export default function NavigationDrawer(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isLoaded, setLoading] = useState(false);
   const [mode, setMode] = useState<"light" | "dark">("light");
   const colorMode = useMemo(
     () => ({
@@ -69,16 +76,6 @@ export default function NavigationDrawer(props: Props) {
     setMobileOpen(!mobileOpen);
   };
 
-  useEffect(() => {
-    let timer = setTimeout(() => {
-      setLoading(true);
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
   const drawer = (
     <div>
       <Toolbar />
@@ -92,7 +89,7 @@ export default function NavigationDrawer(props: Props) {
       </Box>
       <h1 style={{ paddingLeft: 27, marginTop: 27, fontSize: 20 }}>General</h1>
       <List>
-        <a className={"sidebar-link"} href="/">
+        <a className={"sidebar-link"} href={"/"}>
           <ListItem key={1} disablePadding>
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -104,7 +101,11 @@ export default function NavigationDrawer(props: Props) {
         </a>
       </List>
       <List>
-        <a className={"sidebar-link"} href="/directory">
+        <Link
+          className={"sidebar-link"}
+          sx={{ color: theme.palette.primary.light }}
+          href="/stations-directory/"
+        >
           <ListItem key={2} disablePadding>
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -113,7 +114,7 @@ export default function NavigationDrawer(props: Props) {
               <ListItemText primary={"Directory"} />
             </ListItemButton>
           </ListItem>
-        </a>
+        </Link>
       </List>
       <List>
         <a className={"sidebar-link"} href="/trends">
@@ -180,9 +181,19 @@ export default function NavigationDrawer(props: Props) {
             sx={{
               width: { sm: `calc(100% - ${drawerWidth}px)` },
               ml: { sm: `${drawerWidth}px` },
-              backgroundColor:theme.palette.background.default,
+              backgroundColor: `${
+                theme.palette.mode === "dark"
+                  ? "#121212"
+                  : theme.palette.background.default
+              }`,
+              backgroundImage: `${
+                theme.palette.mode === "dark"
+                  ? "linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));"
+                  : theme.palette.background.default
+              }`,
               boxShadow: "none",
               borderRight: "none",
+              marginRight: "auto",
             }}
           >
             <Toolbar
@@ -191,17 +202,27 @@ export default function NavigationDrawer(props: Props) {
                 borderRight: 0,
                 paddingTop: "39px",
                 paddingBottom: "40px",
+                flexWrap: "wrap",
               }}
             >
-              <div style={{ position: "absolute", left: 0, maxWidth:344, width:344 }}>
+              <div className={"topbar-search-container"}>
                 <form>
-                  <div style={{position:"relative"}}>
+                  <div style={{ position: "relative" }}>
                     <input
                       id="topbar-search"
                       type="search"
                       placeholder="search..."
                     ></input>
-                    <SearchIcon sx={{ position: "absolute", right:0, marginTop:"5%" }} color="primary"></SearchIcon>
+                    <SearchIcon
+                      sx={{
+                        position: "absolute",
+                        right: 0,
+                        marginTop: "5%",
+                        top: 0,
+                        marginRight: 2,
+                      }}
+                      color="primary"
+                    ></SearchIcon>
                   </div>
                 </form>
               </div>
@@ -210,7 +231,15 @@ export default function NavigationDrawer(props: Props) {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: "none" } }}
+                className={"mobile-hamburger"}
+                sx={{
+                  mr: 2,
+                  display: { sm: "none" },
+                  marginRight: "auto",
+                  background: "#e6f7fc",
+                  borderRadius: "10px",
+                  color: "#747474",
+                }}
               >
                 <MenuIcon />
               </IconButton>
@@ -222,6 +251,7 @@ export default function NavigationDrawer(props: Props) {
                 onClick={colorMode.toggleColorMode}
                 color="inherit"
                 className={"topbar-button"}
+                sx={{ padding: 0 }}
               >
                 {theme.palette.mode === "dark" ? (
                   <Brightness4Icon
@@ -240,12 +270,13 @@ export default function NavigationDrawer(props: Props) {
                 className={"topbar-icon"}
                 fontSize={"large"}
               ></NotificationsNoneOutlinedIcon>
-              <a href="/user-profile">
+              <Link sx={{ height: 35 }} href="/user/profile">
                 <AccountCircleOutlinedIcon
                   className={"topbar-icon"}
                   fontSize={"large"}
+                  sx={{ marginRight: 0 }}
                 ></AccountCircleOutlinedIcon>
-              </a>
+              </Link>
             </Toolbar>
           </AppBar>
           <Box
@@ -284,7 +315,7 @@ export default function NavigationDrawer(props: Props) {
               }}
               open
             >
-              {drawer}
+              <BrowserRouter>{drawer}</BrowserRouter>
             </Drawer>
           </Box>
           <Box
@@ -294,14 +325,16 @@ export default function NavigationDrawer(props: Props) {
               flexGrow: 1,
               p: 3,
               width: { sm: `calc(100% - ${drawerWidth}px)` },
+
+              background: `${
+                theme.palette.mode === "dark"
+                  ? theme.palette.background.default
+                  : "#e6f7fc"
+              }`,
             }}
           >
             {/**Pages will be rendered here through react router */}
-            {isLoaded ? (
-              <RouterProvider router={router} />
-            ) : (
-              <CircularProgress></CircularProgress>
-            )}
+            <RouterProvider router={router}></RouterProvider>
           </Box>
         </Box>
       </ThemeProvider>

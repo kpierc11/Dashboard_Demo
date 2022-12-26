@@ -1,10 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import StationsPage from "../pages/StationsPage";
+import ReportsPage from "../pages/ReportsPage";
+import StationDataPage from "../pages/stationDataPage/StationDataPage";
+import StationsDirectoryPage from "../pages/StationsDirectoryPage";
+import StationsPage from "../pages/stationsPage/StationsPage";
+import NavTabs from "../components/UserSettings/NavTabs";
+import TrendsPage from "../pages/trendsPage/TrendsPage";
+import WidgetsPage from "../pages/WidgetsPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <StationsPage />,
+    children: [{}],
   },
   {
     path: "/directory",
@@ -12,18 +19,27 @@ export const router = createBrowserRouter([
   },
   {
     path: "/trends",
-    element: <div>trends page</div>,
+    element: <TrendsPage />,
   },
   {
     path: "/reports",
-    element: <div>reports page</div>,
+    element: <ReportsPage />,
   },
   {
     path: "/addons",
-    element: <div>addons page</div>,
+    element: <WidgetsPage />,
   },
   {
-    path: "/user-profile",
-    element: <div>addons page</div>,
+    path: "/user/profile",
+    element: <NavTabs/>,
+  },
+  {
+    path: "/stations-directory",
+    element: <StationsDirectoryPage />,
+  },
+
+  {
+    path: "station-data-page",
+    element: <StationDataPage></StationDataPage>,
   },
 ]);
