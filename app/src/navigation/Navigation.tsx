@@ -6,6 +6,7 @@ import StationsPage from "../pages/stationsPage/StationsPage";
 import NavTabs from "../components/UserSettings/NavTabs";
 import TrendsPage from "../pages/trendsPage/TrendsPage";
 import WidgetsPage from "../pages/WidgetsPage";
+import EditReportPage from "../pages/editReportsPage/EditReportPage";
 
 export const router = createBrowserRouter([
   {
@@ -41,5 +42,9 @@ export const router = createBrowserRouter([
   {
     path: "station-data-page",
     element: <StationDataPage></StationDataPage>,
+  },
+  {
+    path: "edit-report-page",
+    element: <EditReportPage/>,
   },
 ]);

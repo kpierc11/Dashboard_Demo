@@ -3,8 +3,11 @@
   height: 100%;
   width: 100%;
   border-radius: 15px;
-  padding-bottom:92px;
+  padding-bottom: 92px;
   border: 1px solid #919eab;
+}
+.edit-report-title {
+  font-size: 25px;
 }
 
 .edit-report-top-section {
@@ -19,18 +22,28 @@
   height: 558px;
   margin-top: 42px;
   margin-left: 32px;
-  margin-right:20px;
-  border: 1px solid #919EAB;
-  border-radius:15px !important;
+  margin-right: 20px;
+  border: 1px solid #919eab;
+  border-radius: 15px !important;
   box-shadow: none !important;
 }
 
 .edit-report-column-two {
-    height: 558px;
-    margin-top: 42px;
-    margin-left: 32px;
-    border: 1px solid #919EAB;
-    border-radius:15px !important;
-    box-shadow: none !important;
-    margin-right:47px;
-  }
+  height: 351px;
+  margin-top: 42px;
+  margin-left: 32px;
+  border: 1px solid #919eab;
+  border-radius: 15px !important;
+  box-shadow: none !important;
+  margin-right: 47px;
+}
+
+.report-paragraph {
+  font-size: 16px;
+  margin-left: 33px;
+  color: rgba(80, 80, 80, 1);
+}
+
+.switch-editreport{
+  margin-left: 25px;
+}

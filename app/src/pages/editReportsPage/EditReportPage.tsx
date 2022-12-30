@@ -1,4 +1,14 @@
-import { Box, Grid, MenuItem, Paper, styled, TextField } from "@mui/material";
+import {
+  Box,
+  Grid,
+  MenuItem,
+  Paper,
+  styled,
+  Switch,
+  TextField,
+} from "@mui/material";
+import { fontSize } from "@mui/system";
+import { any } from "prop-types";
 import "./editReportPage.css";
 
 export default function EditReportPage() {
@@ -6,33 +16,51 @@ export default function EditReportPage() {
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
     padding: theme.spacing(1),
-    textAlign: "center",
+    textAlign: "left",
     color: theme.palette.text.secondary,
   }));
 
-  const currencies = [
+  const stations = [
     {
-      value: "USD",
-      label: "$",
+      value: "st1",
+      label: "Station 1",
     },
     {
-      value: "EUR",
-      label: "€",
+      value: "st2",
+      label: "Station 2",
     },
     {
-      value: "BTC",
-      label: "฿",
+      value: "st3",
+      label: "Station 3",
     },
     {
-      value: "JPY",
-      label: "¥",
+      value: "st4",
+      label: "Station 4",
+    },
+  ];
+  const TimeZone = [
+    {
+      value: "tm1",
+      label: "UTC -10",
+    },
+    {
+      value: "tm2",
+      label: "UTC -9",
+    },
+    {
+      value: "tm3",
+      label: "UTC -8",
+    },
+    {
+      value: "tm4",
+      label: "UTC -7",
     },
   ];
 
   return (
     <div className="edit-report-main-container">
       <div className="edit-report-top-section">
-        <h3>Edit Report</h3>
+        <h3 className="edit-report-title">Edit Report</h3>
       </div>
 
       <Box>
@@ -52,17 +80,6 @@ export default function EditReportPage() {
                   sx={{
                     backgroundColor: "#FAFAFA",
                     marginBottom: "22px",
-                    maxWidth:355,
-                  }}
-                  required
-                  id="outlined-required"
-                  label="Report Name"
-                  defaultValue="Sample Report"
-                />
-                <TextField
-                  sx={{
-                    backgroundColor: "#FAFAFA",
-                    marginBottom: "22px",
                     maxWidth: 355,
                   }}
                   required
@@ -78,10 +95,10 @@ export default function EditReportPage() {
                   }}
                   id="outlined-select-currency"
                   select
-                  label="Select"
-                  helperText="Please select your currency"
+                  label="Data Source"
+                  defaultValue="st1"
                 >
-                  {currencies.map((option) => (
+                  {stations.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
                       {option.label}
                     </MenuItem>
@@ -93,17 +110,60 @@ export default function EditReportPage() {
                     marginBottom: "22px",
                     maxWidth: 355,
                   }}
+                  required
+                  id="outlined-required"
+                  label="User"
+                  defaultValue="Sample Report"
+                />
+                <TextField
+                  sx={{
+                    backgroundColor: "#FAFAFA",
+                    marginBottom: "22px",
+                    maxWidth: 500,
+                  }}
                   id="outlined-multiline-static"
-                  label="Multiline"
+                  label="Description"
                   multiline
                   rows={4}
-                  defaultValue="Default Value"
+                  defaultValue="This is an example description"
                 />
               </div>
             </Item>
           </Grid>
           <Grid xs={12} md={12} lg={6}>
-            <Item className="edit-report-column-two"></Item>
+            <Item className="edit-report-column-two">
+              <p className="report-paragraph">
+                Do you want to create a scheduled or a On-Demand report?
+              </p>
+              <Switch className="switch-editreport" />
+              <p className="report-paragraph">
+                Do you want the report's timestamps converted to a different
+                time zone?
+              </p>
+              <Switch className="switch-editreport" />
+              <p className="report-paragraph">
+                Select a new time zone for the report data.
+              </p>
+              <TextField
+                sx={{
+                  backgroundColor: "#FAFAFA",
+                  marginBottom: "22px",
+                  maxWidth: 350,
+                  width: "189px",
+                  marginLeft: "33px",
+                }}
+                id="outlined-select-currency"
+                select
+                label="Time Zone"
+                defaultValue="tm1"
+              >
+                {TimeZone.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Item>
           </Grid>
         </Grid>
       </Box>

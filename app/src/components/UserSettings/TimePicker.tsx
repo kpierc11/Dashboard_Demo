@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { TextFieldProps } from '@mui/material';
 
 export default function Timeset() {
   const [value, setValue] = React.useState<Dayjs | null>(null);
@@ -13,10 +14,10 @@ export default function Timeset() {
       <TimePicker
         label="Select Time"
         value={value}
-        onChange={(newValue) => {
+        onChange={(newValue: any) => {
           setValue(newValue);
         }}
-        renderInput={(params) => <TextField {...params} />}
+        renderInput={(params: JSX.IntrinsicAttributes & TextFieldProps) => <TextField {...params} />}
       />
     </LocalizationProvider>
   );
