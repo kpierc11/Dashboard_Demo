@@ -144,19 +144,20 @@ export default function EditReportPage() {
               <p className="report-paragraph">
                 Do you want to create a scheduled or a On-Demand report?
               </p>
-              <Switch className="switch-editreport" />
+              <Switch className="switch-editreport" /><p className="switch-text">off</p>
               <p className="report-paragraph">
                 Do you want the report's timestamps converted to a different
                 time zone?
               </p>
-              <Switch className="switch-editreport" />
+              <Switch className="switch-editreport" /><p className="switch-text">off</p>
               <p className="report-paragraph">
                 Select a new time zone for the report data.
               </p>
               <TextField
                 sx={{
                   backgroundColor: "#FAFAFA",
-                  marginBottom: "22px",
+                  marginBottom: "30px",
+                  marginTop:"13px",
                   maxWidth: 350,
                   width: "189px",
                   marginLeft: "33px",

@@ -42,10 +42,19 @@
   margin-left: 33px;
   color: rgba(80, 80, 80, 1);
   font-weight: 700;
+  margin-bottom: 13px;
 }
 
 .switch-editreport {
   margin-left: 25px;
+}
+
+.switch-text {
+  display: inline-flex;
+  flex-direction: row;
+  font-size: 14px;
+  color: rgba(80, 80, 80, 1);
+  font-weight: 700;
 }
 
 .edit-reports-bottom {
