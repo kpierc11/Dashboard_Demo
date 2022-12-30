@@ -41,19 +41,27 @@ export default function EditReportPage() {
   const TimeZone = [
     {
       value: "tm1",
-      label: "UTC -10",
+      label: "HST",
     },
     {
       value: "tm2",
-      label: "UTC -9",
+      label: "AKST",
     },
     {
       value: "tm3",
-      label: "UTC -8",
+      label: "PST",
     },
     {
       value: "tm4",
-      label: "UTC -7",
+      label: "MST",
+    },
+    {
+      value: "tm5",
+      label: "CST",
+    },
+    {
+      value: "tm6",
+      label: "EST",
     },
   ];
 
@@ -67,7 +75,7 @@ export default function EditReportPage() {
         <Grid container>
           <Grid xs={12} md={12} lg={6}>
             <Item className="edit-report-column-one">
-              <div
+              <Box
                 style={{
                   display: "flex",
                   justifyContent: "flex-start",
@@ -79,7 +87,7 @@ export default function EditReportPage() {
                 <TextField
                   sx={{
                     backgroundColor: "#FAFAFA",
-                    marginBottom: "22px",
+                    marginBottom: "26px",
                     maxWidth: 355,
                   }}
                   required
@@ -90,7 +98,7 @@ export default function EditReportPage() {
                 <TextField
                   sx={{
                     backgroundColor: "#FAFAFA",
-                    marginBottom: "22px",
+                    marginBottom: "26px",
                     maxWidth: 355,
                   }}
                   id="outlined-select-currency"
@@ -107,7 +115,7 @@ export default function EditReportPage() {
                 <TextField
                   sx={{
                     backgroundColor: "#FAFAFA",
-                    marginBottom: "22px",
+                    marginBottom: "26px",
                     maxWidth: 355,
                   }}
                   required
@@ -118,7 +126,7 @@ export default function EditReportPage() {
                 <TextField
                   sx={{
                     backgroundColor: "#FAFAFA",
-                    marginBottom: "22px",
+                    marginBottom: "26px",
                     maxWidth: 500,
                   }}
                   id="outlined-multiline-static"
@@ -127,7 +135,8 @@ export default function EditReportPage() {
                   rows={4}
                   defaultValue="This is an example description"
                 />
-              </div>
+              </Box>
+              
             </Item>
           </Grid>
           <Grid xs={12} md={12} lg={6}>
@@ -167,6 +176,17 @@ export default function EditReportPage() {
           </Grid>
         </Grid>
       </Box>
+      <div className="edit-reports-bottom">
+        <button
+          className="bottom-section-buttons"
+          onClick={(event) => {
+            alert("Going Back");
+          }}
+        >
+          Go Back
+        </button>
+      
+      </div>
     </div>
   );
 }

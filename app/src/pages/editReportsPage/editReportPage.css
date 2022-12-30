@@ -3,7 +3,7 @@
   height: 100%;
   width: 100%;
   border-radius: 15px;
-  padding-bottom: 92px;
+  padding-bottom: 45px;
   border: 1px solid #919eab;
 }
 .edit-report-title {
@@ -13,9 +13,8 @@
 .edit-report-top-section {
   width: 100%;
   border-bottom: 1px solid #bbbbbb;
-  padding-top: 47px;
+  padding-top: 10px;
   padding-left: 36px;
-  padding-bottom: 28px;
 }
 
 .edit-report-column-one {
@@ -42,8 +41,35 @@
   font-size: 16px;
   margin-left: 33px;
   color: rgba(80, 80, 80, 1);
+  font-weight: 700;
 }
 
-.switch-editreport{
+.switch-editreport {
   margin-left: 25px;
+}
+
+.edit-reports-bottom {
+  margin-top: 17px;
+  margin-left: 36px;
+}
+
+.bottom-section-buttons {
+  background-color: #ddf7ff;
+  border: 1px solid rgba(145, 158, 171, 1);
+  color: #1c7ed9;
+  text-align: center;
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+  border-radius: 9px;
+  margin-right: 15px;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  max-width: 120px;
+  cursor: pointer;
+  margin-right: 60px;
+  text-align: center;
+  justify-content: center;
+  transition: 0.3s;
 }
