@@ -44,6 +44,7 @@ import NavTabs from "../UserSettings/NavTabs";
 import StationDataPage from "../../pages/stationDataPage/StationDataPage";
 import ReportsPage from "../../pages/ReportsPage";
 import AlarmsPage from "../../pages/alarmsPage/AlarmsPage";
+import UsersPage from "../../pages/UsersPage";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
