@@ -7,6 +7,7 @@ import NavTabs from "../components/UserSettings/NavTabs";
 import TrendsPage from "../pages/trendsPage/TrendsPage";
 import WidgetsPage from "../pages/WidgetsPage";
 import EditReportPage from "../pages/editReportsPage/EditReportPage";
+import AddonsPage from "../pages/AddonsPage";
 
 export const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/addons",
-    element: <WidgetsPage />,
+    element: <AddonsPage />,
   },
   {
     path: "/user/profile",
@@ -40,11 +41,15 @@ export const router = createBrowserRouter([
   },
 
   {
-    path: "station-data-page",
+    path: "/station-data-page",
     element: <StationDataPage></StationDataPage>,
   },
   {
-    path: "edit-report-page",
+    path: "/edit-report-page",
     element: <EditReportPage/>,
+  },
+  {
+    path: "/widgets",
+    element: <WidgetsPage/>
   },
 ]);
