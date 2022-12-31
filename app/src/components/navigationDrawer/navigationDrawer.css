@@ -20,8 +20,8 @@
 
 .topbar-icon {
   font-size: 28;
-  width:40px;
-  height:40px;
+  width: 40px;
+  height: 40px;
   color: #747474;
   justify-content: flex-end;
   background-color: #e6f7fc;
@@ -34,16 +34,10 @@
   background-color: unset !important;
 }
 
-.sidebar-link {
-  text-decoration: none;
-  opacity: 100%;
-  font-size: 18px;
-}
-
 .topbar-search-container {
   max-width: 344px;
   width: 100%;
-  margin-right:auto;
+  margin-right: auto;
 }
 
 #topbar-search {
@@ -67,9 +61,30 @@
   color: #979797;
 }
 
+.sidebar-navigation li {
+  padding-right:20px;
+  padding-left:20px;
+  margin-bottom:33px;
+}
 
-@media (max-width:860px) {
+.sidebar-link {
+  text-decoration: none;
+  opacity: 100%;
+  font-size: 18px;
+  width: 100%;
+  border-radius:10px;
+}
+
+.sidebar-link:visited {
+  color: #505050;
+}
+
+.sidebar-link div:hover {
+  border-radius:10px;
+}
+
+@media (max-width: 860px) {
   .topbar-search-container {
-    display:none;
+    display: none;
   }
 }

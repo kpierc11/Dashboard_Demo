@@ -13,33 +13,4 @@ export const router = createBrowserRouter([
     element: <StationsPage />,
     children: [{}],
   },
-  {
-    path: "/directory",
-    element: <div>Directory</div>,
-  },
-  {
-    path: "/trends",
-    element: <TrendsPage />,
-  },
-  {
-    path: "/reports",
-    element: <ReportsPage />,
-  },
-  {
-    path: "/addons",
-    element: <WidgetsPage />,
-  },
-  {
-    path: "/user/profile",
-    element: <NavTabs/>,
-  },
-  {
-    path: "/stations-directory",
-    element: <StationsDirectoryPage />,
-  },
-
-  {
-    path: "station-data-page",
-    element: <StationDataPage></StationDataPage>,
-  },
 ]);
