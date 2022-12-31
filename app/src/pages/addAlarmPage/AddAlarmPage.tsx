@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { fontSize } from "@mui/system";
 import { any } from "prop-types";
-import "./editReportPage.css";
+import "../addAlarmPage/addAlarmPage.css";
 
 export default function EditReportPage() {
   const Item = styled(Paper)(({ theme }) => ({
@@ -38,6 +38,20 @@ export default function EditReportPage() {
       label: "Station 4",
     },
   ];
+  const Trigger = [
+    {
+      value: "tg1",
+      label: "Low Value Trigger",
+    },
+    {
+      value: "tg2",
+      label: "Medium Value Trigger",
+    },
+    {
+      value: "tg3",
+      label: "High Value Trigger",
+    },
+  ];
   const TimeZone = [
     {
       value: "tm1",
@@ -51,24 +65,28 @@ export default function EditReportPage() {
       value: "tm3",
       label: "PST",
     },
+  
+  ];
+  const threshold = [
     {
-      value: "tm4",
-      label: "MST",
+      value: "th1",
+      label: "> 10 V",
     },
     {
-      value: "tm5",
-      label: "CST",
+      value: "th2",
+      label: "> 15 V",
     },
     {
-      value: "tm6",
-      label: "EST",
+      value: "th3",
+      label: "> 20 V",
     },
+  
   ];
 
   return (
     <div className="edit-report-main-container">
       <div className="edit-report-top-section">
-        <h3 className="edit-report-title">Edit Report</h3>
+        <h3 className="edit-report-title">Add Alarm</h3>
       </div>
 
       <Box>
@@ -92,8 +110,8 @@ export default function EditReportPage() {
                   }}
                   required
                   id="outlined-required"
-                  label="Report Name"
-                  defaultValue="Sample Report"
+                  label="Alarm Name"
+                  defaultValue="Alarm Name..."
                 />
                 <TextField
                   sx={{
@@ -103,7 +121,7 @@ export default function EditReportPage() {
                   }}
                   id="outlined-select-currency"
                   select
-                  label="Data Source"
+                  label="Type"
                   defaultValue="st1"
                 >
                   {stations.map((option) => (
@@ -118,23 +136,18 @@ export default function EditReportPage() {
                     marginBottom: "26px",
                     maxWidth: 355,
                   }}
-                  required
-                  id="outlined-required"
-                  label="User"
-                  defaultValue="Sample Report"
-                />
-                <TextField
-                  sx={{
-                    backgroundColor: "#FAFAFA",
-                    marginBottom: "26px",
-                    maxWidth: 500,
-                  }}
-                  id="outlined-multiline-static"
-                  label="Description"
-                  multiline
-                  rows={4}
-                  defaultValue="This is an example description"
-                />
+                  id="outlined-select-currency"
+                  select
+                  label="Trigger Threshold"
+                  defaultValue="st1"
+                >
+                  {stations.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+               
               </Box>
               
             </Item>

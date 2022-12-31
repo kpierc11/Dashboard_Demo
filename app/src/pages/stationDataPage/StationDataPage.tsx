@@ -15,8 +15,15 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
-import Switch from "@mui/material/Switch/Switch";
-import "../trendsPage/trendsPage.css";
+import BatteryCharging90Icon from "@mui/icons-material/BatteryCharging90";
+import { useState } from "react";
+import {
+  FormControl,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 
 ChartJS.register(
   CategoryScale,
@@ -55,7 +62,6 @@ export const data = {
   ],
 };
 
-
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -67,12 +73,78 @@ const Item = styled(Paper)(({ theme }) => ({
   flexWrap: "wrap",
   textAlign: "center",
   color: theme.palette.text.secondary,
-  height: "100%",
+  borderRadius: "15px",
 }));
 
 export default function StationDataPage() {
+  const [personName, setPersonName] = useState<string[]>([]);
+
+  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+  };
+
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
+  };
+
+  const names = [
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+  ];
+
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{display:"flex", alignItems:"center", marginBottom:5}} >
+        <h3>Selected Station: </h3>
+        <FormControl sx={{ m: 1, width: 300, background:"white"}}>
+          <Select
+            multiple
+            displayEmpty
+            value={personName}
+            onChange={handleChange}
+            input={<OutlinedInput />}
+            renderValue={(selected) => {
+              if (selected.length === 0) {
+                return <em>Placeholder</em>;
+              }
+
+              return selected.join(", ");
+            }}
+            MenuProps={MenuProps}
+            inputProps={{ "aria-label": "Without label" }}
+          >
+            <MenuItem disabled value="">
+              <em>Placeholder</em>
+            </MenuItem>
+            {names.map((name) => (
+              <MenuItem key={name} value={name}>
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
       <Grid container spacing={2}>
         <Grid xs={12}>
           <Item
@@ -89,7 +161,19 @@ export default function StationDataPage() {
             </Box>
             <Box className="station-data-unit-info">
               <h2>Battery Life</h2>
-              <p>83.4%</p>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <p>83.4%</p>
+                <BatteryCharging90Icon
+                  sx={{ color: "#1EE90D" }}
+                ></BatteryCharging90Icon>
+              </Box>
             </Box>
             <Box className="station-data-unit-info">
               <h2>LastReported</h2>
@@ -101,12 +185,23 @@ export default function StationDataPage() {
             </Box>
             <Box className="station-data-unit-info">
               <h2>Station Health</h2>
-              <p>Excellent 92.5%</p>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <p>Excellent 92.5%</p>
+                <BatteryCharging90Icon
+                  sx={{ color: "#1EE90D" }}
+                ></BatteryCharging90Icon>
+              </Box>
             </Box>
           </Item>
         </Grid>
-        <Grid xs={4}>
-          <Item sx={{ padding: "30px 30px 30px 30px" }}>
+        <Grid xs={12} md={6}>
+          <Item sx={{ padding: "30px 30px 30px 30px", marginBottom: "30px" }}>
             <h1>Primary Alarm</h1>
             <Box
               className={"station-data-primary-alarm-topbar"}
@@ -129,17 +224,23 @@ export default function StationDataPage() {
               <p>11.59 V</p>
             </Box>
           </Item>
-        </Grid>
-        <Grid xs={8}>
-          <Item>
-            <h1>DPI Mult Probe</h1>
-          </Item>
-        </Grid>
-        <Grid xs={4} sx={{ height: "100%" }}>
-          <Item sx={{ padding:"30px"}}>
+          <Item sx={{ padding: "30px" }}>
             <h1>NOAA Precipitation</h1>
             <Line options={options} data={data} />
-            </Item>
+          </Item>
+        </Grid>
+        <Grid xs={12} md={6}>
+          <Item
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              height: "100%",
+            }}
+          >
+            <h1>DPI Mult Probe</h1>
+            <Box sx={{ width: "width:100%" }}></Box>
+          </Item>
         </Grid>
       </Grid>
     </Box>

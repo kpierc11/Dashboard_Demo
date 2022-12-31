@@ -84,13 +84,13 @@ export default function StationCard(props: Station) {
           {statusElement}
         </div>
         <div className={"station-card-icons"}>
-          <a href={"/station-data-page"}>
+          <a href={"/station-data"}>
             <BarChartIcon fontSize="large"></BarChartIcon>
           </a>
           <a>
             <MapIcon fontSize="large"></MapIcon>
           </a>
-          <a>
+          <a  href={"/station-data/alarms"}>
             <TimerIcon fontSize="large"></TimerIcon>
           </a>
         </div>

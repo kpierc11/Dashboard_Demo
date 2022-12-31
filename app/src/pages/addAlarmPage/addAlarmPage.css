@@ -1,4 +1,4 @@
-.edit-report-main-container {
+.add-alarm-main-container {
   background: white;
   height: 100%;
   width: 100%;
@@ -6,38 +6,47 @@
   padding-bottom: 45px;
   border: 1px solid #919eab;
 }
-.edit-report-title {
+.add-alarm-title {
   font-size: 25px;
 }
 
-.edit-report-top-section {
+.add-alarm-top-section {
   width: 100%;
   border-bottom: 1px solid #bbbbbb;
   padding-top: 15px;
   padding-left: 36px;
 }
 
-.edit-report-column-one {
+.add-alarm-column-one {
   height: 558px;
   margin-top: 42px;
   margin-left: 32px;
   margin-right: 20px;
-  border: 1px solid #919eab;
-  border-radius: 15px !important;
   box-shadow: none !important;
 }
 
-.edit-report-column-two {
+.add-alarm-column-two {
   height: 351px;
   margin-top: 42px;
-  margin-left: 32px;
+  max-width: 698px;
   border: 1px solid #919eab;
   border-radius: 15px !important;
   box-shadow: none !important;
-  margin-right: 47px;
+  margin-right: 357px;
+  width: 100%;
 }
 
-.report-paragraph {
+.column-two-top-section {
+  color: rgba(0, 0, 0, 1);
+  font-size: 20px;
+  border-bottom: 1px solid #bbbbbb;
+}
+
+.column-two-title {
+  margin-left: 37px;
+}
+
+.add-alarm-paragraph {
   font-size: 16px;
   margin-left: 33px;
   color: rgba(80, 80, 80, 1);
@@ -45,7 +54,7 @@
   margin-bottom: 13px;
 }
 
-.switch-editreport {
+.switch-addalarm {
   margin-left: 25px;
 }
 
@@ -65,6 +74,7 @@
 .bottom-section-buttons {
   background-color: #ddf7ff;
   border: 1px solid rgba(145, 158, 171, 1);
+  border-radius: 15px !important;
   color: #1c7ed9;
   text-align: center;
   font-size: 18px;
@@ -74,11 +84,16 @@
   margin-right: 15px;
   display: inline-flex;
   align-items: center;
-  padding: 10px;
-  max-width: 120px;
+  padding: 3px;
+  max-width: 150px;
   cursor: pointer;
   margin-right: 60px;
   text-align: center;
   justify-content: center;
   transition: 0.3s;
+}
+
+.bottom-section-add-alarm {
+  display: inline-flex;
+
 }
