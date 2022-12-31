@@ -399,13 +399,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           borderBottom: "1px solid #919EAB",
           pl: { sm: 2 },
           pr: { xs: 1, sm: 1 },
-          ...(numSelected > 0 && {
-            bgcolor: (theme) =>
-              alpha(
-                theme.palette.primary.main,
-                theme.palette.action.activatedOpacity
-              ),
-          }),
+          ...(numSelected > 0 && {}),
         }}
       >
         <div className={"reports-topbar"}>
