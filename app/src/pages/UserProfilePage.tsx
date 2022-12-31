@@ -1,6 +1,5 @@
-import React from "react";
-import UserProfile from "../components/UserSettings/NavTabs";
+import UserProfilePage from "../components/UserSettings/UserProfilePage";
 
 export default function UserSettingsPage() {
-  return <UserProfile></UserProfile>;
+  return <UserProfilePage></UserProfilePage>
 }
