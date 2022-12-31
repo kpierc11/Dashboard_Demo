@@ -127,7 +127,7 @@ export default function NavigationDrawer(props: Props) {
           </NavLink>
         </ListItem>
 
-        <ListItem key={1} disablePadding>
+        <ListItem key={3} disablePadding>
           <NavLink
             className={"sidebar-link"}
             to="/trends"
@@ -142,7 +142,7 @@ export default function NavigationDrawer(props: Props) {
           </NavLink>
         </ListItem>
 
-        <ListItem key={2} disablePadding>
+        <ListItem key={4} disablePadding>
           <NavLink
             className={"sidebar-link"}
             to="/reports"
@@ -157,7 +157,7 @@ export default function NavigationDrawer(props: Props) {
           </NavLink>
         </ListItem>
 
-        <ListItem key={2} disablePadding>
+        <ListItem key={5} disablePadding>
           <NavLink
             className={"sidebar-link"}
             to="/addons"
@@ -174,7 +174,7 @@ export default function NavigationDrawer(props: Props) {
 
         <h1 style={{ paddingLeft: 27, marginTop: 30, fontSize: 20 }}>Admin</h1>
 
-        <ListItem key={1} disablePadding>
+        <ListItem key={6} disablePadding>
           <NavLink
             className={"sidebar-link"}
             to="/users"
@@ -359,20 +359,14 @@ export default function NavigationDrawer(props: Props) {
           >
             {/**Pages will be rendered here through react router */}
             <Routes>
-              <Route path="/" element={<StationsPage/>}></Route>
-              <Route
-                path="/station-data"
-                element={<StationDataPage/>}
-              ></Route>
+              <Route path="/" element={<StationsPage />}></Route>
+              <Route path="/station-data" element={<StationDataPage />}></Route>
               <Route
                 path="/stations-directory"
                 element={<StationsDirectoryPage />}
               ></Route>
               <Route path="/trends" element={<TrendsPage />}></Route>
-              <Route
-                path="/reports"
-                element={<ReportsPage/>}
-              ></Route>
+              <Route path="/reports" element={<ReportsPage />}></Route>
               <Route path="/addons" element={<WidgetsPage />}></Route>
               <Route
                 path="/users/"
