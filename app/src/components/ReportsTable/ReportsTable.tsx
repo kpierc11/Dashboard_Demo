@@ -56,7 +56,111 @@ const rows = [
     "Hydro Report",
     "This is an example description",
     "Administrator",
-    "84",
+    "15",
+    <button className="download-button">Download</button>,
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
+  ),
+  createData(
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "13",
+    <button className="download-button">Download</button>,
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
+  ),
+  createData(
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "29",
+    <button className="download-button">Download</button>,
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
+  ),
+  createData(
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "31",
+    <button className="download-button">Download</button>,
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
+  ),
+  createData(
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "56",
+    <button className="download-button">Download</button>,
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
+  ),
+  createData(
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "72",
+    <button className="download-button">Download</button>,
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
+  ),
+  createData(
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "93",
+    <button className="download-button">Download</button>,
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
+  ),
+  createData(
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "15",
+    <button className="download-button">Download</button>,
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
+  ),
+  createData(
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "12",
     <button className="download-button">Download</button>,
     <MoreVertIcon
       color="primary"
@@ -82,7 +186,7 @@ const rows = [
     "Hydro Report",
     "This is an example description",
     "Administrator",
-    "21",
+    "76",
     <button className="download-button">Download</button>,
     <MoreVertIcon
       color="primary"
@@ -108,111 +212,7 @@ const rows = [
     "Hydro Report",
     "This is an example description",
     "Administrator",
-    "37",
-    <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "92",
-    <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "68",
-    <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "12",
-    <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "25",
-    <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "68",
-    <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "8",
-    <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "76",
-    <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "12",
+    "104",
     <button className="download-button">Download</button>,
     <MoreVertIcon
       color="primary"
@@ -285,13 +285,13 @@ const headCells: readonly HeadCell[] = [
     id: "description",
     numeric: true,
     disablePadding: false,
-    label: "Reported",
+    label: "Description",
   },
   {
     id: "role",
     numeric: true,
     disablePadding: false,
-    label: "Station Type",
+    label: "Role",
   },
   {
     id: "parameters",
