@@ -408,51 +408,41 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           }),
         }}
       >
-        {numSelected > 0 ? (
-          <Typography
-            sx={{ flex: "1 1 100%" }}
-            color="inherit"
-            variant="subtitle1"
-            component="div"
-          >
-            {numSelected} selected
-          </Typography>
-        ) : (
-          <div className={"reports-topbar"}>
-            <div className={"reports-title-column"}>
-              <h2 className="reports-title">Reports</h2>
-            </div>
-            <div className={"reports-search-column"}>
-              <button
-                className="add-button"
-                onClick={(event) => {
-                  alert("Add Report");
-                }}
-              >
-                Add Report
-              </button>
-              <form method="POST" style={{ width: "100%" }}>
-                <div style={{ position: "relative" }}>
-                  <input
-                    id="reports-search"
-                    type="search"
-                    placeholder="Search Report"
-                  ></input>
-                  <SearchIcon
-                    sx={{
-                      position: "absolute",
-                      right: 0,
-                      marginRight: 2,
-                      marginTop: "6%",
-                      top: 0,
-                    }}
-                    color="primary"
-                  ></SearchIcon>
-                </div>
-              </form>
-            </div>
+        <div className={"reports-topbar"}>
+          <div className={"reports-title-column"}>
+            <h2 className="reports-title">Reports</h2>
           </div>
-        )}
+          <div className={"reports-search-column"}>
+            <button
+              className="add-button"
+              onClick={(event) => {
+                alert("Add Report");
+              }}
+            >
+              Add Report
+            </button>
+            <form method="POST" style={{ width: "100%" }}>
+              <div style={{ position: "relative" }}>
+                <input
+                  id="reports-search"
+                  type="search"
+                  placeholder="Search Report"
+                ></input>
+                <SearchIcon
+                  sx={{
+                    position: "absolute",
+                    right: 0,
+                    marginRight: 2,
+                    marginTop: "6%",
+                    top: 0,
+                  }}
+                  color="primary"
+                ></SearchIcon>
+              </div>
+            </form>
+          </div>
+        </div>
+
         {numSelected > 0 ? (
           <Tooltip title="Delete">
             <IconButton></IconButton>
@@ -576,8 +566,6 @@ export default function EnhancedTable() {
 
                   return (
                     <TableRow
-                      hover
-                      onClick={(event) => handleClick(event, row.parameters)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
@@ -586,6 +574,9 @@ export default function EnhancedTable() {
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
+                          onClick={(event) =>
+                            handleClick(event, row.parameters)
+                          }
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{

@@ -61,7 +61,11 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (ID)",
@@ -70,10 +74,16 @@ const rows = [
     "AHPS",
     <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#FF0000", marginLeft: "12px"  }}></FiberManualRecordIcon>
+      <FiberManualRecordIcon
+        sx={{ color: "#FF0000", marginLeft: "12px" }}
+      ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (HI)",
@@ -87,7 +97,11 @@ const rows = [
       ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (GA)",
@@ -99,7 +113,11 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AZ)",
@@ -111,7 +129,11 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AL)",
@@ -125,7 +147,11 @@ const rows = [
       ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (CA)",
@@ -137,7 +163,11 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (NY)",
@@ -149,7 +179,11 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (FL)",
@@ -161,7 +195,11 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (TN)",
@@ -173,7 +211,11 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AR)",
@@ -185,7 +227,11 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (CO)",
@@ -197,7 +243,11 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (LA)",
@@ -209,7 +259,11 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon color="primary" fontSize="large" cursor="pointer"></MoreVertIcon>
+    <MoreVertIcon
+      color="primary"
+      fontSize="large"
+      cursor="pointer"
+    ></MoreVertIcon>
   ),
 ];
 
@@ -393,44 +447,33 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           }),
         }}
       >
-        {numSelected > 0 ? (
-          <Typography
-            sx={{ flex: "1 1 100%" }}
-            color="inherit"
-            variant="subtitle1"
-            component="div"
-          >
-            {numSelected} selected
-          </Typography>
-        ) : (
-          <div className={"stations-directory-topbar"}>
-            <div className={"stations-title-column"}>
-              <h2 className="directory-title">Stations Directory</h2>
-            </div>
-            <div className={"stations-directory-search-column"}>
-              <div className="directory-buttons"></div>
-              <form method="POST" style={{ width: "100%" }}>
-                <div style={{ position: "relative" }}>
-                  <input
-                    id="directory-search"
-                    type="search"
-                    placeholder="Find A Station..."
-                  ></input>
-                  <SearchIcon
-                    sx={{
-                      position: "absolute",
-                      right: 0,
-                      marginRight: 2,
-                      marginTop: "6%",
-                      top: 0,
-                    }}
-                    color="primary"
-                  ></SearchIcon>
-                </div>
-              </form>
-            </div>
+        <div className={"stations-directory-topbar"}>
+          <div className={"stations-title-column"}>
+            <h2 className="directory-title">Stations Directory</h2>
           </div>
-        )}
+          <div className={"stations-directory-search-column"}>
+            <div className="directory-buttons"></div>
+            <form method="POST" style={{ width: "100%" }}>
+              <div style={{ position: "relative" }}>
+                <input
+                  id="directory-search"
+                  type="search"
+                  placeholder="Find A Station..."
+                ></input>
+                <SearchIcon
+                  sx={{
+                    position: "absolute",
+                    right: 0,
+                    marginRight: 2,
+                    marginTop: "6%",
+                    top: 0,
+                  }}
+                  color="primary"
+                ></SearchIcon>
+              </div>
+            </form>
+          </div>
+        </div>
       </Toolbar>
     </>
   );
@@ -539,8 +582,6 @@ export default function EnhancedTable() {
 
                   return (
                     <TableRow
-                      hover
-                      onClick={(event) => handleClick(event, row.stationName)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
@@ -549,6 +590,9 @@ export default function EnhancedTable() {
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
+                          onClick={(event) =>
+                            handleClick(event, row.stationName)
+                          }
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
