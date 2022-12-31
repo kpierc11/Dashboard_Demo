@@ -8,6 +8,7 @@ import TrendsPage from "../pages/trendsPage/TrendsPage";
 import WidgetsPage from "../pages/WidgetsPage";
 import EditReportPage from "../pages/editReportsPage/EditReportPage";
 import AddonsPage from "../pages/AddonsPage";
+import AddAlarmPage from "../pages/addAlarmPage/AddAlarmPage";
 
 export const router = createBrowserRouter([
   {
@@ -51,5 +52,9 @@ export const router = createBrowserRouter([
   {
     path: "/widgets",
     element: <WidgetsPage/>
+  },
+  {
+    path: "/add-alarm-page",
+    element: <AddAlarmPage/>
   },
 ]);
