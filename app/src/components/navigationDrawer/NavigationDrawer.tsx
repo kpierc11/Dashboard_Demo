@@ -43,7 +43,7 @@ import WidgetsPage from "../../pages/WidgetsPage";
 import NavTabs from "../UserSettings/NavTabs";
 import StationDataPage from "../../pages/stationDataPage/StationDataPage";
 import ReportsPage from "../../pages/ReportsPage";
-import UsersPage from "../../pages/UsersPage";
+import AlarmsPage from "../../pages/alarmsPage/AlarmsPage";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -361,19 +361,20 @@ export default function NavigationDrawer(props: Props) {
             {/**Pages will be rendered here through react router */}
             <Routes>
               <Route path="/" element={<StationsPage />}></Route>
-              <Route path="/station-data" element={<StationDataPage />}></Route>
+              <Route path="/station-data/" element={<StationDataPage />}></Route>
+              <Route path="/station-data/alarms/" element={<AlarmsPage/>}></Route>
               <Route
-                path="/stations-directory"
+                path="/stations-directory/"
                 element={<StationsDirectoryPage />}
               ></Route>
-              <Route path="/trends" element={<TrendsPage />}></Route>
-              <Route path="/reports" element={<ReportsPage />}></Route>
-              <Route path="/addons" element={<WidgetsPage />}></Route>
+              <Route path="/trends/" element={<TrendsPage />}></Route>
+              <Route path="/reports/" element={<ReportsPage />}></Route>
+              <Route path="/addons/" element={<WidgetsPage />}></Route>
               <Route
                 path="/users"
                 element={<UsersPage/>}
               ></Route>
-              <Route path="/user/profile" element={<NavTabs />}></Route>
+              <Route path="/user/profile/" element={<NavTabs />}></Route>
             </Routes>
           </Box>
         </Box>
