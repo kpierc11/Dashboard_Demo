@@ -60,6 +60,7 @@ export default function NotificationForm() {
               label="Phone"
               labelPlacement="start"
             />
+            <p>Select the time period to recieve your notifications set in the stations page.</p>
           </Box>
         </Box>
         <Box

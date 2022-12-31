@@ -93,9 +93,7 @@ const rows = [
     "Hydro Bio Science",
     "Spectator",
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon
-        sx={{ color: "#FF0000" }}
-      ></FiberManualRecordIcon>
+      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
     <MoreVertIcon
@@ -109,9 +107,7 @@ const rows = [
     "Hydro Bio Science",
     "Spectator",
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon
-        sx={{ color: "#FF0000"}}
-      ></FiberManualRecordIcon>
+      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
     <MoreVertIcon
@@ -195,9 +191,7 @@ const rows = [
     "Hydro Bio Science",
     "Administrator",
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon
-        sx={{ color: "#FF0000"}}
-      ></FiberManualRecordIcon>
+      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
     <MoreVertIcon
