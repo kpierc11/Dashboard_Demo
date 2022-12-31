@@ -1,11 +1,11 @@
-import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import UserProfileForm from './ProfileForm/UserProfileForm';
-import AuthenticationForm from './ProfileForm/AuthenticationForm';
-import NotificationForm from './ProfileForm/NotificationForm';
+import * as React from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import UserProfileForm from "./UserProfilePage";
+import AuthenticationForm from "./ProfileForms/AuthenticationForm";
+import NotificationForm from "./ProfileForms/NotificationForm";
 import PersonIcon from "@mui/icons-material/Person";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -36,13 +36,6 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-function a11yProps(index: number) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
 export default function NavTabs() {
   const [value, setValue] = React.useState(0);
 
@@ -51,33 +44,49 @@ export default function NavTabs() {
   };
 
   return (
-    <Box sx={{ background: "white", height:"800px", border:"1px solid gray", borderRadius:"15px" }}>
-      <Box sx={{ width: "100%", padding: "80px 18px 54px 18px" }}>
-        <Box
-          sx={{ background: "#f2f2f2", borderRadius:"15px" }}
+    <Box
+      sx={{
+        background: "white",
+        height: "800px",
+        border: "1px solid gray",
+        borderRadius: "15px",
+      }}
+    >
+      <Box>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+          sx={{
+            backgroundColor: "#f2f2f2",
+            margin: "50px 18px 0px 18px",
+            borderRadius: "15px",
+          }}
         >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-          >
-            <Tab icon={<PersonIcon />} label="Profile" iconPosition='start'/>
-            <Tab icon={<LockPersonIcon />} label="Authentication" iconPosition='start'/>
-            <Tab icon={<NotificationsIcon />} label="Notifications" iconPosition='start'/>
-          </Tabs>
-        </Box>
-        <TabPanel value={value} index={0}>
-          <Box>
-          <UserProfileForm/>
-          </Box>
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <AuthenticationForm/>
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <NotificationForm/>
-        </TabPanel>
+          <Tab icon={<PersonIcon />} label="Profile" iconPosition="start" />
+          <Tab
+            icon={<LockPersonIcon />}
+            label="Authentication"
+            iconPosition="start"
+          />
+          <Tab
+            icon={<NotificationsIcon />}
+            label="Notifications"
+            iconPosition="start"
+          />
+        </Tabs>
       </Box>
+      <TabPanel value={value} index={0}>
+        <Box>
+          <UserProfileForm />
+        </Box>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <AuthenticationForm />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <NotificationForm />
+      </TabPanel>
     </Box>
   );
 }

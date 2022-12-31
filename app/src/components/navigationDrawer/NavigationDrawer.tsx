@@ -373,7 +373,7 @@ export default function NavigationDrawer(props: Props) {
               <Route path="/addons/" element={<WidgetsPage />}></Route>
               <Route
                 path="/users"
-                element={<UsersPage/>}
+                element={<UsersPage></UsersPage>}
               ></Route>
               <Route path="/user/profile/" element={<NavTabs />}></Route>
             </Routes>
