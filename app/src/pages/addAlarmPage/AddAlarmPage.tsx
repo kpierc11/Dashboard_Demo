@@ -10,9 +10,8 @@ import {
 import { fontSize } from "@mui/system";
 import { any } from "prop-types";
 import "../addAlarmPage/addAlarmPage.css";
-import SearchIcon from "@mui/icons-material/Search";
 
-export default function AddAlarmPage() {
+export default function EditReportPage() {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -21,29 +20,54 @@ export default function AddAlarmPage() {
     color: theme.palette.text.secondary,
   }));
 
-  const type = [
+  const stations = [
     {
-      value: "N/A",
-      label: "N/A",
+      value: "st1",
+      label: "Station 1",
     },
     {
-      value: "low",
+      value: "st2",
+      label: "Station 2",
+    },
+    {
+      value: "st3",
+      label: "Station 3",
+    },
+    {
+      value: "st4",
+      label: "Station 4",
+    },
+  ];
+  const Trigger = [
+    {
+      value: "tg1",
       label: "Low Value Trigger",
     },
     {
-      value: "medium",
+      value: "tg2",
       label: "Medium Value Trigger",
     },
     {
-      value: "high",
+      value: "tg3",
       label: "High Value Trigger",
     },
   ];
-  const threshold = [
+  const TimeZone = [
     {
-      value: "N/A",
-      label: "N/A",
+      value: "tm1",
+      label: "HST",
     },
+    {
+      value: "tm2",
+      label: "AKST",
+    },
+    {
+      value: "tm3",
+      label: "PST",
+    },
+  
+  ];
+  const threshold = [
     {
       value: "th1",
       label: "> 10 V",
@@ -56,18 +80,19 @@ export default function AddAlarmPage() {
       value: "th3",
       label: "> 20 V",
     },
+  
   ];
 
   return (
-    <div className="add-alarm-main-container">
-      <div className="add-alarm-top-section">
-        <h3 className="add-alarm-title">Add Alarm</h3>
+    <div className="edit-report-main-container">
+      <div className="edit-report-top-section">
+        <h3 className="edit-report-title">Add Alarm</h3>
       </div>
 
       <Box>
         <Grid container>
           <Grid xs={12} md={12} lg={6}>
-            <Item className="add-alarm-column-one">
+            <Item className="edit-report-column-one">
               <Box
                 style={{
                   display: "flex",
@@ -82,26 +107,24 @@ export default function AddAlarmPage() {
                     backgroundColor: "#FAFAFA",
                     marginBottom: "26px",
                     maxWidth: 355,
-                    paddingBottom: "20px",
                   }}
                   required
                   id="outlined-required"
-                  label="Name"
-                  defaultValue="Alarm Name"
+                  label="Alarm Name"
+                  defaultValue="Alarm Name..."
                 />
                 <TextField
                   sx={{
                     backgroundColor: "#FAFAFA",
                     marginBottom: "26px",
                     maxWidth: 355,
-                    paddingBottom: "20px",
                   }}
                   id="outlined-select-currency"
                   select
                   label="Type"
-                  defaultValue="N/A"
+                  defaultValue="st1"
                 >
-                  {type.map((option) => (
+                  {stations.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
                       {option.label}
                     </MenuItem>
@@ -112,48 +135,72 @@ export default function AddAlarmPage() {
                     backgroundColor: "#FAFAFA",
                     marginBottom: "26px",
                     maxWidth: 355,
-                    paddingBottom: "20px",
                   }}
                   id="outlined-select-currency"
                   select
                   label="Trigger Threshold"
-                  defaultValue="N/A"
+                  defaultValue="st1"
                 >
-                  {threshold.map((option) => (
+                  {stations.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
                       {option.label}
                     </MenuItem>
                   ))}
                 </TextField>
-                <TextField
-                  sx={{
-                    backgroundColor: "#FAFAFA",
-                    marginBottom: "26px",
-                    maxWidth: 355,
-                  }}
-                  id="outlined-select-currency"
-                  select
-                  label="Clear Threshhold"
-                  defaultValue="N/A"
-                >
-                  {threshold.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
+               
               </Box>
+              
             </Item>
           </Grid>
           <Grid xs={12} md={12} lg={6}>
-            <Item className="add-alarm-column-two">
-              <div className="column-two-top-section">
-                <h4 className="column-two-title">Notify Users</h4>
-              </div>
+            <Item className="edit-report-column-two">
+              <p className="report-paragraph">
+                Do you want to create a scheduled or a On-Demand report?
+              </p>
+              <Switch className="switch-editreport" /><p className="switch-text">off</p>
+              <p className="report-paragraph">
+                Do you want the report's timestamps converted to a different
+                time zone?
+              </p>
+              <Switch className="switch-editreport" /><p className="switch-text">off</p>
+              <p className="report-paragraph">
+                Select a new time zone for the report data.
+              </p>
+              <TextField
+                sx={{
+                  backgroundColor: "#FAFAFA",
+                  marginBottom: "30px",
+                  marginTop:"13px",
+                  maxWidth: 350,
+                  width: "189px",
+                  marginLeft: "33px",
+                }}
+                id="outlined-select-currency"
+                select
+                label="Time Zone"
+                defaultValue="tm1"
+              >
+                {TimeZone.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
             </Item>
           </Grid>
         </Grid>
       </Box>
+      <div className="edit-reports-bottom">
+        <button
+          className="bottom-section-buttons"
+          onClick={(event) => {
+            alert("Going Back");
+          }}
+        >
+          Go Back
+        </button>
+      
+      </div>
     </div>
   );
 }
