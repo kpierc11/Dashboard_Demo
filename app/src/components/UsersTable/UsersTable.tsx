@@ -15,49 +15,45 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import "../ReportsTable/reportsTable.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import "../UsersTable/usersTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import IconButton from "@mui/material/IconButton/IconButton";
 
 interface Data {
-  type: string;
   name: string;
-  description: string;
+  company: string;
   role: string;
-  parameters: string;
-  link: string;
+  status: string;
   edit: string;
 }
 
 function createData(
-  type: any,
   name: any,
-  description: any,
+  company: any,
   role: any,
-  parameters: any,
-  link: any,
+  status: any,
   edit: any
 ): Data {
   return {
-    type,
     name,
-    description,
+    company,
     role,
-    parameters,
-    link,
+    status,
     edit,
   };
 }
 
 const rows = [
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
+    "Malachi Kelly",
+    "Hydro Bio Science",
     "Administrator",
-    "15",
-    <button className="download-button">Download</button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -65,12 +61,13 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "13",
-    <button className="download-button">Download</button>,
+    "Kasey Garrison",
+    "Hydro Bio Science",
+    "Custom",
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -78,12 +75,13 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "29",
-    <button className="download-button">Download</button>,
+    "Abdulrahman Grant",
+    "Hydro Bio Science",
+    "Spectator",
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -91,12 +89,15 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "31",
-    <button className="download-button">Download</button>,
+    "Floyd Pierce",
+    "Hydro Bio Science",
+    "Spectator",
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon
+        sx={{ color: "#FF0000" }}
+      ></FiberManualRecordIcon>
+      <Typography>Inactive</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -104,12 +105,15 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "56",
-    <button className="download-button">Download</button>,
+    "Jerome Pratt",
+    "Hydro Bio Science",
+    "Spectator",
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon
+        sx={{ color: "#FF0000"}}
+      ></FiberManualRecordIcon>
+      <Typography>Inactive</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -117,12 +121,13 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
+    "Oakley Maldonado",
+    "Hydro Bio Science",
     "Administrator",
-    "72",
-    <button className="download-button">Download</button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -130,12 +135,13 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
+    "Tariq Serrano",
+    "Hydro Bio Science",
     "Administrator",
-    "93",
-    <button className="download-button">Download</button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -143,12 +149,13 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
+    "Joao Petersen",
+    "Hydro Bio Science",
     "Administrator",
-    "15",
-    <button className="download-button">Download</button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -156,12 +163,13 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "12",
-    <button className="download-button">Download</button>,
+    "Keziah Fuentes",
+    "Hydro Bio Science",
+    "Custom",
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -169,12 +177,13 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "90",
-    <button className="download-button">Download</button>,
+    "Connor Roberts",
+    "Hydro Bio Science",
+    "Custom",
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -182,12 +191,15 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
+    "Faisal Patrick",
+    "Hydro Bio Science",
     "Administrator",
-    "76",
-    <button className="download-button">Download</button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon
+        sx={{ color: "#FF0000"}}
+      ></FiberManualRecordIcon>
+      <Typography>Inactive</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -195,12 +207,13 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "43",
-    <button className="download-button">Download</button>,
+    "Felix Curry",
+    "Hydro Bio Science",
+    "Custom",
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -208,12 +221,13 @@ const rows = [
     ></MoreVertIcon>
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "104",
-    <button className="download-button">Download</button>,
+    "Jago Flynn",
+    "Hydro Bio Science",
+    "Custom",
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <MoreVertIcon
       color="primary"
       fontSize="large"
@@ -270,22 +284,16 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
-    id: "type",
-    numeric: false,
-    disablePadding: true,
-    label: "Type",
-  },
-  {
     id: "name",
     numeric: true,
     disablePadding: false,
     label: "Name",
   },
   {
-    id: "description",
+    id: "company",
     numeric: true,
     disablePadding: false,
-    label: "Description",
+    label: "Comapny",
   },
   {
     id: "role",
@@ -294,13 +302,7 @@ const headCells: readonly HeadCell[] = [
     label: "Role",
   },
   {
-    id: "parameters",
-    numeric: true,
-    disablePadding: false,
-    label: "Parameters",
-  },
-  {
-    id: "link",
+    id: "status",
     numeric: true,
     disablePadding: false,
     label: "Status",
@@ -340,13 +342,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     };
 
   return (
-    <TableHead
-      sx={{
-        border: "1px solid rgba(145, 158, 171, 1)",
-        borderRadius: "15px",
-        background: "#F2F2F2",
-      }}
-    >
+    <TableHead className="users-tablehead">
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
@@ -362,7 +358,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "center" : "center"}
+            align={headCell.numeric ? "left" : "center"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -399,44 +395,60 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           borderBottom: "1px solid #919EAB",
           pl: { sm: 2 },
           pr: { xs: 1, sm: 1 },
-          ...(numSelected > 0 && {}),
+          ...(numSelected > 0 && {
+            bgcolor: (theme) =>
+              alpha(
+                theme.palette.primary.main,
+                theme.palette.action.activatedOpacity
+              ),
+          }),
         }}
       >
-        <div className={"reports-topbar"}>
-          <div className={"reports-title-column"}>
-            <h2 className="reports-title">Reports</h2>
+        {numSelected > 0 ? (
+          <Typography
+            sx={{ flex: "1 1 100%" }}
+            color="inherit"
+            variant="subtitle1"
+            component="div"
+          >
+            {numSelected} selected
+          </Typography>
+        ) : (
+          <div className={"users-topbar"}>
+            <div className={"users-title-column"}>
+              <h2 className="users-title">Users</h2>
+            </div>
+            <div className={"users-search-column"}>
+              <button
+                className="add-button"
+                onClick={(event) => {
+                  alert("Add User");
+                }}
+              >
+                Add User
+              </button>
+              <form method="POST" style={{ width: "100%" }}>
+                <div style={{ position: "relative" }}>
+                  <input
+                    id="users-search"
+                    type="search"
+                    placeholder="Search User"
+                  ></input>
+                  <SearchIcon
+                    sx={{
+                      position: "absolute",
+                      right: 0,
+                      marginRight: 2,
+                      marginTop: "6%",
+                      top: 0,
+                    }}
+                    color="primary"
+                  ></SearchIcon>
+                </div>
+              </form>
+            </div>
           </div>
-          <div className={"reports-search-column"}>
-            <button
-              className="add-button"
-              onClick={(event) => {
-                alert("Add Report");
-              }}
-            >
-              Add Report
-            </button>
-            <form method="POST" style={{ width: "100%" }}>
-              <div style={{ position: "relative" }}>
-                <input
-                  id="reports-search"
-                  type="search"
-                  placeholder="Search Report"
-                ></input>
-                <SearchIcon
-                  sx={{
-                    position: "absolute",
-                    right: 0,
-                    marginRight: 2,
-                    marginTop: "6%",
-                    top: 0,
-                  }}
-                  color="primary"
-                ></SearchIcon>
-              </div>
-            </form>
-          </div>
-        </div>
-
+        )}
         {numSelected > 0 ? (
           <Tooltip title="Delete">
             <IconButton></IconButton>
@@ -470,7 +482,7 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.type);
+      const newSelected = rows.map((n) => n.name);
       setSelected(newSelected);
       return;
     }
@@ -528,8 +540,8 @@ export default function EnhancedTable() {
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer
           sx={{
-            paddingLeft: "119px",
-            paddingRight: "172px",
+            paddingLeft: "95px",
+            paddingRight: "97px",
             paddingTop: "32px",
           }}
         >
@@ -555,22 +567,21 @@ export default function EnhancedTable() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.parameters);
+                  const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
+                      hover
+                      onClick={(event) => handleClick(event, row.name)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.type}
+                      key={row.name}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
-                          onClick={(event) =>
-                            handleClick(event, row.parameters)
-                          }
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
@@ -584,15 +595,13 @@ export default function EnhancedTable() {
                         scope="row"
                         padding="none"
                       >
-                        {row.type}
+                        {row.name}
                       </TableCell>
 
-                      <TableCell align="center">{row.name}</TableCell>
-                      <TableCell align="center">{row.description}</TableCell>
-                      <TableCell align="center">{row.role}</TableCell>
-                      <TableCell align="center">{row.parameters}</TableCell>
-                      <TableCell align="center">{row.link}</TableCell>
-                      <TableCell align="center">{row.edit}</TableCell>
+                      <TableCell align="left">{row.company}</TableCell>
+                      <TableCell align="left">{row.role}</TableCell>
+                      <TableCell align="left">{row.status}</TableCell>
+                      <TableCell align="left">{row.edit}</TableCell>
                     </TableRow>
                   );
                 })}
