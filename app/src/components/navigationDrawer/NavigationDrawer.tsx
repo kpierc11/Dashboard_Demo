@@ -37,6 +37,12 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import SearchIcon from "@mui/icons-material/Search";
 import { NavLink } from "react-router-dom";
 import StationsPage from "../../pages/stationsPage/StationsPage";
+import TrendsPage from "../../pages/trendsPage/TrendsPage";
+import StationsDirectoryPage from "../../pages/StationsDirectoryPage";
+import WidgetsPage from "../../pages/WidgetsPage";
+import NavTabs from "../UserSettings/NavTabs";
+import StationDataPage from "../../pages/stationDataPage/StationDataPage";
+import ReportsPage from "../../pages/ReportsPage";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -76,6 +82,8 @@ export default function NavigationDrawer(props: Props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const activeStyle = { backgroundColor: "#E6F7FC", color: "#1C7ED9" };
+
   const drawer = (
     <div>
       <Toolbar />
@@ -88,82 +96,98 @@ export default function NavigationDrawer(props: Props) {
         ></img>
       </Box>
       <h1 style={{ paddingLeft: 27, marginTop: 27, fontSize: 20 }}>General</h1>
-      <List>
-        <a className={"sidebar-link"} href={"/"}>
-          <ListItem key={1} disablePadding>
+      <List className={"sidebar-navigation"}>
+        <ListItem key={1} disablePadding>
+          <NavLink
+            className={"sidebar-link"}
+            to="/"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
                 <SatelliteAltIcon />
               </ListItemIcon>
               <ListItemText primary={"MyH2info"} />
             </ListItemButton>
-          </ListItem>
-        </a>
-      </List>
-      <List>
-        <Link
-          className={"sidebar-link"}
-          sx={{ color: theme.palette.primary.light }}
-          href="/stations-directory/"
-        >
-          <ListItem key={2} disablePadding>
+          </NavLink>
+        </ListItem>
+
+        <ListItem key={2} disablePadding>
+          <NavLink
+            className={"sidebar-link"}
+            to="/stations-directory"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
                 <AccountTree />
               </ListItemIcon>
               <ListItemText primary={"Directory"} />
             </ListItemButton>
-          </ListItem>
-        </Link>
-      </List>
-      <List>
-        <a className={"sidebar-link"} href="/trends">
-          <ListItem key={1} disablePadding>
+          </NavLink>
+        </ListItem>
+
+        <ListItem key={1} disablePadding>
+          <NavLink
+            className={"sidebar-link"}
+            to="/trends"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
                 <AssessmentIcon />
               </ListItemIcon>
               <ListItemText primary={"Trends"} />
             </ListItemButton>
-          </ListItem>
-        </a>
-      </List>
-      <List>
-        <a className={"sidebar-link"} href="/reports">
-          <ListItem key={2} disablePadding>
+          </NavLink>
+        </ListItem>
+
+        <ListItem key={2} disablePadding>
+          <NavLink
+            className={"sidebar-link"}
+            to="/reports"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
                 <ContentPasteOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary={"Reports"} />
             </ListItemButton>
-          </ListItem>
-        </a>
-      </List>
-      <List>
-        <a className={"sidebar-link"} href="/addons">
-          <ListItem key={2} disablePadding>
+          </NavLink>
+        </ListItem>
+
+        <ListItem key={2} disablePadding>
+          <NavLink
+            className={"sidebar-link"}
+            to="/addons"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
                 <DashboardCustomizeOutlinedIcon className={"sidebar-icon"} />
               </ListItemIcon>
               <ListItemText primary={"Addons"} />
             </ListItemButton>
-          </ListItem>
-        </a>
-      </List>
-      <h1 style={{ paddingLeft: 27, marginTop: 30, fontSize: 20 }}>Admin</h1>
-      <List>
-        <a className={"sidebar-link"} href="/users">
-          <ListItem key={1} disablePadding>
+          </NavLink>
+        </ListItem>
+
+        <h1 style={{ paddingLeft: 27, marginTop: 30, fontSize: 20 }}>Admin</h1>
+
+        <ListItem key={1} disablePadding>
+          <NavLink
+            className={"sidebar-link"}
+            to="/users"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
                 <PeopleOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary={"users"} />
             </ListItemButton>
-          </ListItem>
-        </a>
+          </NavLink>
+        </ListItem>
       </List>
     </div>
   );
@@ -315,7 +339,7 @@ export default function NavigationDrawer(props: Props) {
               }}
               open
             >
-              <BrowserRouter>{drawer}</BrowserRouter>
+              {drawer}
             </Drawer>
           </Box>
           <Box
@@ -334,7 +358,28 @@ export default function NavigationDrawer(props: Props) {
             }}
           >
             {/**Pages will be rendered here through react router */}
-            <RouterProvider router={router}></RouterProvider>
+            <Routes>
+              <Route path="/" element={<StationsPage/>}></Route>
+              <Route
+                path="/station-data"
+                element={<StationDataPage/>}
+              ></Route>
+              <Route
+                path="/stations-directory"
+                element={<StationsDirectoryPage />}
+              ></Route>
+              <Route path="/trends" element={<TrendsPage />}></Route>
+              <Route
+                path="/reports"
+                element={<ReportsPage/>}
+              ></Route>
+              <Route path="/addons" element={<WidgetsPage />}></Route>
+              <Route
+                path="/users/"
+                element={<div>users directory</div>}
+              ></Route>
+              <Route path="/user/profile" element={<NavTabs />}></Route>
+            </Routes>
           </Box>
         </Box>
       </ThemeProvider>
