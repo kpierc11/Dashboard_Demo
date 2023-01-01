@@ -20,6 +20,7 @@ import "../UsersTable/usersTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import IconButton from "@mui/material/IconButton/IconButton";
+import IconMenu from "../iconMenu/IconMenu";
 
 interface Data {
   name: string;
@@ -50,183 +51,131 @@ const rows = [
     "Malachi Kelly",
     "Hydro Bio Science",
     "Administrator",
-    <Box sx={{ display: "inline-flex" }}>
+    <Box className="user-box">
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Kasey Garrison",
     "Hydro Bio Science",
     "Custom",
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Abdulrahman Grant",
     "Hydro Bio Science",
     "Spectator",
     <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Floyd Pierce",
     "Hydro Bio Science",
     "Spectator",
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
+    <Box className="user-box">
+      <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Jerome Pratt",
     "Hydro Bio Science",
     "Spectator",
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
+    <Box className="user-box">
+      <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Oakley Maldonado",
     "Hydro Bio Science",
     "Administrator",
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+    <Box className="user-box">
+      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Tariq Serrano",
     "Hydro Bio Science",
     "Administrator",
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+    <Box className="user-box">
+      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Joao Petersen",
     "Hydro Bio Science",
     "Administrator",
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+    <Box className="user-box">
+      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Keziah Fuentes",
     "Hydro Bio Science",
     "Custom",
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+    <Box className="user-box">
+      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Connor Roberts",
     "Hydro Bio Science",
     "Custom",
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+    <Box className="user-box">
+      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Faisal Patrick",
     "Hydro Bio Science",
     "Administrator",
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#FF0000" }}></FiberManualRecordIcon>
+    <Box className="user-box">
+      <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Felix Curry",
     "Hydro Bio Science",
     "Custom",
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+    <Box className="user-box">
+      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
   createData(
     "Jago Flynn",
     "Hydro Bio Science",
     "Custom",
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+    <Box className="user-box">
+      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu/>
   ),
 ];
 

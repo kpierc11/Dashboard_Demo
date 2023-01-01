@@ -99,4 +99,20 @@
     border-radius: 15px !important;
   
   }
+
+  .user-box {
+    display: inline-flex;
+    width:100%;
+  }
+
+  .active-txt {
+    color: #81E78B;
+    margin-right: 10px;
+  }
+
+  .inactive-txt {
+    color: #FF0000;
+    margin-right: 10px;
+  }
+  
   
