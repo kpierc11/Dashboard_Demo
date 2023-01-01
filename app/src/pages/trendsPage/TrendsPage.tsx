@@ -166,7 +166,6 @@ export default function TrendsPage() {
           display: "flex",
           flexWrap: "wrap",
           paddingLeft: "72px",
-          paddingRight: "72px",
         }}
       >
         <Paper

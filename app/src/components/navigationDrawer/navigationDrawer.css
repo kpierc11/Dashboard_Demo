@@ -62,9 +62,9 @@
 }
 
 .sidebar-navigation li {
-  padding-right:20px;
-  padding-left:20px;
-  margin-bottom:33px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-bottom: 33px;
 }
 
 .sidebar-link {
@@ -72,7 +72,22 @@
   opacity: 100%;
   font-size: 18px;
   width: 100%;
-  border-radius:10px;
+  border-radius: 10px;
+  color: #505050;
+}
+
+.sidebar-link-active {
+  text-decoration: none;
+  opacity: 100%;
+  font-size: 18px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #e6f7fc;
+  color: #1c7ed9;
+}
+
+.sidebar-link-active svg {
+  color: #1c7ed9;
 }
 
 .sidebar-link:visited {
@@ -80,7 +95,7 @@
 }
 
 .sidebar-link div:hover {
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 @media (max-width: 860px) {

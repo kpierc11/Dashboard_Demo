@@ -76,7 +76,7 @@ export default function NavigationDrawer(props: Props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const activeStyle = { backgroundColor: "#E6F7FC", color: "#1C7ED9" };
+  const activeClass = "sidebar-link-active";
 
   const drawer = (
     <div>
@@ -93,9 +93,10 @@ export default function NavigationDrawer(props: Props) {
       <List className={"sidebar-navigation"}>
         <ListItem key={1} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -108,9 +109,10 @@ export default function NavigationDrawer(props: Props) {
 
         <ListItem key={2} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/stations-directory"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -123,9 +125,10 @@ export default function NavigationDrawer(props: Props) {
 
         <ListItem key={3} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/trends"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -138,9 +141,10 @@ export default function NavigationDrawer(props: Props) {
 
         <ListItem key={4} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/reports"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -153,9 +157,10 @@ export default function NavigationDrawer(props: Props) {
 
         <ListItem key={5} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/addons"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -170,9 +175,10 @@ export default function NavigationDrawer(props: Props) {
 
         <ListItem key={6} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/users"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
