@@ -18,24 +18,28 @@
 }
 
 .add-alarm-column-one {
-  height: 351px;
+  height: 100%;
   margin-top: 42px;
   margin-left: 32px;
   margin-right: 20px;
   border: 1px solid #919eab;
   border-radius: 15px !important;
   box-shadow: none !important;
+  min-height: 400px;
 }
 
 .add-alarm-column-two {
-  height: 351px;
+  height: 100%;
   margin-top: 42px;
   margin-left: 32px;
   border: 1px solid #919eab;
   border-radius: 15px !important;
   box-shadow: none !important;
   margin-right: 47px;
+  min-height: 400px;
 }
+
+
 
 .addalarm-paragraph {
   font-size: 16px;
@@ -79,7 +83,8 @@
 }
 
 .add-alarm-bottom-section {
-  margin-top: 30px;
+
+  margin-top: 75px;
   display: flex;
   justify-content: flex-end;
 }

@@ -145,6 +145,7 @@ export default function AddAlarmPage() {
                       backgroundColor: "#FAFAFA",
                       marginBottom: "26px",
                       maxWidth: 355,
+                      width:"250px"
                     }}
                     required
                     id="outlined-required"
@@ -235,6 +236,7 @@ export default function AddAlarmPage() {
                       backgroundColor: "#FAFAFA",
                       marginBottom: "26px",
                       maxWidth: 355,
+                      width:"250px",
                     }}
                     id="outlined-select-currency"
                     select
