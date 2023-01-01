@@ -102,7 +102,7 @@
 
   .user-box {
     display: inline-flex;
-    width:100%;
+    min-width:100px;
   }
 
   .active-txt {

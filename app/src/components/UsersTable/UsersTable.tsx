@@ -61,17 +61,17 @@ const rows = [
     "Kasey Garrison",
     "Hydro Bio Science",
     "Custom",
-    <Box sx={{ display: "inline-flex" }}>
+    <Box className="user-box">
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
     <IconMenu/>
   ),
   createData(
-    "Abdulrahman Grant",
+    "Abdulrah Grant",
     "Hydro Bio Science",
     "Spectator",
-    <Box sx={{ display: "inline-flex" }}>
+    <Box className="user-box">
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
