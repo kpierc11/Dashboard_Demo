@@ -1,16 +1,6 @@
-import {
-  Box,
-  FormControl,
-  Select,
-  OutlinedInput,
-  MenuItem,
-  Grid,
-  SelectChangeEvent,
-  Paper,
-  styled,
-} from "@mui/material";
+import { Box, Grid, SelectChangeEvent, Paper, styled } from "@mui/material";
 import { useState } from "react";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -65,62 +55,34 @@ export default function AlarmsPage() {
   ];
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Box sx={{ display: "flex", alignItems: "center", marginBottom: 5 }}>
-        <h3>Selected Station: </h3>
-        <FormControl sx={{ m: 1, width: 300, background: "white" }}>
-          <Select
-            multiple
-            displayEmpty
-            value={personName}
-            onChange={handleChange}
-            input={<OutlinedInput />}
-            renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <em>Placeholder</em>;
-              }
-
-              return selected.join(", ");
-            }}
-            MenuProps={MenuProps}
-            inputProps={{ "aria-label": "Without label" }}
-          >
-            <MenuItem disabled value="">
-              <em>Placeholder</em>
-            </MenuItem>
-            {names.map((name) => (
-              <MenuItem key={name} value={name}>
-                {name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </Box>
       <Grid container spacing={2}>
         <Grid xs={12} md={4}>
           <Item sx={{ marginRight: "27px" }}>
-            <Box sx={{width:"100%",padding:"17px"}}>
-              <Box sx={{ display: "flex", alignItems:"center", width: "100%" }}>
+            <Box sx={{ width: "100%", padding: "17px" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center", width: "100%" }}
+              >
                 <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
-                <MoreVertIcon style={{color:"#DA5F5F"}}></MoreVertIcon>
+                <MoreVertIcon style={{ color: "#DA5F5F" }}></MoreVertIcon>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Trigger Threshold:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
                 <p>Low Value Trigger</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Clear Threshold:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Clear Threshold:</h3>
                 <p> 10 V</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Current Reading:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Current Reading:</h3>
                 <p>≥ 11.5 V</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Subscribers:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Subscribers:</h3>
                 <p>11.59 V</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Type:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Type:</h3>
                 <p>User 1</p>
               </Box>
             </Box>
@@ -128,29 +90,31 @@ export default function AlarmsPage() {
         </Grid>
         <Grid xs={12} md={4}>
           <Item sx={{ marginRight: "27px" }}>
-          <Box sx={{width:"100%",padding:"17px"}}>
-              <Box sx={{ display: "flex", alignItems:"center", width: "100%" }}>
+            <Box sx={{ width: "100%", padding: "17px" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center", width: "100%" }}
+              >
                 <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
-                <MoreVertIcon style={{color:"#DA5F5F"}}></MoreVertIcon>
+                <MoreVertIcon style={{ color: "#DA5F5F" }}></MoreVertIcon>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Trigger Threshold:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
                 <p>Low Value Trigger</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Clear Threshold:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Clear Threshold:</h3>
                 <p> 10 V</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Current Reading:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Current Reading:</h3>
                 <p>≥ 11.5 V</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Subscribers:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Subscribers:</h3>
                 <p>11.59 V</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Type:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Type:</h3>
                 <p>User 1</p>
               </Box>
             </Box>
@@ -158,29 +122,31 @@ export default function AlarmsPage() {
         </Grid>
         <Grid xs={12} md={4}>
           <Item>
-          <Box sx={{width:"100%",padding:"17px"}}>
-              <Box sx={{ display: "flex", alignItems:"center", width: "100%" }}>
+            <Box sx={{ width: "100%", padding: "17px" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center", width: "100%" }}
+              >
                 <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
-                <MoreVertIcon style={{color:"#DA5F5F"}}></MoreVertIcon>
+                <MoreVertIcon style={{ color: "#DA5F5F" }}></MoreVertIcon>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Trigger Threshold:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
                 <p>Low Value Trigger</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Clear Threshold:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Clear Threshold:</h3>
                 <p> 10 V</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Current Reading:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Current Reading:</h3>
                 <p>≥ 11.5 V</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Subscribers:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Subscribers:</h3>
                 <p>11.59 V</p>
               </Box>
-              <Box sx={{display:"flex", alignItems:"center"}}>
-                <h3 style={{marginRight:"auto"}}>Type:</h3>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Type:</h3>
                 <p>User 1</p>
               </Box>
             </Box>
@@ -188,8 +154,10 @@ export default function AlarmsPage() {
         </Grid>
         <Grid xs={12} md={12}>
           <Item sx={{ marginTop: "38px" }}>
-          <Box sx={{width:"100%",padding:"17px"}}>
-              <Box sx={{ display: "flex", alignItems:"center", width: "100%" }}>
+            <Box sx={{ width: "100%", padding: "17px" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center", width: "100%" }}
+              >
                 <h2 style={{ marginRight: "auto" }}>History</h2>
               </Box>
             </Box>

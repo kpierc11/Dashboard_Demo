@@ -1,7 +1,4 @@
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Unstable_Grid2";
 import "../stationDataPage/stationDataPage.css";
 import {
   Chart as ChartJS,
@@ -13,9 +10,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+
 import { faker } from "@faker-js/faker";
-import BatteryCharging90Icon from "@mui/icons-material/BatteryCharging90";
 import { useState } from "react";
 import {
   FormControl,
@@ -24,60 +20,56 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import DnsIcon from "@mui/icons-material/Dns";
+import QueryStatsIcon from "@mui/icons-material/QueryStats";
+import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
+import AlarmsPage from "../alarmsPage/AlarmsPage";
+import StationSummaryPage from "../stationSummaryPage/StationSummaryPage";
+import StationChartPage from "../stationChartPage/StationChartPage";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: "Station One Data",
-    },
-  },
-};
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: "bg algae (ppm)",
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: "#1F78B4",
-      backgroundColor: "#1F78B4",
-    },
-  ],
-};
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  boxShadow: "none",
-  border: "1px solid #919EAB",
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  borderRadius: "15px",
-}));
+function a11yProps(index: number) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
 
 export default function StationDataPage() {
   const [personName, setPersonName] = useState<string[]>([]);
+  const [value, setValue] = useState(0);
+
+  const handleChangeValue = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
 
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
     const {
@@ -114,135 +106,73 @@ export default function StationDataPage() {
   ];
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Box sx={{display:"flex", alignItems:"center", marginBottom:5}} >
-        <h3>Selected Station: </h3>
-        <FormControl sx={{ m: 1, width: 300, background:"white"}}>
-          <Select
-            multiple
-            displayEmpty
-            value={personName}
-            onChange={handleChange}
-            input={<OutlinedInput />}
-            renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <em>Placeholder</em>;
-              }
+    <>
+      <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <h3>Selected Station: </h3>
+          <FormControl sx={{ m: 1, width: 300, background: "white" }}>
+            <Select
+              multiple
+              displayEmpty
+              value={personName}
+              onChange={handleChange}
+              input={<OutlinedInput />}
+              renderValue={(selected) => {
+                if (selected.length === 0) {
+                  return <em>Placeholder</em>;
+                }
 
-              return selected.join(", ");
-            }}
-            MenuProps={MenuProps}
-            inputProps={{ "aria-label": "Without label" }}
-          >
-            <MenuItem disabled value="">
-              <em>Placeholder</em>
-            </MenuItem>
-            {names.map((name) => (
-              <MenuItem key={name} value={name}>
-                {name}
+                return selected.join(", ");
+              }}
+              MenuProps={MenuProps}
+              inputProps={{ "aria-label": "Without label" }}
+            >
+              <MenuItem disabled value="">
+                <em>Placeholder</em>
               </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+              {names.map((name) => (
+                <MenuItem key={name} value={name}>
+                  {name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Box>
       </Box>
-      <Grid container spacing={2}>
-        <Grid xs={12}>
-          <Item
-            sx={{
-              minHeight: "198px",
-              justifyContent: "center",
-              padding: "0 100px 0 100px",
-              alignItems: "center",
-            }}
+      <Box sx={{ width: "100%" }}>
+        <Box
+          sx={{ display: "flex", justifyContent: "center", marginBottom: 5 }}
+        >
+          <Tabs
+            value={value}
+            onChange={handleChangeValue}
+            aria-label="station data tabs"
           >
-            <Box className="station-data-unit-info">
-              <h2>Unit Name</h2>
-              <p>H2infO</p>
-            </Box>
-            <Box className="station-data-unit-info">
-              <h2>Battery Life</h2>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <p>83.4%</p>
-                <BatteryCharging90Icon
-                  sx={{ color: "#1EE90D" }}
-                ></BatteryCharging90Icon>
-              </Box>
-            </Box>
-            <Box className="station-data-unit-info">
-              <h2>LastReported</h2>
-              <p>June 3rd 2022</p>
-            </Box>
-            <Box className="station-data-unit-info">
-              <h2>Location</h2>
-              <p>Piney Flats TN</p>
-            </Box>
-            <Box className="station-data-unit-info">
-              <h2>Station Health</h2>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                <p>Excellent 92.5%</p>
-                <BatteryCharging90Icon
-                  sx={{ color: "#1EE90D" }}
-                ></BatteryCharging90Icon>
-              </Box>
-            </Box>
-          </Item>
-        </Grid>
-        <Grid xs={12} md={6}>
-          <Item sx={{ padding: "30px 30px 30px 30px", marginBottom: "30px" }}>
-            <h1>Primary Alarm</h1>
-            <Box
-              className={"station-data-primary-alarm-topbar"}
-              sx={{ display: "flex", flexDirection: "row" }}
-            >
-              <p>Name</p>
-              <p>Type</p>
-              <p>Threshold</p>
-              <p>Clear Warning</p>
-              <p>Reading</p>
-            </Box>
-            <Box
-              className={"station-data-primary-alarm-topbar-second"}
-              sx={{ display: "flex", flexDirection: "row" }}
-            >
-              <p>Low Battery</p>
-              <p>Low Value T</p>
-              <p> {">"} 10 V</p>
-              <p>{">"} 11.5 V</p>
-              <p>11.59 V</p>
-            </Box>
-          </Item>
-          <Item sx={{ padding: "30px" }}>
-            <h1>NOAA Precipitation</h1>
-            <Line options={options} data={data} />
-          </Item>
-        </Grid>
-        <Grid xs={12} md={6}>
-          <Item
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              height: "100%",
-            }}
-          >
-            <h1>DPI Mult Probe</h1>
-            <Box sx={{ width: "width:100%" }}></Box>
-          </Item>
-        </Grid>
-      </Grid>
-    </Box>
+            <Tab icon={<DnsIcon></DnsIcon>} label="Data" {...a11yProps(0)} />
+            <Tab
+              icon={<QueryStatsIcon></QueryStatsIcon>}
+              label="Graphs"
+              {...a11yProps(1)}
+            />
+            <Tab
+              icon={<AccessAlarmsIcon></AccessAlarmsIcon>}
+              label="Alarms"
+              {...a11yProps(2)}
+            />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <StationSummaryPage></StationSummaryPage>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <StationChartPage/>
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <AlarmsPage />
+        </TabPanel>
+      </Box>
+    </>
   );
 }
+
+

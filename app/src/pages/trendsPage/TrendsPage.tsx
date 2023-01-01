@@ -101,9 +101,7 @@ export default function TrendsPage() {
 
   return (
     <Box>
-      <Box
-        sx={{ display: "flex", justifyContent: "center",}}
-      >
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box
           sx={{
             display: "flex",
@@ -132,8 +130,10 @@ export default function TrendsPage() {
           <p>Time Period</p>
         </Box>
       </Box>
-      <Box sx={{display:"flex", justifyContent:"center"}}>
-        <FormControl sx={{width: 300, marginBottom:"29px", background:"white" }}>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <FormControl
+          sx={{ width: 300, marginBottom: "29px", background: "white" }}
+        >
           <Select
             multiple
             displayEmpty
