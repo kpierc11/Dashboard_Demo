@@ -45,6 +45,7 @@ import StationDataPage from "../../pages/stationDataPage/StationDataPage";
 import ReportsPage from "../../pages/ReportsPage";
 import AlarmsPage from "../../pages/alarmsPage/AlarmsPage";
 import UsersPage from "../../pages/UsersPage";
+import AddAlarmPage from "../../pages/addAlarmPage/AddAlarmPage";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -364,6 +365,7 @@ export default function NavigationDrawer(props: Props) {
               <Route path="/" element={<StationsPage />}></Route>
               <Route path="/station-data/" element={<StationDataPage />}></Route>
               <Route path="/station-data/alarms/" element={<AlarmsPage/>}></Route>
+              <Route path="add-alarm-page" element={<AddAlarmPage/>}></Route>
               <Route
                 path="/stations-directory/"
                 element={<StationsDirectoryPage />}
