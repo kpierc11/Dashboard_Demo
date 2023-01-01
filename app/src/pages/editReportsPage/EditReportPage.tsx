@@ -71,7 +71,7 @@ export default function EditReportPage() {
 
       <Box>
         <Grid container>
-          <Grid xs={12} md={12} lg={6}>
+          <Grid xs={12} md={12} lg={6} sx={{height:"100%"}}>
             <Item className="edit-report-column-one">
               <Box
                 style={{
@@ -137,7 +137,7 @@ export default function EditReportPage() {
               </Box>
             </Item>
           </Grid>
-          <Grid xs={12} md={12} lg={6}>
+          <Grid xs={12} md={12} lg={6} sx={{height:"100%"}}>
             <Item className="edit-report-column-two">
               <p className="report-paragraph">
                 Do you want to create a scheduled or a On-Demand report?

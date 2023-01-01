@@ -120,8 +120,8 @@ export default function AddAlarmPage() {
       </div>
 
       <Box>
-        <Grid container>
-          <Grid xs={12} md={12} lg={6}>
+        <Grid container >
+          <Grid xs={12} md={12} lg={6} sx={{height:"100%"}}>
             <Item className="add-alarm-column-one">
               <Box
                 style={{
@@ -253,7 +253,7 @@ export default function AddAlarmPage() {
               </Box>
             </Item>
           </Grid>
-          <Grid xs={12} md={12} lg={6}>
+          <Grid xs={12} md={12} lg={6} sx={{height:"100%"}}>
             <Item className="add-alarm-column-two">
               <p className="addalarm-paragraph">
                 Would you like to notify this user everytime an alarm is added?
