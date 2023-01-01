@@ -125,6 +125,7 @@ export default function EditReportPage() {
                   sx={{
                     backgroundColor: "#FAFAFA",
                     marginBottom: "26px",
+                    marginRight: " 1px",
                     maxWidth: 500,
                   }}
                   id="outlined-multiline-static"
@@ -176,16 +177,10 @@ export default function EditReportPage() {
           </Grid>
         </Grid>
       </Box>
-      <div className="edit-reports-bottom">
-        <button
-          className="bottom-section-buttons"
-          onClick={(event) => {
-            alert("Going Back");
-          }}
-        >
-          Go Back
-        </button>
-      </div>
+      <Box className="edit-reports-bottom">
+        <button className="bottom-section-buttons">Go Back</button>
+        <button className="bottom-section-buttons">Edit Report</button>
+      </Box>
     </div>
   );
 }
