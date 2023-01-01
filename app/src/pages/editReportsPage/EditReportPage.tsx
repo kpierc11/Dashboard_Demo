@@ -7,8 +7,6 @@ import {
   Switch,
   TextField,
 } from "@mui/material";
-import { fontSize } from "@mui/system";
-import { any } from "prop-types";
 import "./editReportPage.css";
 
 export default function EditReportPage() {
@@ -136,7 +134,6 @@ export default function EditReportPage() {
                   defaultValue="This is an example description"
                 />
               </Box>
-              
             </Item>
           </Grid>
           <Grid xs={12} md={12} lg={6}>
@@ -144,12 +141,14 @@ export default function EditReportPage() {
               <p className="report-paragraph">
                 Do you want to create a scheduled or a On-Demand report?
               </p>
-              <Switch className="switch-editreport" /><p className="switch-text">off</p>
+              <Switch className="switch-editreport" />
+              <p className="switch-text">off</p>
               <p className="report-paragraph">
                 Do you want the report's timestamps converted to a different
                 time zone?
               </p>
-              <Switch className="switch-editreport" /><p className="switch-text">off</p>
+              <Switch className="switch-editreport" />
+              <p className="switch-text">off</p>
               <p className="report-paragraph">
                 Select a new time zone for the report data.
               </p>
@@ -157,7 +156,7 @@ export default function EditReportPage() {
                 sx={{
                   backgroundColor: "#FAFAFA",
                   marginBottom: "30px",
-                  marginTop:"13px",
+                  marginTop: "13px",
                   maxWidth: 350,
                   width: "189px",
                   marginLeft: "33px",
@@ -186,7 +185,6 @@ export default function EditReportPage() {
         >
           Go Back
         </button>
-      
       </div>
     </div>
   );
