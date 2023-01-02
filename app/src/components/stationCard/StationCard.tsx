@@ -57,7 +57,7 @@ export default function StationCard(props: Station) {
         sx={{
           borderRadius: "15px",
           border: "1px solid #919EAB",
-          boxShadow:"none",
+          boxShadow: "none",
         }}
         className="station-card-container"
       >
@@ -90,7 +90,7 @@ export default function StationCard(props: Station) {
           <a>
             <MapIcon fontSize="large"></MapIcon>
           </a>
-          <a  href={"/station-data/alarms"}>
+          <a href={"/station-data"}>
             <TimerIcon fontSize="large"></TimerIcon>
           </a>
         </div>
