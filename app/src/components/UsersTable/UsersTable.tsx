@@ -1,6 +1,4 @@
-import * as React from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -20,6 +18,7 @@ import "../UsersTable/usersTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import IconButton from "@mui/material/IconButton/IconButton";
+import { useState } from "react";
 
 interface Data {
   name: string;
@@ -389,60 +388,44 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           borderBottom: "1px solid #919EAB",
           pl: { sm: 2 },
           pr: { xs: 1, sm: 1 },
-          ...(numSelected > 0 && {
-            bgcolor: (theme) =>
-              alpha(
-                theme.palette.primary.main,
-                theme.palette.action.activatedOpacity
-              ),
-          }),
+          ...(numSelected > 0 && {}),
         }}
       >
-        {numSelected > 0 ? (
-          <Typography
-            sx={{ flex: "1 1 100%" }}
-            color="inherit"
-            variant="subtitle1"
-            component="div"
-          >
-            {numSelected} selected
-          </Typography>
-        ) : (
-          <div className={"users-topbar"}>
-            <div className={"users-title-column"}>
-              <h2 className="users-title">Users</h2>
-            </div>
-            <div className={"users-search-column"}>
-              <button
-                className="add-button"
-                onClick={(event) => {
-                  alert("Add User");
-                }}
-              >
-                Add User
-              </button>
-              <form method="POST" style={{ width: "100%" }}>
-                <div style={{ position: "relative" }}>
-                  <input
-                    id="users-search"
-                    type="search"
-                    placeholder="Search User"
-                  ></input>
-                  <SearchIcon
-                    sx={{
-                      position: "absolute",
-                      right: 0,
-                      marginRight: 2,
-                      marginTop: "6%",
-                      top: 0,
-                    }}
-                    color="primary"
-                  ></SearchIcon>
-                </div>
-              </form>
-            </div>
+        <div className={"users-topbar"}>
+          <div className={"users-title-column"}>
+            <h2 className="users-title">Users</h2>
           </div>
-        )}
+          <div className={"users-search-column"}>
+            <button
+              className="add-button"
+              onClick={(event) => {
+                alert("Add User");
+              }}
+            >
+              Add User
+            </button>
+            <form method="POST" style={{ width: "100%" }}>
+              <div style={{ position: "relative" }}>
+                <input
+                  id="users-search"
+                  type="search"
+                  placeholder="Search User"
+                ></input>
+                <SearchIcon
+                  sx={{
+                    position: "absolute",
+                    right: 0,
+                    marginRight: 2,
+                    marginTop: "6%",
+                    top: 0,
+                  }}
+                  color="primary"
+                ></SearchIcon>
+              </div>
+            </form>
+          </div>
+        </div>
+
         {numSelected > 0 ? (
           <Tooltip title="Delete">
             <IconButton></IconButton>
@@ -458,12 +441,12 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 }
 
 export default function EnhancedTable() {
-  const [order, setOrder] = React.useState<Order>("asc");
-  const [orderBy, setOrderBy] = React.useState<keyof Data>("name");
-  const [selected, setSelected] = React.useState<readonly string[]>([]);
-  const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [order, setOrder] = useState<Order>("asc");
+  const [orderBy, setOrderBy] = useState<keyof Data>("name");
+  const [selected, setSelected] = useState<readonly string[]>([]);
+  const [page, setPage] = useState(0);
+  const [dense, setDense] = useState(false);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -566,8 +549,6 @@ export default function EnhancedTable() {
 
                   return (
                     <TableRow
-                      hover
-                      onClick={(event) => handleClick(event, row.name)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
@@ -576,6 +557,7 @@ export default function EnhancedTable() {
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
+                          onClick={(event) => handleClick(event, row.name)}
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{

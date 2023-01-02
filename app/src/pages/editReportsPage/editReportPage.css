@@ -18,7 +18,8 @@
 }
 
 .edit-report-column-one {
-  height: 558px;
+  height: 100%;
+  min-height: 400px;
   margin-top: 42px;
   margin-left: 32px;
   margin-right: 20px;
@@ -28,7 +29,8 @@
 }
 
 .edit-report-column-two {
-  height: 351px;
+  height: 75%;
+  min-height: 400px;
   margin-top: 42px;
   margin-left: 32px;
   border: 1px solid #919eab;
@@ -58,8 +60,9 @@
 }
 
 .edit-reports-bottom {
-  margin-top: 17px;
-  margin-left: 36px;
+  margin-top: 75px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .bottom-section-buttons {

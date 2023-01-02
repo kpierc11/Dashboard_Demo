@@ -11,14 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
-import { router } from "../../navigation/Navigation";
-import {
-  BrowserRouter,
-  Route,
-  RouterProvider,
-  Routes,
-  useRoutes,
-} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useState, useMemo, createContext } from "react";
 import { Link, ThemeProvider } from "@mui/material";
 import "../navigationDrawer/navigationDrawer.css";
@@ -43,8 +36,10 @@ import WidgetsPage from "../../pages/WidgetsPage";
 import NavTabs from "../UserSettings/NavTabs";
 import StationDataPage from "../../pages/stationDataPage/StationDataPage";
 import ReportsPage from "../../pages/ReportsPage";
-import AlarmsPage from "../../pages/alarmsPage/AlarmsPage";
 import UsersPage from "../../pages/UsersPage";
+import AddAlarmPage from "../../pages/addAlarmPage/AddAlarmPage";
+import AlarmsPage from "../../pages/alarmsPage/AlarmsPage";
+import EditReportPage from "../../pages/editReportsPage/EditReportPage";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -84,7 +79,7 @@ export default function NavigationDrawer(props: Props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const activeStyle = { backgroundColor: "#E6F7FC", color: "#1C7ED9" };
+  const activeClass = "sidebar-link-active";
 
   const drawer = (
     <div>
@@ -101,9 +96,10 @@ export default function NavigationDrawer(props: Props) {
       <List className={"sidebar-navigation"}>
         <ListItem key={1} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -116,9 +112,10 @@ export default function NavigationDrawer(props: Props) {
 
         <ListItem key={2} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/stations-directory"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -131,9 +128,10 @@ export default function NavigationDrawer(props: Props) {
 
         <ListItem key={3} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/trends"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -146,9 +144,10 @@ export default function NavigationDrawer(props: Props) {
 
         <ListItem key={4} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/reports"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -161,9 +160,10 @@ export default function NavigationDrawer(props: Props) {
 
         <ListItem key={5} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/addons"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -178,9 +178,10 @@ export default function NavigationDrawer(props: Props) {
 
         <ListItem key={6} disablePadding>
           <NavLink
-            className={"sidebar-link"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
             to="/users"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -364,6 +365,8 @@ export default function NavigationDrawer(props: Props) {
               <Route path="/" element={<StationsPage />}></Route>
               <Route path="/station-data/" element={<StationDataPage />}></Route>
               <Route path="/station-data/alarms/" element={<AlarmsPage/>}></Route>
+              <Route path="add-alarm" element={<AddAlarmPage/>}></Route>
+              <Route path="edit-report" element={<EditReportPage/>}></Route>
               <Route
                 path="/stations-directory/"
                 element={<StationsDirectoryPage />}
@@ -371,10 +374,7 @@ export default function NavigationDrawer(props: Props) {
               <Route path="/trends/" element={<TrendsPage />}></Route>
               <Route path="/reports/" element={<ReportsPage />}></Route>
               <Route path="/addons/" element={<WidgetsPage />}></Route>
-              <Route
-                path="/users"
-                element={<UsersPage></UsersPage>}
-              ></Route>
+              <Route path="/users" element={<UsersPage></UsersPage>}></Route>
               <Route path="/user/profile/" element={<NavTabs />}></Route>
             </Routes>
           </Box>

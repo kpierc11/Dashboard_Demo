@@ -7,8 +7,6 @@ import {
   Switch,
   TextField,
 } from "@mui/material";
-import { fontSize } from "@mui/system";
-import { any } from "prop-types";
 import "./editReportPage.css";
 
 export default function EditReportPage() {
@@ -73,7 +71,7 @@ export default function EditReportPage() {
 
       <Box>
         <Grid container>
-          <Grid xs={12} md={12} lg={6}>
+          <Grid xs={12} md={12} lg={6} sx={{height:"100%"}}>
             <Item className="edit-report-column-one">
               <Box
                 style={{
@@ -127,6 +125,7 @@ export default function EditReportPage() {
                   sx={{
                     backgroundColor: "#FAFAFA",
                     marginBottom: "26px",
+                    marginRight: " 1px",
                     maxWidth: 500,
                   }}
                   id="outlined-multiline-static"
@@ -136,20 +135,21 @@ export default function EditReportPage() {
                   defaultValue="This is an example description"
                 />
               </Box>
-              
             </Item>
           </Grid>
-          <Grid xs={12} md={12} lg={6}>
+          <Grid xs={12} md={12} lg={6} sx={{height:"100%"}}>
             <Item className="edit-report-column-two">
               <p className="report-paragraph">
                 Do you want to create a scheduled or a On-Demand report?
               </p>
-              <Switch className="switch-editreport" /><p className="switch-text">off</p>
+              <Switch className="switch-editreport" />
+              <p className="switch-text">off</p>
               <p className="report-paragraph">
                 Do you want the report's timestamps converted to a different
                 time zone?
               </p>
-              <Switch className="switch-editreport" /><p className="switch-text">off</p>
+              <Switch className="switch-editreport" />
+              <p className="switch-text">off</p>
               <p className="report-paragraph">
                 Select a new time zone for the report data.
               </p>
@@ -157,7 +157,7 @@ export default function EditReportPage() {
                 sx={{
                   backgroundColor: "#FAFAFA",
                   marginBottom: "30px",
-                  marginTop:"13px",
+                  marginTop: "13px",
                   maxWidth: 350,
                   width: "189px",
                   marginLeft: "33px",
@@ -177,17 +177,10 @@ export default function EditReportPage() {
           </Grid>
         </Grid>
       </Box>
-      <div className="edit-reports-bottom">
-        <button
-          className="bottom-section-buttons"
-          onClick={(event) => {
-            alert("Going Back");
-          }}
-        >
-          Go Back
-        </button>
-      
-      </div>
+      <Box className="edit-reports-bottom">
+        <button className="bottom-section-buttons">Go Back</button>
+        <button className="bottom-section-buttons">Edit Report</button>
+      </Box>
     </div>
   );
 }
