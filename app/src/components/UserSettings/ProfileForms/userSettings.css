@@ -88,4 +88,11 @@
   cursor: pointer;
   margin-right: 30px;
   justify-content: center;
+  transition: 0.3s;
+}
+
+.save-button:hover {
+  transition: 0.3s;
+  background: #1c7ed9;
+  color: #ddf7ff;
 }

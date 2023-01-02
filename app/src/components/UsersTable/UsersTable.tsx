@@ -15,12 +15,12 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import "../UsersTable/usersTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import IconButton from "@mui/material/IconButton/IconButton";
 import IconMenu from "../iconMenu/IconMenu";
+import { useNavigate } from "react-router-dom";
 
 interface Data {
   name: string;
@@ -55,7 +55,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Kasey Garrison",
@@ -65,7 +65,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Abdulrah Grant",
@@ -75,7 +75,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Floyd Pierce",
@@ -85,7 +85,7 @@ const rows = [
       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Jerome Pratt",
@@ -95,7 +95,7 @@ const rows = [
       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Oakley Maldonado",
@@ -105,7 +105,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Tariq Serrano",
@@ -115,7 +115,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Joao Petersen",
@@ -125,7 +125,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Keziah Fuentes",
@@ -135,7 +135,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Connor Roberts",
@@ -145,7 +145,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Faisal Patrick",
@@ -155,7 +155,7 @@ const rows = [
       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Felix Curry",
@@ -165,7 +165,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
   createData(
     "Jago Flynn",
@@ -175,7 +175,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu/>
+    <IconMenu />
   ),
 ];
 
@@ -331,6 +331,11 @@ interface EnhancedTableToolbarProps {
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
 
+  const navigate = useNavigate();
+
+   
+
+
   return (
     <>
       <Toolbar
@@ -346,14 +351,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <h2 className="users-title">Users</h2>
           </div>
           <div className={"users-search-column"}>
-            <button
-              className="add-button"
-              onClick={(event) => {
-                alert("Add User");
-              }}
-            >
-              Add User
-            </button>
+          
+              <button className="add-button"
+              onClick={() => {navigate("/users/edit")}}
+                >Add User</button>
+            
             <form method="POST" style={{ width: "100%" }}>
               <div style={{ position: "relative" }}>
                 <input
@@ -474,7 +476,7 @@ export default function EnhancedTable() {
         >
           <Table
             sx={{
-              minWidth: 750,
+             
               [`& .${tableCellClasses.root}`]: {
                 borderBottom: "none",
               },
