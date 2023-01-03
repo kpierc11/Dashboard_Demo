@@ -27,7 +27,6 @@ import React, { useState } from "react";
 import Edit from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
-import ButtonUnstyled from '@mui/base/ButtonUnstyled';
 
 interface Data {
   type: string;
@@ -553,7 +552,7 @@ export default function EnhancedTable() {
                 borderRadius: "10px",
                 boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;",
                 width: "180px",
-                marginTop:3,
+                marginTop: 3,
               }}
             >
               <Box
@@ -564,7 +563,12 @@ export default function EnhancedTable() {
                   alignItems: "flex-start",
                 }}
               >
-                <Button className="popover-buttons" onClick={() => {navigate("/report/edit")}}>
+                <Button
+                  className="popover-buttons"
+                  onClick={() => {
+                    navigate("/report/edit");
+                  }}
+                >
                   <Edit sx={{ marginRight: 1 }} />
                   <Typography sx={{ color: "#505050" }}>Edit</Typography>
                 </Button>
@@ -663,7 +667,10 @@ export default function EnhancedTable() {
                       <TableCell align="center">{row.role}</TableCell>
                       <TableCell align="center">{row.parameters}</TableCell>
                       <TableCell align="center">{row.link}</TableCell>
-                      <Button className="edit-report-dots" onClick={handlePopover("left")}>
+                      <Button
+                        className="edit-report-dots"
+                        onClick={handlePopover("left")}
+                      >
                         <TableCell align="center">{row.edit}</TableCell>
                       </Button>
                     </TableRow>

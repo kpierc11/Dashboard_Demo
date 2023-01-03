@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 
-
 export const LightBlueButton = styled.button`
   font-size: 1em;
   margin: 1em;
@@ -9,5 +8,5 @@ export const LightBlueButton = styled.button`
 
   /* Color the border and text with theme.main */
   color: ${"blue"};
-    border: 2px solid ${"blue"};
+  border: 2px solid ${"blue"};
 `;

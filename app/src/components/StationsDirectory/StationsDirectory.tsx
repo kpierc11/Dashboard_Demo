@@ -1,4 +1,3 @@
-import * as React from "react";
 import "../StationsDirectory/stationDirectory.css";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
@@ -18,6 +17,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { visuallyHidden } from "@mui/utils";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { useState } from "react";
 
 interface Data {
   stationName: string;
@@ -473,12 +473,12 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 }
 
 export default function EnhancedTable() {
-  const [order, setOrder] = React.useState<Order>("asc");
-  const [orderBy, setOrderBy] = React.useState<keyof Data>("location");
-  const [selected, setSelected] = React.useState<readonly string[]>([]);
-  const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [order, setOrder] = useState<Order>("asc");
+  const [orderBy, setOrderBy] = useState<keyof Data>("location");
+  const [selected, setSelected] = useState<readonly string[]>([]);
+  const [page, setPage] = useState(0);
+  const [dense, setDense] = useState(false);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,

@@ -47,7 +47,7 @@ export default function AddUserPage() {
           flexWrap: "wrap",
           border: "1px solid #919eab",
           borderRadius: "15px",
-          margin: "30px 0px 30px 18px"
+          margin: "30px 0px 30px 18px",
         }}
       >
         <AddUserForm />

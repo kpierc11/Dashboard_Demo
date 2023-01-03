@@ -364,9 +364,18 @@ export default function NavigationDrawer(props: Props) {
             {/**Pages will be rendered here through react router */}
             <Routes>
               <Route path="/" element={<StationsPage />}></Route>
-              <Route path="/station-data/" element={<StationDataPage />}></Route>
-              <Route path="/station-data/alarms/" element={<AlarmsPage/>}></Route>
-              <Route path="/station-data/alarms/add" element={<AddAlarmPage/>}></Route>
+              <Route
+                path="/station-data/"
+                element={<StationDataPage />}
+              ></Route>
+              <Route
+                path="/station-data/alarms/"
+                element={<AlarmsPage />}
+              ></Route>
+              <Route
+                path="/station-data/alarms/add"
+                element={<AddAlarmPage />}
+              ></Route>
               <Route
                 path="/stations-directory/"
                 element={<StationsDirectoryPage />}
@@ -375,10 +384,7 @@ export default function NavigationDrawer(props: Props) {
               <Route path="/reports/" element={<ReportsPage />}></Route>
               <Route path="/report/edit" element={<EditReportPage />}></Route>
               <Route path="/addons/" element={<WidgetsPage />}></Route>
-              <Route
-                path="/users"
-                element={<UsersPage></UsersPage>}
-              ></Route>
+              <Route path="/users" element={<UsersPage></UsersPage>}></Route>
               <Route path="/user/profile/" element={<NavTabs />}></Route>
             </Routes>
           </Box>
