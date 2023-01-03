@@ -285,7 +285,7 @@ const headCells: readonly HeadCell[] = [
     id: "edit",
     numeric: false,
     disablePadding: true,
-    label: "Edit",
+    label: "",
   },
 ];
 
@@ -338,7 +338,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "center" : "center"}
+            align={headCell.numeric ? "center" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
