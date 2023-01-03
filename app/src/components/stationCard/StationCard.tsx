@@ -87,7 +87,7 @@ export default function StationCard(props: Station) {
           <a href={"/station-data"}>
             <BarChartIcon fontSize="large"></BarChartIcon>
           </a>
-          <a>
+          <a href={"/map"}>
             <MapIcon fontSize="large"></MapIcon>
           </a>
           <a href={"/station-data"}>
