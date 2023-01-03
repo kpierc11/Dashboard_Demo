@@ -1,5 +1,4 @@
-import { Box, Grid, SelectChangeEvent, Paper, styled } from "@mui/material";
-import { useState } from "react";
+import { Box, Grid, Paper, styled } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -18,41 +17,6 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function AlarmsPage() {
-  const [personName, setPersonName] = useState<string[]>([]);
-
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
-  };
-
-  const ITEM_HEIGHT = 48;
-  const ITEM_PADDING_TOP = 8;
-  const MenuProps = {
-    PaperProps: {
-      style: {
-        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-        width: 250,
-      },
-    },
-  };
-
-  const names = [
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-  ];
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>

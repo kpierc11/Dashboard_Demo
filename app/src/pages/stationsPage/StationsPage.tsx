@@ -21,7 +21,7 @@ export default function StationsPage() {
         setStationCards([...stationCards, ...results]);
         setLoading(false);
       });
-  }, []);
+  });
 
   if (isLoading) {
     return <CircularProgress></CircularProgress>;

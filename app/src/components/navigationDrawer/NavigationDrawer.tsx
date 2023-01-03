@@ -40,7 +40,6 @@ import UsersPage from "../../pages/UsersPage";
 import AddAlarmPage from "../../pages/addAlarmPage/AddAlarmPage";
 import AlarmsPage from "../../pages/alarmsPage/AlarmsPage";
 import EditReportPage from "../../pages/editReportsPage/EditReportPage";
-import AddUserPage from "../../pages/AddUsersPage/AddUserPage";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -79,8 +78,6 @@ export default function NavigationDrawer(props: Props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-  const activeClass = "sidebar-link-active";
 
   const drawer = (
     <div>

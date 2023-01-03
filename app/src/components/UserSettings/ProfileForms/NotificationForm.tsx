@@ -4,26 +4,8 @@ import Divider from "@mui/material/Divider";
 import Timeset from "../TimePicker";
 import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { useState } from "react";
-
-const roles = [
-  {
-    value: "Time",
-    label: "Time",
-  },
-  {
-    value: "Disabled",
-    label: "Disabled",
-  },
-];
 
 export default function NotificationForm() {
-  const [role, setRole] = useState("Disabled");
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRole(event.target.value);
-  };
-
   return (
     <Box className="form-bg-box">
       <Box

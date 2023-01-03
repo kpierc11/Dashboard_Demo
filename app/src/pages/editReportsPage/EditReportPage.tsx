@@ -7,7 +7,7 @@ import {
   Switch,
   TextField,
 } from "@mui/material";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./editReportPage.css";
 
 export default function EditReportPage() {
