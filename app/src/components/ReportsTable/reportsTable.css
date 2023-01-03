@@ -97,5 +97,24 @@
   border: 1px solid rgba(145, 158, 171, 1);
   background-color: rgba(242, 242, 242, 1);
   border-radius: 15px !important;
+}
 
+.popover-buttons{
+  width:100% !important;
+  max-width:100px !important;
+  min-width:auto !important;
+  padding:0 !important;
+  text-transform: none !important;
+}
+
+.popover-buttons:hover{
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.edit-report-dots {
+  padding:0 !important;
+}
+
+.edit-report-dots:hover {
+  background-color: transparent !important;
 }

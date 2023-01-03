@@ -366,12 +366,14 @@ export default function NavigationDrawer(props: Props) {
               <Route path="/" element={<StationsPage />}></Route>
               <Route path="/station-data/" element={<StationDataPage />}></Route>
               <Route path="/station-data/alarms/" element={<AlarmsPage/>}></Route>
+              <Route path="/station-data/alarms/add" element={<AddAlarmPage/>}></Route>
               <Route
                 path="/stations-directory/"
                 element={<StationsDirectoryPage />}
               ></Route>
               <Route path="/trends/" element={<TrendsPage />}></Route>
               <Route path="/reports/" element={<ReportsPage />}></Route>
+              <Route path="/report/edit" element={<EditReportPage />}></Route>
               <Route path="/addons/" element={<WidgetsPage />}></Route>
               <Route
                 path="/users"

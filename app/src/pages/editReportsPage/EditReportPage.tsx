@@ -7,6 +7,7 @@ import {
   Switch,
   TextField,
 } from "@mui/material";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./editReportPage.css";
 
 export default function EditReportPage() {
@@ -17,6 +18,8 @@ export default function EditReportPage() {
     textAlign: "left",
     color: theme.palette.text.secondary,
   }));
+
+  const navigate = useNavigate();
 
   const stations = [
     {
@@ -178,8 +181,8 @@ export default function EditReportPage() {
         </Grid>
       </Box>
       <Box className="edit-reports-bottom">
-        <button className="bottom-section-buttons">Go Back</button>
-        <button className="bottom-section-buttons">Edit Report</button>
+        <button className="bottom-section-buttons" onClick={()=>{navigate("/reports")}}>Cancel</button>
+        <button className="bottom-section-buttons">Save Report</button>
       </Box>
     </div>
   );

@@ -1,4 +1,3 @@
-import * as React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
@@ -17,6 +16,18 @@ import "../ReportsTable/reportsTable.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
+import {
+  Popper,
+  Fade,
+  Typography,
+  PopperPlacementType,
+  Button,
+} from "@mui/material";
+import React, { useState } from "react";
+import Edit from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate } from "react-router-dom";
+import ButtonUnstyled from '@mui/base/ButtonUnstyled';
 
 interface Data {
   type: string;
@@ -450,12 +461,17 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 }
 
 export default function EnhancedTable() {
-  const [order, setOrder] = React.useState<Order>("asc");
-  const [orderBy, setOrderBy] = React.useState<keyof Data>("name");
-  const [selected, setSelected] = React.useState<readonly string[]>([]);
-  const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [order, setOrder] = useState<Order>("asc");
+  const [orderBy, setOrderBy] = useState<keyof Data>("name");
+  const [selected, setSelected] = useState<readonly string[]>([]);
+  const [page, setPage] = useState(0);
+  const [dense, setDense] = useState(false);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  const [open, setOpen] = useState(false);
+  const [placement, setPlacement] = useState<PopperPlacementType>();
+
+  const navigate = useNavigate();
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -511,8 +527,65 @@ export default function EnhancedTable() {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
+  const handlePopover =
+    (newPlacement: PopperPlacementType) =>
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+      if (event.currentTarget) {
+        setOpen(true);
+      } else {
+        setOpen(false);
+      }
+    };
+
   return (
     <Box sx={{ width: "100%" }}>
+      <Popper open={open} anchorEl={anchorEl} placement={"left"} transition>
+        {({ TransitionProps }) => (
+          <Fade {...TransitionProps} timeout={2}>
+            <Paper
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                padding: "10px 15px 10px",
+                borderRadius: "10px",
+                boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;",
+                width: "180px",
+                marginTop:3,
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  marginBottom: "10px",
+                  alignItems: "flex-start",
+                }}
+              >
+                <Button className="popover-buttons" onClick={() => {navigate("/report/edit")}}>
+                  <Edit sx={{ marginRight: 1 }} />
+                  <Typography sx={{ color: "#505050" }}>Edit</Typography>
+                </Button>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "flex-start",
+                }}
+              >
+                <Button className="popover-buttons" onClick={() => {}}>
+                  <DeleteIcon sx={{ color: "#f44949", marginRight: 1 }} />
+
+                  <Typography sx={{ color: "#505050" }}>Delete</Typography>
+                </Button>
+              </Box>
+            </Paper>
+          </Fade>
+        )}
+      </Popper>
       <Paper
         sx={{
           width: "100%",
@@ -526,8 +599,8 @@ export default function EnhancedTable() {
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer
           sx={{
-            paddingLeft: "119px",
-            paddingRight: "172px",
+            paddingLeft: "30px",
+            paddingRight: "30px",
             paddingTop: "32px",
           }}
         >
@@ -590,7 +663,9 @@ export default function EnhancedTable() {
                       <TableCell align="center">{row.role}</TableCell>
                       <TableCell align="center">{row.parameters}</TableCell>
                       <TableCell align="center">{row.link}</TableCell>
-                      <TableCell align="center">{row.edit}</TableCell>
+                      <Button className="edit-report-dots" onClick={handlePopover("left")}>
+                        <TableCell align="center">{row.edit}</TableCell>
+                      </Button>
                     </TableRow>
                   );
                 })}

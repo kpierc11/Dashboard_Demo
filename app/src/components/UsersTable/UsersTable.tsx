@@ -468,8 +468,8 @@ export default function EnhancedTable() {
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer
           sx={{
-            paddingLeft: "95px",
-            paddingRight: "97px",
+            paddingLeft: "30px",
+            paddingRight: "30px",
             paddingTop: "32px",
           }}
         >
