@@ -3,7 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import UserProfileForm from "./UserProfilePage";
+import UserProfileForm from "../../pages/userProfilePage/UserProfilePage";
 import AuthenticationForm from "./ProfileForms/AuthenticationForm";
 import NotificationForm from "./ProfileForms/NotificationForm";
 import PersonIcon from "@mui/icons-material/Person";
@@ -47,7 +47,7 @@ export default function NavTabs() {
     <Box
       sx={{
         background: "white",
-        height: "800px",
+        height: "100%",
         border: "1px solid gray",
         borderRadius: "15px",
       }}
