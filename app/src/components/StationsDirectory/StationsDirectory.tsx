@@ -384,7 +384,12 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     };
 
   return (
-    <TableHead>
+    <TableHead
+    sx={{
+      border: "1px solid rgba(145, 158, 171, 1)",
+      borderRadius: "15px",
+      background: "#F2F2F2",
+    }}>
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
@@ -547,7 +552,7 @@ export default function EnhancedTable() {
         }}
       >
         <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer sx={{ paddingLeft: "62px", paddingRight: "80px" }}>
+        <TableContainer sx={{ paddingLeft: "30px", paddingRight: "30px", marginTop:"32px" }}>
           <Table
             sx={{
               minWidth: 750,
