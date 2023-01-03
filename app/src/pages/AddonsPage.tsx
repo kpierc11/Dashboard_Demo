@@ -40,10 +40,24 @@ export default function AddonsPage() {
     setValue(newValue);
   };
   return (
-    <Box sx={{ background: "white", height:"800px", border:"1px solid gray", borderRadius:"15px" }}>
-      <Box sx={{ width: "100%", paddingTop:"20px", paddingLeft:"20px", paddingRight:"20px" }}>
+    <Box
+      sx={{
+        background: "white",
+        height: "800px",
+        border: "1px solid gray",
+        borderRadius: "15px",
+      }}
+    >
+      <Box
+        sx={{
+          width: "100%",
+          paddingTop: "20px",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+        }}
+      >
         <Box
-          sx={{ borderBottom: 1, borderColor: "divider", background: "gray", }}
+          sx={{ borderBottom: 1, borderColor: "divider", background: "gray" }}
         >
           <Tabs
             value={value}
@@ -56,8 +70,14 @@ export default function AddonsPage() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <Box sx={{border:"1px solid gray", borderRadius:"15px", height:"600px"}}>
-          Item One
+          <Box
+            sx={{
+              border: "1px solid gray",
+              borderRadius: "15px",
+              height: "600px",
+            }}
+          >
+            Item One
           </Box>
         </TabPanel>
         <TabPanel value={value} index={1}>

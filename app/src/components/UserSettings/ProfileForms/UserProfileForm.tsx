@@ -1,9 +1,9 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
+import { useState } from "react";
 
 const roles = [
   {
@@ -61,7 +61,7 @@ export function UserPhotoForm() {
   );
 }
 export default function UserProfileForm() {
-  const [role, setRole] = React.useState("Admin");
+  const [role, setRole] = useState("Admin");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRole(event.target.value);

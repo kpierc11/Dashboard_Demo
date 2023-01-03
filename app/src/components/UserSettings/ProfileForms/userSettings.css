@@ -35,7 +35,6 @@
   border: 1px solid #919eab;
   border-radius: 15px;
   padding: 45px 45px 60px 45px;
-  
 }
 
 .pass-box {
@@ -55,7 +54,6 @@
   width: 300px;
   padding: 20px;
   margin-top: 30px;
-  
 }
 
 .noti-box {
@@ -88,4 +86,11 @@
   cursor: pointer;
   margin-right: 30px;
   justify-content: center;
+  transition: 0.3s;
+}
+
+.save-button:hover {
+  transition: 0.3s;
+  background: #1c7ed9;
+  color: #ddf7ff;
 }

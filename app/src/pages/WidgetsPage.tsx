@@ -1,7 +1,5 @@
-import WidgetsTable from "../components/WidgetsTable/widgetsTable"
+import WidgetsTable from "../components/WidgetsTable/widgetsTable";
 
 export default function WidgetsPage() {
-  return <WidgetsTable></WidgetsTable>
-
-  
+  return <WidgetsTable></WidgetsTable>;
 }

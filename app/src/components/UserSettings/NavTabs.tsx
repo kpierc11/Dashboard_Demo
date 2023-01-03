@@ -1,14 +1,14 @@
-import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import UserProfileForm from "./UserProfilePage";
+import UserProfileForm from "../../pages/userProfilePage/UserProfilePage";
 import AuthenticationForm from "./ProfileForms/AuthenticationForm";
 import NotificationForm from "./ProfileForms/NotificationForm";
 import PersonIcon from "@mui/icons-material/Person";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { useState } from "react";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -37,7 +37,7 @@ function TabPanel(props: TabPanelProps) {
 }
 
 export default function NavTabs() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -47,7 +47,7 @@ export default function NavTabs() {
     <Box
       sx={{
         background: "white",
-        height: "800px",
+        height: "100%",
         border: "1px solid gray",
         borderRadius: "15px",
       }}

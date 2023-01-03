@@ -1,10 +1,10 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import "./userSettings.css";
 import Divider from "@mui/material/Divider";
 import Timeset from "../TimePicker";
 import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { useState } from "react";
 
 const roles = [
   {
@@ -18,7 +18,7 @@ const roles = [
 ];
 
 export default function NotificationForm() {
-  const [role, setRole] = React.useState("Disabled");
+  const [role, setRole] = useState("Disabled");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRole(event.target.value);
@@ -60,13 +60,16 @@ export default function NotificationForm() {
               label="Phone"
               labelPlacement="start"
             />
-            <p>Select the time period to recieve your notifications set in the stations page.</p>
+            <p>
+              Select the time period to recieve your notifications set in the
+              stations page.
+            </p>
           </Box>
         </Box>
         <Box
           sx={{ display: "flex", justifyContent: "flex-end", width: "100%" }}
         >
-           <button className="save-button">Save</button>
+          <button className="save-button">Save</button>
         </Box>
       </Box>
     </Box>

@@ -39,8 +39,6 @@
   min-height: 400px;
 }
 
-
-
 .addalarm-paragraph {
   font-size: 16px;
   margin-left: 33px;
@@ -83,7 +81,6 @@
 }
 
 .add-alarm-bottom-section {
-
   margin-top: 75px;
   display: flex;
   justify-content: flex-end;
