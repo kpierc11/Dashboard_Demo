@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { Dayjs } from 'dayjs';
-import TextField from '@mui/material/TextField';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { TextFieldProps } from '@mui/material';
+import { Dayjs } from "dayjs";
+import TextField from "@mui/material/TextField";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import { TextFieldProps } from "@mui/material";
+import { useState } from "react";
 
 export default function Timeset() {
-  const [value, setValue] = React.useState<Dayjs | null>(null);
+  const [value, setValue] = useState<Dayjs | null>(null);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -17,7 +17,9 @@ export default function Timeset() {
         onChange={(newValue: any) => {
           setValue(newValue);
         }}
-        renderInput={(params: JSX.IntrinsicAttributes & TextFieldProps) => <TextField {...params} />}
+        renderInput={(params: JSX.IntrinsicAttributes & TextFieldProps) => (
+          <TextField {...params} />
+        )}
       />
     </LocalizationProvider>
   );

@@ -4,7 +4,7 @@
   border: 1px solid #919eab;
   border-radius: 15px;
   width: 100%;
-  box-shadow:none;
+  box-shadow: none;
 }
 
 .charts-toggle-column {
@@ -17,7 +17,7 @@
 .charts-toggle-wrapper {
   display: flex;
   align-items: flex-start;
-  flex-direction:column;
+  flex-direction: column;
 }
 
 .chart-toggle-inner-wrapper {

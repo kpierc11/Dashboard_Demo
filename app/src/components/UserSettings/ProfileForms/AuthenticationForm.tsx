@@ -1,10 +1,9 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import "./userSettings.css";
 import Divider from "@mui/material/Divider";
-import NavTabs from "../NavTabs";
+import { useState } from "react";
 
 const roles = [
   {
@@ -22,7 +21,7 @@ const roles = [
 ];
 
 export default function AuthenticationForm() {
-  const [role, setRole] = React.useState("Disabled");
+  const [role, setRole] = useState("Disabled");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRole(event.target.value);
@@ -30,7 +29,6 @@ export default function AuthenticationForm() {
 
   return (
     <Box className="form-bg-box">
-      
       <Box
         className="pass-box"
         sx={{
@@ -64,7 +62,8 @@ export default function AuthenticationForm() {
             type="password"
           />
         </Box>
-      </Box><Box
+      </Box>
+      <Box
         className="two-fact-box"
         component="form"
         sx={{
@@ -96,8 +95,8 @@ export default function AuthenticationForm() {
           type="integer"
         />
         <p>
-          You will receive a code with the phone number you provide to complete the log in
-          process.
+          You will receive a code with the phone number you provide to complete
+          the log in process.
         </p>
       </Box>
 

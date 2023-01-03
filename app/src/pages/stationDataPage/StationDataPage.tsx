@@ -1,17 +1,5 @@
 import Box from "@mui/material/Box";
 import "../stationDataPage/stationDataPage.css";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-
-import { faker } from "@faker-js/faker";
 import { useState } from "react";
 import {
   FormControl,
@@ -165,7 +153,7 @@ export default function StationDataPage() {
           <StationSummaryPage></StationSummaryPage>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <StationChartPage/>
+          <StationChartPage />
         </TabPanel>
         <TabPanel value={value} index={2}>
           <AlarmsPage />
@@ -174,5 +162,3 @@ export default function StationDataPage() {
     </>
   );
 }
-
-

@@ -74,7 +74,7 @@ export default function EditReportPage() {
 
       <Box>
         <Grid container>
-          <Grid xs={12} md={12} lg={6} sx={{height:"100%"}}>
+          <Grid xs={12} md={12} lg={6} sx={{ height: "100%" }}>
             <Item className="edit-report-column-one">
               <Box
                 style={{
@@ -140,7 +140,7 @@ export default function EditReportPage() {
               </Box>
             </Item>
           </Grid>
-          <Grid xs={12} md={12} lg={6} sx={{height:"100%"}}>
+          <Grid xs={12} md={12} lg={6} sx={{ height: "100%" }}>
             <Item className="edit-report-column-two">
               <p className="report-paragraph">
                 Do you want to create a scheduled or a On-Demand report?
@@ -181,7 +181,14 @@ export default function EditReportPage() {
         </Grid>
       </Box>
       <Box className="edit-reports-bottom">
-        <button className="bottom-section-buttons" onClick={()=>{navigate("/reports")}}>Cancel</button>
+        <button
+          className="bottom-section-buttons"
+          onClick={() => {
+            navigate("/reports");
+          }}
+        >
+          Cancel
+        </button>
         <button className="bottom-section-buttons">Save Report</button>
       </Box>
     </div>

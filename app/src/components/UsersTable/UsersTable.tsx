@@ -329,11 +329,7 @@ interface EnhancedTableToolbarProps {
 
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
-
   const navigate = useNavigate();
-
-   
-
 
   return (
     <>
@@ -350,11 +346,15 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <h2 className="users-title">Users</h2>
           </div>
           <div className={"users-search-column"}>
-          
-              <button className="add-button"
-              onClick={() => {navigate("/users/edit")}}
-                >Add User</button>
-            
+            <button
+              className="add-button"
+              onClick={() => {
+                navigate("/users/edit");
+              }}
+            >
+              Add User
+            </button>
+
             <form method="POST" style={{ width: "100%" }}>
               <div style={{ position: "relative" }}>
                 <input
@@ -475,7 +475,6 @@ export default function EnhancedTable() {
         >
           <Table
             sx={{
-             
               [`& .${tableCellClasses.root}`]: {
                 borderBottom: "none",
               },
