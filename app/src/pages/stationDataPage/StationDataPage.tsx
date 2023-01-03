@@ -1,0 +1,164 @@
+import Box from "@mui/material/Box";
+import "../stationDataPage/stationDataPage.css";
+import { useState } from "react";
+import {
+  FormControl,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import DnsIcon from "@mui/icons-material/Dns";
+import QueryStatsIcon from "@mui/icons-material/QueryStats";
+import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
+import AlarmsPage from "../alarmsPage/AlarmsPage";
+import StationSummaryPage from "../stationSummaryPage/StationSummaryPage";
+import StationChartPage from "../stationChartPage/StationChartPage";
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+function a11yProps(index: number) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
+
+export default function StationDataPage() {
+  const [personName, setPersonName] = useState<string[]>([]);
+  const [value, setValue] = useState(0);
+
+  const handleChangeValue = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
+
+  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+  };
+
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
+  };
+
+  const names = [
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+    "Station One",
+  ];
+
+  return (
+    <>
+      <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <h3>Selected Station: </h3>
+          <FormControl sx={{ m: 1, width: 300, background: "white" }}>
+            <Select
+              multiple
+              displayEmpty
+              value={personName}
+              onChange={handleChange}
+              input={<OutlinedInput />}
+              renderValue={(selected) => {
+                if (selected.length === 0) {
+                  return <em>Placeholder</em>;
+                }
+
+                return selected.join(", ");
+              }}
+              MenuProps={MenuProps}
+              inputProps={{ "aria-label": "Without label" }}
+            >
+              <MenuItem disabled value="">
+                <em>Placeholder</em>
+              </MenuItem>
+              {names.map((name) => (
+                <MenuItem key={name} value={name}>
+                  {name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Box>
+      </Box>
+      <Box sx={{ width: "100%" }}>
+        <Box
+          sx={{ display: "flex", justifyContent: "center", marginBottom: 5 }}
+        >
+          <Tabs
+            value={value}
+            onChange={handleChangeValue}
+            aria-label="station data tabs"
+          >
+            <Tab icon={<DnsIcon></DnsIcon>} label="Data" {...a11yProps(0)} />
+            <Tab
+              icon={<QueryStatsIcon></QueryStatsIcon>}
+              label="Graphs"
+              {...a11yProps(1)}
+            />
+            <Tab
+              icon={<AccessAlarmsIcon></AccessAlarmsIcon>}
+              label="Alarms"
+              {...a11yProps(2)}
+            />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <StationSummaryPage></StationSummaryPage>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <StationChartPage />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <AlarmsPage />
+        </TabPanel>
+      </Box>
+    </>
+  );
+}

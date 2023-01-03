@@ -1,45 +1,98 @@
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import useTheme from "@mui/material/styles/useTheme";
-import { Station } from "../../interfaces/Stations";
+import Station from "../../interfaces/Stations";
 import "../stationCard/stationCard.css";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import MapIcon from "@mui/icons-material/Map";
+import TimerIcon from "@mui/icons-material/Timer";
+import Paper from "@mui/material/Paper/Paper";
 
 export default function StationCard(props: Station) {
-  const theme = useTheme();
+  let statusElement = <div></div>;
+
+  if (props.status) {
+    statusElement = (
+      <div
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          marginRight: "5px",
+        }}
+      >
+        <FiberManualRecordIcon sx={{ color: "#81e78b" }} />
+        Active
+      </div>
+    );
+  } else {
+    statusElement = (
+      <div
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          marginRight: "5px",
+        }}
+      >
+        <FiberManualRecordIcon sx={{ color: "#ff0000" }} />
+        Inactive
+      </div>
+    );
+  }
+
   return (
     <Box
       sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        "& > :not(style)": {
-          m: 1,
-          width: "100%",
-          height: 263,
-          border: 1,
-          borderColor: "#919EAB",
-        },
+        marginBottom: "24px",
       }}
     >
-      <Paper elevation={0} className="station-card-container">
-        <div className="station-card-col">
-          <h2 style={{ fontSize: theme.typography.h4.fontSize }}>
-            {props.deviceName}
-          </h2>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginTop: "10px",
+          marginRight: "13px",
+          color: "#DA5F5F",
+        }}
+      ></Box>
+      <Paper
+        sx={{
+          borderRadius: "15px",
+          border: "1px solid #919EAB",
+          boxShadow: "none",
+        }}
+        className="station-card-container"
+      >
+        <Box className="station-card-col">
+          <h2 className={"station-card-heading"}>{props.deviceName}</h2>
           <div>
-            <img src="/HBS-logo 1.png" alt="Hydrobioscience logo" />
+            <img src="/station-image.png" alt="Hydrobioscience logo" />
           </div>
-        </div>
+        </Box>
         <div className="station-card-col">
-          <h2>Location</h2>
+          <h2 className={"station-card-heading"}>Location</h2>
           <div>{props.stationLocation}</div>
         </div>
         <div className="station-card-col">
-          <h2>Last Reported</h2>
+          <h2 className={"station-card-heading"}>Last Reported</h2>
           <div>{props.lastReported}</div>
         </div>
         <div className="station-card-col">
-          <h2>Station Type</h2>
+          <h2 className={"station-card-heading"}>Station Type</h2>
           <div>{props.stationType}</div>
+        </div>
+        <div className="station-card-col">
+          <h2 className={"station-card-heading"}>Status</h2>
+          {statusElement}
+        </div>
+        <div className={"station-card-icons"}>
+          <a href={"/station-data"}>
+            <BarChartIcon fontSize="large"></BarChartIcon>
+          </a>
+          <a href={"/map"}>
+            <MapIcon fontSize="large"></MapIcon>
+          </a>
+          <a href={"/station-data"}>
+            <TimerIcon fontSize="large"></TimerIcon>
+          </a>
         </div>
       </Paper>
     </Box>

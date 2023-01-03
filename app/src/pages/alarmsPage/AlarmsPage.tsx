@@ -1,0 +1,133 @@
+import { Box, Grid, Paper, styled } from "@mui/material";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  boxShadow: "none",
+  border: "1px solid #919EAB",
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+  borderRadius: "15px",
+  height: "100%",
+}));
+
+export default function AlarmsPage() {
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid xs={12} md={4}>
+          <Item sx={{ marginRight: "27px" }}>
+            <Box sx={{ width: "100%", padding: "17px" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center", width: "100%" }}
+              >
+                <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
+                <MoreVertIcon style={{ color: "#DA5F5F" }}></MoreVertIcon>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
+                <p>Low Value Trigger</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Clear Threshold:</h3>
+                <p> 10 V</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Current Reading:</h3>
+                <p>≥ 11.5 V</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Subscribers:</h3>
+                <p>11.59 V</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Type:</h3>
+                <p>User 1</p>
+              </Box>
+            </Box>
+          </Item>
+        </Grid>
+        <Grid xs={12} md={4}>
+          <Item sx={{ marginRight: "27px" }}>
+            <Box sx={{ width: "100%", padding: "17px" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center", width: "100%" }}
+              >
+                <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
+                <MoreVertIcon style={{ color: "#DA5F5F" }}></MoreVertIcon>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
+                <p>Low Value Trigger</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Clear Threshold:</h3>
+                <p> 10 V</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Current Reading:</h3>
+                <p>≥ 11.5 V</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Subscribers:</h3>
+                <p>11.59 V</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Type:</h3>
+                <p>User 1</p>
+              </Box>
+            </Box>
+          </Item>
+        </Grid>
+        <Grid xs={12} md={4}>
+          <Item>
+            <Box sx={{ width: "100%", padding: "17px" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center", width: "100%" }}
+              >
+                <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
+                <MoreVertIcon style={{ color: "#DA5F5F" }}></MoreVertIcon>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
+                <p>Low Value Trigger</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Clear Threshold:</h3>
+                <p> 10 V</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Current Reading:</h3>
+                <p>≥ 11.5 V</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Subscribers:</h3>
+                <p>11.59 V</p>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <h3 style={{ marginRight: "auto" }}>Type:</h3>
+                <p>User 1</p>
+              </Box>
+            </Box>
+          </Item>
+        </Grid>
+        <Grid xs={12} md={12}>
+          <Item sx={{ marginTop: "38px" }}>
+            <Box sx={{ width: "100%", padding: "17px" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center", width: "100%" }}
+              >
+                <h2 style={{ marginRight: "auto" }}>History</h2>
+              </Box>
+            </Box>
+          </Item>
+        </Grid>
+      </Grid>
+    </Box>
+  );
+}

@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -12,16 +11,35 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
-import { router } from "../../navigation/Navigation";
-import { RouterProvider } from "react-router-dom";
-import { useState, useEffect, useMemo, createContext } from "react";
-import { Button, CircularProgress, ThemeProvider } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
+import { useState, useMemo, createContext } from "react";
+import { Link, ThemeProvider } from "@mui/material";
 import "../navigationDrawer/navigationDrawer.css";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import { createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
+import AccountTree from "@mui/icons-material/AccountTree";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+import ContentPasteOutlinedIcon from "@mui/icons-material/ContentPasteOutlined";
+import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomizeOutlined";
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import LogoutIcon from "@mui/icons-material/Logout";
+import SettingsIcon from "@mui/icons-material/Settings";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import SearchIcon from "@mui/icons-material/Search";
+import { NavLink } from "react-router-dom";
+import StationsPage from "../../pages/stationsPage/StationsPage";
+import TrendsPage from "../../pages/trendsPage/TrendsPage";
+import StationsDirectoryPage from "../../pages/StationsDirectoryPage";
+import WidgetsPage from "../../pages/WidgetsPage";
+import NavTabs from "../UserSettings/NavTabs";
+import StationDataPage from "../../pages/stationDataPage/StationDataPage";
+import ReportsPage from "../../pages/ReportsPage";
+import UsersPage from "../../pages/UsersPage";
+import AddAlarmPage from "../../pages/addAlarmPage/AddAlarmPage";
+import AlarmsPage from "../../pages/alarmsPage/AlarmsPage";
+import EditReportPage from "../../pages/editReportsPage/EditReportPage";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -37,7 +55,6 @@ interface Props {
 export default function NavigationDrawer(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isLoaded, setLoading] = useState(false);
   const [mode, setMode] = useState<"light" | "dark">("light");
   const colorMode = useMemo(
     () => ({
@@ -62,16 +79,6 @@ export default function NavigationDrawer(props: Props) {
     setMobileOpen(!mobileOpen);
   };
 
-  useEffect(() => {
-    let timer = setTimeout(() => {
-      setLoading(true);
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
   const drawer = (
     <div>
       <Toolbar />
@@ -83,29 +90,105 @@ export default function NavigationDrawer(props: Props) {
           alt="hydrobioscience logo"
         ></img>
       </Box>
-      <List>
-        <a href="/">
-          <ListItem key={1} disablePadding>
-            <ListItemButton>
+      <h1 style={{ paddingLeft: 27, marginTop: 27, fontSize: 20 }}>General</h1>
+      <List className={"sidebar-navigation"}>
+        <ListItem key={1} disablePadding>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
+            to="/"
+          >
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
                 <SatelliteAltIcon />
               </ListItemIcon>
               <ListItemText primary={"MyH2info"} />
             </ListItemButton>
-          </ListItem>
-        </a>
-      </List>
-      <List>
-        <a href="/users">
-          <ListItem key={2} disablePadding>
-            <ListItemButton>
+          </NavLink>
+        </ListItem>
+
+        <ListItem key={2} disablePadding>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
+            to="/stations-directory"
+          >
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
-                <InboxIcon />
+                <AccountTree />
               </ListItemIcon>
-              <ListItemText primary={"Users"} />
+              <ListItemText primary={"Directory"} />
             </ListItemButton>
-          </ListItem>
-        </a>
+          </NavLink>
+        </ListItem>
+
+        <ListItem key={3} disablePadding>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
+            to="/trends"
+          >
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
+              <ListItemIcon>
+                <AssessmentIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Trends"} />
+            </ListItemButton>
+          </NavLink>
+        </ListItem>
+
+        <ListItem key={4} disablePadding>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
+            to="/reports"
+          >
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
+              <ListItemIcon>
+                <ContentPasteOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Reports"} />
+            </ListItemButton>
+          </NavLink>
+        </ListItem>
+
+        <ListItem key={5} disablePadding>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
+            to="/addons"
+          >
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
+              <ListItemIcon>
+                <DashboardCustomizeOutlinedIcon className={"sidebar-icon"} />
+              </ListItemIcon>
+              <ListItemText primary={"Addons"} />
+            </ListItemButton>
+          </NavLink>
+        </ListItem>
+
+        <h1 style={{ paddingLeft: 27, marginTop: 30, fontSize: 20 }}>Admin</h1>
+
+        <ListItem key={6} disablePadding>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "sidebar-link-active" : "sidebar-link"
+            }
+            to="/users"
+          >
+            <ListItemButton sx={{ paddingLeft: "22px" }}>
+              <ListItemIcon>
+                <PeopleOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary={"users"} />
+            </ListItemButton>
+          </NavLink>
+        </ListItem>
       </List>
     </div>
   );
@@ -123,50 +206,102 @@ export default function NavigationDrawer(props: Props) {
             sx={{
               width: { sm: `calc(100% - ${drawerWidth}px)` },
               ml: { sm: `${drawerWidth}px` },
-              backgroundColor: "white",
+              backgroundColor: `${
+                theme.palette.mode === "dark"
+                  ? "#121212"
+                  : theme.palette.background.default
+              }`,
+              backgroundImage: `${
+                theme.palette.mode === "dark"
+                  ? "linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));"
+                  : theme.palette.background.default
+              }`,
               boxShadow: "none",
               borderRight: "none",
+              marginRight: "auto",
             }}
           >
-            <Toolbar sx={{ justifyContent: "flex-end", borderRight: 0 }}>
+            <Toolbar
+              sx={{
+                justifyContent: "flex-end",
+                borderRight: 0,
+                paddingTop: "39px",
+                paddingBottom: "40px",
+                flexWrap: "wrap",
+              }}
+            >
+              <div className={"topbar-search-container"}>
+                <form>
+                  <div style={{ position: "relative" }}>
+                    <input
+                      id="topbar-search"
+                      type="search"
+                      placeholder="search..."
+                    ></input>
+                    <SearchIcon
+                      sx={{
+                        position: "absolute",
+                        right: 0,
+                        marginTop: "5%",
+                        top: 0,
+                        marginRight: 2,
+                      }}
+                      color="primary"
+                    ></SearchIcon>
+                  </div>
+                </form>
+              </div>
               <IconButton
                 color="primary"
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: "none" } }}
+                className={"mobile-hamburger"}
+                sx={{
+                  mr: 2,
+                  display: { sm: "none" },
+                  marginRight: "auto",
+                  background: "#e6f7fc",
+                  borderRadius: "10px",
+                  color: "#747474",
+                }}
               >
                 <MenuIcon />
               </IconButton>
-              <NotificationsNoneOutlinedIcon
-                sx={{
-                  fontSize: 28,
-                  color: "#747474",
-                  justifyContent: "flex-end",
-                  backgroundColor: "#E6F7FC",
-                  borderRadius: "5px",
-                }}
-              ></NotificationsNoneOutlinedIcon>
-              <Button onClick={colorMode.toggleColorMode}>
-                <AccountCircleOutlinedIcon
-                  sx={{
-                    fontSize: 28,
-                    color: "#747474",
-                    justifyContent: "flex-end",
-                  }}
-                ></AccountCircleOutlinedIcon>
-              </Button>
+              <LogoutIcon
+                className={"topbar-icon"}
+                fontSize={"large"}
+              ></LogoutIcon>
               <IconButton
-                sx={{ ml: 1 }}
                 onClick={colorMode.toggleColorMode}
                 color="inherit"
+                className={"topbar-button"}
+                sx={{ padding: 0 }}
               >
                 {theme.palette.mode === "dark" ? (
-                  <Brightness7Icon color="primary" />
+                  <Brightness4Icon
+                    className={"topbar-icon"}
+                    fontSize={"large"}
+                  />
                 ) : (
-                  <Brightness4Icon color="primary" />
+                  <DarkModeIcon className={"topbar-icon"} fontSize={"large"} />
                 )}
               </IconButton>
+              <SettingsIcon
+                className={"topbar-icon"}
+                fontSize={"large"}
+              ></SettingsIcon>
+              <NotificationsNoneOutlinedIcon
+                className={"topbar-icon"}
+                fontSize={"large"}
+              ></NotificationsNoneOutlinedIcon>
+              <Link sx={{ height: 35 }} href="/user/profile">
+                <AccountCircleOutlinedIcon
+                  className={"topbar-icon"}
+                  fontSize={"large"}
+                  sx={{ marginRight: 0 }}
+                ></AccountCircleOutlinedIcon>
+              </Link>
             </Toolbar>
           </AppBar>
           <Box
@@ -215,14 +350,40 @@ export default function NavigationDrawer(props: Props) {
               flexGrow: 1,
               p: 3,
               width: { sm: `calc(100% - ${drawerWidth}px)` },
+
+              background: `${
+                theme.palette.mode === "dark"
+                  ? theme.palette.background.default
+                  : "#e6f7fc"
+              }`,
             }}
           >
             {/**Pages will be rendered here through react router */}
-            {isLoaded ? (
-              <RouterProvider router={router} />
-            ) : (
-              <CircularProgress></CircularProgress>
-            )}
+            <Routes>
+              <Route path="/" element={<StationsPage />}></Route>
+              <Route
+                path="/station-data/"
+                element={<StationDataPage />}
+              ></Route>
+              <Route
+                path="/station-data/alarms/"
+                element={<AlarmsPage />}
+              ></Route>
+              <Route
+                path="/station-data/alarms/add"
+                element={<AddAlarmPage />}
+              ></Route>
+              <Route
+                path="/stations-directory/"
+                element={<StationsDirectoryPage />}
+              ></Route>
+              <Route path="/trends/" element={<TrendsPage />}></Route>
+              <Route path="/reports/" element={<ReportsPage />}></Route>
+              <Route path="/report/edit" element={<EditReportPage />}></Route>
+              <Route path="/addons/" element={<WidgetsPage />}></Route>
+              <Route path="/users" element={<UsersPage></UsersPage>}></Route>
+              <Route path="/user/profile/" element={<NavTabs />}></Route>
+            </Routes>
           </Box>
         </Box>
       </ThemeProvider>

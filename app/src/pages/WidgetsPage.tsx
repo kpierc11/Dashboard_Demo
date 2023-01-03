@@ -1,13 +1,5 @@
-import StationCard from "../components/stationCard/StationCard";
+import WidgetsTable from "../components/WidgetsTable/widgetsTable";
 
 export default function WidgetsPage() {
-  return (
-    <StationCard
-      deviceName={""}
-      stationLocation={""}
-      lastReported={""}
-      stationType={""}
-      status={false}
-    ></StationCard>
-  );
+  return <WidgetsTable></WidgetsTable>;
 }
