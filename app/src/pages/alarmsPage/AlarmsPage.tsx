@@ -124,6 +124,76 @@ export default function AlarmsPage() {
               >
                 <h2 style={{ marginRight: "auto" }}>History</h2>
               </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  border: "1px solid #919EAB",
+                  borderRadius: "15px",
+                  justifyContent:"center"
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    marginRight:"auto",
+                    marginLeft:"auto"
+                  }}
+                >
+                  <h3>Timestamp</h3>
+                  <p>N/A</p>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    marginRight:"auto",
+                    marginLeft:"auto"
+                  }}
+                >
+                  <h3>Parameter</h3>
+                  <p>N/A</p>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    marginRight:"auto",
+                    marginLeft:"auto"
+                  }}
+                >
+                  <h3>Alarm</h3>
+                  <p>N/A</p>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    marginRight:"auto",
+                    marginLeft:"auto"
+                  }}
+                >
+                  <h3>Action</h3>
+                  <p>N/A</p>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    marginRight:"auto",
+                    marginLeft:"auto"
+                  }}
+                >
+                  <h3>Reading</h3>
+                  <p>N/A</p>
+                </Box>
+              </Box>
             </Box>
           </Item>
         </Grid>

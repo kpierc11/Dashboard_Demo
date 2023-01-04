@@ -161,10 +161,200 @@ export default function StationSummaryPage() {
             flexDirection: "column",
             alignItems: "flex-start",
             height: "100%",
+            paddingLeft:"41px",
+            paddingRight:"30px"
           }}
         >
           <h1>DPI Mult Probe</h1>
-          <Box sx={{ width: "width:100%" }}></Box>
+          <Box sx={{ width: "100%" }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                flexWrap: "wrap",
+                width: "100%",
+                marginLeft: "10px",
+                marginTop:"30px"
+              }}
+            >
+              <h3 style={{ marginRight: "auto" }}>Name</h3>
+              <h3 style={{ marginRight: "auto" }}>Last Logged</h3>
+              <h3 style={{ marginRight: "auto" }}>Min</h3>
+              <h3 style={{ marginRight: "auto" }}>Max</h3>
+              <h3 style={{ marginRight: "auto" }}>Average</h3>
+              <h3 style={{ marginRight: "auto" }}>Health</h3>
+              <h3 style={{ marginRight: "auto" }}>Last 24 Hours</h3>
+            </Box>
+            <Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  background: "#F2F2F2",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                  marginBottom:"10px"
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                  marginBottom:"10px"
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  background: "#F2F2F2",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                  marginBottom:"10px"
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                  marginBottom:"10px"
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  background: "#F2F2F2",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                  marginBottom:"10px"
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  background: "#F2F2F2",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                  marginBottom:"10px"
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                  marginBottom:"10px"
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  background: "#F2F2F2",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                  marginBottom:"10px"
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+            </Box>
+          </Box>
         </Item>
       </Grid>
     </Grid>
