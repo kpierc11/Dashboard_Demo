@@ -104,7 +104,7 @@ export default function NavigationDrawer(props: Props) {
               <ListItemIcon>
                 <SatelliteAltIcon />
               </ListItemIcon>
-              <ListItemText primary={"MyH2info"} />
+              <ListItemText primary={"MyH2infO"} />
             </ListItemButton>
           </NavLink>
         </ListItem>
