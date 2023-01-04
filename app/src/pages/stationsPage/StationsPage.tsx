@@ -62,9 +62,9 @@ export default function StationsPage() {
               key={index}
               stationId={index}
               deviceName={element.name}
-              stationLocation={element.height}
-              lastReported={""}
-              stationType={""}
+              stationLocation={"Piney, Flats TN"}
+              lastReported={"September 23rd 2022 8:56:58 pm"}
+              stationType={"AHPS"}
               status={false}
             ></StationCard>
           );
