@@ -47,7 +47,12 @@ function createData(
 
 const rows = [
   createData(
-    "Malachi Kelly",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Administrator",
     <Box className="user-box">
@@ -57,7 +62,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Kasey Garrison",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Custom",
     <Box className="user-box">
@@ -67,7 +77,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Abdulrah Grant",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Spectator",
     <Box className="user-box">
@@ -77,7 +92,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Floyd Pierce",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Spectator",
     <Box className="user-box">
@@ -87,7 +107,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Jerome Pratt",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Spectator",
     <Box className="user-box">
@@ -97,7 +122,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Oakley Maldonado",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Administrator",
     <Box className="user-box">
@@ -107,7 +137,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Tariq Serrano",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Administrator",
     <Box className="user-box">
@@ -117,7 +152,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Joao Petersen",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Administrator",
     <Box className="user-box">
@@ -127,7 +167,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Keziah Fuentes",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Custom",
     <Box className="user-box">
@@ -137,7 +182,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Connor Roberts",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Custom",
     <Box className="user-box">
@@ -147,7 +197,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Faisal Patrick",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Administrator",
     <Box className="user-box">
@@ -157,7 +212,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Felix Curry",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Custom",
     <Box className="user-box">
@@ -167,7 +227,12 @@ const rows = [
     <IconMenu />
   ),
   createData(
-    "Jago Flynn",
+    <Box className="user-avatar-container">
+      <Box className="user-avatar">
+        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
+      </Box>
+      <Typography>Abdulrah Grant</Typography>
+    </Box>,
     "Hydro Bio Science",
     "Custom",
     <Box className="user-box">
@@ -349,7 +414,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <button
               className="add-button"
               onClick={() => {
-                navigate("/users/edit");
+                navigate("/users/add");
               }}
             >
               Add User

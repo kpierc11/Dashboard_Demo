@@ -103,7 +103,7 @@
 
 .users-title {
   margin-top: 17px;
-  margin-left: 78px;
+  margin-left: 28px;
   margin-right: auto;
 }
 
@@ -126,4 +126,20 @@
 .inactive-txt {
   color: #ff0000;
   margin-right: 10px;
+}
+
+.user-avatar-container {
+  display: inline-flex;
+  align-items: center;
+  width:100%;
+}
+
+.user-avatar {
+  padding:3px;
+  border-radius: 50%;
+  margin-right: 40px;
+  margin-left:40px;
+  object-fit: contain;
+  background:#E5E4E2;
+
 }
