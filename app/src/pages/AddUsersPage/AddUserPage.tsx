@@ -57,13 +57,20 @@ export default function AddUserPage() {
         <button
           className="cancel-button"
           onClick={() => {
-            navigate("/users");
+            navigate("/users/");
           }}
         >
           Cancel
         </button>
 
-        <button className="edit-sb">Add User</button>
+        <button
+          className="edit-sb"
+          onClick={() => {
+            navigate("/users/add");
+          }}
+        >
+          Add User
+        </button>
       </Box>
     </Box>
   );

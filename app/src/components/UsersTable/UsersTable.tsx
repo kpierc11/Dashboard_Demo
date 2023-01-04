@@ -414,7 +414,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <button
               className="add-button"
               onClick={() => {
-                navigate("/users/edit");
+                navigate("/users/add");
               }}
             >
               Add User
