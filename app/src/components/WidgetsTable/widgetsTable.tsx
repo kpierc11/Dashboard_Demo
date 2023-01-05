@@ -13,10 +13,10 @@ import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
 import "../WidgetsTable/widgets.css";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
 import { useState } from "react";
+import IconMenu from "../iconMenu/IconMenu";
 
 interface Data {
   type: string;
@@ -52,11 +52,7 @@ const rows = [
     "My Station 2.0",
     "95",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -64,11 +60,7 @@ const rows = [
     "My Station 2.0",
     "59",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -76,11 +68,7 @@ const rows = [
     "My Station 2.0",
     "34",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -88,11 +76,7 @@ const rows = [
     "My Station 2.0",
     "23",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -100,11 +84,7 @@ const rows = [
     "My Station 2.0",
     "17",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -112,11 +92,7 @@ const rows = [
     "My Station 2.0",
     "2",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -124,11 +100,7 @@ const rows = [
     "My Station 2.0",
     "6",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -136,11 +108,7 @@ const rows = [
     "My Station 2.0",
     "10",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -148,11 +116,7 @@ const rows = [
     "My Station 2.0",
     "1",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -160,11 +124,7 @@ const rows = [
     "My Station 2.0",
     "2",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -172,11 +132,7 @@ const rows = [
     "My Station 2.0",
     "5",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -184,11 +140,7 @@ const rows = [
     "My Station 2.0",
     "7",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "Time Series",
@@ -196,11 +148,7 @@ const rows = [
     "My Station 2.0",
     "3",
     "January 1, 2019",
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
 ];
 
