@@ -59,7 +59,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -74,7 +74,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -89,7 +89,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -104,7 +104,7 @@ const rows = [
       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -119,7 +119,7 @@ const rows = [
       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -134,7 +134,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -149,7 +149,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -164,7 +164,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -179,7 +179,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -194,7 +194,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -209,7 +209,7 @@ const rows = [
       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -224,7 +224,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -239,7 +239,7 @@ const rows = [
       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu />
+    <IconMenu url={""} />
   ),
 ];
 
@@ -414,7 +414,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <button
               className="add-button"
               onClick={() => {
-                navigate("/users/add");
+                navigate("");
               }}
             >
               Add User

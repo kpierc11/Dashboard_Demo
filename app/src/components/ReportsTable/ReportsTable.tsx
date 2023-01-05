@@ -56,7 +56,7 @@ const rows = [
     "Administrator",
     "15",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -65,7 +65,7 @@ const rows = [
     "Administrator",
     "13",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -74,7 +74,7 @@ const rows = [
     "Administrator",
     "29",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -83,7 +83,7 @@ const rows = [
     "Administrator",
     "31",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -92,7 +92,7 @@ const rows = [
     "Administrator",
     "56",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -101,7 +101,7 @@ const rows = [
     "Administrator",
     "72",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -110,7 +110,7 @@ const rows = [
     "Administrator",
     "93",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -119,7 +119,7 @@ const rows = [
     "Administrator",
     "15",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -128,7 +128,7 @@ const rows = [
     "Administrator",
     "12",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -137,7 +137,7 @@ const rows = [
     "Administrator",
     "90",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -146,7 +146,7 @@ const rows = [
     "Administrator",
     "76",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -155,7 +155,7 @@ const rows = [
     "Administrator",
     "43",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
     "On-Demand",
@@ -164,7 +164,7 @@ const rows = [
     "Administrator",
     "104",
     <button className="download-button">Download</button>,
-    <IconMenu />
+    <IconMenu url={"/report/edit"} />
   ),
 ];
 
