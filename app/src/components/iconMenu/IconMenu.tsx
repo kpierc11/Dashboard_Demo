@@ -6,6 +6,11 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import IconButton from "@mui/material/IconButton";
+import { useNavigate } from "react-router-dom";
+
+interface IProps {
+  url: string;
+}
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -50,13 +55,17 @@ const StyledMenu = styled((props: MenuProps) => (
   },
 }));
 
-export default function IconMenu() {
+export default function IconMenu({ url }: IProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
+  const navigate = useNavigate();
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
+    navigate(url);
     setAnchorEl(null);
   };
 

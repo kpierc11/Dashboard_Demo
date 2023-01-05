@@ -1,5 +1,5 @@
 import { Box, Grid, Paper, styled } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import IconMenu from "../../components/iconMenu/IconMenu";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -27,7 +27,7 @@ export default function AlarmsPage() {
                 sx={{ display: "flex", alignItems: "center", width: "100%" }}
               >
                 <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
-                <MoreVertIcon style={{ color: "#DA5F5F" }}></MoreVertIcon>
+                <IconMenu url={"station-data/alarm/add"} />
               </Box>
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
@@ -59,7 +59,7 @@ export default function AlarmsPage() {
                 sx={{ display: "flex", alignItems: "center", width: "100%" }}
               >
                 <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
-                <MoreVertIcon style={{ color: "#DA5F5F" }}></MoreVertIcon>
+                <IconMenu url={"station-data/alarm/add"} />
               </Box>
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
@@ -91,7 +91,7 @@ export default function AlarmsPage() {
                 sx={{ display: "flex", alignItems: "center", width: "100%" }}
               >
                 <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
-                <MoreVertIcon style={{ color: "#DA5F5F" }}></MoreVertIcon>
+                <IconMenu url={"station-data/alarm/add"} />
               </Box>
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
@@ -130,7 +130,7 @@ export default function AlarmsPage() {
                   flexDirection: "row",
                   border: "1px solid #919EAB",
                   borderRadius: "15px",
-                  justifyContent:"center"
+                  justifyContent: "center",
                 }}
               >
                 <Box
@@ -138,8 +138,8 @@ export default function AlarmsPage() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    marginRight:"auto",
-                    marginLeft:"auto"
+                    marginRight: "auto",
+                    marginLeft: "auto",
                   }}
                 >
                   <h3>Timestamp</h3>
@@ -150,8 +150,8 @@ export default function AlarmsPage() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    marginRight:"auto",
-                    marginLeft:"auto"
+                    marginRight: "auto",
+                    marginLeft: "auto",
                   }}
                 >
                   <h3>Parameter</h3>
@@ -162,8 +162,8 @@ export default function AlarmsPage() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    marginRight:"auto",
-                    marginLeft:"auto"
+                    marginRight: "auto",
+                    marginLeft: "auto",
                   }}
                 >
                   <h3>Alarm</h3>
@@ -174,8 +174,8 @@ export default function AlarmsPage() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    marginRight:"auto",
-                    marginLeft:"auto"
+                    marginRight: "auto",
+                    marginLeft: "auto",
                   }}
                 >
                   <h3>Action</h3>
@@ -186,8 +186,8 @@ export default function AlarmsPage() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    marginRight:"auto",
-                    marginLeft:"auto"
+                    marginRight: "auto",
+                    marginLeft: "auto",
                   }}
                 >
                   <h3>Reading</h3>
