@@ -13,20 +13,10 @@ import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
 import "../ReportsTable/reportsTable.css";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
-import {
-  Popper,
-  Fade,
-  Typography,
-  PopperPlacementType,
-  Button,
-} from "@mui/material";
 import React, { useState } from "react";
-import Edit from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { useNavigate } from "react-router-dom";
+import IconMenu from "../iconMenu/IconMenu";
 
 interface Data {
   type: string;
@@ -66,11 +56,7 @@ const rows = [
     "Administrator",
     "15",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -79,11 +65,7 @@ const rows = [
     "Administrator",
     "13",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -92,11 +74,7 @@ const rows = [
     "Administrator",
     "29",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -105,11 +83,7 @@ const rows = [
     "Administrator",
     "31",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -118,11 +92,7 @@ const rows = [
     "Administrator",
     "56",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -131,11 +101,7 @@ const rows = [
     "Administrator",
     "72",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -144,11 +110,7 @@ const rows = [
     "Administrator",
     "93",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -157,11 +119,7 @@ const rows = [
     "Administrator",
     "15",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -170,11 +128,7 @@ const rows = [
     "Administrator",
     "12",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -183,11 +137,7 @@ const rows = [
     "Administrator",
     "90",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -196,11 +146,7 @@ const rows = [
     "Administrator",
     "76",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -209,11 +155,7 @@ const rows = [
     "Administrator",
     "43",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "On-Demand",
@@ -222,11 +164,7 @@ const rows = [
     "Administrator",
     "104",
     <button className="download-button">Download</button>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
 ];
 
@@ -466,10 +404,6 @@ export default function EnhancedTable() {
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-  const [open, setOpen] = useState(false);
-
-  const navigate = useNavigate();
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -525,70 +459,8 @@ export default function EnhancedTable() {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
-  const handlePopover =
-    (newPlacement: PopperPlacementType) =>
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      setAnchorEl(event.currentTarget);
-      if (event.currentTarget) {
-        setOpen(true);
-      } else {
-        setOpen(false);
-      }
-    };
-
   return (
     <Box sx={{ width: "100%" }}>
-      <Popper open={open} anchorEl={anchorEl} placement={"left"} transition>
-        {({ TransitionProps }) => (
-          <Fade {...TransitionProps} timeout={2}>
-            <Paper
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                padding: "10px 15px 10px",
-                borderRadius: "10px",
-                boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;",
-                width: "180px",
-                marginTop: 3,
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  marginBottom: "10px",
-                  alignItems: "flex-start",
-                }}
-              >
-                <Button
-                  className="popover-buttons"
-                  onClick={() => {
-                    navigate("/report/edit");
-                  }}
-                >
-                  <Edit sx={{ marginRight: 1 }} />
-                  <Typography sx={{ color: "#505050" }}>Edit</Typography>
-                </Button>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "flex-start",
-                }}
-              >
-                <Button className="popover-buttons" onClick={() => {}}>
-                  <DeleteIcon sx={{ color: "#f44949", marginRight: 1 }} />
-
-                  <Typography sx={{ color: "#505050" }}>Delete</Typography>
-                </Button>
-              </Box>
-            </Paper>
-          </Fade>
-        )}
-      </Popper>
       <Paper
         sx={{
           width: "100%",
@@ -666,12 +538,7 @@ export default function EnhancedTable() {
                       <TableCell align="center">{row.role}</TableCell>
                       <TableCell align="center">{row.parameters}</TableCell>
                       <TableCell align="center">{row.link}</TableCell>
-                      <Button
-                        className="edit-report-dots"
-                        onClick={handlePopover("left")}
-                      >
-                        <TableCell align="center">{row.edit}</TableCell>
-                      </Button>
+                      <TableCell align="center">{row.edit}</TableCell>
                     </TableRow>
                   );
                 })}

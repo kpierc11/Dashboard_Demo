@@ -16,8 +16,8 @@ import Checkbox from "@mui/material/Checkbox";
 import SearchIcon from "@mui/icons-material/Search";
 import { visuallyHidden } from "@mui/utils";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useState } from "react";
+import IconMenu from "../iconMenu/IconMenu";
 
 interface Data {
   stationName: string;
@@ -60,11 +60,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (ID)",
@@ -78,11 +74,7 @@ const rows = [
       ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (HI)",
@@ -96,11 +88,7 @@ const rows = [
       ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (GA)",
@@ -112,11 +100,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AZ)",
@@ -128,11 +112,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AL)",
@@ -146,11 +126,7 @@ const rows = [
       ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (CA)",
@@ -162,11 +138,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (NY)",
@@ -178,11 +150,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (FL)",
@@ -194,11 +162,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (TN)",
@@ -210,11 +174,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AR)",
@@ -226,11 +186,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (CO)",
@@ -242,11 +198,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (LA)",
@@ -258,11 +210,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <MoreVertIcon
-      color="primary"
-      fontSize="large"
-      cursor="pointer"
-    ></MoreVertIcon>
+    <IconMenu />
   ),
 ];
 
@@ -385,11 +333,12 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 
   return (
     <TableHead
-    sx={{
-      border: "1px solid rgba(145, 158, 171, 1)",
-      borderRadius: "15px",
-      background: "#F2F2F2",
-    }}>
+      sx={{
+        border: "1px solid rgba(145, 158, 171, 1)",
+        borderRadius: "15px",
+        background: "#F2F2F2",
+      }}
+    >
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
@@ -552,7 +501,9 @@ export default function EnhancedTable() {
         }}
       >
         <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer sx={{ paddingLeft: "30px", paddingRight: "30px", marginTop:"32px" }}>
+        <TableContainer
+          sx={{ paddingLeft: "30px", paddingRight: "30px", marginTop: "32px" }}
+        >
           <Table
             sx={{
               minWidth: 750,

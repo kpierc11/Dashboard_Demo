@@ -161,8 +161,8 @@ export default function StationSummaryPage() {
             flexDirection: "column",
             alignItems: "flex-start",
             height: "100%",
-            paddingLeft:"41px",
-            paddingRight:"30px"
+            paddingLeft: "41px",
+            paddingRight: "30px",
           }}
         >
           <h1>DPI Mult Probe</h1>
@@ -175,7 +175,7 @@ export default function StationSummaryPage() {
                 flexWrap: "wrap",
                 width: "100%",
                 marginLeft: "10px",
-                marginTop:"30px"
+                marginTop: "30px",
               }}
             >
               <h3 style={{ marginRight: "auto" }}>Name</h3>
@@ -195,7 +195,7 @@ export default function StationSummaryPage() {
                   background: "#F2F2F2",
                   borderRadius: "15px",
                   paddingLeft: "10px",
-                  marginBottom:"10px"
+                  marginBottom: "10px",
                 }}
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
@@ -213,44 +213,7 @@ export default function StationSummaryPage() {
                   justifyContent: "flex-start",
                   borderRadius: "15px",
                   paddingLeft: "10px",
-                  marginBottom:"10px"
-                }}
-              >
-                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "flex-start",
-                  background: "#F2F2F2",
-                  borderRadius: "15px",
-                  paddingLeft: "10px",
-                  marginBottom:"10px"
-                }}
-              >
-                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-                <p style={{ marginRight: "auto" }}>N/A</p>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "flex-start",
-                  borderRadius: "15px",
-                  paddingLeft: "10px",
-                  marginBottom:"10px"
+                  marginBottom: "10px",
                 }}
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
@@ -269,7 +232,44 @@ export default function StationSummaryPage() {
                   background: "#F2F2F2",
                   borderRadius: "15px",
                   paddingLeft: "10px",
-                  marginBottom:"10px"
+                  marginBottom: "10px",
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                  marginBottom: "10px",
+                }}
+              >
+                <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+                <p style={{ marginRight: "auto" }}>N/A</p>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  background: "#F2F2F2",
+                  borderRadius: "15px",
+                  paddingLeft: "10px",
+                  marginBottom: "10px",
                 }}
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
@@ -305,7 +305,7 @@ export default function StationSummaryPage() {
                   background: "#F2F2F2",
                   borderRadius: "15px",
                   paddingLeft: "10px",
-                  marginBottom:"10px"
+                  marginBottom: "10px",
                 }}
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
@@ -323,7 +323,7 @@ export default function StationSummaryPage() {
                   justifyContent: "flex-start",
                   borderRadius: "15px",
                   paddingLeft: "10px",
-                  marginBottom:"10px"
+                  marginBottom: "10px",
                 }}
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
@@ -342,7 +342,7 @@ export default function StationSummaryPage() {
                   background: "#F2F2F2",
                   borderRadius: "15px",
                   paddingLeft: "10px",
-                  marginBottom:"10px"
+                  marginBottom: "10px",
                 }}
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
