@@ -19,229 +19,294 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import IconButton from "@mui/material/IconButton/IconButton";
 import IconMenu from "../iconMenu/IconMenu";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Data {
-  name: string;
-  company: string;
+  id: number;
   role: string;
-  status: string;
-  edit: string;
+  company: string;
+  users: string;
+  status: boolean;
 }
 
 function createData(
-  name: any,
-  company: any,
-  role: any,
-  status: any,
-  edit: any
+  id: number,
+  role: string,
+  company: string,
+  users: string,
+  status: boolean
 ): Data {
   return {
-    name,
-    company,
+    id,
     role,
+    users,
     status,
-    edit,
+    company,
   };
 }
 
-const rows = [
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Administrator",
-    <Box className="user-box">
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Custom",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Spectator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Spectator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Spectator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Administrator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Administrator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Administrator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Custom",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Custom",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Administrator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Custom",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Custom",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-];
+// const rows = [
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Administrator",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+//       <Typography>Active</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Custom",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
+//       <Typography>Active</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Spectator",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
+//       <Typography>Active</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Spectator",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
+//       <Typography>Inactive</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Spectator",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
+//       <Typography>Inactive</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Administrator",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
+//       <Typography>Active</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Administrator",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
+//       <Typography>Active</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Administrator",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
+//       <Typography>Active</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Custom",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
+//       <Typography>Active</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Custom",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
+//       <Typography>Active</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Administrator",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
+//       <Typography>Inactive</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Custom",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
+//       <Typography>Active</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+//   createData(
+//     <Box className="user-avatar-container">
+//       <Box className="user-avatar">
+//         <img
+//           height="58px"
+//           width="64px"
+//           src={"/default-avatar.png"}
+//           alt="default avatar"
+//         ></img>
+//       </Box>
+//       <Typography>Abdulrah Grant</Typography>
+//     </Box>,
+//     "Hydro Bio Science",
+//     "Custom",
+//     <Box className="user-box">
+//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
+//       <Typography>Active</Typography>
+//     </Box>,
+//     <IconMenu url={""} />
+//   ),
+// ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -291,16 +356,22 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
-    id: "name",
+    id: "id",
     numeric: true,
     disablePadding: false,
-    label: "Name",
+    label: "User Id",
+  },
+  {
+    id: "users",
+    numeric: true,
+    disablePadding: false,
+    label: "Users",
   },
   {
     id: "company",
     numeric: true,
     disablePadding: false,
-    label: "Comapny",
+    label: "Company",
   },
   {
     id: "role",
@@ -313,12 +384,6 @@ const headCells: readonly HeadCell[] = [
     numeric: true,
     disablePadding: false,
     label: "Status",
-  },
-  {
-    id: "edit",
-    numeric: true,
-    disablePadding: false,
-    label: "",
   },
 ];
 
@@ -458,11 +523,26 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 
 export default function EnhancedTable() {
   const [order, setOrder] = useState<Order>("asc");
-  const [orderBy, setOrderBy] = useState<keyof Data>("name");
+  const [orderBy, setOrderBy] = useState<keyof Data>("id");
   const [selected, setSelected] = useState<readonly string[]>([]);
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [userData, setUserData] = useState<any>([]);
+
+  useEffect(() => {
+    fetch("https://api-generator.retool.com/G7fSxq/data")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        const userInfo = data.map((user: any) => {
+          return user;
+        });
+        setUserData([...userData, ...userInfo]);
+      });
+  }, []);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -475,7 +555,7 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.name);
+      const newSelected = userData.map((n: any) => n.name);
       setSelected(newSelected);
       return;
     }
@@ -516,7 +596,7 @@ export default function EnhancedTable() {
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -553,13 +633,14 @@ export default function EnhancedTable() {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={rows.length}
+              rowCount={userData.length}
             />
             <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
+              {stableSort(userData, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
+                  console.log(row);
+                  const isItemSelected = isSelected("");
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -567,12 +648,12 @@ export default function EnhancedTable() {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={row.id}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
-                          onClick={(event) => handleClick(event, row.name)}
+                          onClick={(event) => handleClick(event, "")}
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
@@ -586,13 +667,14 @@ export default function EnhancedTable() {
                         scope="row"
                         padding="none"
                       >
-                        {row.name}
+                        {row.id}
                       </TableCell>
-
+                      <TableCell align="left">{row.users}</TableCell>
                       <TableCell align="left">{row.company}</TableCell>
                       <TableCell align="left">{row.role}</TableCell>
-                      <TableCell align="left">{row.status}</TableCell>
-                      <TableCell align="left">{row.edit}</TableCell>
+                      <TableCell align="left">
+                        {Boolean(row.status) == true ? "Active" : "Inactive"}
+                      </TableCell>
                     </TableRow>
                   );
                 })}
@@ -611,7 +693,7 @@ export default function EnhancedTable() {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={rows.length}
+          count={userData.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
