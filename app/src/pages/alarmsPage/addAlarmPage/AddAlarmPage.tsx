@@ -7,7 +7,8 @@ import {
   Switch,
   TextField,
 } from "@mui/material";
-import "../addAlarmPage/addAlarmPage.css";
+import { useNavigate } from "react-router-dom";
+import "./addAlarmPage.css";
 
 export default function AddAlarmPage() {
   const Item = styled(Paper)(({ theme }) => ({
@@ -17,6 +18,8 @@ export default function AddAlarmPage() {
     textAlign: "left",
     color: theme.palette.text.secondary,
   }));
+
+  const navigate = useNavigate();
 
   const stations = [
     {
@@ -114,7 +117,7 @@ export default function AddAlarmPage() {
   return (
     <div className="add-alarm-main-container">
       <div className="add-alarm-top-section">
-        <h3 className="add-alarm-title">Add Alarm</h3>
+        <h3 className="add-alarm-title">Edit Alarm</h3>
       </div>
 
       <Box>
@@ -149,6 +152,7 @@ export default function AddAlarmPage() {
                     id="outlined-required"
                     label="Alarm Name"
                     defaultValue="Alarm Name..."
+                    value="Alarm One"
                   />
 
                   <TextField
@@ -288,8 +292,8 @@ export default function AddAlarmPage() {
           </Grid>
         </Grid>
         <Box className="add-alarm-bottom-section">
-          <button className="addalarm-page-buttons">Cancel</button>
-          <button className="addalarm-page-buttons">Add Alarm</button>
+          <button className="addalarm-page-buttons" onClick={()=> navigate("/station-data")}>Cancel</button>
+          <button className="addalarm-page-buttons">Save</button>
         </Box>
       </Box>
     </div>

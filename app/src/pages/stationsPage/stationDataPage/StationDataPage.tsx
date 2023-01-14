@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import "../stationDataPage/stationDataPage.css";
+import "./stationDataPage.css";
 import { useState } from "react";
 import {
   FormControl,
@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import DnsIcon from "@mui/icons-material/Dns";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
-import AlarmsPage from "../alarmsPage/AlarmsPage";
+import AlarmsPage from "../../alarmsPage/AlarmsPage";
 import StationSummaryPage from "../stationSummaryPage/StationSummaryPage";
 import StationChartPage from "../stationChartPage/StationChartPage";
 
