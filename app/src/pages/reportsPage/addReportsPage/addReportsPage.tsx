@@ -8,9 +8,8 @@ import {
   TextField,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import "./editReportPage.css";
 
-export default function EditReportPage() {
+export default function AddReportPage() {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -94,7 +93,7 @@ export default function EditReportPage() {
                   required
                   id="outlined-required"
                   label="Report Name"
-                  defaultValue="Sample Report"
+                  defaultValue=""
                 />
                 <TextField
                   sx={{
@@ -105,7 +104,7 @@ export default function EditReportPage() {
                   id="outlined-select-currency"
                   select
                   label="Data Source"
-                  defaultValue="st1"
+                  defaultValue=""
                 >
                   {stations.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
@@ -122,7 +121,7 @@ export default function EditReportPage() {
                   required
                   id="outlined-required"
                   label="User"
-                  defaultValue="Sample Report"
+                  defaultValue=""
                 />
                 <TextField
                   sx={{
@@ -135,7 +134,7 @@ export default function EditReportPage() {
                   label="Description"
                   multiline
                   rows={4}
-                  defaultValue="This is an example description"
+                  defaultValue=""
                 />
               </Box>
             </Item>
@@ -189,7 +188,7 @@ export default function EditReportPage() {
         >
           Cancel
         </button>
-        <button className="bottom-section-buttons">Create Report</button>
+        <button className="bottom-section-buttons">Create</button>
       </Box>
     </div>
   );

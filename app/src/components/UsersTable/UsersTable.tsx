@@ -59,7 +59,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+    <IconMenu url={"/user/edit"} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -300,7 +300,7 @@ const headCells: readonly HeadCell[] = [
     id: "company",
     numeric: true,
     disablePadding: false,
-    label: "Comapny",
+    label: "Company",
   },
   {
     id: "role",
@@ -414,7 +414,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <button
               className="add-button"
               onClick={() => {
-                navigate("");
+                navigate("/user/add");
               }}
             >
               Add User
