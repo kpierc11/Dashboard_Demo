@@ -17,7 +17,7 @@ import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
 import React, { useState } from "react";
 import IconMenu from "../iconMenu/IconMenu";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Data {
   type: string;
