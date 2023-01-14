@@ -12,7 +12,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import "../ReportsTable/reportsTable.css";
+import "./reportsTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
 import React, { useState } from "react";

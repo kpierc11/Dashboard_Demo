@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./addUser.css";
 import AddUserForm, {
   AddUserPhotoForm,
-} from "../../components/addUserForm/AddUserForm";
+} from "../../../components/addUserForm/AddUserForm";
 
 export default function AddUserPage() {
   const navigate = useNavigate();

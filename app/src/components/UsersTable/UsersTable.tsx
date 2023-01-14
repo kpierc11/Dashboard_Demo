@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import "../UsersTable/usersTable.css";
+import "./usersTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import IconButton from "@mui/material/IconButton/IconButton";
