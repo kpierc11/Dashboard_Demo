@@ -12,11 +12,12 @@ import Toolbar from "@mui/material/Toolbar";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import "../ReportsTable/reportsTable.css";
+import "./reportsTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
 import React, { useState } from "react";
 import IconMenu from "../iconMenu/IconMenu";
+import { useNavigate } from "react-router-dom";
 
 interface Data {
   type: string;
@@ -337,6 +338,7 @@ interface EnhancedTableToolbarProps {
 
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -356,7 +358,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <button
               className="add-button"
               onClick={(event) => {
-                alert("Add Report");
+                navigate("/report/add");
               }}
             >
               Add Report

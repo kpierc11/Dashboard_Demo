@@ -11,7 +11,6 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
-import { Route, Routes } from "react-router-dom";
 import { useState, useMemo, createContext } from "react";
 import { Link, ThemeProvider } from "@mui/material";
 import "../navigationDrawer/navigationDrawer.css";
@@ -29,18 +28,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import SearchIcon from "@mui/icons-material/Search";
 import { NavLink } from "react-router-dom";
-import StationsPage from "../../pages/stationsPage/StationsPage";
-import TrendsPage from "../../pages/trendsPage/TrendsPage";
-import StationsDirectoryPage from "../../pages/StationsDirectoryPage";
-import WidgetsPage from "../../pages/WidgetsPage";
-import NavTabs from "../UserSettings/NavTabs";
-import StationDataPage from "../../pages/stationDataPage/StationDataPage";
-import ReportsPage from "../../pages/ReportsPage";
-import UsersPage from "../../pages/UsersPage";
-import AddAlarmPage from "../../pages/addAlarmPage/AddAlarmPage";
-import AlarmsPage from "../../pages/alarmsPage/AlarmsPage";
-import EditReportPage from "../../pages/editReportsPage/EditReportPage";
-import AddUserPage from "../../pages/AddUsersPage/AddUserPage";
+import NavigationRoutes from "../../navigationRoutes/NavigationRoutes";
 
 const drawerWidth = 240;
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -104,7 +92,7 @@ export default function NavigationDrawer(props: Props) {
               <ListItemIcon>
                 <SatelliteAltIcon />
               </ListItemIcon>
-              <ListItemText primary={"MyH2infO"} />
+              <ListItemText primary={"MyH2Oinfo"} />
             </ListItemButton>
           </NavLink>
         </ListItem>
@@ -360,32 +348,7 @@ export default function NavigationDrawer(props: Props) {
             }}
           >
             {/**Pages will be rendered here through react router */}
-            <Routes>
-              <Route path="/" element={<StationsPage />}></Route>
-              <Route
-                path="/station-data/"
-                element={<StationDataPage />}
-              ></Route>
-              <Route
-                path="/station-data/alarms/"
-                element={<AlarmsPage />}
-              ></Route>
-              <Route
-                path="/station-data/alarms/add"
-                element={<AddAlarmPage />}
-              ></Route>
-              <Route
-                path="/stations-directory/"
-                element={<StationsDirectoryPage />}
-              ></Route>
-              <Route path="/trends/" element={<TrendsPage />}></Route>
-              <Route path="/reports/" element={<ReportsPage />}></Route>
-              <Route path="/report/edit" element={<EditReportPage />}></Route>
-              <Route path="/addons/" element={<WidgetsPage />}></Route>
-              <Route path="/users" element={<UsersPage></UsersPage>}></Route>
-              <Route path="/users/add" element={<AddUserPage></AddUserPage>}></Route>
-              <Route path="/user/profile/" element={<NavTabs />}></Route>
-            </Routes>
+            <NavigationRoutes />
           </Box>
         </Box>
       </ThemeProvider>

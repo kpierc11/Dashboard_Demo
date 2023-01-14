@@ -1,12 +1,11 @@
 import Box from "@mui/material/Box";
 import { Toolbar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import "./addUser.css";
 import AddUserForm, {
   AddUserPhotoForm,
-} from "../../components/addUserForm/AddUserForm";
+} from "../../../components/addUserForm/AddUserForm";
 
-export default function AddUserPage() {
+export default function EditUserPage() {
   const navigate = useNavigate();
 
   return (
@@ -28,7 +27,7 @@ export default function AddUserPage() {
         }}
       >
         <Box className="edit-users-title-column">
-          <h2>Add User</h2>
+          <h2>Edit User</h2>
         </Box>
       </Toolbar>
       <Box
@@ -56,10 +55,10 @@ export default function AddUserPage() {
         <button
           className="edit-sb"
           onClick={() => {
-            navigate("/users/add");
+            navigate("/users/");
           }}
         >
-          Add User
+          Save
         </button>
       </Box>
     </Box>

@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import "../UsersTable/usersTable.css";
+import "./usersTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import IconButton from "@mui/material/IconButton/IconButton";
@@ -59,7 +59,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+    <IconMenu url={"/user/edit"} />
   ),
   createData(
     <Box className="user-avatar-container">
@@ -300,7 +300,7 @@ const headCells: readonly HeadCell[] = [
     id: "company",
     numeric: true,
     disablePadding: false,
-    label: "Comapny",
+    label: "Company",
   },
   {
     id: "role",
@@ -414,7 +414,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <button
               className="add-button"
               onClick={() => {
-                navigate("");
+                navigate("/user/add");
               }}
             >
               Add User

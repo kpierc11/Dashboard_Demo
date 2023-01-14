@@ -12,7 +12,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import "../WidgetsTable/widgets.css";
+import "./addonsTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
 import { useState } from "react";
@@ -328,16 +328,16 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
       >
         <div className={"reports-topbar"}>
           <div className={"reports-title-column"}>
-            <h2 className="reports-title">Widgets</h2>
+            <h2 className="reports-title">Addons</h2>
           </div>
           <div className={"reports-search-column"}>
             <button
               className="add-button"
               onClick={(event) => {
-                alert("Add Widget");
+                
               }}
             >
-              Add Widget
+              New Addon
             </button>
             <form method="POST" style={{ width: "100%" }}>
               <div style={{ position: "relative" }}>
@@ -375,7 +375,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   );
 }
 
-export default function EnhancedTable() {
+export default function AddonsTable() {
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("name");
   const [selected, setSelected] = useState<readonly string[]>([]);

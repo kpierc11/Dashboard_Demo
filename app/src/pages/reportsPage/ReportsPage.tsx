@@ -1,4 +1,4 @@
-import ReportsTable from "../components/ReportsTable/ReportsTable";
+import ReportsTable from "../../components/reportsTable/ReportsTable";
 
 export default function ReportsPage() {
   return <ReportsTable></ReportsTable>;

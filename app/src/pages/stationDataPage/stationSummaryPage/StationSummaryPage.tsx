@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
-import "../stationSummaryPage/stationSummaryPage.css";
+import "./stationSummaryPage.css";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -16,6 +16,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
 import BatteryCharging90Icon from "@mui/icons-material/BatteryCharging90";
+import StationMap from "../../../components/stationMap/StationMap";
 
 ChartJS.register(
   CategoryScale,
@@ -155,6 +156,22 @@ export default function StationSummaryPage() {
         </Item>
       </Grid>
       <Grid xs={12} md={6}>
+        <Item
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            height: "100%",
+            paddingLeft: "41px",
+            paddingRight: "30px",
+          }}
+        >
+          <h1>Location</h1>
+
+          <StationMap></StationMap>
+        </Item>
+      </Grid>
+      <Grid xs={12} md={12}>
         <Item
           sx={{
             display: "flex",
