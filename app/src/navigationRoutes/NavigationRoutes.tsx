@@ -5,7 +5,6 @@ import AddAlarmPage from "../pages/alarmsPage/addAlarmPage/AddAlarmPage";
 import AlarmsPage from "../pages/alarmsPage/AlarmsPage";
 import AddReportPage from "../pages/reportsPage/addReportsPage/addReportsPage";
 import EditReportPage from "../pages/reportsPage/editReportsPage/EditReportPage";
-import ReportsPage from "../pages/reportsPage/ReportsPage";
 import StationDataPage from "../pages/stationDataPage/StationDataPage";
 import StationsDirectoryPage from "../pages/stationDirectoryPage/StationsDirectoryPage";
 import StationsPage from "../pages/stationsPage/StationsPage";
@@ -27,7 +26,6 @@ export default function NavigationRoutes() {
         element={<StationsDirectoryPage />}
       ></Route>
       <Route path="/trends/" element={<TrendsPage />}></Route>
-      <Route path="/reports/" element={<ReportsPage />}></Route>
       <Route path="/report/edit" element={<EditReportPage />}></Route>
       <Route path="/report/add" element={<AddReportPage />}></Route>
       <Route path="/addons/" element={<WidgetsPage />}></Route>
