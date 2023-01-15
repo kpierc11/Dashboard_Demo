@@ -1,18 +1,19 @@
 import { Route, Routes } from "react-router-dom";
 import NavTabs from "../components/UserSettings/NavTabs";
-import AddAlarmPage from "../pages/alarmsPage/addAlarmPage/AddAlarmPage";
 import WidgetsPage from "../pages/addonsPage/AddonsPage";
-import AddUserPage from "../pages/usersPage/addUsersPage/AddUserPage";
+import AddAlarmPage from "../pages/alarmsPage/addAlarmPage/AddAlarmPage";
 import AlarmsPage from "../pages/alarmsPage/AlarmsPage";
+import AddReportPage from "../pages/reportsPage/addReportsPage/addReportsPage";
 import EditReportPage from "../pages/reportsPage/editReportsPage/EditReportPage";
 import ReportsPage from "../pages/reportsPage/ReportsPage";
 import StationDataPage from "../pages/stationDataPage/StationDataPage";
 import StationsDirectoryPage from "../pages/stationDirectoryPage/StationsDirectoryPage";
 import StationsPage from "../pages/stationsPage/StationsPage";
 import TrendsPage from "../pages/trendsPage/TrendsPage";
-import UsersPage from "../pages/usersPage/UsersPage";
-import AddReportPage from "../pages/reportsPage/addReportsPage/addReportsPage";
+import AddUserPage from "../pages/usersPage/addUsersPage/AddUserPage";
 import EditUserPage from "../pages/usersPage/editUserPage/EditUserPage";
+import UsersPage from "../pages/usersPage/UsersPage";
+
 
 export default function NavigationRoutes() {
   return (

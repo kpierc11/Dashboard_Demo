@@ -92,7 +92,7 @@ export default function NavigationDrawer(props: Props) {
               <ListItemIcon>
                 <SatelliteAltIcon />
               </ListItemIcon>
-              <ListItemText primary={<p>MyH2Oinfo &trade;</p>} />
+              <ListItemText primary={<>MyH2Oinfo &trade;</>} />
             </ListItemButton>
           </NavLink>
         </ListItem>
