@@ -73,9 +73,9 @@ export default function NavigationDrawer(props: Props) {
       <Toolbar />
       <Box sx={{ display: "flex", width: "100%", justifyContent: "center" }}>
         <img
-          src={"/HBS-logo 1.png"}
+          src={"/HBS-TM-logo-400px.webp"}
           height={100}
-          width={100}
+          width={150}
           alt="hydrobioscience logo"
         ></img>
       </Box>
@@ -92,7 +92,7 @@ export default function NavigationDrawer(props: Props) {
               <ListItemIcon>
                 <SatelliteAltIcon />
               </ListItemIcon>
-              <ListItemText primary={"MyH2Oinfo"} />
+              <ListItemText primary={<p>MyH2Oinfo &trade;</p>} />
             </ListItemButton>
           </NavLink>
         </ListItem>
