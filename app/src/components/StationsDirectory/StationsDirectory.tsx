@@ -56,7 +56,7 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <Button onClick={()=>{}}>
+    <Button onClick={() => {}}>
       <TimelineIcon
         color="primary"
         cursor="pointer"
