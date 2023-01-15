@@ -18,6 +18,7 @@ import { visuallyHidden } from "@mui/utils";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { useState } from "react";
 import IconMenu from "../iconMenu/IconMenu";
+import Button from "@mui/material/Button/Button";
 
 interface Data {
   stationName: string;
@@ -55,7 +56,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button onClick={()=>{}}>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
@@ -67,7 +74,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon
         sx={{ color: "#FF0000", marginLeft: "12px" }}
@@ -81,7 +94,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon
         sx={{ color: "#FF0000", marginLeft: "12px" }}
@@ -95,7 +114,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
@@ -107,7 +132,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
@@ -119,7 +150,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon
         sx={{ color: "#FF0000", marginLeft: "12px" }}
@@ -133,7 +170,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
@@ -145,19 +188,31 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-   <IconMenu url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (FL)",
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
@@ -169,7 +224,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
@@ -181,7 +242,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
@@ -193,7 +260,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
@@ -205,7 +278,13 @@ const rows = [
     "Fox River at Algonquin tailwater",
     "September 23rd 2022",
     "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
     <Box sx={{ display: "inline-flex" }}>
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
