@@ -5,7 +5,6 @@ import WidgetsPage from "../pages/addonsPage/AddonsPage";
 import AddUserPage from "../pages/usersPage/addUsersPage/AddUserPage";
 import AlarmsPage from "../pages/alarmsPage/AlarmsPage";
 import EditReportPage from "../pages/reportsPage/editReportsPage/EditReportPage";
-import ReportsPage from "../pages/reportsPage/ReportsPage";
 import StationDataPage from "../pages/stationDataPage/StationDataPage";
 import StationsDirectoryPage from "../pages/stationDirectoryPage/StationsDirectoryPage";
 import StationsPage from "../pages/stationsPage/StationsPage";
@@ -13,6 +12,7 @@ import TrendsPage from "../pages/trendsPage/TrendsPage";
 import UsersPage from "../pages/usersPage/UsersPage";
 import AddReportPage from "../pages/reportsPage/addReportsPage/addReportsPage";
 import EditUserPage from "../pages/usersPage/editUserPage/EditUserPage";
+import ReportsPage from "../pages/reportsPage/ReportsPage";
 
 export default function NavigationRoutes() {
   return (
