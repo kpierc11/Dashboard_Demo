@@ -1,4 +1,4 @@
-import SearchIcon from "@mui/icons-material/Search";
+import "./stationDirectory.css";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,145 +9,286 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import TimelineIcon from "@mui/icons-material/Timeline";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
+import SearchIcon from "@mui/icons-material/Search";
 import { visuallyHidden } from "@mui/utils";
-import "./widgets.css";
-import Tooltip from "@mui/material/Tooltip/Tooltip";
-import IconButton from "@mui/material/IconButton/IconButton";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { useState } from "react";
 import IconMenu from "../iconMenu/IconMenu";
+import Button from "@mui/material/Button/Button";
 
 interface Data {
+  stationName: string;
+  location: string;
+  reported: string;
   type: string;
-  name: string;
-  station: string;
-  widgets: string;
-  updated: string;
+  readings: string;
+  status: string;
   edit: string;
 }
 
 function createData(
+  stationName: any,
+  location: any,
+  reported: any,
   type: any,
-  name: any,
-  station: any,
-  widgets: any,
-  updated: any,
+  readings: any,
+  status: any,
   edit: any
 ): Data {
   return {
+    stationName,
+    location,
+    reported,
     type,
-    name,
-    station,
-    widgets,
-    updated,
+    readings,
+    status,
     edit,
   };
 }
 
 const rows = [
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "95",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (IN)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button onClick={() => {}}>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "59",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (ID)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon
+        sx={{ color: "#FF0000", marginLeft: "12px" }}
+      ></FiberManualRecordIcon>
+      <Typography>Inactive</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "34",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (HI)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon
+        sx={{ color: "#FF0000", marginLeft: "12px" }}
+      ></FiberManualRecordIcon>
+      <Typography>Inactive</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "23",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (GA)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "17",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (AZ)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "2",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (AL)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon
+        sx={{ color: "#FF0000", marginLeft: "12px" }}
+      ></FiberManualRecordIcon>
+      <Typography>Inactive</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "6",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (CA)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "10",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (NY)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "1",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (FL)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "2",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (TN)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "5",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (AR)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "7",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (CO)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
   createData(
-    "Time Series",
-    "Rain Time",
-    "My Station 2.0",
-    "3",
-    "January 1, 2019",
+    "AFBI2 Fox River at Algonquin tailwater (LA)",
+    "Fox River at Algonquin tailwater",
+    "September 23rd 2022",
+    "AHPS",
+    <Button>
+      <TimelineIcon
+        color="primary"
+        cursor="pointer"
+        fontSize="large"
+      ></TimelineIcon>
+    </Button>,
+    <Box sx={{ display: "inline-flex" }}>
+      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+      <Typography>Active</Typography>
+    </Box>,
     <IconMenu url={""} />
   ),
 ];
@@ -200,39 +341,45 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
-    id: "type",
+    id: "stationName",
     numeric: false,
     disablePadding: true,
-    label: "Type",
+    label: "Station Name",
   },
   {
-    id: "name",
+    id: "location",
     numeric: true,
     disablePadding: false,
-    label: "Name",
+    label: "Location",
   },
   {
-    id: "station",
+    id: "reported",
     numeric: true,
     disablePadding: false,
-    label: "Station",
+    label: "Reported",
   },
   {
-    id: "widgets",
+    id: "type",
     numeric: true,
     disablePadding: false,
-    label: "Widgets",
+    label: "Station Type",
   },
   {
-    id: "updated",
+    id: "readings",
     numeric: true,
     disablePadding: false,
-    label: "Date Updated",
+    label: "Readings",
+  },
+  {
+    id: "status",
+    numeric: true,
+    disablePadding: false,
+    label: "Status",
   },
   {
     id: "edit",
-    numeric: false,
-    disablePadding: true,
+    numeric: true,
+    disablePadding: false,
     label: "",
   },
 ];
@@ -326,25 +473,18 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           ...(numSelected > 0 && {}),
         }}
       >
-        <div className={"reports-topbar"}>
-          <div className={"reports-title-column"}>
-            <h2 className="reports-title">Widgets</h2>
+        <div className={"stations-directory-topbar"}>
+          <div className={"stations-title-column"}>
+            <h2 className="directory-title">Stations Directory</h2>
           </div>
-          <div className={"reports-search-column"}>
-            <button
-              className="add-button"
-              onClick={(event) => {
-                alert("Add Widget");
-              }}
-            >
-              Add Widget
-            </button>
+          <div className={"stations-directory-search-column"}>
+            <div className="directory-buttons"></div>
             <form method="POST" style={{ width: "100%" }}>
               <div style={{ position: "relative" }}>
                 <input
-                  id="reports-search"
+                  id="directory-search"
                   type="search"
-                  placeholder="Search Widget..."
+                  placeholder="Find A Station..."
                 ></input>
                 <SearchIcon
                   sx={{
@@ -360,24 +500,14 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             </form>
           </div>
         </div>
-
-        {numSelected > 0 ? (
-          <Tooltip title="Delete">
-            <IconButton></IconButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title="Filter list">
-            <IconButton></IconButton>
-          </Tooltip>
-        )}
       </Toolbar>
     </>
   );
 }
 
-export default function EnhancedTable() {
+export default function StationsDirectory() {
   const [order, setOrder] = useState<Order>("asc");
-  const [orderBy, setOrderBy] = useState<keyof Data>("name");
+  const [orderBy, setOrderBy] = useState<keyof Data>("location");
   const [selected, setSelected] = useState<readonly string[]>([]);
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
@@ -394,7 +524,7 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.type);
+      const newSelected = rows.map((n) => n.stationName);
       setSelected(newSelected);
       return;
     }
@@ -451,11 +581,7 @@ export default function EnhancedTable() {
       >
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer
-          sx={{
-            paddingLeft: "30px",
-            paddingRight: "30px",
-            paddingTop: "32px",
-          }}
+          sx={{ paddingLeft: "30px", paddingRight: "30px", marginTop: "32px" }}
         >
           <Table
             sx={{
@@ -479,7 +605,7 @@ export default function EnhancedTable() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.widgets);
+                  const isItemSelected = isSelected(row.stationName);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -487,12 +613,14 @@ export default function EnhancedTable() {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.type}
+                      key={row.stationName}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
-                          onClick={(event) => handleClick(event, row.widgets)}
+                          onClick={(event) =>
+                            handleClick(event, row.stationName)
+                          }
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
@@ -506,13 +634,14 @@ export default function EnhancedTable() {
                         scope="row"
                         padding="none"
                       >
-                        {row.type}
+                        {row.stationName}
                       </TableCell>
 
-                      <TableCell align="center">{row.name}</TableCell>
-                      <TableCell align="center">{row.station}</TableCell>
-                      <TableCell align="center">{row.widgets}</TableCell>
-                      <TableCell align="center">{row.updated}</TableCell>
+                      <TableCell align="center">{row.location}</TableCell>
+                      <TableCell align="center">{row.reported}</TableCell>
+                      <TableCell align="center">{row.type}</TableCell>
+                      <TableCell align="center">{row.readings}</TableCell>
+                      <TableCell align="center">{row.status}</TableCell>
                       <TableCell align="center">{row.edit}</TableCell>
                     </TableRow>
                   );

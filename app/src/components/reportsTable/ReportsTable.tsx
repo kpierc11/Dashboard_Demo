@@ -1,4 +1,4 @@
-import "./stationDirectory.css";
+import SearchIcon from "@mui/icons-material/Search";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,208 +9,163 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import TimelineIcon from "@mui/icons-material/Timeline";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
-import SearchIcon from "@mui/icons-material/Search";
 import { visuallyHidden } from "@mui/utils";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import { useState } from "react";
+import "./reportsTable.css";
+import Tooltip from "@mui/material/Tooltip/Tooltip";
+import IconButton from "@mui/material/IconButton/IconButton";
+import React, { useState } from "react";
 import IconMenu from "../iconMenu/IconMenu";
+import { useNavigate } from "react-router-dom";
 
 interface Data {
-  stationName: string;
-  location: string;
-  reported: string;
   type: string;
-  readings: string;
-  status: string;
+  name: string;
+  description: string;
+  role: string;
+  parameters: string;
+  link: string;
   edit: string;
 }
 
 function createData(
-  stationName: any,
-  location: any,
-  reported: any,
   type: any,
-  readings: any,
-  status: any,
+  name: any,
+  description: any,
+  role: any,
+  parameters: any,
+  link: any,
   edit: any
 ): Data {
   return {
-    stationName,
-    location,
-    reported,
     type,
-    readings,
-    status,
+    name,
+    description,
+    role,
+    parameters,
+    link,
     edit,
   };
 }
 
 const rows = [
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (IN)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "15",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (ID)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon
-        sx={{ color: "#FF0000", marginLeft: "12px" }}
-      ></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "13",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (HI)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon
-        sx={{ color: "#FF0000", marginLeft: "12px" }}
-      ></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "29",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (GA)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "31",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (AZ)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "56",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (AL)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon
-        sx={{ color: "#FF0000", marginLeft: "12px" }}
-      ></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "72",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (CA)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "93",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (NY)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-   <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "15",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (FL)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "12",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (TN)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "90",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (AR)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "76",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (CO)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "43",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
   createData(
-    "AFBI2 Fox River at Algonquin tailwater (LA)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <TimelineIcon color="primary" cursor="pointer"></TimelineIcon>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
+    "On-Demand",
+    "Hydro Report",
+    "This is an example description",
+    "Administrator",
+    "104",
+    <button className="download-button">Download</button>,
+    <IconMenu url={"/report/edit"} />
   ),
 ];
 
@@ -262,37 +217,37 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
-    id: "stationName",
+    id: "type",
     numeric: false,
     disablePadding: true,
-    label: "Station Name",
+    label: "Type",
   },
   {
-    id: "location",
+    id: "name",
     numeric: true,
     disablePadding: false,
-    label: "Location",
+    label: "Name",
   },
   {
-    id: "reported",
+    id: "description",
     numeric: true,
     disablePadding: false,
-    label: "Reported",
+    label: "Description",
   },
   {
-    id: "type",
+    id: "role",
     numeric: true,
     disablePadding: false,
-    label: "Station Type",
+    label: "Role",
   },
   {
-    id: "readings",
+    id: "parameters",
     numeric: true,
     disablePadding: false,
-    label: "Readings",
+    label: "Parameters",
   },
   {
-    id: "status",
+    id: "link",
     numeric: true,
     disablePadding: false,
     label: "Status",
@@ -383,6 +338,7 @@ interface EnhancedTableToolbarProps {
 
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -394,18 +350,25 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           ...(numSelected > 0 && {}),
         }}
       >
-        <div className={"stations-directory-topbar"}>
-          <div className={"stations-title-column"}>
-            <h2 className="directory-title">Stations Directory</h2>
+        <div className={"reports-topbar"}>
+          <div className={"reports-title-column"}>
+            <h2 className="reports-title">Reports</h2>
           </div>
-          <div className={"stations-directory-search-column"}>
-            <div className="directory-buttons"></div>
+          <div className={"reports-search-column"}>
+            <button
+              className="add-button"
+              onClick={(event) => {
+                navigate("/report/add");
+              }}
+            >
+              Add Report
+            </button>
             <form method="POST" style={{ width: "100%" }}>
               <div style={{ position: "relative" }}>
                 <input
-                  id="directory-search"
+                  id="reports-search"
                   type="search"
-                  placeholder="Find A Station..."
+                  placeholder="Search Report"
                 ></input>
                 <SearchIcon
                   sx={{
@@ -421,14 +384,24 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             </form>
           </div>
         </div>
+
+        {numSelected > 0 ? (
+          <Tooltip title="Delete">
+            <IconButton></IconButton>
+          </Tooltip>
+        ) : (
+          <Tooltip title="Filter list">
+            <IconButton></IconButton>
+          </Tooltip>
+        )}
       </Toolbar>
     </>
   );
 }
 
-export default function EnhancedTable() {
+export default function ReportsTable() {
   const [order, setOrder] = useState<Order>("asc");
-  const [orderBy, setOrderBy] = useState<keyof Data>("location");
+  const [orderBy, setOrderBy] = useState<keyof Data>("name");
   const [selected, setSelected] = useState<readonly string[]>([]);
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
@@ -445,7 +418,7 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.stationName);
+      const newSelected = rows.map((n) => n.type);
       setSelected(newSelected);
       return;
     }
@@ -502,7 +475,11 @@ export default function EnhancedTable() {
       >
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer
-          sx={{ paddingLeft: "30px", paddingRight: "30px", marginTop: "32px" }}
+          sx={{
+            paddingLeft: "30px",
+            paddingRight: "30px",
+            paddingTop: "32px",
+          }}
         >
           <Table
             sx={{
@@ -526,7 +503,7 @@ export default function EnhancedTable() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.stationName);
+                  const isItemSelected = isSelected(row.parameters);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -534,13 +511,13 @@ export default function EnhancedTable() {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.stationName}
+                      key={row.type}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
                           onClick={(event) =>
-                            handleClick(event, row.stationName)
+                            handleClick(event, row.parameters)
                           }
                           color="primary"
                           checked={isItemSelected}
@@ -555,14 +532,14 @@ export default function EnhancedTable() {
                         scope="row"
                         padding="none"
                       >
-                        {row.stationName}
+                        {row.type}
                       </TableCell>
 
-                      <TableCell align="center">{row.location}</TableCell>
-                      <TableCell align="center">{row.reported}</TableCell>
-                      <TableCell align="center">{row.type}</TableCell>
-                      <TableCell align="center">{row.readings}</TableCell>
-                      <TableCell align="center">{row.status}</TableCell>
+                      <TableCell align="center">{row.name}</TableCell>
+                      <TableCell align="center">{row.description}</TableCell>
+                      <TableCell align="center">{row.role}</TableCell>
+                      <TableCell align="center">{row.parameters}</TableCell>
+                      <TableCell align="center">{row.link}</TableCell>
                       <TableCell align="center">{row.edit}</TableCell>
                     </TableRow>
                   );

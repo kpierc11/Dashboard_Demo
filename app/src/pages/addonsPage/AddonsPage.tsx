@@ -1,5 +1,5 @@
-import WidgetsTable from "../../components/widgetsTable/widgetsTable";
+import AddonsTable from "../../components/addonsTable/AddonsTable";
 
 export default function WidgetsPage() {
-  return <WidgetsTable></WidgetsTable>;
+  return <AddonsTable></AddonsTable>;
 }

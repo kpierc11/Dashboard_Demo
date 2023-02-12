@@ -12,159 +12,143 @@ import Toolbar from "@mui/material/Toolbar";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import "./reportsTable.css";
+import "./addonsTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
-import React, { useState } from "react";
+import { useState } from "react";
 import IconMenu from "../iconMenu/IconMenu";
 
 interface Data {
   type: string;
   name: string;
-  description: string;
-  role: string;
-  parameters: string;
-  link: string;
+  station: string;
+  widgets: string;
+  updated: string;
   edit: string;
 }
 
 function createData(
   type: any,
   name: any,
-  description: any,
-  role: any,
-  parameters: any,
-  link: any,
+  station: any,
+  widgets: any,
+  updated: any,
   edit: any
 ): Data {
   return {
     type,
     name,
-    description,
-    role,
-    parameters,
-    link,
+    station,
+    widgets,
+    updated,
     edit,
   };
 }
 
 const rows = [
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "15",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "95",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "13",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "59",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "29",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "34",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "31",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "23",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "56",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "17",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "72",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "2",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "93",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "6",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "15",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "10",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "12",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "1",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "90",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "2",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "76",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "5",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "43",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "7",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
   createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "104",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
+    "Time Series",
+    "Rain Time",
+    "My Station 2.0",
+    "3",
+    "January 1, 2019",
+    <IconMenu url={""} />
   ),
 ];
 
@@ -228,33 +212,27 @@ const headCells: readonly HeadCell[] = [
     label: "Name",
   },
   {
-    id: "description",
+    id: "station",
     numeric: true,
     disablePadding: false,
-    label: "Description",
+    label: "Station",
   },
   {
-    id: "role",
+    id: "widgets",
     numeric: true,
     disablePadding: false,
-    label: "Role",
+    label: "Widgets",
   },
   {
-    id: "parameters",
+    id: "updated",
     numeric: true,
     disablePadding: false,
-    label: "Parameters",
-  },
-  {
-    id: "link",
-    numeric: true,
-    disablePadding: false,
-    label: "Status",
+    label: "Date Updated",
   },
   {
     id: "edit",
-    numeric: true,
-    disablePadding: false,
+    numeric: false,
+    disablePadding: true,
     label: "",
   },
 ];
@@ -350,23 +328,23 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
       >
         <div className={"reports-topbar"}>
           <div className={"reports-title-column"}>
-            <h2 className="reports-title">Reports</h2>
+            <h2 className="reports-title">Addons</h2>
           </div>
           <div className={"reports-search-column"}>
             <button
               className="add-button"
               onClick={(event) => {
-                alert("Add Report");
+                
               }}
             >
-              Add Report
+              New Addon
             </button>
             <form method="POST" style={{ width: "100%" }}>
               <div style={{ position: "relative" }}>
                 <input
                   id="reports-search"
                   type="search"
-                  placeholder="Search Report"
+                  placeholder="Search Widget..."
                 ></input>
                 <SearchIcon
                   sx={{
@@ -397,7 +375,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   );
 }
 
-export default function EnhancedTable() {
+export default function AddonsTable() {
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("name");
   const [selected, setSelected] = useState<readonly string[]>([]);
@@ -501,7 +479,7 @@ export default function EnhancedTable() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.parameters);
+                  const isItemSelected = isSelected(row.widgets);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -514,9 +492,7 @@ export default function EnhancedTable() {
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
-                          onClick={(event) =>
-                            handleClick(event, row.parameters)
-                          }
+                          onClick={(event) => handleClick(event, row.widgets)}
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
@@ -534,10 +510,9 @@ export default function EnhancedTable() {
                       </TableCell>
 
                       <TableCell align="center">{row.name}</TableCell>
-                      <TableCell align="center">{row.description}</TableCell>
-                      <TableCell align="center">{row.role}</TableCell>
-                      <TableCell align="center">{row.parameters}</TableCell>
-                      <TableCell align="center">{row.link}</TableCell>
+                      <TableCell align="center">{row.station}</TableCell>
+                      <TableCell align="center">{row.widgets}</TableCell>
+                      <TableCell align="center">{row.updated}</TableCell>
                       <TableCell align="center">{row.edit}</TableCell>
                     </TableRow>
                   );

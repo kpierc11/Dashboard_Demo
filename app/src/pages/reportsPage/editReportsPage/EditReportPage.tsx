@@ -8,7 +8,7 @@ import {
   TextField,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import "./editReportPage.css";
+import "../editReportsPage/editReportPage.css";
 
 export default function EditReportPage() {
   const Item = styled(Paper)(({ theme }) => ({
