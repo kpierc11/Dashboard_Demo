@@ -9,165 +9,25 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
 import "./reportsTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
+
 import IconButton from "@mui/material/IconButton/IconButton";
-import React, { useState } from "react";
-import IconMenu from "../iconMenu/IconMenu";
+
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 interface Data {
-  type: string;
+  id: number;
   name: string;
-  description: string;
-  role: string;
+  type: string;
   parameters: string;
-  link: string;
-  edit: string;
+  description: string;
 }
-
-function createData(
-  type: any,
-  name: any,
-  description: any,
-  role: any,
-  parameters: any,
-  link: any,
-  edit: any
-): Data {
-  return {
-    type,
-    name,
-    description,
-    role,
-    parameters,
-    link,
-    edit,
-  };
-}
-
-const rows = [
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "15",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "13",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "29",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "31",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "56",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "72",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "93",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "15",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "12",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "90",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "76",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "43",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-  createData(
-    "On-Demand",
-    "Hydro Report",
-    "This is an example description",
-    "Administrator",
-    "104",
-    <button className="download-button">Download</button>,
-    <IconMenu url={"/report/edit"} />
-  ),
-];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -217,10 +77,10 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
-    id: "type",
-    numeric: false,
-    disablePadding: true,
-    label: "Type",
+    id: "id",
+    numeric: true,
+    disablePadding: false,
+    label: "ID",
   },
   {
     id: "name",
@@ -229,16 +89,10 @@ const headCells: readonly HeadCell[] = [
     label: "Name",
   },
   {
-    id: "description",
+    id: "type",
     numeric: true,
     disablePadding: false,
-    label: "Description",
-  },
-  {
-    id: "role",
-    numeric: true,
-    disablePadding: false,
-    label: "Role",
+    label: "Type",
   },
   {
     id: "parameters",
@@ -247,16 +101,10 @@ const headCells: readonly HeadCell[] = [
     label: "Parameters",
   },
   {
-    id: "link",
+    id: "description",
     numeric: true,
     disablePadding: false,
-    label: "Status",
-  },
-  {
-    id: "edit",
-    numeric: true,
-    disablePadding: false,
-    label: "",
+    label: "Description",
   },
 ];
 
@@ -287,13 +135,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     };
 
   return (
-    <TableHead
-      sx={{
-        border: "1px solid rgba(145, 158, 171, 1)",
-        borderRadius: "15px",
-        background: "#F2F2F2",
-      }}
-    >
+    <TableHead className="users-tablehead">
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
@@ -309,7 +151,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "center" : "left"}
+            align={headCell.numeric ? "left" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -350,25 +192,26 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           ...(numSelected > 0 && {}),
         }}
       >
-        <div className={"reports-topbar"}>
-          <div className={"reports-title-column"}>
-            <h2 className="reports-title">Reports</h2>
+        <div className={"users-topbar"}>
+          <div className={"users-title-column"}>
+            <h2 className="users-title">Reports</h2>
           </div>
-          <div className={"reports-search-column"}>
+          <div className={"users-search-column"}>
             <button
               className="add-button"
-              onClick={(event) => {
-                navigate("/report/add");
+              onClick={() => {
+                navigate("/reports/add");
               }}
             >
               Add Report
             </button>
+
             <form method="POST" style={{ width: "100%" }}>
               <div style={{ position: "relative" }}>
                 <input
-                  id="reports-search"
+                  id="users-search"
                   type="search"
-                  placeholder="Search Report"
+                  placeholder="Search User"
                 ></input>
                 <SearchIcon
                   sx={{
@@ -401,11 +244,26 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 
 export default function ReportsTable() {
   const [order, setOrder] = useState<Order>("asc");
-  const [orderBy, setOrderBy] = useState<keyof Data>("name");
+  const [orderBy, setOrderBy] = useState<keyof Data>("id");
   const [selected, setSelected] = useState<readonly string[]>([]);
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [userData, setUserData] = useState<any>([]);
+
+  useEffect(() => {
+    fetch("https://retoolapi.dev/nltvjY/data")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        const userInfo = data.map((user: any) => {
+          return user;
+        });
+        setUserData([...userData, ...userInfo]);
+      });
+  }, []);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -418,7 +276,7 @@ export default function ReportsTable() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.type);
+      const newSelected = userData.map((n: any) => n.name);
       setSelected(newSelected);
       return;
     }
@@ -459,7 +317,7 @@ export default function ReportsTable() {
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -483,7 +341,6 @@ export default function ReportsTable() {
         >
           <Table
             sx={{
-              minWidth: 750,
               [`& .${tableCellClasses.root}`]: {
                 borderBottom: "none",
               },
@@ -497,13 +354,13 @@ export default function ReportsTable() {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={rows.length}
+              rowCount={userData.length}
             />
             <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
+              {stableSort(userData, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.parameters);
+                  const isItemSelected = isSelected("");
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -511,14 +368,12 @@ export default function ReportsTable() {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.type}
+                      key={row.id}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
-                          onClick={(event) =>
-                            handleClick(event, row.parameters)
-                          }
+                          onClick={(event) => handleClick(event, "")}
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
@@ -530,17 +385,15 @@ export default function ReportsTable() {
                         component="th"
                         id={labelId}
                         scope="row"
-                        padding="none"
+                        padding-left="5px"
+                        align="left"
                       >
-                        {row.type}
+                        {row.id}
                       </TableCell>
-
-                      <TableCell align="center">{row.name}</TableCell>
-                      <TableCell align="center">{row.description}</TableCell>
-                      <TableCell align="center">{row.role}</TableCell>
+                      <TableCell align="left">{row.name}</TableCell>
+                      <TableCell align="left">{row.type}</TableCell>
                       <TableCell align="center">{row.parameters}</TableCell>
-                      <TableCell align="center">{row.link}</TableCell>
-                      <TableCell align="center">{row.edit}</TableCell>
+                      <TableCell align="left" >{row.description}</TableCell>
                     </TableRow>
                   );
                 })}
@@ -550,7 +403,7 @@ export default function ReportsTable() {
                     height: (dense ? 33 : 53) * emptyRows,
                   }}
                 >
-                  <TableCell colSpan={6} />
+                  <TableCell colSpan={5} />
                 </TableRow>
               )}
             </TableBody>
@@ -559,7 +412,7 @@ export default function ReportsTable() {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={rows.length}
+          count={userData.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

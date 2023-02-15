@@ -3,7 +3,6 @@
   border-radius: 12px;
   min-height: calc(-100px + 100vh);
   height: fit-content;
-  margin-top: 100px;
   margin-right: 18px;
   border-bottom: 0;
   border-bottom-right-radius: 0;
@@ -11,7 +10,7 @@
   margin-top: 160px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 860px) {
   .blue-background {
     margin-right: 10px;
     margin-left: 10px;

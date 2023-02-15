@@ -28,11 +28,11 @@ export default function NavigationRoutes() {
       ></Route>
       <Route path="/trends/" element={<TrendsPage />}></Route>
       <Route path="/reports/" element={<ReportsPage />}></Route>
-      <Route path="/report/edit" element={<EditReportPage />}></Route>
-      <Route path="/report/add" element={<AddReportPage />}></Route>
-      <Route path="/addons/" element={<WidgetsPage />}></Route>
+      <Route path="/reports/edit" element={<EditReportPage />}></Route>
+      <Route path="/reports/add" element={<AddReportPage />}></Route>
+      <Route path="/widgets/" element={<WidgetsPage />}></Route>
       <Route path="/users" element={<UsersPage></UsersPage>}></Route>
-      <Route path="/user/add" element={<AddUserPage></AddUserPage>}></Route>
+      <Route path="/users/add" element={<AddUserPage></AddUserPage>}></Route>
       <Route path="/user/edit" element={<EditUserPage></EditUserPage>}></Route>
       <Route path="/user/profile/" element={<NavTabs />}></Route>
     </Routes>

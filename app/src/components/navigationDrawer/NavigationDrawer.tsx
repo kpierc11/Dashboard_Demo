@@ -150,13 +150,13 @@ export default function NavigationDrawer(props: Props) {
             className={({ isActive }) =>
               isActive ? "sidebar-link-active" : "sidebar-link"
             }
-            to="/addons"
+            to="/widgets"
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
                 <DashboardCustomizeOutlinedIcon className={"sidebar-icon"} />
               </ListItemIcon>
-              <ListItemText primary={"Addons"} />
+              <ListItemText primary={"Widgets"} />
             </ListItemButton>
           </NavLink>
         </ListItem>
