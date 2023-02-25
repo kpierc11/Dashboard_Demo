@@ -3,10 +3,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import "../stationsPage/stationsPage.css";
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
+import Pagination from "@mui/material/Pagination";
 
 export default function StationsPage() {
   const [stationCards, setStationCards] = useState<any>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 5;
 
   useEffect(() => {
     fetch("https://swapi.dev/api/people/")
@@ -21,7 +24,11 @@ export default function StationsPage() {
         setStationCards([...stationCards, ...results]);
         setLoading(false);
       });
-  });
+  }, []);
+
+  const handleChangePage = (event: any, page: number) => {
+    setCurrentPage(page);
+  };
 
   if (isLoading) {
     return <CircularProgress></CircularProgress>;
@@ -56,19 +63,34 @@ export default function StationsPage() {
             </div>
           </form>
         </div>
-        {stationCards.map((element: any, index: any) => {
-          return (
-            <StationCard
-              key={index}
-              stationId={index}
-              deviceName={element.name}
-              stationLocation={"Piney, Flats TN"}
-              lastReported={"September 23rd 2022 8:56:58 pm"}
-              stationType={"AHPS"}
-              status={false}
-            ></StationCard>
-          );
-        })}
+
+        {stationCards
+          .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+          .map((element: any, index: any) => {
+            return (
+              <StationCard
+                key={index}
+                stationId={index}
+                deviceName={element.name}
+                stationLocation={"Piney, Flats TN"}
+                lastReported={"September 23rd 2022 8:56:58 pm"}
+                stationType={"AHPS"}
+                status={false}
+              ></StationCard>
+            );
+          })}
+        <Pagination
+          color="primary"
+          size="large"
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginRight: "15px",
+          }}
+          count={Math.ceil(stationCards.length / itemsPerPage)}
+          page={currentPage}
+          onChange={handleChangePage}
+        />
       </>
     );
   }

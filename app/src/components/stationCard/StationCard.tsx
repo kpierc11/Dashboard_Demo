@@ -85,14 +85,21 @@ export default function StationCard(props: Station) {
         </div>
         <div className={"station-card-icons"}>
           <a href={"/station-data"}>
+            <div className="icon-hover">
             <BarChartIcon fontSize="large"></BarChartIcon>
+            </div>
           </a>
           <a href={"/map"}>
+          <div className="icon-hover">
             <MapIcon fontSize="large"></MapIcon>
+            </div>
           </a>
           <a href={"/station-data"}>
+          <div className="icon-hover">
             <TimerIcon fontSize="large"></TimerIcon>
+            </div>
           </a>
+         
         </div>
       </Paper>
     </Box>

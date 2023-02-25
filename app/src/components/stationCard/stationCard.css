@@ -37,6 +37,15 @@
   color: #1c7ed9;
 }
 
+
+
+.icon-hover:hover {
+  color: blue;
+  transition: 0.5s;
+  transform: scale(1.4);
+
+}
+
 .station-card-icons a {
   margin-right: 28px;
 }
