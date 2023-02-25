@@ -17,7 +17,7 @@ export default function StationsPage() {
         return response.json();
       })
       .then((data) => {
-        console.log(data.results);
+        //console.log(data.results);
         const results = data.results.map((element: any) => {
           return element;
         });

@@ -37,6 +37,7 @@ ChartJS.register(
 
 export const options = {
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
       position: "top" as const,
@@ -132,7 +133,7 @@ export default function TrendsPage() {
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <FormControl
-          sx={{ width: 300, marginBottom: "29px", background: "white" }}
+          sx={{ width: 300, marginBottom: "29px", }}
         >
           <Select
             multiple
@@ -165,24 +166,21 @@ export default function TrendsPage() {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          paddingLeft: "72px",
         }}
       >
         <Paper
           sx={{
-            height: "100%",
             border: "1px solid #919EAB",
             borderRadius: "15px",
             boxShadow: "none",
             padding: 5,
-            maxWidth: "1008px",
             width: "100%",
+            height:"600px"
           }}
         >
           <Line options={options} data={data} />
         </Paper>
 
-        
         <Paper
           sx={{ boxShadow: "none", borderRadius: "15px" }}
           className="charts-toggle-card"

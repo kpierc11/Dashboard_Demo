@@ -11,7 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import SatelliteAltIcon from "@mui/icons-material/SatelliteAlt";
-import { useState, useMemo, createContext } from "react";
+import { useState, useMemo, createContext, useEffect } from "react";
 import { Link, ThemeProvider } from "@mui/material";
 import "../navigationDrawer/navigationDrawer.css";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -41,28 +41,53 @@ interface Props {
   window?: () => Window;
 }
 
+
+const handleThemeState = () => {
+  // getting stored value
+  const themeMode: any = localStorage.getItem("theme-mode");
+  const initialValue = JSON.parse(themeMode);
+  return initialValue || "";
+};
+
 export default function NavigationDrawer(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mode, setMode] = useState<"light" | "dark">("light");
+  const [mode, setMode] = useState(handleThemeState);
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+        setMode((prevMode: any) => (prevMode === "light" ? "dark" : "light"));
       },
     }),
     []
   );
+
+  useEffect(() => {
+    localStorage.setItem("theme-mode", JSON.stringify(mode));
+  }, [mode]);
 
   const theme = useMemo(
     () =>
       createTheme({
         palette: {
           mode,
+          ...(mode === "light"
+            ? {
+                topBar: {
+                  color: "#747474",
+                  background: "#e6f7fc",
+                },
+              }
+            : {}),
         },
       }),
     [mode]
   );
+
+  const iconBackground =
+    theme.palette.mode === "dark"
+      ? { background: "rgba(255, 255, 255, 0.08)" }
+      : { background: "#E6F7FC", color: "#747474" };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -84,9 +109,12 @@ export default function NavigationDrawer(props: Props) {
         <ListItem key={1} disablePadding>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "sidebar-link-active" : "sidebar-link"
+              isActive
+                ? `sidebar-link-active-${theme.palette.mode}`
+                : "sidebar-link"
             }
             to="/"
+            style={{ color: theme.palette.text.primary }}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -100,9 +128,12 @@ export default function NavigationDrawer(props: Props) {
         <ListItem key={2} disablePadding>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "sidebar-link-active" : "sidebar-link"
+              isActive
+                ? `sidebar-link-active-${theme.palette.mode}`
+                : "sidebar-link"
             }
             to="/stations-directory"
+            style={{ color: theme.palette.text.primary }}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -116,9 +147,12 @@ export default function NavigationDrawer(props: Props) {
         <ListItem key={3} disablePadding>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "sidebar-link-active" : "sidebar-link"
+              isActive
+                ? `sidebar-link-active-${theme.palette.mode}`
+                : "sidebar-link"
             }
             to="/trends"
+            style={{ color: theme.palette.text.primary }}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -132,9 +166,12 @@ export default function NavigationDrawer(props: Props) {
         <ListItem key={4} disablePadding>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "sidebar-link-active" : "sidebar-link"
+              isActive
+                ? `sidebar-link-active-${theme.palette.mode}`
+                : "sidebar-link"
             }
             to="/reports"
+            style={{ color: theme.palette.text.primary }}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -148,9 +185,12 @@ export default function NavigationDrawer(props: Props) {
         <ListItem key={5} disablePadding>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "sidebar-link-active" : "sidebar-link"
+              isActive
+                ? `sidebar-link-active-${theme.palette.mode}`
+                : "sidebar-link"
             }
             to="/addons"
+            style={{ color: theme.palette.text.primary }}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -166,9 +206,12 @@ export default function NavigationDrawer(props: Props) {
         <ListItem key={6} disablePadding>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "sidebar-link-active" : "sidebar-link"
+              isActive
+                ? `sidebar-link-active-${theme.palette.mode}`
+                : "sidebar-link"
             }
             to="/users"
+            style={{ color: theme.palette.text.primary }}
           >
             <ListItemButton sx={{ paddingLeft: "22px" }}>
               <ListItemIcon>
@@ -260,6 +303,7 @@ export default function NavigationDrawer(props: Props) {
               <LogoutIcon
                 className={"topbar-icon"}
                 fontSize={"large"}
+                style={iconBackground}
               ></LogoutIcon>
               <IconButton
                 onClick={colorMode.toggleColorMode}
@@ -271,24 +315,32 @@ export default function NavigationDrawer(props: Props) {
                   <Brightness4Icon
                     className={"topbar-icon"}
                     fontSize={"large"}
+                    style={iconBackground}
                   />
                 ) : (
-                  <DarkModeIcon className={"topbar-icon"} fontSize={"large"} />
+                  <DarkModeIcon
+                    className={"topbar-icon"}
+                    fontSize={"large"}
+                    style={iconBackground}
+                  />
                 )}
               </IconButton>
               <SettingsIcon
                 className={"topbar-icon"}
                 fontSize={"large"}
+                style={iconBackground}
               ></SettingsIcon>
               <NotificationsNoneOutlinedIcon
                 className={"topbar-icon"}
                 fontSize={"large"}
+                style={iconBackground}
               ></NotificationsNoneOutlinedIcon>
               <Link sx={{ height: 35 }} href="/user/profile">
                 <AccountCircleOutlinedIcon
                   className={"topbar-icon"}
                   fontSize={"large"}
                   sx={{ marginRight: 0 }}
+                  style={iconBackground}
                 ></AccountCircleOutlinedIcon>
               </Link>
             </Toolbar>
