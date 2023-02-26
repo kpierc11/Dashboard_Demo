@@ -3,10 +3,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import "../stationsPage/stationsPage.css";
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
+import { Pagination, PaginationItem } from "@mui/material";
 
 export default function StationsPage() {
   const [stationCards, setStationCards] = useState<any>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
+  const [startIndex, setStartIndex] = useState<number>(0);
+  const [endIndex, setEndIndex] = useState<number>(0);
 
   useEffect(() => {
     fetch("https://swapi.dev/api/people/")
@@ -14,7 +17,7 @@ export default function StationsPage() {
         return response.json();
       })
       .then((data) => {
-        console.log(data.results);
+        //console.log(data.results);
         const results = data.results.map((element: any) => {
           return element;
         });
@@ -56,19 +59,38 @@ export default function StationsPage() {
             </div>
           </form>
         </div>
-        {stationCards.map((element: any, index: any) => {
-          return (
-            <StationCard
-              key={index}
-              stationId={index}
-              deviceName={element.name}
-              stationLocation={"Piney, Flats TN"}
-              lastReported={"September 23rd 2022 8:56:58 pm"}
-              stationType={"AHPS"}
-              status={false}
-            ></StationCard>
-          );
-        })}
+        {stationCards
+          .slice(startIndex, 11 + startIndex)
+          .map((element: any, index: any) => {
+            return (
+              <StationCard
+                key={index}
+                stationId={index}
+                deviceName={element.name}
+                stationLocation={"Piney, Flats TN"}
+                lastReported={"September 23rd 2022 8:56:58 pm"}
+                stationType={"AHPS"}
+                status={false}
+              ></StationCard>
+            );
+          })}
+        <button
+          onClick={() => {
+            if (startIndex > 0) {
+              setStartIndex(startIndex - 11);
+            }
+          }}
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => {
+            if (startIndex < stationCards.length)
+              setStartIndex(11 + startIndex);
+          }}
+        >
+          Next
+        </button>
       </>
     );
   }

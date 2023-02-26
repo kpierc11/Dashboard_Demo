@@ -149,7 +149,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
       sx={{
         border: "1px solid rgba(145, 158, 171, 1)",
         borderRadius: "15px",
-        background: "#F2F2F2",
+        
       }}
     >
       <TableRow>

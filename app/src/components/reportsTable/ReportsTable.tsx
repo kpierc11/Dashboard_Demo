@@ -123,7 +123,12 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     };
 
   return (
-    <TableHead className="users-tablehead">
+    <TableHead
+      sx={{
+        border: "1px solid rgba(145, 158, 171, 1)",
+        borderRadius: "15px",
+      }}
+    >
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
