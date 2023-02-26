@@ -37,7 +37,7 @@ export function AddUserPhotoForm() {
             component="label"
             sx={{ margin: "15px" }}
           >
-            <input hidden accept="image/*" type="file" src="upload" />
+            <input hidden accept="image/*" type="file" />
             <Avatar sx={{ width: "180px", height: "180px" }} />
           </IconButton>
         </Box>

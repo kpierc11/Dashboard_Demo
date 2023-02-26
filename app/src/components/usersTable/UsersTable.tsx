@@ -9,304 +9,19 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
 import "./usersTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import IconButton from "@mui/material/IconButton/IconButton";
-import IconMenu from "../iconMenu/IconMenu";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-interface Data {
-  id: number;
-  role: string;
-  company: string;
-  users: string;
-  status: boolean;
-}
-
-function createData(
-  id: number,
-  role: string,
-  company: string,
-  users: string,
-  status: boolean
-): Data {
-  return {
-    id,
-    role,
-    users,
-    status,
-    company,
-  };
-}
-
-// const rows = [
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Administrator",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-//       <Typography>Active</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Custom",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-//       <Typography>Active</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Spectator",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-//       <Typography>Active</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Spectator",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
-//       <Typography>Inactive</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Spectator",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
-//       <Typography>Inactive</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Administrator",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-//       <Typography>Active</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Administrator",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-//       <Typography>Active</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Administrator",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-//       <Typography>Active</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Custom",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-//       <Typography>Active</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Custom",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-//       <Typography>Active</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Administrator",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
-//       <Typography>Inactive</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Custom",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-//       <Typography>Active</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-//   createData(
-//     <Box className="user-avatar-container">
-//       <Box className="user-avatar">
-//         <img
-//           height="58px"
-//           width="64px"
-//           src={"/default-avatar.png"}
-//           alt="default avatar"
-//         ></img>
-//       </Box>
-//       <Typography>Abdulrah Grant</Typography>
-//     </Box>,
-//     "Hydro Bio Science",
-//     "Custom",
-//     <Box className="user-box">
-//       <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-//       <Typography>Active</Typography>
-//     </Box>,
-//     <IconMenu url={""} />
-//   ),
-// ];
+import { User } from "../../interfaces/User";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import FiberManualRecord from "@mui/icons-material/FiberManualRecord";
+import { Typography } from "@mui/material";
+import IconMenu from "../iconMenu/IconMenu";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -323,10 +38,7 @@ type Order = "asc" | "desc";
 function getComparator<Key extends keyof any>(
   order: Order,
   orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
+): (a: { [key in Key]: number }, b: { [key in Key]: number }) => number {
   return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
@@ -349,7 +61,7 @@ function stableSort<T>(
 
 interface HeadCell {
   disablePadding: boolean;
-  id: keyof Data;
+  id: string;
   label: string;
   numeric: boolean;
 }
@@ -359,13 +71,13 @@ const headCells: readonly HeadCell[] = [
     id: "id",
     numeric: true,
     disablePadding: false,
-    label: "User Id",
+    label: "ID",
   },
   {
     id: "users",
     numeric: true,
     disablePadding: false,
-    label: "Users",
+    label: "Name",
   },
   {
     id: "company",
@@ -385,13 +97,19 @@ const headCells: readonly HeadCell[] = [
     disablePadding: false,
     label: "Status",
   },
+  {
+    id: "edit",
+    numeric: false,
+    disablePadding: false,
+    label: "",
+  },
 ];
 
 interface EnhancedTableProps {
   numSelected: number;
   onRequestSort: (
     event: React.MouseEvent<unknown>,
-    property: keyof Data
+    property: any
   ) => void;
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   order: Order;
@@ -409,7 +127,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     onRequestSort,
   } = props;
   const createSortHandler =
-    (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
+    (property: any) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
 
@@ -430,7 +148,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "left" : "center"}
+            align={headCell.numeric ? "left" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -479,7 +197,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <button
               className="add-button"
               onClick={() => {
-                navigate("");
+                navigate("/users/add");
               }}
             >
               Add User
@@ -523,20 +241,19 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 
 export default function EnhancedTable() {
   const [order, setOrder] = useState<Order>("asc");
-  const [orderBy, setOrderBy] = useState<keyof Data>("id");
-  const [selected, setSelected] = useState<readonly string[]>([]);
+  const [orderBy, setOrderBy] = useState<any>("id");
+  const [selected, setSelected] = useState<readonly number[]>([]);
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [userData, setUserData] = useState<any>([]);
 
   useEffect(() => {
-    fetch("https://api-generator.retool.com/G7fSxq/data")
+    fetch("https://retoolapi.dev/YQy72c/data")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         const userInfo = data.map((user: any) => {
           return user;
         });
@@ -546,7 +263,7 @@ export default function EnhancedTable() {
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
-    property: keyof Data
+    property: any
   ) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -555,19 +272,19 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = userData.map((n: any) => n.name);
+      const newSelected = userData.map((n: User) => n.id);
       setSelected(newSelected);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected: readonly string[] = [];
+  const handleClick = (event: React.MouseEvent<unknown>, id: number) => {
+    const selectedIndex = selected.indexOf(id);
+    let newSelected: readonly number[] = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, id);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -593,7 +310,7 @@ export default function EnhancedTable() {
     setPage(0);
   };
 
-  const isSelected = (name: string) => selected.indexOf(name) !== -1;
+  const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
@@ -639,8 +356,7 @@ export default function EnhancedTable() {
               {stableSort(userData, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  console.log(row);
-                  const isItemSelected = isSelected("");
+                  const isItemSelected = isSelected(row.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -653,7 +369,7 @@ export default function EnhancedTable() {
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
-                          onClick={(event) => handleClick(event, "")}
+                          onClick={(event) => handleClick(event, row.id)}
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
@@ -665,16 +381,36 @@ export default function EnhancedTable() {
                         component="th"
                         id={labelId}
                         scope="row"
-                        padding="none"
+                        padding-left="5px"
+                        align="left"
+                        width="8%"
                       >
                         {row.id}
                       </TableCell>
-                      <TableCell align="left">{row.users}</TableCell>
+                      <TableCell align="left" sx={{display:"flex", alignItems:"center", marginRight:0}}>
+                        <img
+                          style={{ objectFit: "contain", borderRadius: "60px", marginRight:"5px" }}
+                          width="60px"
+                          height="60px"
+                          
+                          src={String(row.avatar)}
+                        ></img>
+                        <Typography sx={{marginLeft:"15px"}}>{row.users}</Typography>
+                      </TableCell>
                       <TableCell align="left">{row.company}</TableCell>
                       <TableCell align="left">{row.role}</TableCell>
                       <TableCell align="left">
-                        {Boolean(row.status) == true ? "Active" : "Inactive"}
+                        {Boolean(row.status) == true ? (
+                          <FiberManualRecord
+                            sx={{ color: "#31c85c" }}
+                          ></FiberManualRecord>
+                        ) : (
+                          <FiberManualRecord
+                            sx={{ color: "#e63030" }}
+                          ></FiberManualRecord>
+                        )}
                       </TableCell>
+                      <TableCell><IconMenu url={"/"}></IconMenu></TableCell>
                     </TableRow>
                   );
                 })}
@@ -684,7 +420,7 @@ export default function EnhancedTable() {
                     height: (dense ? 33 : 53) * emptyRows,
                   }}
                 >
-                  <TableCell colSpan={6} />
+                  <TableCell colSpan={5} />
                 </TableRow>
               )}
             </TableBody>
