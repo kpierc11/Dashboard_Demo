@@ -63,7 +63,10 @@ export default function NavigationDrawer(props: Props) {
             paddingTop: "39px",
             paddingBottom: "40px",
             flexWrap: "wrap",
-            
+
+            background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }`,
           }}
         >
           <div className={"topbar-search-container"}>
@@ -123,14 +126,14 @@ export default function NavigationDrawer(props: Props) {
               <Brightness4Icon
                 className={"topbar-icon"}
                 fontSize={"large"}
-                style={
-                  theme.palette.mode === "dark"
-                    ? { background: "rgba(255, 255, 255, 0.08)" }
-                    : { background: "#E6F7FC", color: "#747474" }
-                }
+                style={{ background: "rgba(255, 255, 255, 0.08)" }}
               />
             ) : (
-              <DarkModeIcon className={"topbar-icon"} fontSize={"large"} />
+              <DarkModeIcon
+                className={"topbar-icon"}
+                fontSize={"large"}
+                style={{ background: "#E6F7FC", color: "#747474" }}
+              />
             )}
           </IconButton>
           <SettingsIcon
@@ -211,6 +214,9 @@ export default function NavigationDrawer(props: Props) {
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
+          background: `${
+            theme.palette.mode === "dark" ? "#121212" : "#E6F7FC"
+          }`,
         }}
       >
         {/**Pages will be rendered here through react router */}
