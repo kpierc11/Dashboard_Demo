@@ -117,7 +117,7 @@ export default function AddAlarmPage() {
   return (
     <div className="add-alarm-main-container">
       <div className="add-alarm-top-section">
-        <h3 className="add-alarm-title">Edit Alarm</h3>
+        <h3 className="add-alarm-title">Add Alarm</h3>
       </div>
 
       <Box>

@@ -27,7 +27,7 @@ interface Data {
   type: string;
   readings: string;
   status: string;
-  edit: string;
+
 }
 
 function createData(
@@ -37,7 +37,6 @@ function createData(
   type: any,
   readings: any,
   status: any,
-  edit: any
 ): Data {
   return {
     stationName,
@@ -46,7 +45,6 @@ function createData(
     type,
     readings,
     status,
-    edit,
   };
 }
 
@@ -67,7 +65,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+   
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (ID)",
@@ -87,7 +85,7 @@ const rows = [
       ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <IconMenu url={""} />
+    
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (HI)",
@@ -107,7 +105,7 @@ const rows = [
       ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <IconMenu url={""} />
+   
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (GA)",
@@ -125,7 +123,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+   
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AZ)",
@@ -143,7 +141,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+    
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AL)",
@@ -163,7 +161,7 @@ const rows = [
       ></FiberManualRecordIcon>
       <Typography>Inactive</Typography>
     </Box>,
-    <IconMenu url={""} />
+   
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (CA)",
@@ -181,7 +179,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+    
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (NY)",
@@ -199,7 +197,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+    
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (FL)",
@@ -217,7 +215,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+  
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (TN)",
@@ -235,7 +233,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+    
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (AR)",
@@ -253,7 +251,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+   
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (CO)",
@@ -271,7 +269,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+    
   ),
   createData(
     "AFBI2 Fox River at Algonquin tailwater (LA)",
@@ -289,7 +287,7 @@ const rows = [
       <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
       <Typography>Active</Typography>
     </Box>,
-    <IconMenu url={""} />
+    
   ),
 ];
 
@@ -376,12 +374,7 @@ const headCells: readonly HeadCell[] = [
     disablePadding: false,
     label: "Status",
   },
-  {
-    id: "edit",
-    numeric: true,
-    disablePadding: false,
-    label: "",
-  },
+
 ];
 
 interface EnhancedTableProps {
@@ -642,7 +635,6 @@ export default function StationsDirectory() {
                       <TableCell align="center">{row.type}</TableCell>
                       <TableCell align="center">{row.readings}</TableCell>
                       <TableCell align="center">{row.status}</TableCell>
-                      <TableCell align="center">{row.edit}</TableCell>
                     </TableRow>
                   );
                 })}
