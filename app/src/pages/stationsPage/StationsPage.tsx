@@ -3,13 +3,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import "../stationsPage/stationsPage.css";
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
-import { Pagination, PaginationItem } from "@mui/material";
+import Pagination from "@mui/material/Pagination";
 
 export default function StationsPage() {
   const [stationCards, setStationCards] = useState<any>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [startIndex, setStartIndex] = useState<number>(0);
-  const [endIndex, setEndIndex] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 5;
 
   useEffect(() => {
     fetch("https://swapi.dev/api/people/")
@@ -24,7 +24,11 @@ export default function StationsPage() {
         setStationCards([...stationCards, ...results]);
         setLoading(false);
       });
-  });
+  }, []);
+
+  const handleChangePage = (event: any, page: number) => {
+    setCurrentPage(page);
+  };
 
   if (isLoading) {
     return <CircularProgress></CircularProgress>;
@@ -59,8 +63,10 @@ export default function StationsPage() {
             </div>
           </form>
         </div>
+
         {stationCards
-          .slice(startIndex, 11 + startIndex)
+        
+          .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
           .map((element: any, index: any) => {
             return (
               <StationCard
@@ -74,23 +80,18 @@ export default function StationsPage() {
               ></StationCard>
             );
           })}
-        <button
-          onClick={() => {
-            if (startIndex > 0) {
-              setStartIndex(startIndex - 11);
-            }
+        <Pagination
+          color="primary"
+          size="large"
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginRight: "15px",
           }}
-        >
-          Previous
-        </button>
-        <button
-          onClick={() => {
-            if (startIndex < stationCards.length)
-              setStartIndex(11 + startIndex);
-          }}
-        >
-          Next
-        </button>
+          count={Math.ceil(stationCards.length / itemsPerPage)}
+          page={currentPage}
+          onChange={handleChangePage}
+        />
       </>
     );
   }
