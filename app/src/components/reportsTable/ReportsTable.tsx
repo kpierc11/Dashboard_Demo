@@ -15,19 +15,10 @@ import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
 import "./reportsTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
-
 import IconButton from "@mui/material/IconButton/IconButton";
-
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-interface Data {
-  id: number;
-  name: string;
-  type: string;
-  parameters: string;
-  description: string;
-}
+import { Data } from "../../interfaces/Reports";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -44,10 +35,7 @@ type Order = "asc" | "desc";
 function getComparator<Key extends keyof any>(
   order: Order,
   orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
+): (a: { [key in Key]: number }, b: { [key in Key]: number }) => number {
   return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
@@ -245,7 +233,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 export default function ReportsTable() {
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("id");
-  const [selected, setSelected] = useState<readonly string[]>([]);
+  const [selected, setSelected] = useState<readonly number[]>([]);
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -257,7 +245,6 @@ export default function ReportsTable() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         const userInfo = data.map((user: any) => {
           return user;
         });
@@ -276,19 +263,19 @@ export default function ReportsTable() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = userData.map((n: any) => n.name);
+      const newSelected = userData.map((n: Data) => n.id);
       setSelected(newSelected);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected: readonly string[] = [];
+  const handleClick = (event: React.MouseEvent<unknown>, id: number) => {
+    const selectedIndex = selected.indexOf(id);
+    let newSelected: readonly number[] = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, id);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -314,7 +301,7 @@ export default function ReportsTable() {
     setPage(0);
   };
 
-  const isSelected = (name: string) => selected.indexOf(name) !== -1;
+  const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
@@ -360,7 +347,7 @@ export default function ReportsTable() {
               {stableSort(userData, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected("");
+                  const isItemSelected = isSelected(row.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -373,7 +360,7 @@ export default function ReportsTable() {
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
-                          onClick={(event) => handleClick(event, "")}
+                          onClick={(event) => handleClick(event, row.id)}
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
@@ -392,8 +379,9 @@ export default function ReportsTable() {
                       </TableCell>
                       <TableCell align="left">{row.name}</TableCell>
                       <TableCell align="left">{row.type}</TableCell>
-                      <TableCell align="center">{row.parameters}</TableCell>
-                      <TableCell align="left" >{row.description}</TableCell>
+                      <TableCell align="center" sx={{paddingRight:"50px"}}>{row.parameters}</TableCell>
+                      <TableCell align="left">{row.description}</TableCell>
+                      
                     </TableRow>
                   );
                 })}
@@ -403,7 +391,7 @@ export default function ReportsTable() {
                     height: (dense ? 33 : 53) * emptyRows,
                   }}
                 >
-                  <TableCell colSpan={5} />
+                  <TableCell colSpan={7} />
                 </TableRow>
               )}
             </TableBody>
