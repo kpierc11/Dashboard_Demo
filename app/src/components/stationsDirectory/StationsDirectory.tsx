@@ -402,11 +402,6 @@ export default function StationsDirectory() {
                         )}
                       </TableCell>
 
-                      <TableCell align="center">{row.location}</TableCell>
-                      <TableCell align="center">{row.reported}</TableCell>
-                      <TableCell align="center">{row.type}</TableCell>
-                      <TableCell align="center">{row.readings}</TableCell>
-                      <TableCell align="center">{row.status}</TableCell>
                     </TableRow>
                   );
                 })}
