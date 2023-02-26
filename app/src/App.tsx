@@ -13,7 +13,7 @@ const handleThemeState = () => {
 };
 
 function App() {
-  const [mode, setMode] = useState<'light' | 'dark'>(handleThemeState);
+  const [mode, setMode] = useState<'light' | 'dark'>("light");
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {

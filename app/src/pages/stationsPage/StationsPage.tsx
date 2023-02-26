@@ -65,6 +65,7 @@ export default function StationsPage() {
         </div>
 
         {stationCards
+        
           .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
           .map((element: any, index: any) => {
             return (
