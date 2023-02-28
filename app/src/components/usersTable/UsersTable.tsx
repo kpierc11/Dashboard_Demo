@@ -15,7 +15,7 @@ import { visuallyHidden } from "@mui/utils";
 import "./usersTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
-import { useNavigate } from "react-router-dom";
+import { Link, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { User } from "../../interfaces/User";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
@@ -107,10 +107,7 @@ const headCells: readonly HeadCell[] = [
 
 interface EnhancedTableProps {
   numSelected: number;
-  onRequestSort: (
-    event: React.MouseEvent<unknown>,
-    property: any
-  ) => void;
+  onRequestSort: (event: React.MouseEvent<unknown>, property: any) => void;
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   order: Order;
   orderBy: string;
@@ -239,7 +236,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   );
 }
 
-export default function EnhancedTable() {
+export default function EnhancedTable(this: any) {
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<any>("id");
   const [selected, setSelected] = useState<readonly number[]>([]);
@@ -247,6 +244,8 @@ export default function EnhancedTable() {
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [userData, setUserData] = useState<any>([]);
+
+  
 
   useEffect(() => {
     fetch("https://retoolapi.dev/YQy72c/data")
@@ -314,6 +313,10 @@ export default function EnhancedTable() {
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
+
+
+
+
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -387,15 +390,27 @@ export default function EnhancedTable() {
                       >
                         {row.id}
                       </TableCell>
-                      <TableCell align="left" sx={{display:"flex", alignItems:"center", marginRight:0}}>
+                      <TableCell
+                        align="left"
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginRight: 0,
+                        }}
+                      >
                         <img
-                          style={{ objectFit: "contain", borderRadius: "60px", marginRight:"5px" }}
+                          style={{
+                            objectFit: "contain",
+                            borderRadius: "60px",
+                            marginRight: "5px",
+                          }}
                           width="60px"
                           height="60px"
-                          
                           src={String(row.avatar)}
                         ></img>
-                        <Typography sx={{marginLeft:"15px"}}>{row.users}</Typography>
+                        <Typography sx={{ marginLeft: "15px" }}>
+                          {row.users}
+                        </Typography>
                       </TableCell>
                       <TableCell align="left">{row.company}</TableCell>
                       <TableCell align="left">{row.role}</TableCell>
@@ -410,7 +425,9 @@ export default function EnhancedTable() {
                           ></FiberManualRecord>
                         )}
                       </TableCell>
-                      <TableCell><IconMenu url={"/"}></IconMenu></TableCell>
+                      <TableCell>
+                        <IconMenu  url={"/users/edit"}></IconMenu>
+                      </TableCell>
                     </TableRow>
                   );
                 })}

@@ -33,7 +33,7 @@ export default function NavigationRoutes() {
       <Route path="/widgets/" element={<WidgetsPage />}></Route>
       <Route path="/users" element={<UsersPage></UsersPage>}></Route>
       <Route path="/users/add" element={<AddUserPage></AddUserPage>}></Route>
-      <Route path="/user/edit" element={<EditUserPage></EditUserPage>}></Route>
+      <Route path="/users/edit" element={<EditUserPage></EditUserPage>}></Route>
       <Route path="/user/profile/" element={<NavTabs />}></Route>
     </Routes>
   );

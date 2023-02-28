@@ -27,7 +27,7 @@ export default function AlarmsPage() {
                 sx={{ display: "flex", alignItems: "center", width: "100%" }}
               >
                 <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
-                <IconMenu url={"alarms/add"} />
+                <IconMenu  url={""} />
               </Box>
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
@@ -59,7 +59,7 @@ export default function AlarmsPage() {
                 sx={{ display: "flex", alignItems: "center", width: "100%" }}
               >
                 <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
-                <IconMenu url={"alarms/add"} />
+                <IconMenu  url={""} />
               </Box>
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
@@ -91,7 +91,7 @@ export default function AlarmsPage() {
                 sx={{ display: "flex", alignItems: "center", width: "100%" }}
               >
                 <h2 style={{ marginRight: "auto" }}>Alarm Battery</h2>
-                <IconMenu url={"alarms/add"} />
+                <IconMenu  url={""} />
               </Box>
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <h3 style={{ marginRight: "auto" }}>Trigger Threshold:</h3>
