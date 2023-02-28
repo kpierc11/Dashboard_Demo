@@ -19,6 +19,7 @@ import IconButton from "@mui/material/IconButton/IconButton";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Data } from "../../interfaces/Reports";
+import IconMenu from "../iconMenu/IconMenu";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -242,7 +243,7 @@ export default function ReportsTable() {
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [userData, setUserData] = useState<any>([]);
+  const [reportData, setReportData] = useState<any>([]);
 
   useEffect(() => {
     fetch("https://retoolapi.dev/nltvjY/data")
@@ -250,10 +251,10 @@ export default function ReportsTable() {
         return response.json();
       })
       .then((data) => {
-        const userInfo = data.map((user: any) => {
-          return user;
+        const reportInfo = data.map((report: any) => {
+          return report;
         });
-        setUserData([...userData, ...userInfo]);
+        setReportData([...reportData, ...reportInfo]);
       });
   }, []);
 
@@ -268,7 +269,7 @@ export default function ReportsTable() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = userData.map((n: Data) => n.id);
+      const newSelected = reportData.map((n: Data) => n.id);
       setSelected(newSelected);
       return;
     }
@@ -309,7 +310,7 @@ export default function ReportsTable() {
   const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - reportData.length) : 0;
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -346,10 +347,10 @@ export default function ReportsTable() {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={userData.length}
+              rowCount={reportData.length}
             />
             <TableBody>
-              {stableSort(userData, getComparator(order, orderBy))
+              {stableSort(reportData, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.id);
@@ -384,9 +385,17 @@ export default function ReportsTable() {
                       </TableCell>
                       <TableCell align="left">{row.name}</TableCell>
                       <TableCell align="left">{row.type}</TableCell>
-                      <TableCell align="center" sx={{paddingRight:"50px"}}>{row.parameters}</TableCell>
+                      <TableCell align="center" sx={{ paddingRight: "50px" }}>
+                        {row.parameters}
+                      </TableCell>
                       <TableCell align="left">{row.description}</TableCell>
-                      
+                      <IconMenu url={"/reports/edit"} report={{
+                        id: row.id,
+                        name: String (row.name),
+                        type: String (row.type),
+                        parameters: String (row.parameters),
+                        description: String (row.description)
+                      }}></IconMenu>
                     </TableRow>
                   );
                 })}
@@ -405,7 +414,7 @@ export default function ReportsTable() {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={userData.length}
+          count={reportData.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

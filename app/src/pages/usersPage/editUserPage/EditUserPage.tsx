@@ -1,21 +1,22 @@
 import Box from "@mui/material/Box";
-import { Toolbar } from "@mui/material";
+import { Paper, Toolbar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import AddUserForm, {
   AddUserPhotoForm,
 } from "../../../components/addUserForm/AddUserForm";
+import { useTheme } from "@emotion/react";
 
 export default function EditUserPage() {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   return (
-    <Box
+    <Paper
       sx={{
         display: "flex",
         width: "100%",
         height: "100%",
         flexWrap: "wrap",
-        backgroundColor: "#ffffff",
         border: "1px solid #919eab",
         borderRadius: "15px",
       }}
@@ -61,6 +62,6 @@ export default function EditUserPage() {
           Save
         </button>
       </Box>
-    </Box>
+    </Paper>
   );
 }

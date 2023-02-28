@@ -6,6 +6,7 @@ import {
   styled,
   Switch,
   TextField,
+  useTheme,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -17,6 +18,8 @@ export default function AddReportPage() {
     textAlign: "left",
     color: theme.palette.text.secondary,
   }));
+
+  const theme = useTheme();
 
   const navigate = useNavigate();
 
@@ -66,7 +69,12 @@ export default function AddReportPage() {
   ];
 
   return (
-    <div className="edit-report-main-container">
+    <Box sx={{height: "100%",
+    width: "100%",
+    borderRadius: "15px",
+    paddingBottom: "45px", border: "1px solid #919eab" ,background: `${
+    theme.palette.mode === "dark" ? "#121212" : "white"
+  }`}}>
       <div className="edit-report-top-section">
         <h3 className="edit-report-title">Add Report</h3>
       </div>
@@ -86,7 +94,9 @@ export default function AddReportPage() {
               >
                 <TextField
                   sx={{
-                    backgroundColor: "#FAFAFA",
+                    background: `${
+                      theme.palette.mode === "dark" ? "#121212" : "white"
+                    }`,
                     marginBottom: "26px",
                     maxWidth: 355,
                   }}
@@ -97,7 +107,9 @@ export default function AddReportPage() {
                 />
                 <TextField
                   sx={{
-                    backgroundColor: "#FAFAFA",
+                    background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }`,
                     marginBottom: "26px",
                     maxWidth: 355,
                   }}
@@ -114,7 +126,9 @@ export default function AddReportPage() {
                 </TextField>
                 <TextField
                   sx={{
-                    backgroundColor: "#FAFAFA",
+                    background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }`,
                     marginBottom: "26px",
                     maxWidth: 355,
                   }}
@@ -125,7 +139,9 @@ export default function AddReportPage() {
                 />
                 <TextField
                   sx={{
-                    backgroundColor: "#FAFAFA",
+                    background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }`,
                     marginBottom: "26px",
                     marginRight: " 1px",
                     maxWidth: 500,
@@ -157,7 +173,9 @@ export default function AddReportPage() {
               </p>
               <TextField
                 sx={{
-                  backgroundColor: "#FAFAFA",
+                  background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }`,
                   marginBottom: "30px",
                   marginTop: "13px",
                   maxWidth: 350,
@@ -190,6 +208,6 @@ export default function AddReportPage() {
         </button>
         <button className="bottom-section-buttons">Create</button>
       </Box>
-    </div>
+    </Box>
   );
 }

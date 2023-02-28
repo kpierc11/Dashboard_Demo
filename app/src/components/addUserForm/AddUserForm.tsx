@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import "./addUserForm.css";
+import { useTheme } from "@mui/material";
 
 const roles = [
   {
@@ -47,6 +48,7 @@ export function AddUserPhotoForm() {
 
 export default function AddUserForm() {
   const [role, setRole] = React.useState("Admin");
+  const theme = useTheme();
   
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,12 +73,16 @@ export default function AddUserForm() {
           <Box sx={{display:"flex", flexDirection:"column", alignItems:"flex-start"}}>
           <Box sx={{display:"flex", flexDirection:"row", alignItems:"center"}}>
           <TextField
-            sx={{ backgroundColor: "#FAFAFa" }}
+            sx={{ background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }` }}
             id="outlined"
             label="Name"
           />
           <TextField
-            sx={{ backgroundColor: "#FAFAFa" }}
+            sx={{ background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }` }}
             id="outlined"
             label="Phone Number"
             type="integer"
@@ -84,7 +90,9 @@ export default function AddUserForm() {
           </Box>
           <Box sx={{display:"flex", flexDirection:"row"}}>
           <TextField
-            sx={{ backgroundColor: "#FAFAFa" }}
+            sx={{ background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }` }}
             id="outlined-select-role"
             select
             label="Role"
@@ -99,7 +107,9 @@ export default function AddUserForm() {
           </TextField>
           
           <TextField
-            sx={{ backgroundColor: "#FAFAFa" }}
+            sx={{ background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }`}}
             id="outlined"
             label="Work Number"
             type="integer"
@@ -107,14 +117,18 @@ export default function AddUserForm() {
           
           </Box>
           <TextField
-            sx={{ backgroundColor: "#FAFAFa" }}
+            sx={{ background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }` }}
             id="outlined"
             label="Email"
             style={{ width: 510 }}
           />
           
           <TextField
-            sx={{ backgroundColor: "#FAFAFa" }}
+            sx={{ background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }` }}
             id="outlined"
             label="Notes"
             type="string"
