@@ -32,13 +32,13 @@ export default function NotificationForm() {
 
             <FormControlLabel
               value="left"
-              control={<Switch color="primary" />}
+              control={<Switch />}
               label="Email"
               labelPlacement="start"
             />
             <FormControlLabel
               value="left"
-              control={<Switch color="primary" />}
+              control={<Switch />}
               label="Phone"
               labelPlacement="start"
             />

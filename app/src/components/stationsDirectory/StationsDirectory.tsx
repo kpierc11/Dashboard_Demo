@@ -20,23 +20,6 @@ import { FiberManualRecord } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-// createData(
-//   "AFBI2 Fox River at Algonquin tailwater (LA)",
-//   "Fox River at Algonquin tailwater",
-//   "September 23rd 2022",
-//   "AHPS",
-//   <Button>
-//     <TimelineIcon
-//       color="primary"
-//       cursor="pointer"
-//       fontSize="large"
-//     ></TimelineIcon>
-//   </Button>,
-//   <Box sx={{ display: "inline-flex" }}>
-//     <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-//     <Typography>Active</Typography>
-//   </Box>
-
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -150,13 +133,11 @@ function EnhancedTableHead(props: EnhancedTableProps) {
       sx={{
         border: "1px solid rgba(145, 158, 171, 1)",
         borderRadius: "15px",
-        
       }}
     >
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
-            color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
@@ -221,7 +202,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   id="directory-search"
                   type="search"
                   placeholder="Find A Station..."
-                  style={theme.palette.mode === "dark" ? {background:"transparent"} : {background:"white"}}
+                  style={
+                    theme.palette.mode === "dark"
+                      ? { background: "transparent" }
+                      : { background: "white" }
+                  }
                 ></input>
                 <SearchIcon
                   sx={{
@@ -231,7 +216,6 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginTop: "6%",
                     top: 0,
                   }}
-                  color="primary"
                 ></SearchIcon>
               </div>
             </form>
@@ -373,7 +357,6 @@ export default function StationsDirectory() {
                       <TableCell padding="checkbox">
                         <Checkbox
                           onClick={(event) => handleClick(event, row.id)}
-                          color="primary"
                           checked={isItemSelected}
                           inputProps={{
                             "aria-labelledby": labelId,
@@ -387,7 +370,6 @@ export default function StationsDirectory() {
                       <TableCell align="left">
                         <Button>
                           <TimelineIcon
-                            color="primary"
                             cursor="pointer"
                             fontSize="large"
                           ></TimelineIcon>
@@ -404,7 +386,6 @@ export default function StationsDirectory() {
                           ></FiberManualRecord>
                         )}
                       </TableCell>
-
                     </TableRow>
                   );
                 })}

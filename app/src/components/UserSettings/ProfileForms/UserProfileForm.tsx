@@ -21,7 +21,6 @@ const roles = [
   },
 ];
 
-
 export function UserPhotoForm() {
   return (
     <Paper
@@ -29,7 +28,7 @@ export function UserPhotoForm() {
       component="form"
       sx={{
         "& .MuiTextField-root": { m: 1, width: "85%" },
-        boxShadow:"none",
+        boxShadow: "none",
       }}
     >
       <Box
@@ -40,7 +39,6 @@ export function UserPhotoForm() {
         }}
       >
         <IconButton
-          color="inherit"
           aria-label="upload picture"
           component="label"
           sx={{ margin: "15px" }}
@@ -48,15 +46,8 @@ export function UserPhotoForm() {
           <input accept="image/*" type="file" />
           <Avatar sx={{ width: "180px", height: "180px" }} />
         </IconButton>
-        <TextField
-          id="outlined"
-          label="Name"
-        />
-        <TextField
-          id="outlined"
-          label="Phone Number"
-          type="integer"
-        />
+        <TextField id="outlined" label="Name" />
+        <TextField id="outlined" label="Phone Number" type="integer" />
       </Box>
     </Paper>
   );
@@ -75,20 +66,13 @@ export default function UserProfileForm() {
         component="form"
         sx={{
           "& .MuiTextField-root": { m: 1, width: "25ch" },
-          boxShadow:"none",
+          boxShadow: "none",
         }}
         noValidate
         autoComplete="off"
       >
-        <TextField
-          id="outlined"
-          label="Name"
-        />
-        <TextField
-          id="outlined"
-          label="Phone Number"
-          type="integer"
-        />
+        <TextField id="outlined" label="Name" />
+        <TextField id="outlined" label="Phone Number" type="integer" />
         <TextField
           id="outlined-select-role"
           select
@@ -102,16 +86,8 @@ export default function UserProfileForm() {
             </MenuItem>
           ))}
         </TextField>
-        <TextField
-          id="outlined"
-          label="Work Number"
-          type="integer"
-        />
-        <TextField
-          id="outlined"
-          label="Email"
-          style={{ width: 510 }}
-        />
+        <TextField id="outlined" label="Work Number" type="integer" />
+        <TextField id="outlined" label="Email" style={{ width: 510 }} />
         <TextField
           id="outlined"
           label="Notes"

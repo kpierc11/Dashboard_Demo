@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { User } from "../../interfaces/User";
 import FiberManualRecord from "@mui/icons-material/FiberManualRecord";
-import {useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import IconMenu from "../iconMenu/IconMenu";
 import { Typography } from "@mui/material";
 
@@ -133,7 +133,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
-            color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
@@ -207,7 +206,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   id="users-search"
                   type="search"
                   placeholder="Search User"
-                  style={theme.palette.mode === "dark" ? {background:"transparent"} : {background:"white"}}
+                  style={
+                    theme.palette.mode === "dark"
+                      ? { background: "transparent" }
+                      : { background: "white" }
+                  }
                 ></input>
                 <SearchIcon
                   sx={{
@@ -217,7 +220,6 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginTop: "6%",
                     top: 0,
                   }}
-                  color="primary"
                 ></SearchIcon>
               </div>
             </form>
@@ -246,8 +248,6 @@ export default function EnhancedTable(this: any) {
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [userData, setUserData] = useState<any>([]);
-
-  
 
   useEffect(() => {
     fetch("https://retoolapi.dev/YQy72c/data")
@@ -316,10 +316,6 @@ export default function EnhancedTable(this: any) {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
 
-
-
-
-
   return (
     <Box sx={{ width: "100%" }}>
       <Paper
@@ -375,7 +371,6 @@ export default function EnhancedTable(this: any) {
                       <TableCell padding="checkbox">
                         <Checkbox
                           onClick={(event) => handleClick(event, row.id)}
-                          color="primary"
                           checked={isItemSelected}
                           inputProps={{
                             "aria-labelledby": labelId,
@@ -428,7 +423,7 @@ export default function EnhancedTable(this: any) {
                         )}
                       </TableCell>
                       <TableCell>
-                        <IconMenu  url={"/users/edit"}></IconMenu>
+                        <IconMenu url={"/users/edit"}></IconMenu>
                       </TableCell>
                     </TableRow>
                   );

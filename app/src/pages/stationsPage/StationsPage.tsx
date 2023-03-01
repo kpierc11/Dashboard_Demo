@@ -54,7 +54,11 @@ export default function StationsPage() {
                 placeholder="Search For A Station..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                style={theme.palette.mode === "dark" ? {background:"transparent"} : {background:"white"}}
+                style={
+                  theme.palette.mode === "dark"
+                    ? { background: "transparent" }
+                    : { background: "white" }
+                }
               ></input>
               <SearchIcon
                 sx={{
@@ -64,7 +68,6 @@ export default function StationsPage() {
                   top: 0,
                   marginRight: 2,
                 }}
-                color="primary"
               ></SearchIcon>
             </div>
           </form>
@@ -91,7 +94,6 @@ export default function StationsPage() {
             );
           })}
         <Pagination
-          color="primary"
           size="large"
           sx={{
             display: "flex",

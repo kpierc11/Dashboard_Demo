@@ -85,13 +85,11 @@ export default function NavigationDrawer(props: Props) {
                     top: 0,
                     marginRight: 2,
                   }}
-                  color="primary"
                 ></SearchIcon>
               </div>
             </form>
           </div>
           <IconButton
-            color="primary"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
@@ -118,7 +116,6 @@ export default function NavigationDrawer(props: Props) {
           ></LogoutIcon>
           <IconButton
             onClick={colorMode.toggleColorMode}
-            color="inherit"
             className={"topbar-button"}
             sx={{ padding: 0 }}
           >

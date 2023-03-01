@@ -132,7 +132,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
-            color="primary"
+            
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
@@ -214,7 +214,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginTop: "6%",
                     top: 0,
                   }}
-                  color="primary"
+                  
                 ></SearchIcon>
               </div>
             </form>
@@ -366,7 +366,7 @@ export default function ReportsTable() {
                       <TableCell padding="checkbox">
                         <Checkbox
                           onClick={(event) => handleClick(event, row.id)}
-                          color="primary"
+                          
                           checked={isItemSelected}
                           inputProps={{
                             "aria-labelledby": labelId,
