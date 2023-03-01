@@ -9,6 +9,7 @@ export default function StationsPage() {
   const [stationCards, setStationCards] = useState<any>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const itemsPerPage = 5;
 
   useEffect(() => {
@@ -49,6 +50,8 @@ export default function StationsPage() {
                 id="stations-page-search"
                 type="search"
                 placeholder="Search For A Station..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               ></input>
               <SearchIcon
                 sx={{
@@ -65,7 +68,11 @@ export default function StationsPage() {
         </div>
 
         {stationCards
-        
+
+          .filter((element: any) =>
+            element.name.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+          )
+
           .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
           .map((element: any, index: any) => {
             return (
