@@ -15,13 +15,13 @@ import { visuallyHidden } from "@mui/utils";
 import "./usersTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
-import { Link, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { User } from "../../interfaces/User";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import FiberManualRecord from "@mui/icons-material/FiberManualRecord";
-import { Typography } from "@mui/material";
+import {useTheme } from "@mui/material/styles";
 import IconMenu from "../iconMenu/IconMenu";
+import { Typography } from "@mui/material";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -175,6 +175,7 @@ interface EnhancedTableToolbarProps {
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
   const navigate = useNavigate();
+  const theme = useTheme();
 
   return (
     <>
@@ -206,6 +207,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   id="users-search"
                   type="search"
                   placeholder="Search User"
+                  style={theme.palette.mode === "dark" ? {background:"transparent"} : {background:"white"}}
                 ></input>
                 <SearchIcon
                   sx={{

@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { StationData } from "../../interfaces/StationsData";
 import { FiberManualRecord } from "@mui/icons-material";
 import { Button } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 // createData(
 //   "AFBI2 Fox River at Algonquin tailwater (LA)",
@@ -196,6 +197,7 @@ interface EnhancedTableToolbarProps {
 
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
+  const theme = useTheme();
 
   return (
     <>
@@ -219,6 +221,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   id="directory-search"
                   type="search"
                   placeholder="Find A Station..."
+                  style={theme.palette.mode === "dark" ? {background:"transparent"} : {background:"white"}}
                 ></input>
                 <SearchIcon
                   sx={{

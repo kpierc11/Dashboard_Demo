@@ -4,7 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
-import { createRef } from "react";
+import { Paper } from "@mui/material";
 
 const roles = [
   {
@@ -24,11 +24,12 @@ const roles = [
 
 export function UserPhotoForm() {
   return (
-    <Box
+    <Paper
       className="photo-box"
       component="form"
       sx={{
         "& .MuiTextField-root": { m: 1, width: "85%" },
+        boxShadow:"none",
       }}
     >
       <Box
@@ -48,18 +49,16 @@ export function UserPhotoForm() {
           <Avatar sx={{ width: "180px", height: "180px" }} />
         </IconButton>
         <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
           id="outlined"
           label="Name"
         />
         <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
           id="outlined"
           label="Phone Number"
           type="integer"
         />
       </Box>
-    </Box>
+    </Paper>
   );
 }
 export default function UserProfileForm() {
@@ -71,28 +70,26 @@ export default function UserProfileForm() {
 
   return (
     <Box>
-      <Box
+      <Paper
         className="form-box"
         component="form"
         sx={{
           "& .MuiTextField-root": { m: 1, width: "25ch" },
+          boxShadow:"none",
         }}
         noValidate
         autoComplete="off"
       >
         <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
           id="outlined"
           label="Name"
         />
         <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
           id="outlined"
           label="Phone Number"
           type="integer"
         />
         <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
           id="outlined-select-role"
           select
           label="Role"
@@ -106,19 +103,16 @@ export default function UserProfileForm() {
           ))}
         </TextField>
         <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
           id="outlined"
           label="Work Number"
           type="integer"
         />
         <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
           id="outlined"
           label="Email"
           style={{ width: 510 }}
         />
         <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
           id="outlined"
           label="Notes"
           type="string"
@@ -126,7 +120,7 @@ export default function UserProfileForm() {
           multiline
           rows={5}
         />
-      </Box>
+      </Paper>
     </Box>
   );
 }

@@ -4,7 +4,6 @@
   justify-content: flex-start;
   height: 100%;
   flex-wrap: wrap;
-  background-color: #ffffff;
   border: 1px solid #919eab;
   border-radius: 15px;
 }
@@ -20,7 +19,6 @@
 .photo-box {
   display: flex;
   justify-content: center;
-  background-color: #ffffff;
   border: 1px solid #919eab;
   border-radius: 15px;
   padding: 45px;
@@ -31,7 +29,6 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #ffffff;
   border: 1px solid #919eab;
   border-radius: 15px;
   padding: 45px 45px 60px 45px;

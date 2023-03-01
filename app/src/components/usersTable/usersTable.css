@@ -27,7 +27,6 @@
   padding-bottom: 17px;
   padding-left: 27px;
   margin-right: 20px;
-  background-color: #f9f9f9;
 }
 
 #users-search::placeholder {
@@ -110,7 +109,6 @@
 
 .users-tablehead {
   border: 1px solid rgba(145, 158, 171, 1);
-  
   border-radius: 15px !important;
 }
 

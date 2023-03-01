@@ -4,12 +4,14 @@ import "../stationsPage/stationsPage.css";
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import Pagination from "@mui/material/Pagination";
+import { useTheme } from "@mui/material/styles";
 
 export default function StationsPage() {
   const [stationCards, setStationCards] = useState<any>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const theme = useTheme();
   const itemsPerPage = 5;
 
   useEffect(() => {
@@ -52,6 +54,7 @@ export default function StationsPage() {
                 placeholder="Search For A Station..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                style={theme.palette.mode === "dark" ? {background:"transparent"} : {background:"white"}}
               ></input>
               <SearchIcon
                 sx={{
