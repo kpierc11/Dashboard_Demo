@@ -33,10 +33,10 @@ function App() {
     () =>
       createTheme({
         palette: {
-          mode,
+          mode
         },
       }),
-    [mode]
+    [mode],
   );
 
   let loggedIn: boolean = true;
