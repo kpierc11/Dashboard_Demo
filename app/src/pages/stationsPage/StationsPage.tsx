@@ -3,10 +3,16 @@ import SearchIcon from "@mui/icons-material/Search";
 import "../stationsPage/stationsPage.css";
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
+import Pagination from "@mui/material/Pagination";
+import { useTheme } from "@mui/material/styles";
 
 export default function StationsPage() {
   const [stationCards, setStationCards] = useState<any>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const theme = useTheme();
+  const itemsPerPage = 5;
 
   useEffect(() => {
     fetch("https://swapi.dev/api/people/")
@@ -14,14 +20,18 @@ export default function StationsPage() {
         return response.json();
       })
       .then((data) => {
-        console.log(data.results);
+        //console.log(data.results);
         const results = data.results.map((element: any) => {
           return element;
         });
         setStationCards([...stationCards, ...results]);
         setLoading(false);
       });
-  });
+  }, []);
+
+  const handleChangePage = (event: any, page: number) => {
+    setCurrentPage(page);
+  };
 
   if (isLoading) {
     return <CircularProgress></CircularProgress>;
@@ -42,6 +52,9 @@ export default function StationsPage() {
                 id="stations-page-search"
                 type="search"
                 placeholder="Search For A Station..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={theme.palette.mode === "dark" ? {background:"transparent"} : {background:"white"}}
               ></input>
               <SearchIcon
                 sx={{
@@ -56,19 +69,39 @@ export default function StationsPage() {
             </div>
           </form>
         </div>
-        {stationCards.map((element: any, index: any) => {
-          return (
-            <StationCard
-              key={index}
-              stationId={index}
-              deviceName={element.name}
-              stationLocation={"Piney, Flats TN"}
-              lastReported={"September 23rd 2022 8:56:58 pm"}
-              stationType={"AHPS"}
-              status={false}
-            ></StationCard>
-          );
-        })}
+
+        {stationCards
+
+          .filter((element: any) =>
+            element.name.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+          )
+
+          .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+          .map((element: any, index: any) => {
+            return (
+              <StationCard
+                key={index}
+                stationId={index}
+                deviceName={element.name}
+                stationLocation={"Piney, Flats TN"}
+                lastReported={"September 23rd 2022 8:56:58 pm"}
+                stationType={"AHPS"}
+                status={false}
+              ></StationCard>
+            );
+          })}
+        <Pagination
+          color="primary"
+          size="large"
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginRight: "15px",
+          }}
+          count={Math.ceil(stationCards.length / itemsPerPage)}
+          page={currentPage}
+          onChange={handleChangePage}
+        />
       </>
     );
   }

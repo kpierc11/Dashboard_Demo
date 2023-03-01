@@ -27,7 +27,6 @@
   padding-bottom: 17px;
   padding-left: 27px;
   margin-right: 20px;
-  background-color: #f9f9f9;
 }
 
 #users-search::placeholder {
@@ -110,7 +109,6 @@
 
 .users-tablehead {
   border: 1px solid rgba(145, 158, 171, 1);
-  background-color: rgba(242, 242, 242, 1);
   border-radius: 15px !important;
 }
 
@@ -119,28 +117,21 @@
   min-width: 1px;
 }
 
-.active-txt {
-  color: #81e78b;
-  margin-right: 10px;
-}
-
-.inactive-txt {
-  color: #ff0000;
-  margin-right: 10px;
-}
-
 .user-avatar-container {
   display: inline-flex;
   align-items: center;
-  width:100%;
+  width: 100%;
 }
 
 .user-avatar {
-  padding:3px;
+  padding: 3px;
   border-radius: 50%;
   margin-right: 40px;
-  margin-left:40px;
+  margin-left: 40px;
   object-fit: contain;
-  background:#E5E4E2;
+  background: #e5e4e2;
+}
 
+.table-row-css {
+  padding: 16px;
 }

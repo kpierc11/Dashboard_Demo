@@ -9,239 +9,19 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
 import "./usersTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import IconButton from "@mui/material/IconButton/IconButton";
-import IconMenu from "../iconMenu/IconMenu";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-
-interface Data {
-  name: string;
-  company: string;
-  role: string;
-  status: string;
-  edit: string;
-}
-
-function createData(
-  name: any,
-  company: any,
-  role: any,
-  status: any,
-  edit: any
-): Data {
-  return {
-    name,
-    company,
-    role,
-    status,
-    edit,
-  };
-}
-
-const rows = [
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Administrator",
-    <Box className="user-box">
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={"/user/edit"} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Custom",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Spectator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Spectator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Spectator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Administrator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Administrator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Administrator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Custom",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Custom",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Administrator",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="inactive-txt"></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Custom",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-  createData(
-    <Box className="user-avatar-container">
-      <Box className="user-avatar">
-        <img height="58px" width="64px" src={"/default-avatar.png"} alt="default avatar"></img>
-      </Box>
-      <Typography>Abdulrah Grant</Typography>
-    </Box>,
-    "Hydro Bio Science",
-    "Custom",
-    <Box className="user-box">
-      <FiberManualRecordIcon className="active-txt"></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    <IconMenu url={""} />
-  ),
-];
+import { useEffect, useState } from "react";
+import { User } from "../../interfaces/User";
+import FiberManualRecord from "@mui/icons-material/FiberManualRecord";
+import {useTheme } from "@mui/material/styles";
+import IconMenu from "../iconMenu/IconMenu";
+import { Typography } from "@mui/material";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -258,10 +38,7 @@ type Order = "asc" | "desc";
 function getComparator<Key extends keyof any>(
   order: Order,
   orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
+): (a: { [key in Key]: number }, b: { [key in Key]: number }) => number {
   return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
@@ -284,14 +61,20 @@ function stableSort<T>(
 
 interface HeadCell {
   disablePadding: boolean;
-  id: keyof Data;
+  id: string;
   label: string;
   numeric: boolean;
 }
 
 const headCells: readonly HeadCell[] = [
   {
-    id: "name",
+    id: "id",
+    numeric: true,
+    disablePadding: false,
+    label: "ID",
+  },
+  {
+    id: "users",
     numeric: true,
     disablePadding: false,
     label: "Name",
@@ -316,7 +99,7 @@ const headCells: readonly HeadCell[] = [
   },
   {
     id: "edit",
-    numeric: true,
+    numeric: false,
     disablePadding: false,
     label: "",
   },
@@ -324,10 +107,7 @@ const headCells: readonly HeadCell[] = [
 
 interface EnhancedTableProps {
   numSelected: number;
-  onRequestSort: (
-    event: React.MouseEvent<unknown>,
-    property: keyof Data
-  ) => void;
+  onRequestSort: (event: React.MouseEvent<unknown>, property: any) => void;
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   order: Order;
   orderBy: string;
@@ -344,7 +124,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     onRequestSort,
   } = props;
   const createSortHandler =
-    (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
+    (property: any) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
 
@@ -365,7 +145,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "left" : "center"}
+            align={headCell.numeric ? "left" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -395,6 +175,7 @@ interface EnhancedTableToolbarProps {
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
   const navigate = useNavigate();
+  const theme = useTheme();
 
   return (
     <>
@@ -414,7 +195,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <button
               className="add-button"
               onClick={() => {
-                navigate("/user/add");
+                navigate("/users/add");
               }}
             >
               Add User
@@ -426,6 +207,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   id="users-search"
                   type="search"
                   placeholder="Search User"
+                  style={theme.palette.mode === "dark" ? {background:"transparent"} : {background:"white"}}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -456,17 +238,33 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   );
 }
 
-export default function EnhancedTable() {
+export default function EnhancedTable(this: any) {
   const [order, setOrder] = useState<Order>("asc");
-  const [orderBy, setOrderBy] = useState<keyof Data>("name");
-  const [selected, setSelected] = useState<readonly string[]>([]);
+  const [orderBy, setOrderBy] = useState<any>("id");
+  const [selected, setSelected] = useState<readonly number[]>([]);
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [userData, setUserData] = useState<any>([]);
+
+  
+
+  useEffect(() => {
+    fetch("https://retoolapi.dev/YQy72c/data")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const userInfo = data.map((user: any) => {
+          return user;
+        });
+        setUserData([...userData, ...userInfo]);
+      });
+  }, []);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
-    property: keyof Data
+    property: any
   ) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -475,19 +273,19 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.name);
+      const newSelected = userData.map((n: User) => n.id);
       setSelected(newSelected);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected: readonly string[] = [];
+  const handleClick = (event: React.MouseEvent<unknown>, id: number) => {
+    const selectedIndex = selected.indexOf(id);
+    let newSelected: readonly number[] = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, id);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -513,10 +311,14 @@ export default function EnhancedTable() {
     setPage(0);
   };
 
-  const isSelected = (name: string) => selected.indexOf(name) !== -1;
+  const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
+
+
+
+
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -553,13 +355,13 @@ export default function EnhancedTable() {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={rows.length}
+              rowCount={userData.length}
             />
             <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
+              {stableSort(userData, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
+                  const isItemSelected = isSelected(row.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -567,12 +369,12 @@ export default function EnhancedTable() {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={row.id}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
-                          onClick={(event) => handleClick(event, row.name)}
+                          onClick={(event) => handleClick(event, row.id)}
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
@@ -584,15 +386,50 @@ export default function EnhancedTable() {
                         component="th"
                         id={labelId}
                         scope="row"
-                        padding="none"
+                        padding-left="5px"
+                        align="left"
+                        width="8%"
                       >
-                        {row.name}
+                        {row.id}
                       </TableCell>
-
+                      <TableCell
+                        align="left"
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginRight: 0,
+                        }}
+                      >
+                        <img
+                          style={{
+                            objectFit: "contain",
+                            borderRadius: "60px",
+                            marginRight: "5px",
+                          }}
+                          width="60px"
+                          height="60px"
+                          src={String(row.avatar)}
+                        ></img>
+                        <Typography sx={{ marginLeft: "15px" }}>
+                          {row.users}
+                        </Typography>
+                      </TableCell>
                       <TableCell align="left">{row.company}</TableCell>
                       <TableCell align="left">{row.role}</TableCell>
-                      <TableCell align="left">{row.status}</TableCell>
-                      <TableCell align="left">{row.edit}</TableCell>
+                      <TableCell align="left">
+                        {Boolean(row.status) == true ? (
+                          <FiberManualRecord
+                            sx={{ color: "#31c85c" }}
+                          ></FiberManualRecord>
+                        ) : (
+                          <FiberManualRecord
+                            sx={{ color: "#e63030" }}
+                          ></FiberManualRecord>
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        <IconMenu  url={"/users/edit"}></IconMenu>
+                      </TableCell>
                     </TableRow>
                   );
                 })}
@@ -602,7 +439,7 @@ export default function EnhancedTable() {
                     height: (dense ? 33 : 53) * emptyRows,
                   }}
                 >
-                  <TableCell colSpan={6} />
+                  <TableCell colSpan={5} />
                 </TableRow>
               )}
             </TableBody>
@@ -611,7 +448,7 @@ export default function EnhancedTable() {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={rows.length}
+          count={userData.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

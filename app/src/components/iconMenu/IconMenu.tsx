@@ -9,6 +9,13 @@ import IconButton from "@mui/material/IconButton";
 import { useNavigate } from "react-router-dom";
 
 interface IProps {
+  report?: {
+    id: number;
+    name: string;
+    type: string;
+    parameters: string;
+    description: string;
+  };
   url: string;
 }
 
@@ -55,17 +62,18 @@ const StyledMenu = styled((props: MenuProps) => (
   },
 }));
 
-export default function IconMenu({ url }: IProps) {
+export default function IconMenu({ report, url }: IProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
   const navigate = useNavigate();
 
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    navigate(url);
+    navigate(url, { state: report });
     setAnchorEl(null);
   };
 

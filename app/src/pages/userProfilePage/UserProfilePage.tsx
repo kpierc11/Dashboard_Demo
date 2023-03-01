@@ -1,3 +1,4 @@
+import { Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 import UserProfileForm, {

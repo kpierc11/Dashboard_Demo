@@ -9,6 +9,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { useState } from "react";
+import { Paper } from "@mui/material";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -44,9 +45,8 @@ export default function NavTabs() {
   };
 
   return (
-    <Box
+    <Paper
       sx={{
-        background: "white",
         height: "100%",
         border: "1px solid gray",
         borderRadius: "15px",
@@ -58,7 +58,6 @@ export default function NavTabs() {
           onChange={handleChange}
           aria-label="basic tabs example"
           sx={{
-            backgroundColor: "#f2f2f2",
             margin: "50px 18px 0px 18px",
             borderRadius: "15px",
           }}
@@ -87,6 +86,6 @@ export default function NavTabs() {
       <TabPanel value={value} index={2}>
         <NotificationForm />
       </TabPanel>
-    </Box>
+    </Paper>
   );
 }
