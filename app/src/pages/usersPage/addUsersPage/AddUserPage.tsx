@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { Toolbar } from "@mui/material";
+import { Paper, Toolbar, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./addUser.css";
 import AddUserForm, {
@@ -9,14 +9,15 @@ import AddUserForm, {
 export default function AddUserPage() {
   const navigate = useNavigate();
 
+  const theme = useTheme();
+
   return (
-    <Box
+    <Paper
       sx={{
         display: "flex",
         width: "100%",
         height: "100%",
-        flexWrap: "wrap",
-        backgroundColor: "#ffffff",
+        flexWrap: "wrap",    
         border: "1px solid #919eab",
         borderRadius: "15px",
       }}
@@ -56,12 +57,12 @@ export default function AddUserPage() {
         <button
           className="edit-sb"
           onClick={() => {
-            navigate("/users/add");
+            navigate("/users");
           }}
         >
           Add User
         </button>
       </Box>
-    </Box>
+    </Paper>
   );
 }

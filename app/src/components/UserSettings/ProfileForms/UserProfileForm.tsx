@@ -4,6 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
+import { createRef } from "react";
 
 const roles = [
   {
@@ -19,6 +20,7 @@ const roles = [
     label: "Viewer",
   },
 ];
+
 
 export function UserPhotoForm() {
   return (
@@ -42,7 +44,7 @@ export function UserPhotoForm() {
           component="label"
           sx={{ margin: "15px" }}
         >
-          <input hidden accept="image/*" type="file" src="upload" />
+          <input accept="image/*" type="file" />
           <Avatar sx={{ width: "180px", height: "180px" }} />
         </IconButton>
         <TextField

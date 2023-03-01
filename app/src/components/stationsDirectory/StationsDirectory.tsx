@@ -9,287 +9,32 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import TimelineIcon from "@mui/icons-material/Timeline";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import SearchIcon from "@mui/icons-material/Search";
 import { visuallyHidden } from "@mui/utils";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import { useState } from "react";
-import IconMenu from "../iconMenu/IconMenu";
-import Button from "@mui/material/Button/Button";
+import { useEffect, useState } from "react";
+import { StationData } from "../../interfaces/StationsData";
+import { FiberManualRecord } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
-interface Data {
-  stationName: string;
-  location: string;
-  reported: string;
-  type: string;
-  readings: string;
-  status: string;
-
-}
-
-function createData(
-  stationName: any,
-  location: any,
-  reported: any,
-  type: any,
-  readings: any,
-  status: any,
-): Data {
-  return {
-    stationName,
-    location,
-    reported,
-    type,
-    readings,
-    status,
-  };
-}
-
-const rows = [
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (IN)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button onClick={() => {}}>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-   
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (ID)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon
-        sx={{ color: "#FF0000", marginLeft: "12px" }}
-      ></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-    
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (HI)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon
-        sx={{ color: "#FF0000", marginLeft: "12px" }}
-      ></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-   
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (GA)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-   
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (AZ)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (AL)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon
-        sx={{ color: "#FF0000", marginLeft: "12px" }}
-      ></FiberManualRecordIcon>
-      <Typography>Inactive</Typography>
-    </Box>,
-   
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (CA)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (NY)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (FL)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-  
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (TN)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (AR)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-   
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (CO)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    
-  ),
-  createData(
-    "AFBI2 Fox River at Algonquin tailwater (LA)",
-    "Fox River at Algonquin tailwater",
-    "September 23rd 2022",
-    "AHPS",
-    <Button>
-      <TimelineIcon
-        color="primary"
-        cursor="pointer"
-        fontSize="large"
-      ></TimelineIcon>
-    </Button>,
-    <Box sx={{ display: "inline-flex" }}>
-      <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-      <Typography>Active</Typography>
-    </Box>,
-    
-  ),
-];
+// createData(
+//   "AFBI2 Fox River at Algonquin tailwater (LA)",
+//   "Fox River at Algonquin tailwater",
+//   "September 23rd 2022",
+//   "AHPS",
+//   <Button>
+//     <TimelineIcon
+//       color="primary"
+//       cursor="pointer"
+//       fontSize="large"
+//     ></TimelineIcon>
+//   </Button>,
+//   <Box sx={{ display: "inline-flex" }}>
+//     <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
+//     <Typography>Active</Typography>
+//   </Box>
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -306,10 +51,7 @@ type Order = "asc" | "desc";
 function getComparator<Key extends keyof any>(
   order: Order,
   orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
+): (a: { [key in Key]: number }, b: { [key in Key]: number }) => number {
   return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
@@ -332,7 +74,7 @@ function stableSort<T>(
 
 interface HeadCell {
   disablePadding: boolean;
-  id: keyof Data;
+  id: keyof StationData;
   label: string;
   numeric: boolean;
 }
@@ -374,14 +116,13 @@ const headCells: readonly HeadCell[] = [
     disablePadding: false,
     label: "Status",
   },
-
 ];
 
 interface EnhancedTableProps {
   numSelected: number;
   onRequestSort: (
     event: React.MouseEvent<unknown>,
-    property: keyof Data
+    property: keyof StationData
   ) => void;
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   order: Order;
@@ -399,7 +140,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     onRequestSort,
   } = props;
   const createSortHandler =
-    (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
+    (property: keyof StationData) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
 
@@ -426,7 +167,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "center" : "left"}
+            align={headCell.numeric ? "left" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -500,15 +241,29 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 
 export default function StationsDirectory() {
   const [order, setOrder] = useState<Order>("asc");
-  const [orderBy, setOrderBy] = useState<keyof Data>("location");
-  const [selected, setSelected] = useState<readonly string[]>([]);
+  const [orderBy, setOrderBy] = useState<keyof StationData>("stationName");
+  const [selected, setSelected] = useState<readonly number[]>([]);
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [userData, setUserData] = useState<any>([]);
+
+  useEffect(() => {
+    fetch("https://retoolapi.dev/TTGQXP/data")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const userInfo = data.map((user: any) => {
+          return user;
+        });
+        setUserData([...userData, ...userInfo]);
+      });
+  }, []);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
-    property: keyof Data
+    property: keyof StationData
   ) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -517,19 +272,19 @@ export default function StationsDirectory() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.stationName);
+      const newSelected = userData.map((n: StationData) => n.id);
       setSelected(newSelected);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected: readonly string[] = [];
+  const handleClick = (event: React.MouseEvent<unknown>, id: number) => {
+    const selectedIndex = selected.indexOf(id);
+    let newSelected: readonly number[] = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, id);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -555,10 +310,10 @@ export default function StationsDirectory() {
     setPage(0);
   };
 
-  const isSelected = (name: string) => selected.indexOf(name) !== -1;
+  const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -574,11 +329,14 @@ export default function StationsDirectory() {
       >
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer
-          sx={{ paddingLeft: "30px", paddingRight: "30px", marginTop: "32px" }}
+          sx={{
+            paddingLeft: "30px",
+            paddingRight: "30px",
+            paddingTop: "32px",
+          }}
         >
           <Table
             sx={{
-              minWidth: 750,
               [`& .${tableCellClasses.root}`]: {
                 borderBottom: "none",
               },
@@ -592,13 +350,13 @@ export default function StationsDirectory() {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={rows.length}
+              rowCount={userData.length}
             />
             <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
+              {stableSort(userData, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.stationName);
+                  const isItemSelected = isSelected(row.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -606,14 +364,12 @@ export default function StationsDirectory() {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.stationName}
+                      key={row.id}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
-                          onClick={(event) =>
-                            handleClick(event, row.stationName)
-                          }
+                          onClick={(event) => handleClick(event, row.id)}
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
@@ -621,20 +377,31 @@ export default function StationsDirectory() {
                           }}
                         />
                       </TableCell>
-                      <TableCell
-                        component="th"
-                        id={labelId}
-                        scope="row"
-                        padding="none"
-                      >
-                        {row.stationName}
+                      <TableCell align="left">{row.stationName}</TableCell>
+                      <TableCell align="left">{row.location}</TableCell>
+                      <TableCell align="left">{row.reported}</TableCell>
+                      <TableCell align="left">{row.type}</TableCell>
+                      <TableCell align="left">
+                        <Button>
+                          <TimelineIcon
+                            color="primary"
+                            cursor="pointer"
+                            fontSize="large"
+                          ></TimelineIcon>
+                        </Button>
+                      </TableCell>
+                      <TableCell align="left">
+                        {Boolean(row.status) == true ? (
+                          <FiberManualRecord
+                            sx={{ color: "#31c85c" }}
+                          ></FiberManualRecord>
+                        ) : (
+                          <FiberManualRecord
+                            sx={{ color: "#e63030" }}
+                          ></FiberManualRecord>
+                        )}
                       </TableCell>
 
-                      <TableCell align="center">{row.location}</TableCell>
-                      <TableCell align="center">{row.reported}</TableCell>
-                      <TableCell align="center">{row.type}</TableCell>
-                      <TableCell align="center">{row.readings}</TableCell>
-                      <TableCell align="center">{row.status}</TableCell>
                     </TableRow>
                   );
                 })}
@@ -653,7 +420,7 @@ export default function StationsDirectory() {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={rows.length}
+          count={userData.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

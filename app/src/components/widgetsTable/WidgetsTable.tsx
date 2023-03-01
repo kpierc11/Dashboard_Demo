@@ -12,7 +12,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import "./addonsTable.css";
+import "./widgetsTable.css";
 import Tooltip from "@mui/material/Tooltip/Tooltip";
 import IconButton from "@mui/material/IconButton/IconButton";
 import { useState } from "react";
@@ -52,7 +52,7 @@ const rows = [
     "My Station 2.0",
     "95",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -60,7 +60,7 @@ const rows = [
     "My Station 2.0",
     "59",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -68,7 +68,7 @@ const rows = [
     "My Station 2.0",
     "34",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -76,7 +76,7 @@ const rows = [
     "My Station 2.0",
     "23",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -84,7 +84,7 @@ const rows = [
     "My Station 2.0",
     "17",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -92,7 +92,7 @@ const rows = [
     "My Station 2.0",
     "2",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -100,7 +100,7 @@ const rows = [
     "My Station 2.0",
     "6",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -108,7 +108,7 @@ const rows = [
     "My Station 2.0",
     "10",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -116,7 +116,7 @@ const rows = [
     "My Station 2.0",
     "1",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -124,7 +124,7 @@ const rows = [
     "My Station 2.0",
     "2",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -132,7 +132,7 @@ const rows = [
     "My Station 2.0",
     "5",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -140,7 +140,7 @@ const rows = [
     "My Station 2.0",
     "7",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
   createData(
     "Time Series",
@@ -148,7 +148,7 @@ const rows = [
     "My Station 2.0",
     "3",
     "January 1, 2019",
-    <IconMenu url={""} />
+    <IconMenu  url={""} />
   ),
 ];
 
@@ -375,7 +375,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   );
 }
 
-export default function AddonsTable() {
+export default function WidgetsTable() {
   const [order, setOrder] = useState<Order>("asc");
   const [orderBy, setOrderBy] = useState<keyof Data>("name");
   const [selected, setSelected] = useState<readonly string[]>([]);

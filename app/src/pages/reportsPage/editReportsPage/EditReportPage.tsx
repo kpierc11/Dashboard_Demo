@@ -6,8 +6,9 @@ import {
   styled,
   Switch,
   TextField,
+  useTheme,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../editReportsPage/editReportPage.css";
 
 export default function EditReportPage() {
@@ -20,6 +21,12 @@ export default function EditReportPage() {
   }));
 
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const reportData = location.state; 
+
+
+  const theme = useTheme();
 
   const stations = [
     {
@@ -67,7 +74,12 @@ export default function EditReportPage() {
   ];
 
   return (
-    <div className="edit-report-main-container">
+    <Box  sx={{height: "100%",
+      width: "100%",
+      borderRadius: "15px",
+      paddingBottom: "45px", border: "1px solid #919eab" ,background: `${
+      theme.palette.mode === "dark" ? "#121212" : "white"
+    }`}}>
       <div className="edit-report-top-section">
         <h3 className="edit-report-title">Edit Report</h3>
       </div>
@@ -87,18 +99,22 @@ export default function EditReportPage() {
               >
                 <TextField
                   sx={{
-                    backgroundColor: "#FAFAFA",
+                    background: `${
+                      theme.palette.mode === "dark" ? "#121212" : "white"
+                    }`,
                     marginBottom: "26px",
                     maxWidth: 355,
                   }}
                   required
                   id="outlined-required"
                   label="Report Name"
-                  defaultValue="Sample Report"
+                  defaultValue={`${reportData.name}`}
                 />
                 <TextField
                   sx={{
-                    backgroundColor: "#FAFAFA",
+                    background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }`,
                     marginBottom: "26px",
                     maxWidth: 355,
                   }}
@@ -115,7 +131,9 @@ export default function EditReportPage() {
                 </TextField>
                 <TextField
                   sx={{
-                    backgroundColor: "#FAFAFA",
+                    background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }`,
                     marginBottom: "26px",
                     maxWidth: 355,
                   }}
@@ -126,7 +144,9 @@ export default function EditReportPage() {
                 />
                 <TextField
                   sx={{
-                    backgroundColor: "#FAFAFA",
+                    background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }`,
                     marginBottom: "26px",
                     marginRight: " 1px",
                     maxWidth: 500,
@@ -135,7 +155,7 @@ export default function EditReportPage() {
                   label="Description"
                   multiline
                   rows={4}
-                  defaultValue="This is an example description"
+                  defaultValue={`${reportData.description}`}
                 />
               </Box>
             </Item>
@@ -158,7 +178,9 @@ export default function EditReportPage() {
               </p>
               <TextField
                 sx={{
-                  backgroundColor: "#FAFAFA",
+                  background: `${
+              theme.palette.mode === "dark" ? "#121212" : "white"
+            }`,
                   marginBottom: "30px",
                   marginTop: "13px",
                   maxWidth: 350,
@@ -191,6 +213,6 @@ export default function EditReportPage() {
         </button>
         <button className="bottom-section-buttons">Save Report</button>
       </Box>
-    </div>
+    </Box>
   );
 }
