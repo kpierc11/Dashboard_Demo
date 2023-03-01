@@ -33,7 +33,7 @@ export function AddUserPhotoForm() {
           }}
         >
           <IconButton
-            color="default"
+            color="inherit"
             aria-label="upload picture"
             component="label"
             sx={{ margin: "15px" }}
