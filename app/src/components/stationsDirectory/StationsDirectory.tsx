@@ -17,7 +17,7 @@ import { visuallyHidden } from "@mui/utils";
 import { useEffect, useState } from "react";
 import { StationData } from "../../interfaces/StationsData";
 import { FiberManualRecord } from "@mui/icons-material";
-import { Button } from "@mui/material";
+import { Button, useTheme } from "@mui/material";
 
 // createData(
 //   "AFBI2 Fox River at Algonquin tailwater (LA)",
@@ -196,6 +196,7 @@ interface EnhancedTableToolbarProps {
 
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
+  const theme = useTheme();
 
   return (
     <>
@@ -214,11 +215,14 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           <div className={"stations-directory-search-column"}>
             <div className="directory-buttons"></div>
             <form method="POST" style={{ width: "100%" }}>
-              <div style={{ position: "relative" }}>
+            <Box sx={{ position: "relative"}}>
                 <input
-                  id="directory-search"
+                  id="users-search"
                   type="search"
-                  placeholder="Find A Station..."
+                  placeholder="Search User"
+                  style={{background: `${
+                    theme.palette.mode === "dark" ? "#121212" : "white" 
+                  }`, borderColor: theme.palette.mode === "dark" ? "#83bfd2" : "rgba(28, 126, 217, 0.2)"}}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -227,10 +231,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginRight: 2,
                     marginTop: "6%",
                     top: 0,
+                    color: theme.palette.mode === "dark" ? "#83bfd2" : "#1976d2"
                   }}
                   color="primary"
                 ></SearchIcon>
-              </div>
+              </Box>
             </form>
           </div>
         </div>

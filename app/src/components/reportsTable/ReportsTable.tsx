@@ -20,6 +20,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Data } from "../../interfaces/Reports";
 import IconMenu from "../iconMenu/IconMenu";
+import { useTheme } from "@mui/material/styles";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -175,6 +176,7 @@ interface EnhancedTableToolbarProps {
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
   const navigate = useNavigate();
+  const theme = useTheme();
 
   return (
     <>
@@ -201,11 +203,14 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             </button>
 
             <form method="POST" style={{ width: "100%" }}>
-              <div style={{ position: "relative" }}>
+            <Box sx={{ position: "relative"}}>
                 <input
                   id="users-search"
                   type="search"
                   placeholder="Search User"
+                  style={{background: `${
+                    theme.palette.mode === "dark" ? "#121212" : "white" 
+                  }`, borderColor: theme.palette.mode === "dark" ? "#83bfd2" : "rgba(28, 126, 217, 0.2)"}}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -214,10 +219,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginRight: 2,
                     marginTop: "6%",
                     top: 0,
+                    color: theme.palette.mode === "dark" ? "#83bfd2" : "#1976d2"
                   }}
                   color="primary"
                 ></SearchIcon>
-              </div>
+              </Box>
             </form>
           </div>
         </div>

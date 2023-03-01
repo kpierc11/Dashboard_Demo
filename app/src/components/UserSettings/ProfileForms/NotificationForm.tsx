@@ -4,10 +4,11 @@ import Divider from "@mui/material/Divider";
 import Timeset from "../TimePicker";
 import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { Paper } from "@mui/material";
 
 export default function NotificationForm() {
   return (
-    <Box className="form-bg-box">
+    <Paper className="form-bg-box" sx={{boxShadow:"none"}}>
       <Box
         sx={{
           display: "flex",
@@ -54,6 +55,6 @@ export default function NotificationForm() {
           <button className="save-button">Save</button>
         </Box>
       </Box>
-    </Box>
+    </Paper>
   );
 }

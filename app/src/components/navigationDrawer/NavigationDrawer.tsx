@@ -154,7 +154,7 @@ export default function NavigationDrawer(props: Props) {
                 : { background: "#E6F7FC", color: "#747474" }
             }
           ></NotificationsNoneOutlinedIcon>
-          <Link sx={{ height: 35 }} href="/user/profile">
+          <Link sx={{ height: 35, color: theme.palette.mode === "dark" ? "#E6F7FC" : "#747474" }} href="/user/profile">
             <AccountCircleOutlinedIcon
               className={"topbar-icon"}
               fontSize={"large"}

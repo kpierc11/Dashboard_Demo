@@ -23,8 +23,7 @@ export default function EditReportPage() {
   const navigate = useNavigate();
 
   const location = useLocation();
-  const reportData = location.state; 
-
+  const reportData = location.state;
 
   const theme = useTheme();
 
@@ -74,12 +73,16 @@ export default function EditReportPage() {
   ];
 
   return (
-    <Box  sx={{height: "100%",
-      width: "100%",
-      borderRadius: "15px",
-      paddingBottom: "45px", border: "1px solid #919eab" ,background: `${
-      theme.palette.mode === "dark" ? "#121212" : "white"
-    }`}}>
+    <Box
+      sx={{
+        height: "100%",
+        width: "100%",
+        borderRadius: "15px",
+        paddingBottom: "45px",
+        border: "1px solid #919eab",
+        background: `${theme.palette.mode === "dark" ? "#121212" : "white"}`,
+      }}
+    >
       <div className="edit-report-top-section">
         <h3 className="edit-report-title">Edit Report</h3>
       </div>
@@ -113,8 +116,8 @@ export default function EditReportPage() {
                 <TextField
                   sx={{
                     background: `${
-              theme.palette.mode === "dark" ? "#121212" : "white"
-            }`,
+                      theme.palette.mode === "dark" ? "#121212" : "white"
+                    }`,
                     marginBottom: "26px",
                     maxWidth: 355,
                   }}
@@ -132,8 +135,20 @@ export default function EditReportPage() {
                 <TextField
                   sx={{
                     background: `${
-              theme.palette.mode === "dark" ? "#121212" : "white"
-            }`,
+                      theme.palette.mode === "dark" ? "#121212" : "white"
+                    }`,
+                    marginBottom: "26px",
+                    maxWidth: 355,
+                  }}
+                  id="outlined-required"
+                  label="Type"
+                  defaultValue={`${reportData.type}`}
+                ></TextField>
+                <TextField
+                  sx={{
+                    background: `${
+                      theme.palette.mode === "dark" ? "#121212" : "white"
+                    }`,
                     marginBottom: "26px",
                     maxWidth: 355,
                   }}
@@ -145,8 +160,8 @@ export default function EditReportPage() {
                 <TextField
                   sx={{
                     background: `${
-              theme.palette.mode === "dark" ? "#121212" : "white"
-            }`,
+                      theme.palette.mode === "dark" ? "#121212" : "white"
+                    }`,
                     marginBottom: "26px",
                     marginRight: " 1px",
                     maxWidth: 500,
@@ -179,8 +194,8 @@ export default function EditReportPage() {
               <TextField
                 sx={{
                   background: `${
-              theme.palette.mode === "dark" ? "#121212" : "white"
-            }`,
+                    theme.palette.mode === "dark" ? "#121212" : "white"
+                  }`,
                   marginBottom: "30px",
                   marginTop: "13px",
                   maxWidth: 350,

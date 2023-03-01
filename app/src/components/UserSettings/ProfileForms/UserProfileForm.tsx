@@ -5,6 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
 import { createRef } from "react";
+import { Paper } from "@mui/material";
 
 const roles = [
   {
@@ -21,21 +22,19 @@ const roles = [
   },
 ];
 
-
 export function UserPhotoForm() {
   return (
-    <Box
-      className="photo-box"
-      component="form"
+    <Paper
       sx={{
-        "& .MuiTextField-root": { m: 1, width: "85%" },
+        "& .MuiTextField-root": { m: 1, width: "85%" }, border:"1px solid #919eab", borderRadius:"15px", padding:"35px", boxShadow:"none"
       }}
     >
-      <Box
+      <Paper
         sx={{
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
+          boxShadow:"none"
         }}
       >
         <IconButton
@@ -44,22 +43,13 @@ export function UserPhotoForm() {
           component="label"
           sx={{ margin: "15px" }}
         >
-          <input accept="image/*" type="file" />
+          <input hidden accept="image/*" type="file" />
           <Avatar sx={{ width: "180px", height: "180px" }} />
         </IconButton>
-        <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
-          id="outlined"
-          label="Name"
-        />
-        <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
-          id="outlined"
-          label="Phone Number"
-          type="integer"
-        />
-      </Box>
-    </Box>
+        <TextField id="outlined" label="Name" />
+        <TextField id="outlined" label="Phone Number" type="integer" />
+      </Paper>
+    </Paper>
   );
 }
 export default function UserProfileForm() {
@@ -70,63 +60,40 @@ export default function UserProfileForm() {
   };
 
   return (
-    <Box>
-      <Box
-        className="form-box"
-        component="form"
-        sx={{
-          "& .MuiTextField-root": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
+    <Paper
+      className="form-box"
+      component="form"
+      sx={{
+        "& .MuiTextField-root": { m: 1, width: "25ch" }, boxShadow:"none"
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField id="outlined" label="Name" />
+      <TextField id="outlined" label="Phone Number" type="integer" />
+      <TextField
+        id="outlined-select-role"
+        select
+        label="Role"
+        value={role}
+        onChange={handleChange}
       >
-        <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
-          id="outlined"
-          label="Name"
-        />
-        <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
-          id="outlined"
-          label="Phone Number"
-          type="integer"
-        />
-        <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
-          id="outlined-select-role"
-          select
-          label="Role"
-          value={role}
-          onChange={handleChange}
-        >
-          {roles.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
-          id="outlined"
-          label="Work Number"
-          type="integer"
-        />
-        <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
-          id="outlined"
-          label="Email"
-          style={{ width: 510 }}
-        />
-        <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
-          id="outlined"
-          label="Notes"
-          type="string"
-          style={{ width: 510 }}
-          multiline
-          rows={5}
-        />
-      </Box>
-    </Box>
+        {roles.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+      </TextField>
+      <TextField id="outlined" label="Work Number" type="integer" />
+      <TextField id="outlined" label="Email" style={{ width: 510 }} />
+      <TextField
+        id="outlined"
+        label="Notes"
+        type="string"
+        style={{ width: 510 }}
+        multiline
+        rows={5}
+      />
+    </Paper>
   );
 }

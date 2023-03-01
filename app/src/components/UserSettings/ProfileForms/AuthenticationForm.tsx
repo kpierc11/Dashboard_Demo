@@ -4,6 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import "./userSettings.css";
 import Divider from "@mui/material/Divider";
 import { useState } from "react";
+import { Paper } from "@mui/material";
 
 const roles = [
   {
@@ -28,7 +29,7 @@ export default function AuthenticationForm() {
   };
 
   return (
-    <Box className="form-bg-box">
+    <Paper className="form-bg-box" sx={{boxShadow:"none"}}>
       <Box
         className="pass-box"
         sx={{
@@ -44,19 +45,19 @@ export default function AuthenticationForm() {
         >
           <Divider textAlign="left">Password</Divider>
           <TextField
-            sx={{ backgroundColor: "#FAFAFa" }}
+            
             id="outlined-password1"
             label="Old Password"
             type="password"
           />
           <TextField
-            sx={{ backgroundColor: "#FAFAFa" }}
+            
             id="outlined-password2"
             label="New Password"
             type="password"
           />
           <TextField
-            sx={{ backgroundColor: "#FAFAFa" }}
+            
             id="outlined-password3"
             label="Confirm New Password"
             type="password"
@@ -74,7 +75,7 @@ export default function AuthenticationForm() {
       >
         <Divider textAlign="left">Two Factor Authentication</Divider>
         <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
+          
           id="outlined-select-role"
           select
           label="Enable"
@@ -89,7 +90,7 @@ export default function AuthenticationForm() {
         </TextField>
 
         <TextField
-          sx={{ backgroundColor: "#FAFAFa" }}
+          
           id="outlined"
           label="Phone Number"
           type="integer"
@@ -103,6 +104,6 @@ export default function AuthenticationForm() {
       <Box sx={{ display: "flex", justifyContent: "flex-end", width: "100%" }}>
         <button className="save-button">Save</button>
       </Box>
-    </Box>
+    </Paper>
   );
 }

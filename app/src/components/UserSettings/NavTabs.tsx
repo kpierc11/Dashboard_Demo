@@ -9,6 +9,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { useState } from "react";
+import { useTheme } from "@mui/material/styles";
+import { Paper } from "@mui/material";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -19,6 +21,9 @@ interface TabPanelProps {
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
+
+  
+
   return (
     <div
       role="tabpanel"
@@ -28,9 +33,9 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Paper sx={{ p: 3, borderRadius:"0px 0px 15px 15px" }}>
           <Typography>{children}</Typography>
-        </Box>
+        </Paper>
       )}
     </div>
   );
@@ -43,22 +48,25 @@ export default function NavTabs() {
     setValue(newValue);
   };
 
+const theme = useTheme();
+
   return (
-    <Box
+    <Paper
       sx={{
-        background: "white",
         height: "100%",
         border: "1px solid gray",
         borderRadius: "15px",
       }}
     >
-      <Box>
+      <Paper>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
           sx={{
-            backgroundColor: "#f2f2f2",
+            background: `${
+              theme.palette.mode === "dark" ? "#121212" : "#f2f2f2" 
+            }`,
             margin: "50px 18px 0px 18px",
             borderRadius: "15px",
           }}
@@ -75,7 +83,7 @@ export default function NavTabs() {
             iconPosition="start"
           />
         </Tabs>
-      </Box>
+      </Paper>
       <TabPanel value={value} index={0}>
         <Box>
           <UserProfileForm />
@@ -87,6 +95,6 @@ export default function NavTabs() {
       <TabPanel value={value} index={2}>
         <NotificationForm />
       </TabPanel>
-    </Box>
+    </Paper>
   );
 }

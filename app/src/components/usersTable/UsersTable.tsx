@@ -20,7 +20,7 @@ import { useEffect, useState } from "react";
 import { User } from "../../interfaces/User";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import FiberManualRecord from "@mui/icons-material/FiberManualRecord";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import IconMenu from "../iconMenu/IconMenu";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -176,6 +176,8 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
   const navigate = useNavigate();
 
+  const theme = useTheme();
+
   return (
     <>
       <Toolbar
@@ -201,11 +203,20 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             </button>
 
             <form method="POST" style={{ width: "100%" }}>
-              <div style={{ position: "relative" }}>
+              <Box sx={{ position: "relative" }}>
                 <input
                   id="users-search"
                   type="search"
                   placeholder="Search User"
+                  style={{
+                    background: `${
+                      theme.palette.mode === "dark" ? "#121212" : "white"
+                    }`,
+                    borderColor:
+                      theme.palette.mode === "dark"
+                        ? "rgba(145, 158, 171, 1)"
+                        : "rgba(28, 126, 217, 0.2)",
+                  }}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -214,10 +225,12 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginRight: 2,
                     marginTop: "6%",
                     top: 0,
+                    color:
+                      theme.palette.mode === "dark" ? "#f2f2f2" : "#1976d2",
                   }}
                   color="primary"
                 ></SearchIcon>
-              </div>
+              </Box>
             </form>
           </div>
         </div>
@@ -244,8 +257,6 @@ export default function EnhancedTable(this: any) {
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [userData, setUserData] = useState<any>([]);
-
-  
 
   useEffect(() => {
     fetch("https://retoolapi.dev/YQy72c/data")
@@ -313,10 +324,6 @@ export default function EnhancedTable(this: any) {
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
-
-
-
-
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -426,7 +433,7 @@ export default function EnhancedTable(this: any) {
                         )}
                       </TableCell>
                       <TableCell>
-                        <IconMenu  url={"/users/edit"}></IconMenu>
+                        <IconMenu url={"/users/edit"}></IconMenu>
                       </TableCell>
                     </TableRow>
                   );
