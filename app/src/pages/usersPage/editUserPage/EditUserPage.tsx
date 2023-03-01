@@ -4,11 +4,9 @@ import { useNavigate } from "react-router-dom";
 import AddUserForm, {
   AddUserPhotoForm,
 } from "../../../components/addUserForm/AddUserForm";
-import { useTheme } from "@emotion/react";
 
 export default function EditUserPage() {
   const navigate = useNavigate();
-  const theme = useTheme();
 
   return (
     <Paper
