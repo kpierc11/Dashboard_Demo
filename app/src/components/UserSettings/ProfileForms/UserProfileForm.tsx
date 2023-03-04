@@ -25,8 +25,11 @@ const roles = [
 export function UserPhotoForm() {
   return (
     <Paper
+      className="photo-box"
+      component="form"
       sx={{
-        "& .MuiTextField-root": { m: 1, width: "85%" }, border:"1px solid #919eab", borderRadius:"15px", padding:"35px", boxShadow:"none"
+        "& .MuiTextField-root": { m: 1, width: "85%" },
+        boxShadow:"none",
       }}
     >
       <Paper
@@ -46,8 +49,15 @@ export function UserPhotoForm() {
           <input hidden accept="image/*" type="file" />
           <Avatar sx={{ width: "180px", height: "180px" }} />
         </IconButton>
-        <TextField id="outlined" label="Name" />
-        <TextField id="outlined" label="Phone Number" type="integer" />
+        <TextField
+          id="outlined"
+          label="Name"
+        />
+        <TextField
+          id="outlined"
+          label="Phone Number"
+          type="integer"
+        />
       </Paper>
     </Paper>
   );
@@ -60,40 +70,58 @@ export default function UserProfileForm() {
   };
 
   return (
-    <Paper
-      className="form-box"
-      component="form"
-      sx={{
-        "& .MuiTextField-root": { m: 1, width: "25ch" }, boxShadow:"none"
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="outlined" label="Name" />
-      <TextField id="outlined" label="Phone Number" type="integer" />
-      <TextField
-        id="outlined-select-role"
-        select
-        label="Role"
-        value={role}
-        onChange={handleChange}
+    <Box>
+      <Paper
+        className="form-box"
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "25ch" },
+          boxShadow:"none",
+        }}
+        noValidate
+        autoComplete="off"
       >
-        {roles.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-      </TextField>
-      <TextField id="outlined" label="Work Number" type="integer" />
-      <TextField id="outlined" label="Email" style={{ width: 510 }} />
-      <TextField
-        id="outlined"
-        label="Notes"
-        type="string"
-        style={{ width: 510 }}
-        multiline
-        rows={5}
-      />
-    </Paper>
+        <TextField
+          id="outlined"
+          label="Name"
+        />
+        <TextField
+          id="outlined"
+          label="Phone Number"
+          type="integer"
+        />
+        <TextField
+          id="outlined-select-role"
+          select
+          label="Role"
+          value={role}
+          onChange={handleChange}
+        >
+          {roles.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          id="outlined"
+          label="Work Number"
+          type="integer"
+        />
+        <TextField
+          id="outlined"
+          label="Email"
+          style={{ width: 510 }}
+        />
+        <TextField
+          id="outlined"
+          label="Notes"
+          type="string"
+          style={{ width: 510 }}
+          multiline
+          rows={5}
+        />
+      </Paper>
+    </Box>
   );
 }

@@ -13,8 +13,6 @@ import {
 import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
 import Switch from "@mui/material/Switch/Switch";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import LayersIcon from "@mui/icons-material/Layers";
 import "../trendsPage/trendsPage.css";
 import {
   FormControl,
@@ -22,8 +20,17 @@ import {
   OutlinedInput,
   Select,
   SelectChangeEvent,
+  Stack,
+  TextField,
 } from "@mui/material";
 import { useState } from "react";
+import {
+  LocalizationProvider,
+  TimePicker,
+  DateTimePicker,
+} from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs, { Dayjs } from "dayjs";
 
 ChartJS.register(
   CategoryScale,
@@ -51,18 +58,6 @@ export const options = {
 
 const labels = ["January", "February", "March", "April", "May", "June", "July"];
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: "bg algae (ppm)",
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: "#1F78B4",
-      backgroundColor: "#1F78B4",
-    },
-  ],
-};
-
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -75,22 +70,34 @@ const MenuProps = {
 };
 
 const names = [
-  "Oliver Hansen",
-  "Van Henry",
-  "April Tucker",
-  "Ralph Hubbard",
-  "Omar Alexander",
-  "Carlos Abbott",
-  "Miriam Wagner",
-  "Bradley Wilkerson",
-  "Virginia Andrews",
-  "Kelly Snyder",
+  "station1",
+  "station2",
+  "station3",
+  "station4",
+  "station5",
+  "station6",
 ];
 
 export default function TrendsPage() {
   const [personName, setPersonName] = useState<string[]>([]);
+  const [dataSets, setDataSets] = useState<any>([
+    {
+      label: "Chlorine",
+      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      borderColor: "#CD5C5C",
+      backgroundColor: "#CD5C5C",
+    },
+  ]);
+  const [value, setValue] = useState<Dayjs | null>(
+    dayjs("2014-08-18T21:11:54")
+  );
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+  let data = {
+    labels,
+    datasets: dataSets,
+  };
+
+  const handleChangeStation = (event: SelectChangeEvent<typeof personName>) => {
     const {
       target: { value },
     } = event;
@@ -100,22 +107,68 @@ export default function TrendsPage() {
     );
   };
 
+  const handleChange = (newValue: Dayjs | null) => {
+    setValue(newValue);
+  };
+
+  const handleToggleActive = (
+    event: any,
+    label: string,
+    color: string
+  ): void => {
+    let isChecked = event.currentTarget.firstChild.checked;
+
+    if (isChecked) {
+      let newData = [
+        {
+          label: label,
+          data: labels.map(() =>
+            faker.datatype.number({ min: -1000, max: 1000 })
+          ),
+          borderColor: color,
+          backgroundColor: color,
+        },
+      ];
+
+      setDataSets([...dataSets, ...newData]);
+    } else {
+      setDataSets(dataSets.filter((a: { label: string }) => a.label !== label));
+    }
+  };
+
   return (
     <Box>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginRight: 2,
-          }}
+          sx={{ display: "flex", justifyContent: "center", marginRight: 20 }}
         >
-          <LayersIcon
-            fontSize="large"
-            style={{ color: "#505050" }}
-          ></LayersIcon>
-          <p>Chart View</p>
+          <FormControl sx={{ width: 300, marginBottom: "29px" }}>
+            <Select
+              multiple
+              displayEmpty
+              value={personName}
+              onChange={handleChangeStation}
+              input={<OutlinedInput />}
+              renderValue={(selected) => {
+                if (selected.length === 0) {
+                  return <em>Select a Station</em>;
+                }
+
+                return selected.join(",");
+              }}
+              MenuProps={MenuProps}
+              inputProps={{ "aria-label": "Without label" }}
+            >
+              <MenuItem disabled value="">
+                <em>Placeholder</em>
+              </MenuItem>
+              {names.map((name) => (
+                <MenuItem key={name} value={name}>
+                  {name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Box>
         <Box
           sx={{
@@ -124,43 +177,23 @@ export default function TrendsPage() {
             alignItems: "center",
           }}
         >
-          <CalendarMonthIcon
-            fontSize="large"
-            style={{ color: "#505050" }}
-          ></CalendarMonthIcon>
-          <p>Time Period</p>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Stack direction="row" spacing={3}>
+              <TimePicker
+                label="Time"
+                value={value}
+                onChange={handleChange}
+                renderInput={(params) => <TextField {...params} />}
+              />
+              <DateTimePicker
+                label="Date&Time picker"
+                value={value}
+                onChange={handleChange}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </Stack>
+          </LocalizationProvider>
         </Box>
-      </Box>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <FormControl
-          sx={{ width: 300, marginBottom: "29px", }}
-        >
-          <Select
-            multiple
-            displayEmpty
-            value={personName}
-            onChange={handleChange}
-            input={<OutlinedInput />}
-            renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <em>Selected Parameters</em>;
-              }
-
-              return selected.join(", ");
-            }}
-            MenuProps={MenuProps}
-            inputProps={{ "aria-label": "Without label" }}
-          >
-            <MenuItem disabled value="">
-              <em>Placeholder</em>
-            </MenuItem>
-            {names.map((name) => (
-              <MenuItem key={name} value={name}>
-                {name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
       </Box>
       <Box
         sx={{
@@ -175,7 +208,7 @@ export default function TrendsPage() {
             boxShadow: "none",
             padding: 5,
             width: "100%",
-            height:"600px"
+            height: "600px",
           }}
         >
           <Line options={options} data={data} />
@@ -199,11 +232,19 @@ export default function TrendsPage() {
               <p>DPI multi probe (0/9)</p>
               <Box className="charts-toggle-wrapper">
                 <Box className="chart-toggle-inner-wrapper">
-                  <Switch />
+                  <Switch
+                    onClick={(event) => {
+                      handleToggleActive(event, "bg algae (ppm)", "#00BAE2");
+                    }}
+                  />
                   <p>bg algae (ppm)</p>
                 </Box>
                 <Box className="chart-toggle-inner-wrapper">
-                  <Switch />
+                  <Switch
+                    onClick={(event) => {
+                      handleToggleActive(event, "Chloro (µg/m³)", "#EFF313");
+                    }}
+                  />
                   <p>Chloro (µg/m³)</p>
                 </Box>
               </Box>
@@ -212,11 +253,19 @@ export default function TrendsPage() {
               <p>NOAA Precipitation (0/1)</p>
               <Box className="charts-toggle-wrapper">
                 <Box className="chart-toggle-inner-wrapper">
-                  <Switch />
-                  <p>battery (V)</p>
+                  <Switch
+                    onClick={(event) => {
+                      handleToggleActive(event, "Battery (V)", "#005E93");
+                    }}
+                  />
+                  <p>Battery (V)</p>
                 </Box>
                 <Box className="charts-toggle-switch">
-                  <Switch />
+                  <Switch
+                    onClick={(event) => {
+                      handleToggleActive(event, "RSSI", "#6CFA3A");
+                    }}
+                  />
                   <p>RSSI</p>
                 </Box>
               </Box>
@@ -225,11 +274,19 @@ export default function TrendsPage() {
               <p>Statistics (0/1)</p>
               <Box className="charts-toggle-wrapper">
                 <Box className="chart-toggle-inner-wrapper">
-                  <Switch />
+                  <Switch
+                    onClick={(event) => {
+                      handleToggleActive(event, "DPA (in)", "#0CFFF0");
+                    }}
+                  />
                   <p>DPA (in)</p>
                 </Box>
                 <Box className="charts-toggle-switch">
-                  <Switch />
+                  <Switch
+                    onClick={(event) => {
+                      handleToggleActive(event, "Unknown %", "#ED009C");
+                    }}
+                  />
                   <p>Unknown %</p>
                 </Box>
               </Box>
@@ -238,11 +295,19 @@ export default function TrendsPage() {
               <p>Michael Lamptey (0/2)</p>
               <Box className="charts-toggle-wrapper">
                 <Box className="chart-toggle-inner-wrapper">
-                  <Switch />
+                  <Switch
+                    onClick={(event) => {
+                      handleToggleActive(event, "Station Health", "#FA3A3A");
+                    }}
+                  />
                   <p>Station Health</p>
                 </Box>
                 <Box className="charts-toggle-switch">
-                  <Switch />
+                  <Switch
+                    onClick={(event) => {
+                      handleToggleActive(event, "Test Label", "#00BAE2");
+                    }}
+                  />
                   <p>Unknown %</p>
                 </Box>
               </Box>

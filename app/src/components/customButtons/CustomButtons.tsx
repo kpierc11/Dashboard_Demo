@@ -10,3 +10,7 @@ export const LightBlueButton = styled.button`
   color: ${"blue"};
   border: 2px solid ${"blue"};
 `;
+
+export default function BlueButton() {
+  return <LightBlueButton></LightBlueButton>;
+}

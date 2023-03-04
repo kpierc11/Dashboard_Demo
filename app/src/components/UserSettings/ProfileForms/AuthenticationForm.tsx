@@ -45,19 +45,16 @@ export default function AuthenticationForm() {
         >
           <Divider textAlign="left">Password</Divider>
           <TextField
-            
             id="outlined-password1"
             label="Old Password"
             type="password"
           />
           <TextField
-            
             id="outlined-password2"
             label="New Password"
             type="password"
           />
           <TextField
-            
             id="outlined-password3"
             label="Confirm New Password"
             type="password"
@@ -75,7 +72,6 @@ export default function AuthenticationForm() {
       >
         <Divider textAlign="left">Two Factor Authentication</Divider>
         <TextField
-          
           id="outlined-select-role"
           select
           label="Enable"
@@ -89,12 +85,7 @@ export default function AuthenticationForm() {
           ))}
         </TextField>
 
-        <TextField
-          
-          id="outlined"
-          label="Phone Number"
-          type="integer"
-        />
+        <TextField id="outlined" label="Phone Number" type="integer" />
         <p>
           You will receive a code with the phone number you provide to complete
           the log in process.

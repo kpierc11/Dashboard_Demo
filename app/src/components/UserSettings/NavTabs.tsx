@@ -64,9 +64,6 @@ const theme = useTheme();
           onChange={handleChange}
           aria-label="basic tabs example"
           sx={{
-            background: `${
-              theme.palette.mode === "dark" ? "#121212" : "#f2f2f2" 
-            }`,
             margin: "50px 18px 0px 18px",
             borderRadius: "15px",
           }}

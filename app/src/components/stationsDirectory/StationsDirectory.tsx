@@ -219,16 +219,8 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                 <input
                   id="users-search"
                   type="search"
-                  placeholder="Search User"
-                  style={{
-                    background: `${
-                      theme.palette.mode === "dark" ? "#121212" : "white"
-                    }`,
-                    borderColor:
-                      theme.palette.mode === "dark"
-                        ? "#83bfd2"
-                        : "rgba(28, 126, 217, 0.2)",
-                  }}
+                  placeholder="Find A Station..."
+                  style={theme.palette.mode === "dark" ? {background:"transparent"} : {background:"white"}}
                 ></input>
                 <SearchIcon
                   sx={{
