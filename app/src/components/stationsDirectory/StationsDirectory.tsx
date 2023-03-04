@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { StationData } from "../../interfaces/StationsData";
 import { FiberManualRecord } from "@mui/icons-material";
 import { Button, useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 // createData(
 //   "AFBI2 Fox River at Algonquin tailwater (LA)",
@@ -149,7 +150,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
       sx={{
         border: "1px solid rgba(145, 158, 171, 1)",
         borderRadius: "15px",
-        
       }}
     >
       <TableRow>
@@ -215,14 +215,20 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           <div className={"stations-directory-search-column"}>
             <div className="directory-buttons"></div>
             <form method="POST" style={{ width: "100%" }}>
-            <Box sx={{ position: "relative"}}>
+              <Box sx={{ position: "relative" }}>
                 <input
                   id="users-search"
                   type="search"
                   placeholder="Search User"
-                  style={{background: `${
-                    theme.palette.mode === "dark" ? "#121212" : "white" 
-                  }`, borderColor: theme.palette.mode === "dark" ? "#83bfd2" : "rgba(28, 126, 217, 0.2)"}}
+                  style={{
+                    background: `${
+                      theme.palette.mode === "dark" ? "#121212" : "white"
+                    }`,
+                    borderColor:
+                      theme.palette.mode === "dark"
+                        ? "#83bfd2"
+                        : "rgba(28, 126, 217, 0.2)",
+                  }}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -231,7 +237,8 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginRight: 2,
                     marginTop: "6%",
                     top: 0,
-                    color: theme.palette.mode === "dark" ? "#83bfd2" : "#1976d2"
+                    color:
+                      theme.palette.mode === "dark" ? "#83bfd2" : "#1976d2",
                   }}
                   color="primary"
                 ></SearchIcon>
@@ -320,6 +327,8 @@ export default function StationsDirectory() {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
 
+    const navigate = useNavigate();
+
   return (
     <Box sx={{ width: "100%" }}>
       <Paper
@@ -387,7 +396,11 @@ export default function StationsDirectory() {
                       <TableCell align="left">{row.reported}</TableCell>
                       <TableCell align="left">{row.type}</TableCell>
                       <TableCell align="left">
-                        <Button>
+                        <Button
+                          onClick={() => {
+                            navigate("/station-data");
+                          }}
+                        >
                           <TimelineIcon
                             color="primary"
                             cursor="pointer"
@@ -406,7 +419,6 @@ export default function StationsDirectory() {
                           ></FiberManualRecord>
                         )}
                       </TableCell>
-
                     </TableRow>
                   );
                 })}
