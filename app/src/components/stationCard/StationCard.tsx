@@ -62,22 +62,22 @@ export default function StationCard(props: Station) {
         className="station-card-container"
       >
         <Box className="station-card-col">
-          <h2 className={"station-card-heading"}>{props.deviceName}</h2>
+          <h2 className={"station-card-heading"}>{props.name}</h2>
           <div>
             <img src="/station-image.png" alt="Hydrobioscience logo" />
           </div>
         </Box>
         <div className="station-card-col">
           <h2 className={"station-card-heading"}>Location</h2>
-          <div>{props.stationLocation}</div>
+          <div>{props.location}</div>
         </div>
         <div className="station-card-col">
           <h2 className={"station-card-heading"}>Last Reported</h2>
-          <div>{props.lastReported}</div>
+          <div>{props.reported}</div>
         </div>
         <div className="station-card-col">
           <h2 className={"station-card-heading"}>Station Type</h2>
-          <div>{props.stationType}</div>
+          <div>{props.type}</div>
         </div>
         <div className="station-card-col">
           <h2 className={"station-card-heading"}>Status</h2>
