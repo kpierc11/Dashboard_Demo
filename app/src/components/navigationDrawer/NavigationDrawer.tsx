@@ -15,7 +15,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import SearchIcon from "@mui/icons-material/Search";
 import NavigationRoutes from "../../navigationRoutes/NavigationRoutes";
-import { useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import NavDrawer from "./NavDrawer";
 import { ColorModeContext } from "../../App";
 import Link from "@mui/material/Link";
