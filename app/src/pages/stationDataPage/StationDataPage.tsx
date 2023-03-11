@@ -98,7 +98,7 @@ export default function StationDataPage() {
       <Box sx={{ flexGrow: 1 }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <h3>Selected Station: </h3>
-          <FormControl sx={{ m: 1, width: 300, background: "white" }}>
+          <FormControl sx={{ m: 1, width: 300,}}>
             <Select
               multiple
               displayEmpty

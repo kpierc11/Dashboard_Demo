@@ -15,7 +15,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import SearchIcon from "@mui/icons-material/Search";
 import NavigationRoutes from "../../navigationRoutes/NavigationRoutes";
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material";
 import NavDrawer from "./NavDrawer";
 import { ColorModeContext } from "../../App";
 import Link from "@mui/material/Link";
@@ -151,7 +151,11 @@ export default function NavigationDrawer(props: Props) {
                 : { background: "#E6F7FC", color: "#747474" }
             }
           ></NotificationsNoneOutlinedIcon>
-          <Link sx={{ height: 35 }} href="/user/profile">
+          <Link sx={{ height: 35 }}  style={
+                    theme.palette.mode === "dark"
+                      ? { color: "white" }
+                      : { color: "inherit" }
+                  } href="/user/profile">
             <AccountCircleOutlinedIcon
               className={"topbar-icon"}
               fontSize={"large"}

@@ -68,7 +68,6 @@ export default function IconMenu({ report, url }: IProps) {
 
   const navigate = useNavigate();
 
-
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };

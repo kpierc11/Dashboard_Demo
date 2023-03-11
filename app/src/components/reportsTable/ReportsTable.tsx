@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Data } from "../../interfaces/Reports";
 import IconMenu from "../iconMenu/IconMenu";
+import { useTheme } from "@mui/material/styles";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -174,6 +175,7 @@ interface EnhancedTableToolbarProps {
 function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const { numSelected } = props;
   const navigate = useNavigate();
+  const theme = useTheme();
 
   return (
     <>
@@ -205,13 +207,18 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   id="users-search"
                   type="search"
                   placeholder="Search User"
+                  style={
+                    theme.palette.mode === "dark"
+                      ? { background: "transparent" }
+                      : { background: "white" }
+                  }
                 ></input>
                 <SearchIcon
                   sx={{
                     position: "absolute",
                     right: 0,
                     marginRight: 2,
-                    marginTop: "6%",
+                    marginTop: "8%",
                     top: 0,
                   }}
                   

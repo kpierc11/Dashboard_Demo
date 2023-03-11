@@ -29,15 +29,7 @@ function App() {
     localStorage.setItem("theme-mode", JSON.stringify(mode));
   }, [mode]);
 
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode
-        },
-      }),
-    [mode],
-  );
+  const theme = createTheme({palette:{mode}});
 
   let loggedIn: boolean = true;
   if (loggedIn) {

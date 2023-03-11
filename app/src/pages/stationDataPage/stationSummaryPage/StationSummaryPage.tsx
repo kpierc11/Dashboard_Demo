@@ -1,4 +1,4 @@
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -70,6 +70,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function StationSummaryPage() {
+  const theme = useTheme();
   return (
     <Grid container spacing={2}>
       <Grid xs={12}>
@@ -132,6 +133,11 @@ export default function StationSummaryPage() {
           <Box
             className={"station-data-primary-alarm-topbar"}
             sx={{ display: "flex", flexDirection: "row" }}
+            style={
+              theme.palette.mode === "dark"
+                ? { background: "#121212" }
+                : { background: "#f2f2f2" }
+            }
           >
             <p>Name</p>
             <p>Type</p>
@@ -142,6 +148,11 @@ export default function StationSummaryPage() {
           <Box
             className={"station-data-primary-alarm-topbar-second"}
             sx={{ display: "flex", flexDirection: "row" }}
+            style={
+              theme.palette.mode === "dark"
+                ? { background: "transparent" }
+                : { background: "" }
+            }
           >
             <p>Low Battery</p>
             <p>Low Value T</p>
@@ -209,11 +220,15 @@ export default function StationSummaryPage() {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "flex-start",
-                  background: "#F2F2F2",
                   borderRadius: "15px",
                   paddingLeft: "10px",
                   marginBottom: "10px",
                 }}
+                style={
+                  theme.palette.mode === "dark"
+                    ? { background: "#121212" }
+                    : { background: "#f2f2f2" }
+                }
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
                 <p style={{ marginRight: "auto" }}>N/A</p>
@@ -246,11 +261,16 @@ export default function StationSummaryPage() {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "flex-start",
-                  background: "#F2F2F2",
+
                   borderRadius: "15px",
                   paddingLeft: "10px",
                   marginBottom: "10px",
                 }}
+                style={
+                  theme.palette.mode === "dark"
+                    ? { background: "#121212" }
+                    : { background: "#f2f2f2" }
+                }
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
                 <p style={{ marginRight: "auto" }}>N/A</p>
@@ -283,11 +303,16 @@ export default function StationSummaryPage() {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "flex-start",
-                  background: "#F2F2F2",
+
                   borderRadius: "15px",
                   paddingLeft: "10px",
                   marginBottom: "10px",
                 }}
+                style={
+                  theme.palette.mode === "dark"
+                    ? { background: "#121212" }
+                    : { background: "#f2f2f2" }
+                }
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
                 <p style={{ marginRight: "auto" }}>N/A</p>
@@ -319,11 +344,16 @@ export default function StationSummaryPage() {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "flex-start",
-                  background: "#F2F2F2",
+
                   borderRadius: "15px",
                   paddingLeft: "10px",
                   marginBottom: "10px",
                 }}
+                style={
+                  theme.palette.mode === "dark"
+                    ? { background: "#121212" }
+                    : { background: "#f2f2f2" }
+                }
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
                 <p style={{ marginRight: "auto" }}>N/A</p>
@@ -356,11 +386,15 @@ export default function StationSummaryPage() {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "flex-start",
-                  background: "#F2F2F2",
                   borderRadius: "15px",
                   paddingLeft: "10px",
                   marginBottom: "10px",
                 }}
+                style={
+                  theme.palette.mode === "dark"
+                    ? { background: "#121212" }
+                    : { background: "#f2f2f2" }
+                }
               >
                 <p style={{ marginRight: "auto" }}>Bg Algae (ppm)</p>
                 <p style={{ marginRight: "auto" }}>N/A</p>
