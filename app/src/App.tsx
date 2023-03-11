@@ -29,7 +29,7 @@ function App() {
     localStorage.setItem("theme-mode", JSON.stringify(mode));
   }, [mode]);
 
-  const theme = createTheme({palette:{mode}});
+  const theme = createTheme({palette:{mode:mode}});
 
   let loggedIn: boolean = true;
   if (loggedIn) {
