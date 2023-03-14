@@ -430,7 +430,13 @@ export default function EnhancedTable(this: any) {
                         )}
                       </TableCell>
                       <TableCell>
-                        <IconMenu url={"/users/edit"}></IconMenu>
+                      <IconMenu url={"/users/edit"} report={{
+                        id: row.id,
+                        name: String (row.users),
+                        type: String (row.company),
+                        parameters: String (row.role),
+                        description: String (row.notes)
+                      }}></IconMenu>
                       </TableCell>
                     </TableRow>
                   );

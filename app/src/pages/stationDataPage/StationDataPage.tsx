@@ -5,8 +5,10 @@ import {
   FormControl,
   MenuItem,
   OutlinedInput,
+  Paper,
   Select,
   SelectChangeEvent,
+  useTheme,
 } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -93,12 +95,14 @@ export default function StationDataPage() {
     "Station One",
   ];
 
+  const theme = useTheme();
+  
   return (
-    <>
+    <Box>
       <Box sx={{ flexGrow: 1 }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <h3>Selected Station: </h3>
-          <FormControl sx={{ m: 1, width: 300,}}>
+          <FormControl sx={{ m: 1, width: 300, background: "white" }}>
             <Select
               multiple
               displayEmpty
@@ -115,7 +119,7 @@ export default function StationDataPage() {
               MenuProps={MenuProps}
               inputProps={{ "aria-label": "Without label" }}
             >
-              <MenuItem disabled value="">
+              <MenuItem disabled value="">      
                 <em>Placeholder</em>
               </MenuItem>
               {names.map((name) => (
@@ -127,7 +131,7 @@ export default function StationDataPage() {
           </FormControl>
         </Box>
       </Box>
-      <Box sx={{ width: "100%" }}>
+      <Paper sx={{ width: "100%" }}>
         <Box
           sx={{ display: "flex", justifyContent: "center", marginBottom: 5 }}
         >
@@ -158,7 +162,7 @@ export default function StationDataPage() {
         <TabPanel value={value} index={2}>
           <AlarmsPage />
         </TabPanel>
-      </Box>
-    </>
+      </Paper>
+    </Box>
   );
 }

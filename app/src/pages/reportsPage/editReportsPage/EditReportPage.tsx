@@ -8,6 +8,7 @@ import {
   TextField,
   useTheme,
 } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../editReportsPage/editReportPage.css";
 
@@ -21,12 +22,14 @@ export default function EditReportPage() {
   }));
 
   const navigate = useNavigate();
+ 
 
   const location = useLocation();
   const reportData = location.state;
 
   const theme = useTheme();
 
+ 
   const stations = [
     {
       value: "st1",
@@ -155,7 +158,7 @@ export default function EditReportPage() {
                   required
                   id="outlined-required"
                   label="User"
-                  defaultValue="Sample Report"
+                  defaultValue="Default User"
                 />
                 <TextField
                   sx={{
