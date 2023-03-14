@@ -68,7 +68,6 @@ export default function IconMenu({ report, url }: IProps) {
 
   const navigate = useNavigate();
 
-
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -88,7 +87,7 @@ export default function IconMenu({ report, url }: IProps) {
         onClick={handleClick}
         sx={{ marginBottom: "15px" }}
       >
-        <MoreVertIcon fontSize="large" color="primary" />
+        <MoreVertIcon fontSize="large" />
       </IconButton>
       <StyledMenu
         id="demo-customized-menu"

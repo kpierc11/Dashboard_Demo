@@ -68,7 +68,6 @@ export default function StationsPage() {
                   top: 0,
                   marginRight: 2,
                 }}
-                color="primary"
               ></SearchIcon>
             </div>
           </form>
@@ -95,7 +94,6 @@ export default function StationsPage() {
             );
           })}
         <Pagination
-          color="primary"
           size="large"
           sx={{
             display: "flex",

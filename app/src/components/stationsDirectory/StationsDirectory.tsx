@@ -21,23 +21,6 @@ import { Button, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 
-// createData(
-//   "AFBI2 Fox River at Algonquin tailwater (LA)",
-//   "Fox River at Algonquin tailwater",
-//   "September 23rd 2022",
-//   "AHPS",
-//   <Button>
-//     <TimelineIcon
-//       color="primary"
-//       cursor="pointer"
-//       fontSize="large"
-//     ></TimelineIcon>
-//   </Button>,
-//   <Box sx={{ display: "inline-flex" }}>
-//     <FiberManualRecordIcon sx={{ color: "#81E78B" }}></FiberManualRecordIcon>
-//     <Typography>Active</Typography>
-//   </Box>
-
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -156,7 +139,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
-            color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
@@ -221,7 +203,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   id="users-search"
                   type="search"
                   placeholder="Find A Station..."
-                  style={theme.palette.mode === "dark" ? {background:"transparent"} : {background:"white"}}
+                  style={
+                    theme.palette.mode === "dark"
+                      ? { background: "transparent" }
+                      : { background: "white" }
+                  }
                 ></input>
                 <SearchIcon
                   sx={{
@@ -233,7 +219,6 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     color:
                       theme.palette.mode === "dark" ? "#83bfd2" : "#1976d2",
                   }}
-                  color="primary"
                 ></SearchIcon>
               </Box>
             </form>
@@ -377,7 +362,6 @@ export default function StationsDirectory() {
                       <TableCell padding="checkbox">
                         <Checkbox
                           onClick={(event) => handleClick(event, row.id)}
-                          color="primary"
                           checked={isItemSelected}
                           inputProps={{
                             "aria-labelledby": labelId,
@@ -395,7 +379,6 @@ export default function StationsDirectory() {
                           }}
                         >
                           <TimelineIcon
-                            color="primary"
                             cursor="pointer"
                             fontSize="large"
                           ></TimelineIcon>

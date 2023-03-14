@@ -10,7 +10,7 @@ function App() {
     // getting stored value
     const themeMode: any = localStorage.getItem("theme-mode");
     const initialValue = JSON.parse(themeMode);
-    return initialValue || "";
+    return initialValue;
   };
 
   const [mode, setMode] = useState<"light" | "dark">(handleThemeState);
@@ -29,15 +29,7 @@ function App() {
     localStorage.setItem("theme-mode", JSON.stringify(mode));
   }, [mode]);
 
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-        },
-      }),
-    [mode]
-  );
+  const theme = createTheme({palette:{mode:mode}});
 
   let loggedIn: boolean = true;
   if (loggedIn) {

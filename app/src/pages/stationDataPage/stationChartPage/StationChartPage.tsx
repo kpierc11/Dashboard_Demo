@@ -14,6 +14,8 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
+import GridViewIcon from "@mui/icons-material/GridView";
+import { Box } from "@mui/material";
 
 ChartJS.register(
   CategoryScale,
@@ -68,37 +70,40 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function StationChartPage() {
   return (
-    <Grid container spacing={2}>
-      <Grid xs={12} md={6}>
-        <Item>
-          <Line options={options} data={data} />
-        </Item>
+    <>
+      <Box><GridViewIcon></GridViewIcon></Box>
+      <Grid container spacing={2}>
+        <Grid xs={12} md={6}>
+          <Item>
+            <Line options={options} data={data} />
+          </Item>
+        </Grid>
+        <Grid xs={12} md={6}>
+          <Item>
+            <Line options={options} data={data} />
+          </Item>
+        </Grid>
+        <Grid xs={12} md={6}>
+          <Item>
+            <Line options={options} data={data} />
+          </Item>
+        </Grid>
+        <Grid xs={12} md={6}>
+          <Item>
+            <Line options={options} data={data} />
+          </Item>
+        </Grid>
+        <Grid xs={12} md={6}>
+          <Item>
+            <Line options={options} data={data} />
+          </Item>
+        </Grid>
+        <Grid xs={12} md={6}>
+          <Item>
+            <Line options={options} data={data} />
+          </Item>
+        </Grid>
       </Grid>
-      <Grid xs={12} md={6}>
-        <Item>
-          <Line options={options} data={data} />
-        </Item>
-      </Grid>
-      <Grid xs={12} md={6}>
-        <Item>
-          <Line options={options} data={data} />
-        </Item>
-      </Grid>
-      <Grid xs={12} md={6}>
-        <Item>
-          <Line options={options} data={data} />
-        </Item>
-      </Grid>
-      <Grid xs={12} md={6}>
-        <Item>
-          <Line options={options} data={data} />
-        </Item>
-      </Grid>
-      <Grid xs={12} md={6}>
-        <Item>
-          <Line options={options} data={data} />
-        </Item>
-      </Grid>
-    </Grid>
+    </>
   );
 }

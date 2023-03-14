@@ -9,15 +9,13 @@ import AddUserForm, {
 export default function AddUserPage() {
   const navigate = useNavigate();
 
-  const theme = useTheme();
-
   return (
     <Paper
       sx={{
         display: "flex",
         width: "100%",
         height: "100%",
-        flexWrap: "wrap",    
+        flexWrap: "wrap",
         border: "1px solid #919eab",
         borderRadius: "15px",
       }}

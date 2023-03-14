@@ -52,7 +52,7 @@ const rows = [
     "My Station 2.0",
     "95",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -60,7 +60,7 @@ const rows = [
     "My Station 2.0",
     "59",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -68,7 +68,7 @@ const rows = [
     "My Station 2.0",
     "34",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -76,7 +76,7 @@ const rows = [
     "My Station 2.0",
     "23",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -84,7 +84,7 @@ const rows = [
     "My Station 2.0",
     "17",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -92,7 +92,7 @@ const rows = [
     "My Station 2.0",
     "2",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -100,7 +100,7 @@ const rows = [
     "My Station 2.0",
     "6",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -108,7 +108,7 @@ const rows = [
     "My Station 2.0",
     "10",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -116,7 +116,7 @@ const rows = [
     "My Station 2.0",
     "1",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -124,7 +124,7 @@ const rows = [
     "My Station 2.0",
     "2",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -132,7 +132,7 @@ const rows = [
     "My Station 2.0",
     "5",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -140,7 +140,7 @@ const rows = [
     "My Station 2.0",
     "7",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
   createData(
     "Time Series",
@@ -148,7 +148,7 @@ const rows = [
     "My Station 2.0",
     "3",
     "January 1, 2019",
-    <IconMenu  url={""} />
+    <IconMenu url={""} />
   ),
 ];
 
@@ -274,7 +274,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
-            color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
@@ -331,12 +330,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             <h2 className="reports-title">Addons</h2>
           </div>
           <div className={"reports-search-column"}>
-            <button
-              className="add-button"
-              onClick={(event) => {
-                
-              }}
-            >
+            <button className="add-button" onClick={(event) => {}}>
               New Addon
             </button>
             <form method="POST" style={{ width: "100%" }}>
@@ -354,7 +348,6 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginTop: "6%",
                     top: 0,
                   }}
-                  color="primary"
                 ></SearchIcon>
               </div>
             </form>
@@ -493,7 +486,6 @@ export default function WidgetsTable() {
                       <TableCell padding="checkbox">
                         <Checkbox
                           onClick={(event) => handleClick(event, row.widgets)}
-                          color="primary"
                           checked={isItemSelected}
                           inputProps={{
                             "aria-labelledby": labelId,

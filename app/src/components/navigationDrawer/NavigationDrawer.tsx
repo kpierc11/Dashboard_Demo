@@ -85,13 +85,11 @@ export default function NavigationDrawer(props: Props) {
                     top: 0,
                     marginRight: 2,
                   }}
-                  color="primary"
                 ></SearchIcon>
               </div>
             </form>
           </div>
           <IconButton
-            color="primary"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
@@ -118,7 +116,6 @@ export default function NavigationDrawer(props: Props) {
           ></LogoutIcon>
           <IconButton
             onClick={colorMode.toggleColorMode}
-            color="inherit"
             className={"topbar-button"}
             sx={{ padding: 0 }}
           >
@@ -154,7 +151,11 @@ export default function NavigationDrawer(props: Props) {
                 : { background: "#E6F7FC", color: "#747474" }
             }
           ></NotificationsNoneOutlinedIcon>
-          <Link sx={{ height: 35, color: theme.palette.mode === "dark" ? "#E6F7FC" : "#747474" }} href="/user/profile">
+          <Link sx={{ height: 35 }}  style={
+                    theme.palette.mode === "dark"
+                      ? { color: "white" }
+                      : { color: "inherit" }
+                  } href="/user/profile">
             <AccountCircleOutlinedIcon
               className={"topbar-icon"}
               fontSize={"large"}

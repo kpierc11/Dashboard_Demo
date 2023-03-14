@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { User } from "../../interfaces/User";
 import FiberManualRecord from "@mui/icons-material/FiberManualRecord";
-import {useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import IconMenu from "../iconMenu/IconMenu";
 import { Typography } from "@mui/material";
 
@@ -133,7 +133,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
-            color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
@@ -228,7 +227,6 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     color:
                       theme.palette.mode === "dark" ? "#f2f2f2" : "#1976d2",
                   }}
-                  color="primary"
                 ></SearchIcon>
               </Box>
             </form>
@@ -380,7 +378,6 @@ export default function EnhancedTable(this: any) {
                       <TableCell padding="checkbox">
                         <Checkbox
                           onClick={(event) => handleClick(event, row.id)}
-                          color="primary"
                           checked={isItemSelected}
                           inputProps={{
                             "aria-labelledby": labelId,

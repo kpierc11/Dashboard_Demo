@@ -36,10 +36,13 @@
   color: #1c7ed9;
 }
 
+.icon-hover {
+  transition: 0.2s;
+}
+
 .icon-hover:hover {
-  color: blueviolet;
-  transition: 0.5s;
-  transform: scale(1.4);
+  color: #83bfd2;
+  transition: 0.2s;
 }
 
 .station-card-icons a {
