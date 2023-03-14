@@ -4,6 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
+import { createRef } from "react";
 import { Paper } from "@mui/material";
 
 const roles = [
@@ -31,11 +32,12 @@ export function UserPhotoForm() {
         boxShadow: "none",
       }}
     >
-      <Box
+      <Paper
         sx={{
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
+          boxShadow:"none"
         }}
       >
         <IconButton
@@ -43,12 +45,19 @@ export function UserPhotoForm() {
           component="label"
           sx={{ margin: "15px" }}
         >
-          <input accept="image/*" type="file" />
+          <input hidden accept="image/*" type="file" />
           <Avatar sx={{ width: "180px", height: "180px" }} />
         </IconButton>
-        <TextField id="outlined" label="Name" />
-        <TextField id="outlined" label="Phone Number" type="integer" />
-      </Box>
+        <TextField
+          id="outlined"
+          label="Name"
+        />
+        <TextField
+          id="outlined"
+          label="Phone Number"
+          type="integer"
+        />
+      </Paper>
     </Paper>
   );
 }

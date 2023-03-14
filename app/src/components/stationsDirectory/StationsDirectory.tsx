@@ -17,8 +17,9 @@ import { visuallyHidden } from "@mui/utils";
 import { useEffect, useState } from "react";
 import { StationData } from "../../interfaces/StationsData";
 import { FiberManualRecord } from "@mui/icons-material";
-import { Button } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { Button, useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -197,9 +198,9 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           <div className={"stations-directory-search-column"}>
             <div className="directory-buttons"></div>
             <form method="POST" style={{ width: "100%" }}>
-              <div style={{ position: "relative" }}>
+              <Box sx={{ position: "relative" }}>
                 <input
-                  id="directory-search"
+                  id="users-search"
                   type="search"
                   placeholder="Find A Station..."
                   style={
@@ -215,9 +216,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginRight: 2,
                     marginTop: "6%",
                     top: 0,
+                    color:
+                      theme.palette.mode === "dark" ? "#83bfd2" : "#1976d2",
                   }}
                 ></SearchIcon>
-              </div>
+              </Box>
             </form>
           </div>
         </div>
@@ -302,6 +305,8 @@ export default function StationsDirectory() {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
 
+    const navigate = useNavigate();
+
   return (
     <Box sx={{ width: "100%" }}>
       <Paper
@@ -368,7 +373,11 @@ export default function StationsDirectory() {
                       <TableCell align="left">{row.reported}</TableCell>
                       <TableCell align="left">{row.type}</TableCell>
                       <TableCell align="left">
-                        <Button>
+                        <Button
+                          onClick={() => {
+                            navigate("/station-data");
+                          }}
+                        >
                           <TimelineIcon
                             cursor="pointer"
                             fontSize="large"

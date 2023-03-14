@@ -1,8 +1,8 @@
 export default interface Station {
-  stationId:string;
-  deviceName: string;
-  stationLocation: string;
-  lastReported: string;
-  stationType: string;
+  id: string;
+  name: string;
+  type: string;
   status: boolean;
+  location: string;
+  reported: string;
 }

@@ -176,6 +176,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   const navigate = useNavigate();
   const theme = useTheme();
 
+
   return (
     <>
       <Toolbar
@@ -201,16 +202,20 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             </button>
 
             <form method="POST" style={{ width: "100%" }}>
-              <div style={{ position: "relative" }}>
+              <Box sx={{ position: "relative" }}>
                 <input
                   id="users-search"
                   type="search"
                   placeholder="Search User"
-                  style={
-                    theme.palette.mode === "dark"
-                      ? { background: "transparent" }
-                      : { background: "white" }
-                  }
+                  style={{
+                    background: `${
+                      theme.palette.mode === "dark" ? "#121212" : "white"
+                    }`,
+                    borderColor:
+                      theme.palette.mode === "dark"
+                        ? "rgba(145, 158, 171, 1)"
+                        : "rgba(28, 126, 217, 0.2)",
+                  }}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -219,9 +224,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginRight: 2,
                     marginTop: "6%",
                     top: 0,
+                    color:
+                      theme.palette.mode === "dark" ? "#f2f2f2" : "#1976d2",
                   }}
                 ></SearchIcon>
-              </div>
+              </Box>
             </form>
           </div>
         </div>
@@ -423,7 +430,13 @@ export default function EnhancedTable(this: any) {
                         )}
                       </TableCell>
                       <TableCell>
-                        <IconMenu url={"/users/edit"}></IconMenu>
+                      <IconMenu url={"/users/edit"} report={{
+                        id: row.id,
+                        name: String (row.users),
+                        type: String (row.company),
+                        parameters: String (row.role),
+                        description: String (row.notes)
+                      }}></IconMenu>
                       </TableCell>
                     </TableRow>
                   );

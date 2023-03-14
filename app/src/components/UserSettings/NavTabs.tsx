@@ -9,6 +9,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { useState } from "react";
+import { useTheme } from "@mui/material/styles";
 import { Paper } from "@mui/material";
 
 interface TabPanelProps {
@@ -20,6 +21,9 @@ interface TabPanelProps {
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
+
+  
+
   return (
     <div
       role="tabpanel"
@@ -29,9 +33,9 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Paper sx={{ p: 3, borderRadius:"0px 0px 15px 15px" }}>
           <Typography>{children}</Typography>
-        </Box>
+        </Paper>
       )}
     </div>
   );
@@ -44,6 +48,8 @@ export default function NavTabs() {
     setValue(newValue);
   };
 
+const theme = useTheme();
+
   return (
     <Paper
       sx={{
@@ -52,7 +58,7 @@ export default function NavTabs() {
         borderRadius: "15px",
       }}
     >
-      <Box>
+      <Paper>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -74,7 +80,7 @@ export default function NavTabs() {
             iconPosition="start"
           />
         </Tabs>
-      </Box>
+      </Paper>
       <TabPanel value={value} index={0}>
         <Box>
           <UserProfileForm />

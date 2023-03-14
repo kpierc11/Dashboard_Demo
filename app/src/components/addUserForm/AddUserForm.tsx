@@ -124,8 +124,8 @@ export default function AddUserForm() {
                 }`,
               }}
               id="outlined"
-              label="Work Number"
-              type="integer"
+              label="Company"
+              type="string"
             />
           </Box>
           <TextField
