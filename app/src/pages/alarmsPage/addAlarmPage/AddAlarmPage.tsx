@@ -6,6 +6,7 @@ import {
   styled,
   Switch,
   TextField,
+  useTheme,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./addAlarmPage.css";
@@ -114,6 +115,8 @@ export default function AddAlarmPage() {
     },
   ];
 
+  const theme = useTheme();
+
   return (
     <div className="add-alarm-main-container">
       <div className="add-alarm-top-section">
@@ -143,7 +146,9 @@ export default function AddAlarmPage() {
                 >
                   <TextField
                     sx={{
-                      backgroundColor: "#FAFAFA",
+                      background: `${
+                    theme.palette.mode === "dark" ? "#121212" : "#f2f2f2"
+                  }`,
                       marginBottom: "26px",
                       maxWidth: 355,
                       width: "250px",
@@ -157,7 +162,9 @@ export default function AddAlarmPage() {
 
                   <TextField
                     sx={{
-                      backgroundColor: "#FAFAFA",
+                      background: `${
+                    theme.palette.mode === "dark" ? "#121212" : "#f2f2f2"
+                  }`,
                       marginBottom: "26px",
                       maxWidth: 355,
                     }}
@@ -175,7 +182,9 @@ export default function AddAlarmPage() {
 
                   <TextField
                     sx={{
-                      backgroundColor: "#FAFAFA",
+                      background: `${
+                    theme.palette.mode === "dark" ? "#121212" : "#f2f2f2"
+                  }`,
                       marginBottom: "26px",
                       maxWidth: 355,
                     }}
@@ -199,7 +208,9 @@ export default function AddAlarmPage() {
                 >
                   <TextField
                     sx={{
-                      backgroundColor: "#FAFAFA",
+                      background: `${
+                    theme.palette.mode === "dark" ? "#121212" : "#f2f2f2"
+                  }`,
                       marginBottom: "26px",
                       maxWidth: 355,
                     }}
@@ -217,7 +228,9 @@ export default function AddAlarmPage() {
 
                   <TextField
                     sx={{
-                      backgroundColor: "#FAFAFA",
+                      background: `${
+                    theme.palette.mode === "dark" ? "#121212" : "#f2f2f2"
+                  }`,
                       marginBottom: "26px",
                       maxWidth: 355,
                     }}
@@ -235,7 +248,9 @@ export default function AddAlarmPage() {
 
                   <TextField
                     sx={{
-                      backgroundColor: "#FAFAFA",
+                      background: `${
+                    theme.palette.mode === "dark" ? "#121212" : "#f2f2f2"
+                  }`,
                       marginBottom: "26px",
                       maxWidth: 355,
                       width: "250px",
@@ -270,7 +285,9 @@ export default function AddAlarmPage() {
               <p className="addalarm-paragraph">Trigger Alarm Within</p>
               <TextField
                 sx={{
-                  backgroundColor: "#FAFAFA",
+                  background: `${
+                    theme.palette.mode === "dark" ? "#121212" : "#f2f2f2"
+                  }`,
                   marginBottom: "30px",
                   marginTop: "13px",
                   maxWidth: 350,

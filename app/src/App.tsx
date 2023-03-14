@@ -6,14 +6,13 @@ import NavigationDrawer from "./components/navigationDrawer/NavigationDrawer";
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 function App() {
-  const handleThemeState = () => {
+
+  const [mode, setMode] = useState<"light" | "dark">(() => {
     // getting stored value
     const themeMode: any = localStorage.getItem("theme-mode");
     const initialValue = JSON.parse(themeMode);
     return initialValue;
-  };
-
-  const [mode, setMode] = useState<"light" | "dark">(handleThemeState);
+  });
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
@@ -29,7 +28,7 @@ function App() {
     localStorage.setItem("theme-mode", JSON.stringify(mode));
   }, [mode]);
 
-  const theme = createTheme({palette:{mode:mode}});
+  const theme = createTheme({palette:{mode:"light"}});
 
   let loggedIn: boolean = true;
   if (loggedIn) {

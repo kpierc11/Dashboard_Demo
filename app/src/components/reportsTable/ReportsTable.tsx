@@ -202,16 +202,14 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             </button>
 
             <form method="POST" style={{ width: "100%" }}>
-              <div style={{ position: "relative" }}>
+            <Box sx={{ position: "relative"}}>
                 <input
                   id="users-search"
                   type="search"
                   placeholder="Search User"
-                  style={
-                    theme.palette.mode === "dark"
-                      ? { background: "transparent" }
-                      : { background: "white" }
-                  }
+                  style={{background: `${
+                    theme.palette.mode === "dark" ? "#121212" : "white" 
+                  }`, borderColor: theme.palette.mode === "dark" ? "#83bfd2" : "rgba(28, 126, 217, 0.2)"}}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -220,10 +218,11 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                     marginRight: 2,
                     marginTop: "8%",
                     top: 0,
+                    color: theme.palette.mode === "dark" ? "#83bfd2" : "#1976d2"
                   }}
                   
                 ></SearchIcon>
-              </div>
+              </Box>
             </form>
           </div>
         </div>

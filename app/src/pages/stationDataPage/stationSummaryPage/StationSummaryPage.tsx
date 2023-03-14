@@ -1,5 +1,4 @@
-import { styled, useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
+import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import "./stationSummaryPage.css";
@@ -17,6 +16,7 @@ import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
 import BatteryCharging90Icon from "@mui/icons-material/BatteryCharging90";
 import StationMap from "../../../components/stationMap/StationMap";
+import { Box, useTheme } from "@mui/material";
 
 ChartJS.register(
   CategoryScale,
@@ -97,7 +97,7 @@ export default function StationSummaryPage() {
               }}
             >
               <p>83.4%</p>
-              <BatteryCharging90Icon
+              <BatteryCharging90Icon fontSize="large"
                 sx={{ color: "#1EE90D" }}
               ></BatteryCharging90Icon>
             </Box>
@@ -119,8 +119,8 @@ export default function StationSummaryPage() {
                 alignItems: "center",
               }}
             >
-              <p>Excellent 92.5%</p>
-              <BatteryCharging90Icon
+              <p>Excellent: 92.5%</p>
+              <BatteryCharging90Icon fontSize="large"
                 sx={{ color: "#1EE90D" }}
               ></BatteryCharging90Icon>
             </Box>
@@ -132,12 +132,13 @@ export default function StationSummaryPage() {
           <h1>Primary Alarm</h1>
           <Box
             className={"station-data-primary-alarm-topbar"}
-            sx={{ display: "flex", flexDirection: "row" }}
-            style={
-              theme.palette.mode === "dark"
-                ? { background: "#121212" }
-                : { background: "#f2f2f2" }
-            }
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              background: `${
+                theme.palette.mode === "dark" ? "#1a2027" : "#f2f2f2"
+              }`,
+            }}
           >
             <p>Name</p>
             <p>Type</p>
@@ -154,11 +155,52 @@ export default function StationSummaryPage() {
                 : { background: "" }
             }
           >
-            <p>Low Battery</p>
-            <p>Low Value T</p>
-            <p> {">"} 10 V</p>
-            <p>{">"} 11.5 V</p>
-            <p>11.59 V</p>
+            <p
+              style={{
+                background: `${
+                  theme.palette.mode === "dark" ? "#1a2027" : "#f2f2f2"
+                }`,
+              }}
+            >
+              Low Battery
+            </p>
+            <p
+              style={{
+                background: `${
+                  theme.palette.mode === "dark" ? "#1a2027" : "#f2f2f2"
+                }`,
+              }}
+            >
+              Low Value T
+            </p>
+            <p
+              style={{
+                background: `${
+                  theme.palette.mode === "dark" ? "#1a2027" : "#f2f2f2"
+                }`,
+              }}
+            >
+              {" "}
+              {">"} 10 V
+            </p>
+            <p
+              style={{
+                background: `${
+                  theme.palette.mode === "dark" ? "#1a2027" : "#f2f2f2"
+                }`,
+              }}
+            >
+              {">"} 11.5 V
+            </p>
+            <p
+              style={{
+                background: `${
+                  theme.palette.mode === "dark" ? "#1a2027" : "#f2f2f2"
+                }`,
+              }}
+            >
+              11.59 V
+            </p>
           </Box>
         </Item>
         <Item sx={{ padding: "30px" }}>
@@ -220,6 +262,9 @@ export default function StationSummaryPage() {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "flex-start",
+                  background: `${
+                    theme.palette.mode === "dark" ? "#1A2027" : "#f2f2f2"
+                  }`,
                   borderRadius: "15px",
                   paddingLeft: "10px",
                   marginBottom: "10px",
@@ -261,7 +306,9 @@ export default function StationSummaryPage() {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "flex-start",
-
+                  background: `${
+                    theme.palette.mode === "dark" ? "#1A2027" : "#f2f2f2"
+                  }`,
                   borderRadius: "15px",
                   paddingLeft: "10px",
                   marginBottom: "10px",
@@ -303,7 +350,9 @@ export default function StationSummaryPage() {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "flex-start",
-
+                  background: `${
+                    theme.palette.mode === "dark" ? "#1A2027" : "#f2f2f2"
+                  }`,
                   borderRadius: "15px",
                   paddingLeft: "10px",
                   marginBottom: "10px",
@@ -344,7 +393,9 @@ export default function StationSummaryPage() {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "flex-start",
-
+                  background: `${
+                    theme.palette.mode === "dark" ? "#1A2027" : "#f2f2f2"
+                  }`,
                   borderRadius: "15px",
                   paddingLeft: "10px",
                   marginBottom: "10px",
@@ -386,6 +437,9 @@ export default function StationSummaryPage() {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "flex-start",
+                  background: `${
+                    theme.palette.mode === "dark" ? "#1A2027" : "#f2f2f2"
+                  }`,
                   borderRadius: "15px",
                   paddingLeft: "10px",
                   marginBottom: "10px",

@@ -1,12 +1,13 @@
 import Box from "@mui/material/Box";
 import { Paper, Toolbar } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import AddUserForm, {
-  AddUserPhotoForm,
-} from "../../../components/addUserForm/AddUserForm";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useTheme } from "@emotion/react";
+import EditUserForm, { EditUserPhotoForm } from "../../../components/editUserForm/editUserForm";
 
 export default function EditUserPage() {
   const navigate = useNavigate();
+  const theme = useTheme();
+  
 
   return (
     <Paper
@@ -38,8 +39,8 @@ export default function EditUserPage() {
           margin: "30px 0px 30px 18px",
         }}
       >
-        <AddUserForm />
-        <AddUserPhotoForm />
+        <EditUserForm />
+        <EditUserPhotoForm />
       </Box>
       <Box className="e-button-bg">
         <button

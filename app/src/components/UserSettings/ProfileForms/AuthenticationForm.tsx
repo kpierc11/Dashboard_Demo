@@ -4,6 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import "./userSettings.css";
 import Divider from "@mui/material/Divider";
 import { useState } from "react";
+import { Paper } from "@mui/material";
 
 const roles = [
   {
@@ -28,7 +29,7 @@ export default function AuthenticationForm() {
   };
 
   return (
-    <Box className="form-bg-box">
+    <Paper className="form-bg-box" sx={{boxShadow:"none"}}>
       <Box
         className="pass-box"
         sx={{
@@ -94,6 +95,6 @@ export default function AuthenticationForm() {
       <Box sx={{ display: "flex", justifyContent: "flex-end", width: "100%" }}>
         <button className="save-button">Save</button>
       </Box>
-    </Box>
+    </Paper>
   );
 }

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import Pagination from "@mui/material/Pagination";
 import { useTheme } from "@mui/material/styles";
+import Station from "../../interfaces/Stations";
 
 export default function StationsPage() {
   const [stationCards, setStationCards] = useState<any>([]);
@@ -15,13 +16,12 @@ export default function StationsPage() {
   const itemsPerPage = 5;
 
   useEffect(() => {
-    fetch("https://swapi.dev/api/people/")
+    fetch("https://retoolapi.dev/GdK5ql/data")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        //console.log(data.results);
-        const results = data.results.map((element: any) => {
+        const results = data.map((element: Station) => {
           return element;
         });
         setStationCards([...stationCards, ...results]);
@@ -75,21 +75,21 @@ export default function StationsPage() {
 
         {stationCards
 
-          .filter((element: any) =>
+          .filter((element: Station) =>
             element.name.toLowerCase().includes(searchQuery.toLocaleLowerCase())
           )
 
           .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
-          .map((element: any, index: any) => {
+          .map((element: Station, index: any) => {
             return (
               <StationCard
                 key={index}
-                stationId={index}
-                deviceName={element.name}
-                stationLocation={"Piney, Flats TN"}
-                lastReported={"September 23rd 2022 8:56:58 pm"}
-                stationType={"AHPS"}
-                status={false}
+                id={element.id}
+                name={element.name}
+                location={element.location}
+                reported={element.reported}
+                type={element.type}
+                status={element.status}
               ></StationCard>
             );
           })}
@@ -100,7 +100,7 @@ export default function StationsPage() {
             justifyContent: "center",
             marginRight: "15px",
           }}
-          count={Math.ceil(stationCards.length / itemsPerPage)}
+          count={(stationCards.length / itemsPerPage)}
           page={currentPage}
           onChange={handleChangePage}
         />
