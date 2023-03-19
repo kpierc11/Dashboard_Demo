@@ -96,7 +96,7 @@ export default function StationDataPage() {
   ];
 
   const theme = useTheme();
-  
+
   return (
     <Box>
       <Box sx={{ flexGrow: 1 }}>
@@ -119,7 +119,7 @@ export default function StationDataPage() {
               MenuProps={MenuProps}
               inputProps={{ "aria-label": "Without label" }}
             >
-              <MenuItem disabled value="">      
+              <MenuItem disabled value="">
                 <em>Placeholder</em>
               </MenuItem>
               {names.map((name) => (
@@ -131,7 +131,15 @@ export default function StationDataPage() {
           </FormControl>
         </Box>
       </Box>
-      <Paper sx={{ width: "100%" }}>
+      <Paper
+        sx={{
+          width: "100%",
+          border: "1px solid #919EAB",
+          boxShadow: "none",
+          borderRadius: "15px",
+          marginTop: "20px",
+        }}
+      >
         <Box
           sx={{ display: "flex", justifyContent: "center", marginBottom: 5 }}
         >
