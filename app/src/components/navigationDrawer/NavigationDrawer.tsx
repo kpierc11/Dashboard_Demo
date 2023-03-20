@@ -54,6 +54,7 @@ export default function NavigationDrawer(props: Props) {
           boxShadow: "none",
           borderRight: "none",
           marginRight: "auto",
+          background:"none",
         }}
       >
         <Toolbar

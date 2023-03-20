@@ -27,7 +27,7 @@ export default function StationsPage() {
         setStationCards([...stationCards, ...results]);
         setLoading(false);
       });
-  }, []);
+  });
 
   const handleChangePage = (event: any, page: number) => {
     setCurrentPage(page);
@@ -37,7 +37,7 @@ export default function StationsPage() {
     return <CircularProgress></CircularProgress>;
   } else {
     return (
-      <>
+      <div>
         <div className={"stations-page-search-container"}>
           <form method="POST">
             <div
@@ -104,7 +104,7 @@ export default function StationsPage() {
           page={currentPage}
           onChange={handleChangePage}
         />
-      </>
+      </div>
     );
   }
 }

@@ -19,6 +19,7 @@ import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import AlarmsPage from "../alarmsPage/AlarmsPage";
 import StationSummaryPage from "./stationSummaryPage/StationSummaryPage";
 import StationChartPage from "./stationChartPage/StationChartPage";
+import { useLocation } from "react-router-dom";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -56,6 +57,10 @@ function a11yProps(index: number) {
 export default function StationDataPage() {
   const [personName, setPersonName] = useState<string[]>([]);
   const [value, setValue] = useState(0);
+  const location = useLocation();
+  const station = location.state;
+
+  console.log(station);
 
   const handleChangeValue = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -95,46 +100,54 @@ export default function StationDataPage() {
     "Station One",
   ];
 
-  const theme = useTheme();
-  
   return (
     <Box>
-      <Box sx={{ flexGrow: 1 }}>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <h3>Selected Station: </h3>
-          <FormControl sx={{ m: 1, width: 300, background: "white" }}>
-            <Select
-              multiple
-              displayEmpty
-              value={personName}
-              onChange={handleChange}
-              input={<OutlinedInput />}
-              renderValue={(selected) => {
-                if (selected.length === 0) {
-                  return <em>Placeholder</em>;
-                }
-
-                return selected.join(", ");
-              }}
-              MenuProps={MenuProps}
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem disabled value="">      
-                <em>Placeholder</em>
-              </MenuItem>
-              {names.map((name) => (
-                <MenuItem key={name} value={name}>
-                  {name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Box>
-      </Box>
-      <Paper sx={{ width: "100%" }}>
+      <Box sx={{ flexGrow: 1 }}></Box>
+      <Paper
+        sx={{
+          width: "100%",
+          border: "1px solid #919EAB",
+          boxShadow: "none",
+          borderRadius: "15px",
+          marginTop: "20px",
+        }}
+      >
         <Box
-          sx={{ display: "flex", justifyContent: "center", marginBottom: 5 }}
+          sx={{
+            display: "flex",
+            justifyContent: "flex-start",
+            marginBottom: 5,
+            marginTop: 5,
+            paddingLeft: "24px",
+          }}
         >
+          <Box sx={{ display: "flex", alignItems: "center", marginRight: 10 }}>
+            <h3>Selected Station: </h3>
+            <FormControl sx={{ m: 1, width: 300 }}>
+              <Select
+                multiple
+                displayEmpty
+                value={personName}
+                onChange={handleChange}
+                input={<OutlinedInput />}
+                renderValue={(selected) => {
+                  if (selected.length === 0) {
+                    return <em>Placeholder</em>;
+                  }
+
+                  return selected.join(", ");
+                }}
+                MenuProps={MenuProps}
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                <MenuItem disabled value="">
+                  <em>Placeholder</em>
+                </MenuItem>
+
+                <MenuItem>{"station: " + station.name}</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
           <Tabs
             value={value}
             onChange={handleChangeValue}

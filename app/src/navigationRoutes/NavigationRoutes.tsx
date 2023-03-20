@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import NavTabs from "../components/UserSettings/NavTabs";
-import WidgetsPage from "../pages/addonsPage/AddonsPage";
+import AddonsPage from "../pages/addonsPage/AddonsPage";
+import EditAddonPage from "../pages/addonsPage/editAddonPage/EditAddonPage";
 import AddAlarmPage from "../pages/alarmsPage/addAlarmPage/AddAlarmPage";
 import AlarmsPage from "../pages/alarmsPage/AlarmsPage";
 import AddReportPage from "../pages/reportsPage/addReportsPage/addReportsPage";
@@ -13,7 +14,6 @@ import TrendsPage from "../pages/trendsPage/TrendsPage";
 import AddUserPage from "../pages/usersPage/addUsersPage/AddUserPage";
 import EditUserPage from "../pages/usersPage/editUserPage/EditUserPage";
 import UsersPage from "../pages/usersPage/UsersPage";
-
 
 export default function NavigationRoutes() {
   return (
@@ -30,7 +30,8 @@ export default function NavigationRoutes() {
       <Route path="/reports/" element={<ReportsPage />}></Route>
       <Route path="/reports/edit" element={<EditReportPage />}></Route>
       <Route path="/reports/add" element={<AddReportPage />}></Route>
-      <Route path="/widgets/" element={<WidgetsPage />}></Route>
+      <Route path="/addons/" element={<AddonsPage />}></Route>
+      <Route path="/addons/edit/" element={<EditAddonPage />}></Route>
       <Route path="/users" element={<UsersPage></UsersPage>}></Route>
       <Route path="/users/add" element={<AddUserPage></AddUserPage>}></Route>
       <Route path="/users/edit" element={<EditUserPage></EditUserPage>}></Route>
