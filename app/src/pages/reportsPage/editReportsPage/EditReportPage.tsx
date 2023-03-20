@@ -8,7 +8,6 @@ import {
   TextField,
   useTheme,
 } from "@mui/material";
-import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../editReportsPage/editReportPage.css";
 

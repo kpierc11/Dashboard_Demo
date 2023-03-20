@@ -21,6 +21,7 @@ import { Data } from "../../interfaces/Reports";
 import IconMenu from "../iconMenu/IconMenu";
 import { useTheme } from "@mui/material/styles";
 
+
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -168,12 +169,9 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   );
 }
 
-interface EnhancedTableToolbarProps {
-  numSelected: number;
-}
 
-function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
-  const { numSelected } = props;
+function EnhancedTableToolbar(props: { numSelected: any; onChangeFunction:any }) {
+  const { numSelected, onChangeFunction } = props;
   const navigate = useNavigate();
   const theme = useTheme();
 
@@ -210,6 +208,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                   style={{background: `${
                     theme.palette.mode === "dark" ? "#121212" : "white" 
                   }`, borderColor: theme.palette.mode === "dark" ? "#83bfd2" : "rgba(28, 126, 217, 0.2)"}}
+                  onChange={onChangeFunction}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -249,6 +248,10 @@ export default function ReportsTable() {
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [reportData, setReportData] = useState<any>([]);
+
+  const handleChange = () => {
+      console.log("hello");
+  }
 
   useEffect(() => {
     fetch("https://retoolapi.dev/nltvjY/data")
@@ -329,7 +332,7 @@ export default function ReportsTable() {
           border: "1px solid rgba(145, 158, 171, 1)",
         }}
       >
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} onChangeFunction={handleChange}  />
         <TableContainer
           sx={{
             paddingLeft: "30px",

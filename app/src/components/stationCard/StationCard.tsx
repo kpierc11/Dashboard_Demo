@@ -6,9 +6,11 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import MapIcon from "@mui/icons-material/Map";
 import TimerIcon from "@mui/icons-material/Timer";
 import Paper from "@mui/material/Paper/Paper";
+import { useNavigate } from "react-router-dom";
 
 export default function StationCard(props: Station) {
   let statusElement = <div></div>;
+  const navigate = useNavigate();
 
   if (props.status) {
     statusElement = (
@@ -85,21 +87,25 @@ export default function StationCard(props: Station) {
         </div>
         <div className={"station-card-icons"}>
           <a href={"/station-data"}>
-            <div className="icon-hover">
-            <BarChartIcon fontSize="large"></BarChartIcon>
+            <div
+              className="icon-hover"
+              onClick={() =>
+                navigate("/station-data", { state: props})
+              }
+            >
+              <BarChartIcon fontSize="large"></BarChartIcon>
             </div>
           </a>
           <a href={"/map"}>
-          <div className="icon-hover">
-            <MapIcon fontSize="large"></MapIcon>
+            <div className="icon-hover">
+              <MapIcon fontSize="large"></MapIcon>
             </div>
           </a>
           <a href={"/station-data"}>
-          <div className="icon-hover">
-            <TimerIcon fontSize="large"></TimerIcon>
+            <div className="icon-hover">
+              <TimerIcon fontSize="large"></TimerIcon>
             </div>
           </a>
-         
         </div>
       </Paper>
     </Box>
