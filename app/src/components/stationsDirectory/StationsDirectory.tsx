@@ -21,7 +21,6 @@ import { Button, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Station from "../../interfaces/Stations";
 
-
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -168,12 +167,12 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   );
 }
 
-interface EnhancedTableToolbarProps {
-  numSelected: number;
-}
-
-function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
-  const { numSelected } = props;
+function EnhancedTableToolbar(props: {
+  numSelected: any;
+  setSearchQuery: any;
+}) {
+  const { numSelected, setSearchQuery } = props;
+  const navigate = useNavigate();
   const theme = useTheme();
 
   return (
@@ -203,6 +202,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                       ? { background: "transparent" }
                       : { background: "white" }
                   }
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -232,6 +232,7 @@ export default function StationsDirectory() {
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [stationData, setStationData] = useState<any>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
     fetch("https://retoolapi.dev/GdK5ql/data")
@@ -300,7 +301,7 @@ export default function StationsDirectory() {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - stationData.length) : 0;
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -314,7 +315,10 @@ export default function StationsDirectory() {
           border: "1px solid rgba(145, 158, 171, 1)",
         }}
       >
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar
+          numSelected={selected.length}
+          setSearchQuery={setSearchQuery}
+        />
         <TableContainer
           sx={{
             paddingLeft: "30px",
@@ -341,6 +345,10 @@ export default function StationsDirectory() {
             />
             <TableBody>
               {stableSort(stationData, getComparator(order, orderBy))
+                .filter((station: any) =>
+                  station.name.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.id);
