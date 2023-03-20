@@ -170,8 +170,8 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 }
 
 
-function EnhancedTableToolbar(props: { numSelected: any; onChangeFunction:any }) {
-  const { numSelected, onChangeFunction } = props;
+function EnhancedTableToolbar(props: { numSelected: any;  setSearchQuery: any; }) {
+  const { numSelected,  setSearchQuery } = props;
   const navigate = useNavigate();
   const theme = useTheme();
 
@@ -208,7 +208,7 @@ function EnhancedTableToolbar(props: { numSelected: any; onChangeFunction:any })
                   style={{background: `${
                     theme.palette.mode === "dark" ? "#121212" : "white" 
                   }`, borderColor: theme.palette.mode === "dark" ? "#83bfd2" : "rgba(28, 126, 217, 0.2)"}}
-                  onChange={onChangeFunction}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -248,10 +248,10 @@ export default function ReportsTable() {
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [reportData, setReportData] = useState<any>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const handleChange = () => {
-      console.log("hello");
-  }
+  
+  
 
   useEffect(() => {
     fetch("https://retoolapi.dev/nltvjY/data")
@@ -332,7 +332,7 @@ export default function ReportsTable() {
           border: "1px solid rgba(145, 158, 171, 1)",
         }}
       >
-        <EnhancedTableToolbar numSelected={selected.length} onChangeFunction={handleChange}  />
+        <EnhancedTableToolbar numSelected={selected.length}  setSearchQuery={setSearchQuery} />
         <TableContainer
           sx={{
             paddingLeft: "30px",
@@ -357,8 +357,16 @@ export default function ReportsTable() {
               onRequestSort={handleRequestSort}
               rowCount={reportData.length}
             />
+            
             <TableBody>
+              
               {stableSort(reportData, getComparator(order, orderBy))
+
+              .filter((report: any ) => 
+              report.name.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+              )
+
+             
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.id);
