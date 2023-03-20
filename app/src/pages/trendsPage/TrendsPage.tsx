@@ -137,7 +137,7 @@ export default function TrendsPage() {
   };
 
   return (
-    <Box>
+    <Paper sx={{padding:5, boxShadow:"none", borderRadius:"15px"}} className="charts-toggle-card">
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box
           sx={{ display: "flex", justifyContent: "center", marginRight: 20 }}
@@ -315,6 +315,6 @@ export default function TrendsPage() {
           </Box>
         </Paper>
       </Box>
-    </Box>
+    </Paper>
   );
 }

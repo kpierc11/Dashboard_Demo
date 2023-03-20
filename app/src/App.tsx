@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("theme-mode", JSON.stringify(mode));
-  }, [mode]);
+  });
 
   const theme = useMemo(
     () =>

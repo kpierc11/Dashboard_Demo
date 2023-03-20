@@ -70,7 +70,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function StationChartPage() {
   return (
-    <>
+    <Box>
       <Box><GridViewIcon></GridViewIcon></Box>
       <Grid container spacing={2}>
         <Grid xs={12} md={6}>
@@ -104,6 +104,6 @@ export default function StationChartPage() {
           </Item>
         </Grid>
       </Grid>
-    </>
+    </Box>
   );
 }
