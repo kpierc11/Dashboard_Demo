@@ -167,15 +167,13 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   );
 }
 
-interface EnhancedTableToolbarProps {
-  numSelected: number;
-}
-
-function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
-  const { numSelected } = props;
+function EnhancedTableToolbar(props: {
+  numSelected: any;
+  setSearchQuery: any;
+}) {
+  const { numSelected, setSearchQuery } = props;
   const navigate = useNavigate();
   const theme = useTheme();
-
 
   return (
     <>
@@ -216,6 +214,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                         ? "rgba(145, 158, 171, 1)"
                         : "rgba(28, 126, 217, 0.2)",
                   }}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -255,6 +254,7 @@ export default function EnhancedTable(this: any) {
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [userData, setUserData] = useState<any>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
     fetch("https://retoolapi.dev/YQy72c/data")
@@ -335,7 +335,10 @@ export default function EnhancedTable(this: any) {
           border: "1px solid rgba(145, 158, 171, 1)",
         }}
       >
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar
+          numSelected={selected.length}
+          setSearchQuery={setSearchQuery}
+        />
         <TableContainer
           sx={{
             paddingLeft: "30px",
@@ -362,6 +365,10 @@ export default function EnhancedTable(this: any) {
             />
             <TableBody>
               {stableSort(userData, getComparator(order, orderBy))
+                .filter((user: any) =>
+                  user.users.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.id);
@@ -430,13 +437,16 @@ export default function EnhancedTable(this: any) {
                         )}
                       </TableCell>
                       <TableCell>
-                      <IconMenu url={"/users/edit"} report={{
-                        id: row.id,
-                        name: String (row.users),
-                        type: String (row.company),
-                        parameters: String (row.role),
-                        description: String (row.notes)
-                      }}></IconMenu>
+                        <IconMenu
+                          url={"/users/edit"}
+                          report={{
+                            id: row.id,
+                            name: String(row.users),
+                            type: String(row.company),
+                            parameters: String(row.role),
+                            description: String(row.notes),
+                          }}
+                        ></IconMenu>
                       </TableCell>
                     </TableRow>
                   );
