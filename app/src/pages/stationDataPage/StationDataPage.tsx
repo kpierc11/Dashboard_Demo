@@ -8,11 +8,9 @@ import {
   Paper,
   Select,
   SelectChangeEvent,
-  useTheme,
 } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import DnsIcon from "@mui/icons-material/Dns";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
@@ -38,11 +36,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -58,7 +52,7 @@ export default function StationDataPage() {
   const [personName, setPersonName] = useState<string[]>([]);
   const [value, setValue] = useState(0);
   const location = useLocation();
-  const station = location.state;
+  const station = location.state != null ? location.state : "";
 
   console.log(station);
 
@@ -86,19 +80,6 @@ export default function StationDataPage() {
       },
     },
   };
-
-  const names = [
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-    "Station One",
-  ];
 
   return (
     <Box>

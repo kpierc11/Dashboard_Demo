@@ -1,5 +1,4 @@
 import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import "./stationSummaryPage.css";
 import {
@@ -55,7 +54,7 @@ export const data = {
   ],
 };
 
-const Item = styled(Paper)(({ theme }) => ({
+const Item = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -97,7 +96,8 @@ export default function StationSummaryPage() {
               }}
             >
               <p>83.4%</p>
-              <BatteryCharging90Icon fontSize="large"
+              <BatteryCharging90Icon
+                fontSize="large"
                 sx={{ color: "#1EE90D" }}
               ></BatteryCharging90Icon>
             </Box>
@@ -120,7 +120,8 @@ export default function StationSummaryPage() {
               }}
             >
               <p>Excellent: 92.5%</p>
-              <BatteryCharging90Icon fontSize="large"
+              <BatteryCharging90Icon
+                fontSize="large"
                 sx={{ color: "#1EE90D" }}
               ></BatteryCharging90Icon>
             </Box>
@@ -180,8 +181,7 @@ export default function StationSummaryPage() {
                 }`,
               }}
             >
-              {" "}
-              {">"} 10 V
+              10 V
             </p>
             <p
               style={{
@@ -190,7 +190,7 @@ export default function StationSummaryPage() {
                 }`,
               }}
             >
-              {">"} 11.5 V
+              11.5 V
             </p>
             <p
               style={{
