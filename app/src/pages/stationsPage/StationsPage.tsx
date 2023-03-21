@@ -27,7 +27,7 @@ export default function StationsPage() {
         setStationCards([...stationCards, ...results]);
         setLoading(false);
       });
-  });
+  },[]);
 
   const handleChangePage = (event: any, page: number) => {
     setCurrentPage(page);
