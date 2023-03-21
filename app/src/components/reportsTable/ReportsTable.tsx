@@ -21,7 +21,6 @@ import { Data } from "../../interfaces/Reports";
 import IconMenu from "../iconMenu/IconMenu";
 import { useTheme } from "@mui/material/styles";
 
-
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -134,7 +133,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
-            
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
@@ -169,9 +167,11 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   );
 }
 
-
-function EnhancedTableToolbar(props: { numSelected: any; onChangeFunction:any }) {
-  const { numSelected, onChangeFunction } = props;
+function EnhancedTableToolbar(props: {
+  numSelected: any;
+  setSearchQuery: any;
+}) {
+  const { numSelected, setSearchQuery } = props;
   const navigate = useNavigate();
   const theme = useTheme();
 
@@ -200,15 +200,21 @@ function EnhancedTableToolbar(props: { numSelected: any; onChangeFunction:any })
             </button>
 
             <form method="POST" style={{ width: "100%" }}>
-            <Box sx={{ position: "relative"}}>
+              <Box sx={{ position: "relative" }}>
                 <input
                   id="users-search"
                   type="search"
                   placeholder="Search User"
-                  style={{background: `${
-                    theme.palette.mode === "dark" ? "#121212" : "white" 
-                  }`, borderColor: theme.palette.mode === "dark" ? "#83bfd2" : "rgba(28, 126, 217, 0.2)"}}
-                  onChange={onChangeFunction}
+                  style={{
+                    background: `${
+                      theme.palette.mode === "dark" ? "#121212" : "white"
+                    }`,
+                    borderColor:
+                      theme.palette.mode === "dark"
+                        ? "#83bfd2"
+                        : "rgba(28, 126, 217, 0.2)",
+                  }}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -217,9 +223,9 @@ function EnhancedTableToolbar(props: { numSelected: any; onChangeFunction:any })
                     marginRight: 2,
                     marginTop: "8%",
                     top: 0,
-                    color: theme.palette.mode === "dark" ? "#83bfd2" : "#1976d2"
+                    color:
+                      theme.palette.mode === "dark" ? "#83bfd2" : "#1976d2",
                   }}
-                  
                 ></SearchIcon>
               </Box>
             </form>
@@ -248,10 +254,7 @@ export default function ReportsTable() {
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [reportData, setReportData] = useState<any>([]);
-
-  const handleChange = () => {
-      console.log("hello");
-  }
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
     fetch("https://retoolapi.dev/nltvjY/data")
@@ -332,7 +335,10 @@ export default function ReportsTable() {
           border: "1px solid rgba(145, 158, 171, 1)",
         }}
       >
-        <EnhancedTableToolbar numSelected={selected.length} onChangeFunction={handleChange}  />
+        <EnhancedTableToolbar
+          numSelected={selected.length}
+          setSearchQuery={setSearchQuery}
+        />
         <TableContainer
           sx={{
             paddingLeft: "30px",
@@ -357,8 +363,15 @@ export default function ReportsTable() {
               onRequestSort={handleRequestSort}
               rowCount={reportData.length}
             />
+
             <TableBody>
               {stableSort(reportData, getComparator(order, orderBy))
+                .filter((report: any) =>
+                  report.name
+                    .toLowerCase()
+                    .includes(searchQuery.toLocaleLowerCase())
+                )
+
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.id);
@@ -375,7 +388,6 @@ export default function ReportsTable() {
                       <TableCell padding="checkbox">
                         <Checkbox
                           onClick={(event) => handleClick(event, row.id)}
-                          
                           checked={isItemSelected}
                           inputProps={{
                             "aria-labelledby": labelId,
@@ -397,13 +409,16 @@ export default function ReportsTable() {
                         {row.parameters}
                       </TableCell>
                       <TableCell align="left">{row.description}</TableCell>
-                      <IconMenu url={"/reports/edit"} report={{
-                        id: row.id,
-                        name: String (row.name),
-                        type: String (row.type),
-                        parameters: String (row.parameters),
-                        description: String (row.description)
-                      }}></IconMenu>
+                      <IconMenu
+                        url={"/reports/edit"}
+                        report={{
+                          id: row.id,
+                          name: String(row.name),
+                          type: String(row.type),
+                          parameters: String(row.parameters),
+                          description: String(row.description),
+                        }}
+                      ></IconMenu>
                     </TableRow>
                   );
                 })}

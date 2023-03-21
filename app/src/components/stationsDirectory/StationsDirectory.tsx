@@ -15,11 +15,10 @@ import Checkbox from "@mui/material/Checkbox";
 import SearchIcon from "@mui/icons-material/Search";
 import { visuallyHidden } from "@mui/utils";
 import { useEffect, useState } from "react";
-import { StationData } from "../../interfaces/StationsData";
 import { FiberManualRecord } from "@mui/icons-material";
 import { Button, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
+import Station from "../../interfaces/Stations";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -59,14 +58,14 @@ function stableSort<T>(
 
 interface HeadCell {
   disablePadding: boolean;
-  id: keyof StationData;
+  id: keyof Station;
   label: string;
   numeric: boolean;
 }
 
 const headCells: readonly HeadCell[] = [
   {
-    id: "stationName",
+    id: "name",
     numeric: false,
     disablePadding: true,
     label: "Station Name",
@@ -90,12 +89,6 @@ const headCells: readonly HeadCell[] = [
     label: "Station Type",
   },
   {
-    id: "readings",
-    numeric: true,
-    disablePadding: false,
-    label: "Readings",
-  },
-  {
     id: "status",
     numeric: true,
     disablePadding: false,
@@ -107,7 +100,7 @@ interface EnhancedTableProps {
   numSelected: number;
   onRequestSort: (
     event: React.MouseEvent<unknown>,
-    property: keyof StationData
+    property: keyof any
   ) => void;
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   order: Order;
@@ -125,7 +118,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     onRequestSort,
   } = props;
   const createSortHandler =
-    (property: keyof StationData) => (event: React.MouseEvent<unknown>) => {
+    (property: keyof Station) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
 
@@ -173,12 +166,12 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   );
 }
 
-interface EnhancedTableToolbarProps {
-  numSelected: number;
-}
-
-function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
-  const { numSelected } = props;
+function EnhancedTableToolbar(props: {
+  numSelected: any;
+  setSearchQuery: any;
+}) {
+  const { numSelected, setSearchQuery } = props;
+  const navigate = useNavigate();
   const theme = useTheme();
 
   return (
@@ -208,6 +201,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
                       ? { background: "transparent" }
                       : { background: "white" }
                   }
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 ></input>
                 <SearchIcon
                   sx={{
@@ -231,29 +225,30 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 
 export default function StationsDirectory() {
   const [order, setOrder] = useState<Order>("asc");
-  const [orderBy, setOrderBy] = useState<keyof StationData>("stationName");
+  const [orderBy, setOrderBy] = useState<keyof Station>("name");
   const [selected, setSelected] = useState<readonly number[]>([]);
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [userData, setUserData] = useState<any>([]);
+  const [stationData, setStationData] = useState<any>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
-    fetch("https://retoolapi.dev/TTGQXP/data")
+    fetch("https://retoolapi.dev/GdK5ql/data")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        const userInfo = data.map((user: any) => {
-          return user;
+        const userInfo = data.map((station: Station) => {
+          return station;
         });
-        setUserData([...userData, ...userInfo]);
+        setStationData([...stationData, ...userInfo]);
       });
   }, []);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
-    property: keyof StationData
+    property: any
   ) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -262,7 +257,7 @@ export default function StationsDirectory() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = userData.map((n: StationData) => n.id);
+      const newSelected = stationData.map((n: Station) => n.id);
       setSelected(newSelected);
       return;
     }
@@ -303,9 +298,9 @@ export default function StationsDirectory() {
   const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userData.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - stationData.length) : 0;
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -319,7 +314,10 @@ export default function StationsDirectory() {
           border: "1px solid rgba(145, 158, 171, 1)",
         }}
       >
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar
+          numSelected={selected.length}
+          setSearchQuery={setSearchQuery}
+        />
         <TableContainer
           sx={{
             paddingLeft: "30px",
@@ -342,10 +340,14 @@ export default function StationsDirectory() {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={userData.length}
+              rowCount={stationData.length}
             />
             <TableBody>
-              {stableSort(userData, getComparator(order, orderBy))
+              {stableSort(stationData, getComparator(order, orderBy))
+                .filter((station: any) =>
+                  station.name.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.id);
@@ -368,7 +370,7 @@ export default function StationsDirectory() {
                           }}
                         />
                       </TableCell>
-                      <TableCell align="left">{row.stationName}</TableCell>
+                      <TableCell align="left">{row.name}</TableCell>
                       <TableCell align="left">{row.location}</TableCell>
                       <TableCell align="left">{row.reported}</TableCell>
                       <TableCell align="left">{row.type}</TableCell>
@@ -413,7 +415,7 @@ export default function StationsDirectory() {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={userData.length}
+          count={stationData.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
