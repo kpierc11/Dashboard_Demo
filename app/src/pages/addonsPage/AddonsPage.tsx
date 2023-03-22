@@ -2,7 +2,11 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import IconMenu from "../../components/iconMenu/IconMenu";
+import DeleteIcon from "@mui/icons-material/Delete";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShareIcon from "@mui/icons-material/Share";
+import EditIcon from "@mui/icons-material/Edit";
+import { Link } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,18 +24,43 @@ export default function AddonsPage() {
     const element = (
       <Paper
         sx={{
-          height: 250,
           width: 400,
-          borderRadius: 5,
-        
-          marginRight: "10px",
+          borderRadius: 3,
+          border: "1px solid #919EAB",
+          marginRight: "20px",
           marginLeft: "10px",
-          marginBottom: "20px",
+          marginBottom: "50px",
           flex: "0 0 20%",
-          boxShadow: "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;",
-          padding: "2px",
+          boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px;",
+          padding: "0px",
         }}
       >
+        <Box
+          sx={{
+            display: "flex",
+            padding: 0,
+            alignItems: "flex-start",
+            flexDirection: "column",
+            flexWrap: "wrap",
+            paddingLeft: "20px",
+            paddingTop: "20px",
+            borderBottom: "2px solid #83bfd2",
+            width: "100%",
+          }}
+        >
+          <p>MyDashboard</p>
+          <p>Created: March 21, 2023</p>
+        </Box>
+        <Box sx={{ display: "flex", justifyContent: "flex-end", padding: 2 }}>
+          <FavoriteBorderIcon
+            sx={{ color: "#1c7ed9", marginRight: 2 }}
+          ></FavoriteBorderIcon>
+          <ShareIcon sx={{ color: "#1c7ed9", marginRight: "auto" }}></ShareIcon>
+          <Link to="/addons/edit">
+            <EditIcon sx={{ color: "#1c7ed9", marginRight: 2 }}></EditIcon>
+          </Link>
+          <DeleteIcon sx={{ color: "#1c7ed9", marginRight: 2 }}></DeleteIcon>
+        </Box>
       </Paper>
     );
 
@@ -49,17 +78,19 @@ export default function AddonsPage() {
                 height: 110,
                 width: "100%",
                 display: "flex",
+                alignItems: "center",
+                padding:2,
               }}
             >
-              <h2 style={{ paddingLeft: "30px" }}>Custom Layouts</h2>
+              <h2 style={{ paddingLeft: "30px", marginRight:"auto" }}>Custom Layouts</h2>
+              <button  style={{alignItems:"center", padding:10, marginRight:20}}>Add new layout</button>
             </Box>
             <Box
               sx={{
                 display: "flex",
                 flexWrap: "wrap",
                 justifyContent: "center",
-                marginTop:5
-                
+                marginTop: 5,
               }}
             >
               {layouts.map((element) => {
