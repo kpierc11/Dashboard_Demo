@@ -6,47 +6,47 @@ import NavigationDrawer from "./components/navigationDrawer/NavigationDrawer";
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 function App() {
-  const [mode, setMode] = useState<"light" | "dark">(() => {
-    // getting stored value
-    const themeMode: any = localStorage.getItem("theme-mode");
-    const initialValue = JSON.parse(themeMode);
-    return initialValue;
-  });
+  // const [mode, setMode] = useState<"light" | "dark">(() => {
+  //   // getting stored value
+  //   const themeMode: any = localStorage.getItem("theme-mode");
+  //   const initialValue = JSON.parse(themeMode);
+  //   return initialValue;
+  // });
   
-  const colorMode = useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setMode((prevMode: string) =>
-          prevMode === "light" ? "dark" : "light"
-        );
-      },
-    }),
-    []
-  );
+  // const colorMode = useMemo(
+  //   () => ({
+  //     toggleColorMode: () => {
+  //       setMode((prevMode: string) =>
+  //         prevMode === "light" ? "dark" : "light"
+  //       );
+  //     },
+  //   }),
+  //   []
+  // );
 
-  useEffect(() => {
-    localStorage.setItem("theme-mode", JSON.stringify(mode));
-  });
+  // useEffect(() => {
+  //   localStorage.setItem("theme-mode", JSON.stringify(mode));
+  // });
 
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-        },
-      }),
-    [mode],
-  );
+  // const theme = useMemo(
+  //   () =>
+  //     createTheme({
+  //       palette: {
+  //         mode,
+  //       },
+  //     }),
+  //   [mode],
+  // );
 
 
   let loggedIn: boolean = true;
   if (loggedIn) {
     return (
-      <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
+      // <ColorModeContext.Provider value={colorMode}>
+      // <ThemeProvider theme={theme}>
         <NavigationDrawer />
-      </ThemeProvider>
-      </ColorModeContext.Provider >
+      //</ThemeProvider>
+      //</ColorModeContext.Provider >
     );
   } else {
     return <div>Login Page</div>;

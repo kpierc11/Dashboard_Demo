@@ -27,7 +27,7 @@ export default function StationsPage() {
         setStationCards([...stationCards, ...results]);
         setLoading(false);
       });
-  });
+  },[]);
 
   const handleChangePage = (event: any, page: number) => {
     setCurrentPage(page);
@@ -74,11 +74,9 @@ export default function StationsPage() {
         </div>
 
         {stationCards
-
           .filter((element: Station) =>
             element.name.toLowerCase().includes(searchQuery.toLocaleLowerCase())
           )
-
           .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
           .map((element: Station, index: any) => {
             return (
@@ -100,7 +98,7 @@ export default function StationsPage() {
             justifyContent: "center",
             marginRight: "15px",
           }}
-          count={(stationCards.length / itemsPerPage)}
+          count={stationCards.length / itemsPerPage}
           page={currentPage}
           onChange={handleChangePage}
         />
